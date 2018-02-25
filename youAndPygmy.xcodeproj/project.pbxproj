@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E505A62F2033DB7F00F781AA /* NonPlayerChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505A62E2033DB7F00F781AA /* NonPlayerChara.swift */; };
+		E505A635203419E200F781AA /* MapDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505A634203419E200F781AA /* MapDictionary.swift */; };
+		E505A63820341B8000F781AA /* debugMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505A63720341B8000F781AA /* debugMap.swift */; };
+		E5164AAC203EF825000A921C /* SceneChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5164AAB203EF825000A921C /* SceneChanger.swift */; };
+		E5164AAE203EF874000A921C /* changeMap.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5164AAD203EF874000A921C /* changeMap.sks */; };
+		E518691B2037EDE500F12256 /* MapBoxTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518691A2037EDE500F12256 /* MapBoxTrout.swift */; };
+		E51A0BBC2040FB4F00F97159 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51A0BBB2040FB4F00F97159 /* Menu.swift */; };
+		E51A59D3203AA15B000D00E3 /* PanOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51A59D2203AA15B000D00E3 /* PanOperator.swift */; };
+		E51F5E3C2033DAB80015F328 /* MapChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F5E3B2033DAB80015F328 /* MapChara.swift */; };
+		E51F5E3E2033DB010015F328 /* PlayerChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F5E3D2033DB010015F328 /* PlayerChara.swift */; };
+		E52036B1202D2FBB00BB3ED5 /* MapFeild.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52036B0202D2FBB00BB3ED5 /* MapFeild.swift */; };
+		E52036B6202D52D900BB3ED5 /* TroutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52036B5202D52D900BB3ED5 /* TroutMaker.swift */; };
+		E52036B9202D535200BB3ED5 /* SaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52036B8202D535200BB3ED5 /* SaveData.swift */; };
+		E525D17F203D52E6003C0E6A /* MapUi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525D17E203D52E6003C0E6A /* MapUi.swift */; };
+		E525D181203D54F8003C0E6A /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525D180203D54F8003C0E6A /* SceneController.swift */; };
+		E525D186203D57BB003C0E6A /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525D185203D57BB003C0E6A /* MainMenu.swift */; };
+		E525D189203D57D7003C0E6A /* title.sks in Resources */ = {isa = PBXBuildFile; fileRef = E525D187203D57D7003C0E6A /* title.sks */; };
+		E525D18A203D57D7003C0E6A /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525D188203D57D7003C0E6A /* Title.swift */; };
+		E525D18C203D58A5003C0E6A /* mainMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = E525D18B203D58A5003C0E6A /* mainMenu.sks */; };
+		E525D18E203D6202003C0E6A /* MapEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525D18D203D6202003C0E6A /* MapEvent.swift */; };
+		E526756E2032C0BE005E0235 /* define.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526756D2032C0BD005E0235 /* define.swift */; };
+		E5456E47203FF09300122781 /* PygmyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5456E46203FF09300122781 /* PygmyMenu.swift */; };
+		E5456E49203FF0A100122781 /* pygmyMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5456E48203FF0A100122781 /* pygmyMenu.sks */; };
+		E5456E4C203FF9FD00122781 /* MenuParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5456E4B203FF9FD00122781 /* MenuParent.swift */; };
+		E5580523203D12BC00D1CA09 /* MapTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5580522203D12BC00D1CA09 /* MapTrout.swift */; };
+		E5580525203D133A00D1CA09 /* MapTroutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5580524203D133A00D1CA09 /* MapTroutMaker.swift */; };
+		E56BDA6C203DD374001C4F00 /* SpeakWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56BDA6B203DD374001C4F00 /* SpeakWindow.swift */; };
+		E56BDA6E203DD3BD001C4F00 /* speakWindow.sks in Resources */ = {isa = PBXBuildFile; fileRef = E56BDA6D203DD3BD001C4F00 /* speakWindow.sks */; };
+		E57E0B8A2037EEF900984890 /* MapSlopTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57E0B892037EEF900984890 /* MapSlopTrout.swift */; };
+		E59E4A7120230370009553C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E4A7020230370009553C9 /* AppDelegate.swift */; };
+		E59E4A7320230370009553C9 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E59E4A7220230370009553C9 /* art.scnassets */; };
+		E59E4A7520230370009553C9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E4A7420230370009553C9 /* GameViewController.swift */; };
+		E59E4A7820230370009553C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59E4A7620230370009553C9 /* Main.storyboard */; };
+		E59E4A7A20230370009553C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E59E4A7920230370009553C9 /* Assets.xcassets */; };
+		E59E4A7D20230370009553C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59E4A7B20230370009553C9 /* LaunchScreen.storyboard */; };
+		E5C74E4F20369A220071326D /* mapUi.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5C74E4E20369A220071326D /* mapUi.sks */; };
+		E5C8F85A2041866B00CD908A /* You.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C8F8592041866B00CD908A /* You.swift */; };
+		E5C8F85C2041869700CD908A /* Pygmy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C8F85B2041869700CD908A /* Pygmy.swift */; };
+		E5C8F85E20418C9900CD908A /* PygmyDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C8F85D20418C9900CD908A /* PygmyDictionary.swift */; };
+		E5C8F86420418F6F00CD908A /* myutansu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C8F86320418F6F00CD908A /* myutansu.swift */; };
+		E5C8F8662041C55600CD908A /* StatusCalcurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C8F8652041C55600CD908A /* StatusCalcurator.swift */; };
+		E5DC99742042A7980077E254 /* StatusBarMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC99732042A7980077E254 /* StatusBarMaker.swift */; };
+		E5E2D8FA2038005E0042F2B9 /* TroutNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E2D8F92038005E0042F2B9 /* TroutNode.swift */; };
+		E5EEC700203E7CBB001500B4 /* debugMap2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EEC6FF203E7CBB001500B4 /* debugMap2.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E505A62E2033DB7F00F781AA /* NonPlayerChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonPlayerChara.swift; sourceTree = "<group>"; };
+		E505A634203419E200F781AA /* MapDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapDictionary.swift; path = dictionary/MapDictionary.swift; sourceTree = "<group>"; };
+		E505A63720341B8000F781AA /* debugMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = debugMap.swift; path = dictionary/map/debugMap.swift; sourceTree = "<group>"; };
+		E5164AAB203EF825000A921C /* SceneChanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneChanger.swift; path = sceneChange/SceneChanger.swift; sourceTree = "<group>"; };
+		E5164AAD203EF874000A921C /* changeMap.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = changeMap.sks; path = sceneChange/changeMap.sks; sourceTree = "<group>"; };
+		E518691A2037EDE500F12256 /* MapBoxTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapBoxTrout.swift; path = map/mapTrout/MapBoxTrout.swift; sourceTree = "<group>"; };
+		E51A0BBB2040FB4F00F97159 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		E51A59D2203AA15B000D00E3 /* PanOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PanOperator.swift; path = ui/PanOperator.swift; sourceTree = "<group>"; };
+		E51F5E3B2033DAB80015F328 /* MapChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapChara.swift; path = map/mapChara/MapChara.swift; sourceTree = "<group>"; };
+		E51F5E3D2033DB010015F328 /* PlayerChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerChara.swift; path = map/mapChara/PlayerChara.swift; sourceTree = "<group>"; };
+		E52036B0202D2FBB00BB3ED5 /* MapFeild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapFeild.swift; path = map/MapFeild.swift; sourceTree = "<group>"; };
+		E52036B5202D52D900BB3ED5 /* TroutMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TroutMaker.swift; path = maker/TroutMaker.swift; sourceTree = "<group>"; };
+		E52036B8202D535200BB3ED5 /* SaveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveData.swift; path = dictionary/SaveData.swift; sourceTree = "<group>"; };
+		E525D17E203D52E6003C0E6A /* MapUi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapUi.swift; path = map/MapUi.swift; sourceTree = "<group>"; };
+		E525D180203D54F8003C0E6A /* SceneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
+		E525D185203D57BB003C0E6A /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenu.swift; path = mainMenu/MainMenu.swift; sourceTree = "<group>"; };
+		E525D187203D57D7003C0E6A /* title.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = title.sks; sourceTree = "<group>"; };
+		E525D188203D57D7003C0E6A /* Title.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		E525D18B203D58A5003C0E6A /* mainMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = mainMenu.sks; path = mainMenu/mainMenu.sks; sourceTree = "<group>"; };
+		E525D18D203D6202003C0E6A /* MapEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapEvent.swift; path = map/MapEvent.swift; sourceTree = "<group>"; };
+		E526756D2032C0BD005E0235 /* define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = define.swift; sourceTree = "<group>"; };
+		E5456E46203FF09300122781 /* PygmyMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PygmyMenu.swift; path = pygmyMenu/PygmyMenu.swift; sourceTree = "<group>"; };
+		E5456E48203FF0A100122781 /* pygmyMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = pygmyMenu.sks; path = /Users/tomo/Desktop/game/youAndPygmy/youAndPygmy/menu/pygmyMenu/pygmyMenu.sks; sourceTree = "<absolute>"; };
+		E5456E4B203FF9FD00122781 /* MenuParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuParent.swift; sourceTree = "<group>"; };
+		E5580522203D12BC00D1CA09 /* MapTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTrout.swift; path = map/mapTrout/MapTrout.swift; sourceTree = "<group>"; };
+		E5580524203D133A00D1CA09 /* MapTroutMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTroutMaker.swift; path = map/MapTroutMaker.swift; sourceTree = "<group>"; };
+		E56BDA6B203DD374001C4F00 /* SpeakWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeakWindow.swift; path = textWindow/SpeakWindow.swift; sourceTree = "<group>"; };
+		E56BDA6D203DD3BD001C4F00 /* speakWindow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = speakWindow.sks; path = textWindow/speakWindow.sks; sourceTree = "<group>"; };
+		E57E0B892037EEF900984890 /* MapSlopTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapSlopTrout.swift; path = map/mapTrout/MapSlopTrout.swift; sourceTree = "<group>"; };
+		E59E4A6D20230370009553C9 /* youAndPygmy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = youAndPygmy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E59E4A7020230370009553C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E59E4A7220230370009553C9 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		E59E4A7420230370009553C9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		E59E4A7720230370009553C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E59E4A7920230370009553C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E59E4A7C20230370009553C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E59E4A7E20230370009553C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5C74E4E20369A220071326D /* mapUi.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = mapUi.sks; path = map/mapUi.sks; sourceTree = "<group>"; };
+		E5C8F8592041866B00CD908A /* You.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = You.swift; path = you/You.swift; sourceTree = "<group>"; };
+		E5C8F85B2041869700CD908A /* Pygmy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pygmy.swift; path = you/Pygmy.swift; sourceTree = "<group>"; };
+		E5C8F85D20418C9900CD908A /* PygmyDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PygmyDictionary.swift; path = dictionary/PygmyDictionary.swift; sourceTree = "<group>"; };
+		E5C8F86320418F6F00CD908A /* myutansu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = myutansu.swift; path = dictionary/charaData/pygmy/myutansu.swift; sourceTree = "<group>"; };
+		E5C8F8652041C55600CD908A /* StatusCalcurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusCalcurator.swift; path = dictionary/charaData/StatusCalcurator.swift; sourceTree = "<group>"; };
+		E5DC99732042A7980077E254 /* StatusBarMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusBarMaker.swift; path = maker/StatusBarMaker.swift; sourceTree = "<group>"; };
+		E5E2D8F92038005E0042F2B9 /* TroutNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TroutNode.swift; path = maker/TroutNode.swift; sourceTree = "<group>"; };
+		E5EEC6FF203E7CBB001500B4 /* debugMap2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = debugMap2.swift; path = dictionary/map/debugMap2.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E59E4A6A20230370009553C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E505A63620341B6C00F781AA /* map */ = {
+			isa = PBXGroup;
+			children = (
+				E505A63720341B8000F781AA /* debugMap.swift */,
+				E5EEC6FF203E7CBB001500B4 /* debugMap2.swift */,
+			);
+			name = map;
+			sourceTree = "<group>";
+		};
+		E5164AAA203EF7DF000A921C /* sceneChange */ = {
+			isa = PBXGroup;
+			children = (
+				E5164AAB203EF825000A921C /* SceneChanger.swift */,
+				E5164AAD203EF874000A921C /* changeMap.sks */,
+			);
+			name = sceneChange;
+			sourceTree = "<group>";
+		};
+		E51869192037EDB900F12256 /* mapTrout */ = {
+			isa = PBXGroup;
+			children = (
+				E5580522203D12BC00D1CA09 /* MapTrout.swift */,
+				E518691A2037EDE500F12256 /* MapBoxTrout.swift */,
+				E57E0B892037EEF900984890 /* MapSlopTrout.swift */,
+			);
+			name = mapTrout;
+			sourceTree = "<group>";
+		};
+		E51A59D1203AA12A000D00E3 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				E51A59D2203AA15B000D00E3 /* PanOperator.swift */,
+			);
+			name = ui;
+			sourceTree = "<group>";
+		};
+		E51F5E3A2033DAA30015F328 /* mapChara */ = {
+			isa = PBXGroup;
+			children = (
+				E51F5E3B2033DAB80015F328 /* MapChara.swift */,
+				E51F5E3D2033DB010015F328 /* PlayerChara.swift */,
+				E505A62E2033DB7F00F781AA /* NonPlayerChara.swift */,
+			);
+			name = mapChara;
+			sourceTree = "<group>";
+		};
+		E52036B2202D409E00BB3ED5 /* maker */ = {
+			isa = PBXGroup;
+			children = (
+				E52036B5202D52D900BB3ED5 /* TroutMaker.swift */,
+				E5E2D8F92038005E0042F2B9 /* TroutNode.swift */,
+				E5DC99732042A7980077E254 /* StatusBarMaker.swift */,
+			);
+			name = maker;
+			sourceTree = "<group>";
+		};
+		E52036B7202D533A00BB3ED5 /* dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				E5C8F86020418CCF00CD908A /* charaData */,
+				E505A63620341B6C00F781AA /* map */,
+				E52036B8202D535200BB3ED5 /* SaveData.swift */,
+				E505A634203419E200F781AA /* MapDictionary.swift */,
+				E5C8F85D20418C9900CD908A /* PygmyDictionary.swift */,
+			);
+			name = dictionary;
+			sourceTree = "<group>";
+		};
+		E525D182203D56DB003C0E6A /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				E5456E4A203FF97F00122781 /* mainMenu */,
+				E5456E45203FF07700122781 /* pygmyMenu */,
+				E5456E4B203FF9FD00122781 /* MenuParent.swift */,
+				E51A0BBB2040FB4F00F97159 /* Menu.swift */,
+			);
+			path = menu;
+			sourceTree = "<group>";
+		};
+		E526756C2032C08D005E0235 /* define */ = {
+			isa = PBXGroup;
+			children = (
+				E526756D2032C0BD005E0235 /* define.swift */,
+			);
+			name = define;
+			sourceTree = "<group>";
+		};
+		E5456E45203FF07700122781 /* pygmyMenu */ = {
+			isa = PBXGroup;
+			children = (
+				E5456E46203FF09300122781 /* PygmyMenu.swift */,
+				E5456E48203FF0A100122781 /* pygmyMenu.sks */,
+			);
+			name = pygmyMenu;
+			sourceTree = "<group>";
+		};
+		E5456E4A203FF97F00122781 /* mainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				E525D185203D57BB003C0E6A /* MainMenu.swift */,
+				E525D18B203D58A5003C0E6A /* mainMenu.sks */,
+			);
+			name = mainMenu;
+			sourceTree = "<group>";
+		};
+		E56BDA6A203DD311001C4F00 /* textWindow */ = {
+			isa = PBXGroup;
+			children = (
+				E56BDA6B203DD374001C4F00 /* SpeakWindow.swift */,
+				E56BDA6D203DD3BD001C4F00 /* speakWindow.sks */,
+			);
+			name = textWindow;
+			sourceTree = "<group>";
+		};
+		E59E4A6420230370009553C9 = {
+			isa = PBXGroup;
+			children = (
+				E59E4A6F20230370009553C9 /* youAndPygmy */,
+				E59E4A6E20230370009553C9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E59E4A6E20230370009553C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E59E4A6D20230370009553C9 /* youAndPygmy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E59E4A6F20230370009553C9 /* youAndPygmy */ = {
+			isa = PBXGroup;
+			children = (
+				E5C8F8582041864800CD908A /* you */,
+				E5164AAA203EF7DF000A921C /* sceneChange */,
+				E56BDA6A203DD311001C4F00 /* textWindow */,
+				E526756C2032C08D005E0235 /* define */,
+				E51A59D1203AA12A000D00E3 /* ui */,
+				E52036B7202D533A00BB3ED5 /* dictionary */,
+				E52036B2202D409E00BB3ED5 /* maker */,
+				E5BB3C23202C42FB004D0527 /* map */,
+				E525D182203D56DB003C0E6A /* menu */,
+				E5AFFC3A2028C0080076B562 /* title */,
+				E59E4A7020230370009553C9 /* AppDelegate.swift */,
+				E59E4A7220230370009553C9 /* art.scnassets */,
+				E59E4A7420230370009553C9 /* GameViewController.swift */,
+				E525D180203D54F8003C0E6A /* SceneController.swift */,
+				E59E4A7620230370009553C9 /* Main.storyboard */,
+				E59E4A7920230370009553C9 /* Assets.xcassets */,
+				E59E4A7B20230370009553C9 /* LaunchScreen.storyboard */,
+				E59E4A7E20230370009553C9 /* Info.plist */,
+			);
+			path = youAndPygmy;
+			sourceTree = "<group>";
+		};
+		E5AFFC3A2028C0080076B562 /* title */ = {
+			isa = PBXGroup;
+			children = (
+				E525D187203D57D7003C0E6A /* title.sks */,
+				E525D188203D57D7003C0E6A /* Title.swift */,
+			);
+			path = title;
+			sourceTree = "<group>";
+		};
+		E5BB3C23202C42FB004D0527 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				E51869192037EDB900F12256 /* mapTrout */,
+				E51F5E3A2033DAA30015F328 /* mapChara */,
+				E5C74E4E20369A220071326D /* mapUi.sks */,
+				E52036B0202D2FBB00BB3ED5 /* MapFeild.swift */,
+				E525D17E203D52E6003C0E6A /* MapUi.swift */,
+				E5580524203D133A00D1CA09 /* MapTroutMaker.swift */,
+				E525D18D203D6202003C0E6A /* MapEvent.swift */,
+			);
+			name = map;
+			sourceTree = "<group>";
+		};
+		E5C8F8582041864800CD908A /* you */ = {
+			isa = PBXGroup;
+			children = (
+				E5C8F8592041866B00CD908A /* You.swift */,
+				E5C8F85B2041869700CD908A /* Pygmy.swift */,
+			);
+			name = you;
+			sourceTree = "<group>";
+		};
+		E5C8F86020418CCF00CD908A /* charaData */ = {
+			isa = PBXGroup;
+			children = (
+				E5C8F86220418CDC00CD908A /* pygmy */,
+				E5C8F86120418CD600CD908A /* enemy */,
+				E5C8F8652041C55600CD908A /* StatusCalcurator.swift */,
+			);
+			name = charaData;
+			sourceTree = "<group>";
+		};
+		E5C8F86120418CD600CD908A /* enemy */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = enemy;
+			sourceTree = "<group>";
+		};
+		E5C8F86220418CDC00CD908A /* pygmy */ = {
+			isa = PBXGroup;
+			children = (
+				E5C8F86320418F6F00CD908A /* myutansu.swift */,
+			);
+			name = pygmy;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E59E4A6C20230370009553C9 /* youAndPygmy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E59E4A8120230370009553C9 /* Build configuration list for PBXNativeTarget "youAndPygmy" */;
+			buildPhases = (
+				E59E4A6920230370009553C9 /* Sources */,
+				E59E4A6A20230370009553C9 /* Frameworks */,
+				E59E4A6B20230370009553C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = youAndPygmy;
+			productName = youAndPygmy;
+			productReference = E59E4A6D20230370009553C9 /* youAndPygmy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E59E4A6520230370009553C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "tomonori takada";
+				TargetAttributes = {
+					E59E4A6C20230370009553C9 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = X97WZ4F4FZ;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E59E4A6820230370009553C9 /* Build configuration list for PBXProject "youAndPygmy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E59E4A6420230370009553C9;
+			productRefGroup = E59E4A6E20230370009553C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E59E4A6C20230370009553C9 /* youAndPygmy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E59E4A6B20230370009553C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E59E4A7320230370009553C9 /* art.scnassets in Resources */,
+				E5164AAE203EF874000A921C /* changeMap.sks in Resources */,
+				E59E4A7D20230370009553C9 /* LaunchScreen.storyboard in Resources */,
+				E56BDA6E203DD3BD001C4F00 /* speakWindow.sks in Resources */,
+				E525D189203D57D7003C0E6A /* title.sks in Resources */,
+				E5456E49203FF0A100122781 /* pygmyMenu.sks in Resources */,
+				E59E4A7A20230370009553C9 /* Assets.xcassets in Resources */,
+				E5C74E4F20369A220071326D /* mapUi.sks in Resources */,
+				E525D18C203D58A5003C0E6A /* mainMenu.sks in Resources */,
+				E59E4A7820230370009553C9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E59E4A6920230370009553C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E526756E2032C0BE005E0235 /* define.swift in Sources */,
+				E5EEC700203E7CBB001500B4 /* debugMap2.swift in Sources */,
+				E51A0BBC2040FB4F00F97159 /* Menu.swift in Sources */,
+				E5C8F8662041C55600CD908A /* StatusCalcurator.swift in Sources */,
+				E505A62F2033DB7F00F781AA /* NonPlayerChara.swift in Sources */,
+				E5580523203D12BC00D1CA09 /* MapTrout.swift in Sources */,
+				E59E4A7520230370009553C9 /* GameViewController.swift in Sources */,
+				E518691B2037EDE500F12256 /* MapBoxTrout.swift in Sources */,
+				E5164AAC203EF825000A921C /* SceneChanger.swift in Sources */,
+				E5E2D8FA2038005E0042F2B9 /* TroutNode.swift in Sources */,
+				E51A59D3203AA15B000D00E3 /* PanOperator.swift in Sources */,
+				E5580525203D133A00D1CA09 /* MapTroutMaker.swift in Sources */,
+				E505A635203419E200F781AA /* MapDictionary.swift in Sources */,
+				E5C8F85C2041869700CD908A /* Pygmy.swift in Sources */,
+				E525D18E203D6202003C0E6A /* MapEvent.swift in Sources */,
+				E56BDA6C203DD374001C4F00 /* SpeakWindow.swift in Sources */,
+				E5C8F86420418F6F00CD908A /* myutansu.swift in Sources */,
+				E525D181203D54F8003C0E6A /* SceneController.swift in Sources */,
+				E52036B9202D535200BB3ED5 /* SaveData.swift in Sources */,
+				E505A63820341B8000F781AA /* debugMap.swift in Sources */,
+				E5DC99742042A7980077E254 /* StatusBarMaker.swift in Sources */,
+				E57E0B8A2037EEF900984890 /* MapSlopTrout.swift in Sources */,
+				E5456E47203FF09300122781 /* PygmyMenu.swift in Sources */,
+				E525D17F203D52E6003C0E6A /* MapUi.swift in Sources */,
+				E51F5E3C2033DAB80015F328 /* MapChara.swift in Sources */,
+				E525D186203D57BB003C0E6A /* MainMenu.swift in Sources */,
+				E525D18A203D57D7003C0E6A /* Title.swift in Sources */,
+				E52036B6202D52D900BB3ED5 /* TroutMaker.swift in Sources */,
+				E51F5E3E2033DB010015F328 /* PlayerChara.swift in Sources */,
+				E52036B1202D2FBB00BB3ED5 /* MapFeild.swift in Sources */,
+				E5C8F85A2041866B00CD908A /* You.swift in Sources */,
+				E5C8F85E20418C9900CD908A /* PygmyDictionary.swift in Sources */,
+				E5456E4C203FF9FD00122781 /* MenuParent.swift in Sources */,
+				E59E4A7120230370009553C9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E59E4A7620230370009553C9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E59E4A7720230370009553C9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E59E4A7B20230370009553C9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E59E4A7C20230370009553C9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E59E4A7F20230370009553C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E59E4A8020230370009553C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E59E4A8220230370009553C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X97WZ4F4FZ;
+				INFOPLIST_FILE = youAndPygmy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = you.youAndPygmy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E59E4A8320230370009553C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = X97WZ4F4FZ;
+				INFOPLIST_FILE = youAndPygmy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = you.youAndPygmy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E59E4A6820230370009553C9 /* Build configuration list for PBXProject "youAndPygmy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E59E4A7F20230370009553C9 /* Debug */,
+				E59E4A8020230370009553C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E59E4A8120230370009553C9 /* Build configuration list for PBXNativeTarget "youAndPygmy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E59E4A8220230370009553C9 /* Debug */,
+				E59E4A8320230370009553C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E59E4A6520230370009553C9 /* Project object */;
+}

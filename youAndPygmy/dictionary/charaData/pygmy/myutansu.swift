@@ -1,0 +1,42 @@
+//
+//  myutansu.swift
+//  youAndPygmy
+//
+//  Created by tomonori takada on 2018/02/24.
+//  Copyright © 2018年 tomonori takada. All rights reserved.
+//
+
+import Foundation
+
+extension PygmyDictionary{
+    static let myutansu=RaceData(
+        race:"myutansu",
+        name:"みゅーたんす",
+        raceStatus:Status(
+            hp:180,
+            mp:30,
+            atk:170,
+            def:95,
+            int:170,
+            spt:100,
+            dex:155,
+            spd:150,
+            pie:155
+        ),
+        mov:4,
+        moc:[
+            "grass":1,
+            "sand":1,
+            "water":-1,
+            "magma":-1,
+            "snow":2,
+            "ice":2,
+            "air":-1
+        ],
+        image:[
+            "body":"mutansu_body",
+            "eye":"mutansu_eye",
+            "mouth":"mutansu_mouth"
+        ]
+    )
+}
