@@ -9,8 +9,8 @@
 import Foundation
 
 class MapDictionary : NSObject{
-    static func get(aMapName:String)->MapData{
-        return MapDictionary.value(forKey: aMapName) as! MapData
+    static func get(key:String)->MapData{
+        return self.value(forKey: key) as! MapData
     }
 }
 

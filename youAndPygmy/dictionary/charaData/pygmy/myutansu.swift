@@ -10,7 +10,7 @@ import Foundation
 
 extension PygmyDictionary{
     static let myutansu=RaceData(
-        race:"myutansu",
+        key:"myutansu",
         name:"みゅーたんす",
         raceStatus:Status(
             hp:180,

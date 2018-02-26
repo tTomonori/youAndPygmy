@@ -31,16 +31,18 @@ class PygmyMenu:Menu{
         let tPygmies=You.getAccompanying()
         for i in 0..<5{
             let tNode=mScene.childNode(withName:"accompanying"+String(i))!.childNode(withName:"info")!
+            let tCover=mScene.childNode(withName:"accompanying"+String(i))!.childNode(withName:"cover")!
             if(i<tPygmies.count){
+                tCover.alpha=0
                 let tPygmy=tPygmies[i]
                 //キャライラスト
                 let tImage=tNode.childNode(withName:"image")!
                 (tImage.childNode(withName:"body") as! SKSpriteNode).texture
-                    = SKTexture(imageNamed:tPygmy.getRaceData().race+"_body")
+                    = SKTexture(imageNamed:tPygmy.getRaceData().key+"_body")
                 (tImage.childNode(withName:"eye") as! SKSpriteNode).texture
-                    = SKTexture(imageNamed:tPygmy.getRaceData().race+"_eye")
+                    = SKTexture(imageNamed:tPygmy.getRaceData().key+"_eye")
                 (tImage.childNode(withName:"mouth") as! SKSpriteNode).texture
-                    = SKTexture(imageNamed:tPygmy.getRaceData().race+"_mouth")
+                    = SKTexture(imageNamed:tPygmy.getRaceData().key+"_mouth")
                 //名前
                 (tNode.childNode(withName:"name") as! SKLabelNode).text=tPygmy.getName()
                 //レベル
@@ -57,10 +59,21 @@ class PygmyMenu:Menu{
                     aCurrent:tPygmy.getExperience(),
                     aMax:tPygmy.getNextExperience()
                 )
+                //アイテム
+                ItemBarMaker.setItemLabel(
+                    aNode:tNode.childNode(withName:"itemBox")! as! SKSpriteNode,
+                    aItem:tPygmy.getItem()
+                )
+                //アクセサリ
+                ItemBarMaker.setAccessoryLabel(
+                    aNode:tNode.childNode(withName:"accessoryBox")! as! SKSpriteNode,
+                    aAccessory:tPygmy.getAccessory()
+                )
             }
             else{
                 //ぴぐみーがいない
                 tNode.alpha=0
+                tCover.alpha=1
             }
         }
     }

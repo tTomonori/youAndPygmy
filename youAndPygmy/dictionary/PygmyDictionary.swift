@@ -9,21 +9,21 @@
 import Foundation
 
 class PygmyDictionary : NSObject{
-    static func get(aRace:String)->RaceData{
-        return PygmyDictionary.value(forKey: aRace) as! RaceData
+    static func get(key:String)->RaceData{
+        return self.value(forKey: key) as! RaceData
     }
 }
 
 //キャラ情報
 class RaceData :NSObject{
-    let race:String//種族名(キー名)
+    let key:String//種族名(キー名)
     let name:String//種族名(表示名)
     let raceStatus:Status//種族値
     let mov:Int//移動力
     let moc:Dictionary<String,Double>//移動コスト
     let image:Dictionary<String,String>//画像
-    init(race:String,name:String,raceStatus:Status,mov:Int,moc:Dictionary<String,Double>,image:Dictionary<String,String>){
-        self.race=race
+    init(key:String,name:String,raceStatus:Status,mov:Int,moc:Dictionary<String,Double>,image:Dictionary<String,String>){
+        self.key=key
         self.name=name
         self.raceStatus=raceStatus
         self.mov=mov
