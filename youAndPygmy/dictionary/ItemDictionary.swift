@@ -15,5 +15,13 @@ class ItemDictionary:NSObject{
 }
 
 class ItemData:NSObject{
-    
+    let name:String//アイテム名
+    let maxNum:Int//同時に持てる最大数
+    init(
+        name:String,
+        maxNum:Int
+        ){
+        self.name=name
+        self.maxNum=maxNum
+    }
 }

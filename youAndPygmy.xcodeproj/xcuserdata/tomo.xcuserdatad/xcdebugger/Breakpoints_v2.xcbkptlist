@@ -99,13 +99,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "youAndPygmy/menu/pygmyMenu/PygmyMenu.swift"
-            timestampString = "541322477.4657151"
+            filePath = "youAndPygmy/menu/pygmyMenu/PygmyDetails.swift"
+            timestampString = "541701182.618978"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "renew()"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "renew(aOptions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youAndPygmy/menu/pygmyMenu/PygmyDetails.swift"
+            timestampString = "541742511.547863"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "renew(aOptions:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

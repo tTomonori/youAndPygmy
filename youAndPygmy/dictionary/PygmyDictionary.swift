@@ -19,15 +19,13 @@ class RaceData :NSObject{
     let key:String//種族名(キー名)
     let name:String//種族名(表示名)
     let raceStatus:Status//種族値
-    let mov:Int//移動力
-    let moc:Dictionary<String,Double>//移動コスト
+    let mobility:Mobility//移動力
     let image:Dictionary<String,String>//画像
-    init(key:String,name:String,raceStatus:Status,mov:Int,moc:Dictionary<String,Double>,image:Dictionary<String,String>){
+    init(key:String,name:String,raceStatus:Status,mobility:Mobility,image:Dictionary<String,String>){
         self.key=key
         self.name=name
         self.raceStatus=raceStatus
-        self.mov=mov
-        self.moc=moc
+        self.mobility=mobility
         self.image=image
     }
 }

@@ -34,7 +34,7 @@ class SceneController{
     }
     //メニューを開く
     static func openMainMenu(){
-        MenuParent.display(aMenuName:"main", aClosedFunction:self.closedMenu)
+        MenuParent.display(aMenuName:"main",aClosedFunction:self.closedMenu,aOptions:[:])
     }
     //メニューが閉じられた
     static func closedMenu(){

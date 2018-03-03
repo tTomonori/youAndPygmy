@@ -36,18 +36,18 @@ class Menu{
         }
     }
     //メニューを表示
-    func display(aClosedFunction:@escaping ()->()){
-        renew()//表示更新
+    func display(aClosedFunction:@escaping ()->(),aOptions:Dictionary<String,Any>){
+        renew(aOptions: aOptions)//表示更新
         mClosedFunction=aClosedFunction
         gGameViewController.set2dScene(aScene:mScene)
     }
     //表示更新
-    func renew(){
+    func renew(aOptions:Dictionary<String,Any>){
         
     }
     //メニューをさらに階層表示
-    func displayChildMenu(aMenuName:String){
-        MenuParent.displayChildMenu(aMenuName:aMenuName)
+    func displayChildMenu(aMenuName:String,aOptions:Dictionary<String,Any>){
+        MenuParent.displayChildMenu(aMenuName:aMenuName,aOptions:aOptions)
     }
     //階層表示したメニューが閉じられた
     func closedChildMenu(){

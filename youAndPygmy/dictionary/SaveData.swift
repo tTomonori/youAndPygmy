@@ -33,11 +33,11 @@ class SaveData{
                         ),
                         level:10,
                         currentHp:10,
-                        setSkills:[],
-                        masteredSkills:[],
-                        item:"",
-                        itemNum:0,
-                        accessory:""
+                        setedSkills:[0,2,3],
+                        masteredSkills:["sougeki","kyuuketu","kansen","kansengen"],
+                        item:"tiisanakinomi",
+                        itemNum:3,
+                        accessory:"kanzasi"
             )
         ]
     }

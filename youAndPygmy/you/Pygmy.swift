@@ -17,7 +17,7 @@ class Pygmy{
     private var mLevel:Int//レベル
     private var mStatus:Status//ステータス
     private var mCurrentHp:Int//現在hp
-    private var mSettedSkills:[String]//セットしたスキル
+    private var mSettedSkills:[Int]//セットしたスキル
     private var mMasteredSkills:[String]//習得しているスキル
     private var mItem:ItemData?//持ち物
     private var mItemNum:Int//持ち物の数
@@ -29,7 +29,7 @@ class Pygmy{
         mLevel=aData.level
         mStatus=StatusCalcurator.calcurate(aRaceStatus:mRaceData.raceStatus,aLevel:mLevel,aPersonality:mPersonal)
         mCurrentHp=aData.currentHp
-        mSettedSkills=aData.setSkills
+        mSettedSkills=aData.setedSkills
         mMasteredSkills=aData.masteredSkills
         mItem=(aData.item != "") ? ItemDictionary.get(key:aData.item):nil
         mItemNum=aData.itemNum
@@ -43,8 +43,18 @@ class Pygmy{
     func getCurrentHp()->Int{return mCurrentHp}
     func getExperience()->Int{return 65}
     func getNextExperience()->Int{return 100}
-    func getSettedSkills()->[String]{return mSettedSkills}
     func getMasteredSkills()->[String]{return mMasteredSkills}
     func getItem()->(ItemData?,Int){return (mItem,mItemNum)}
     func getAccessory()->AccessoryData?{return mAccessory}
+    func getSettedSkills()->[String]{
+        var tSettedSkills:[String]=[]
+        for i in mSettedSkills{
+            tSettedSkills.append(mMasteredSkills[i])
+        }
+        return tSettedSkills
+    }
+    //ステータスの補正値を返す
+    func getCorrection()->Status{
+        return Status(hp:0,mp:0,atk:0,def:0,int:0,spt:0,dex:0,spd:0,pie:0)
+    }
 }

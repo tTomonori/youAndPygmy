@@ -20,14 +20,37 @@ class PygmyMenu:Menu{
         for tNode in mScene.children{
             let tName=(tNode.name != nil) ? tNode.name!:"label"
             switch tName {
-                case "accompanying0":
-                    tNode.accessibilityElements=["run",{()->()in print("0")}]
+            case "accompanying0":
+                tNode.accessibilityElements=["run",{()->()in
+                    if(You.getAccompanying().count<1){return}
+                    self.displayChildMenu(aMenuName:"details",aOptions:["accompanyingNum":0])
+                    }]
+            case "accompanying1":
+                tNode.accessibilityElements=["run",{()->()in
+                    if(You.getAccompanying().count<2){return}
+                    self.displayChildMenu(aMenuName:"details",aOptions:["accompanyingNum":1])
+                    }]
+            case "accompanying2":
+                tNode.accessibilityElements=["run",{()->()in
+                    if(You.getAccompanying().count<3){return}
+                    self.displayChildMenu(aMenuName:"details",aOptions:["accompanyingNum":2])
+                    }]
+            case "accompanying3":
+                tNode.accessibilityElements=["run",{()->()in
+                    if(You.getAccompanying().count<4){return}
+                    self.displayChildMenu(aMenuName:"details",aOptions:["accompanyingNum":3])
+                    }]
+            case "accompanying4":
+                tNode.accessibilityElements=["run",{()->()in
+                    if(You.getAccompanying().count<5){return}
+                    self.displayChildMenu(aMenuName:"details",aOptions:["accompanyingNum":4])
+                    }]
             default:
                 tNode.accessibilityElements=["none"]
             }
         }
     }
-    override func renew(){
+    override func renew(aOptions:Dictionary<String,Any>){
         let tPygmies=You.getAccompanying()
         for i in 0..<5{
             let tNode=mScene.childNode(withName:"accompanying"+String(i))!.childNode(withName:"info")!
@@ -36,13 +59,7 @@ class PygmyMenu:Menu{
                 tCover.alpha=0
                 let tPygmy=tPygmies[i]
                 //キャライラスト
-                let tImage=tNode.childNode(withName:"image")!
-                (tImage.childNode(withName:"body") as! SKSpriteNode).texture
-                    = SKTexture(imageNamed:tPygmy.getRaceData().key+"_body")
-                (tImage.childNode(withName:"eye") as! SKSpriteNode).texture
-                    = SKTexture(imageNamed:tPygmy.getRaceData().key+"_eye")
-                (tImage.childNode(withName:"mouth") as! SKSpriteNode).texture
-                    = SKTexture(imageNamed:tPygmy.getRaceData().key+"_mouth")
+                PygmyImageMaker.setImage(aNode:tNode.childNode(withName:"image") as! SKSpriteNode,aPygmy:tPygmy)
                 //名前
                 (tNode.childNode(withName:"name") as! SKLabelNode).text=tPygmy.getName()
                 //レベル
@@ -78,3 +95,21 @@ class PygmyMenu:Menu{
         }
     }
 }
+//詳細に表示するデータ
+/*
+ 画像
+ 名前
+ 種族名(&番号?)
+ レベル
+ 元気(+ゲージ)
+ 経験値(+ゲージ)
+ アイテム
+ アクセサリ
+ 
+ ステータス(ステータス名:値(+補正値))
+ 移動力・移動コスト
+ 
+ セットしたスキル
+ 習得したスキル
+
+ */

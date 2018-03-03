@@ -29,7 +29,7 @@ struct AccompanyingData{
     var personal:Status//個性値
     var level:Int//レベル
     var currentHp:Int//現在hp
-    var setSkills:[String]//セットしたスキル
+    var setedSkills:[Int]//セットしたスキル
     var masteredSkills:[String]//習得しているスキル
     var item:String//持ち物
     var itemNum:Int//持ち物の数

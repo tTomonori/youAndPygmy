@@ -21,18 +21,18 @@ extension PygmyDictionary{
             spt:100,
             dex:155,
             spd:150,
-            pie:155
+            pie:105
         ),
-        mov:4,
-        moc:[
-            "grass":1,
-            "sand":1,
-            "water":-1,
-            "magma":-1,
-            "snow":2,
-            "ice":2,
-            "air":-1
-        ],
+        mobility:Mobility(
+            mov:4,
+            grass:1,
+            sand:1,
+            water:-1,
+            magma:-1,
+            snow:2,
+            ice:2,
+            air:-1
+        ),
         image:[
             "body":"mutansu_body",
             "eye":"mutansu_eye",

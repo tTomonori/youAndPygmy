@@ -15,5 +15,8 @@ class AccessoryDictionary:NSObject{
 }
 
 class AccessoryData:NSObject{
-    
+    let name:String//アクセサリ名
+    init(name:String){
+        self.name=name
+    }
 }
