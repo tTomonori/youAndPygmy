@@ -27,18 +27,19 @@ class MapUi{
         }
         //マップ移動関数セット
         mScene.accessibilityElements=[{(_:UIGestureRecognizer)->()in
-            let tDirection=PanOperator.getDirection()
-            if(tDirection==""){return}
-            var tMoveFunction:((String)->())!
-            tMoveFunction={(aDirection:String)->()in
-                gPlayerChara.move(aDirection:aDirection,aEndFunction:{()->()in
-                    let tDirection=PanOperator.getDirection()
-                    if(tDirection != ""){
-                        tMoveFunction(tDirection)
-                    }
-                })
-            }
-            tMoveFunction(tDirection)
+            gPlayerChara.inputMove()
+//            let tDirection=PanOperator.getDirection()
+//            if(tDirection==""){return}
+//            var tMoveFunction:((String)->())!
+//            tMoveFunction={(aDirection:String)->()in
+//                gPlayerChara.move(aDirection:aDirection,aEndFunction:{()->()in
+//                    let tDirection=PanOperator.getDirection()
+//                    if(tDirection != ""){
+//                        tMoveFunction(tDirection)
+//                    }
+//                })
+//            }
+//            tMoveFunction(tDirection)
             }]
     }
     static func close(){

@@ -28,9 +28,12 @@ class SpeakWindow{
             }
         }
         gGameViewController.set2dScene(aScene:mScene)
+        gGameViewController.allowUserOperate()
     }
     //テキストウィンドウがタップされた
     static func tapWindow(){
+        gGameViewController.denyUserOperate()
+        close()
         mEndFunction()
     }
     //閉じる

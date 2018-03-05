@@ -13,29 +13,20 @@ import SceneKit
 var gMoveSpeed:Double=0.2
 
 class MapChara{
-    private
     static let mGeometrySource = [SCNGeometrySource(vertices: gMapCharaVertices, count: gMapCharaVertices.count),
                                   SCNGeometrySource(normals: gMapCharaNormals, count: gMapCharaNormals.count),
                                   SCNGeometrySource(textureCoordinates: gMapCharaTexcoords)]
     var mGeometry:SCNGeometry=SCNGeometry(sources: mGeometrySource, elements: [gPlaneFaceSource])
     var mCharaImage:UIImage!
     var mCharaNode:SCNNode//ノード
-    var mPosition:FeildPosition//今いる座標
+    var mPosition:FeildPosition!//今いる座標
     var mDirection:String!//キャラが向いている方向
-    var mTrout:MapTrout//今いるマス
+    var mTrout:MapTrout!//今いるマス
     var mOperationFlag:Bool=false//falseなら操作可能
     var mMaterials:[[SCNMaterial]]
-    public
     init(aPosition:FeildPosition,aImageName:String){
         mCharaImage=UIImage(named:aImageName)!//画像設定
         mCharaNode=SCNNode(geometry:mGeometry)//ノード生成
-        //座標設定
-        mPosition=aPosition
-        mTrout=MapFeild.getTrout(aPosition: mPosition)!//乗っているマス設定
-        mCharaNode.position =
-            SCNVector3(x:gTroutSize*mPosition.x,
-                       y:gTroutSize*Float(mTrout.getHeight(aDirection: "center")!),
-                       z:gTroutSize*mPosition.z)
         //キャラ画像マテリアル生成
         mMaterials=[]
         for tX in 0...2{
@@ -51,9 +42,19 @@ class MapChara{
                 mMaterials[tX].append(tMaterial)
             }
         }
+        //座標設定
+        setPosition(aPosition:aPosition)
         changeImage(aDirection: "down", aNum: 1)//キャラの向き
-        
         mTrout.on(aChara:self)
+    }
+    //座標設定
+    func setPosition(aPosition:FeildPosition){
+        mPosition=aPosition
+        mTrout=MapFeild.getTrout(aPosition: mPosition)!//乗っているマス設定
+        mCharaNode.position =
+            SCNVector3(x:gTroutSize*mPosition.x,
+                       y:gTroutSize*Float(mTrout.getHeight(aDirection: "center")!),
+                       z:gTroutSize*mPosition.z)
     }
     //ノード取得
     func getNode()->SCNNode{return mCharaNode}
@@ -77,17 +78,17 @@ class MapChara{
         mCharaNode.geometry!.materials=[mMaterials[tX][tY]]
     }
     //移動
-    func move(aDirection:String,aEndFunction:@escaping (()->())){
+    func move(aDirection:String,aEndFunction:@escaping ((Bool)->())){
         //操作フラグ管理
         if(mOperationFlag){return}
         //キャラの向き変更
         changeImage(aDirection: aDirection, aNum: 1)
         //移動先のマス
         let tTrout:MapTrout?=MapFeild.getNeighborTrout(aPosition:mPosition,aDirection:aDirection)
-        if(tTrout==nil||tTrout!.canOnNow()==false){return}//指定した方向に移動できない
+        if(tTrout==nil||tTrout!.canOnNow()==false){aEndFunction(false);return}//指定した方向に移動できない
         //操作フラグ
         mOperationFlag=true
-        animateMove(aDirection:aDirection,aTrout:tTrout!,aEndFunction:{()->()in self.mOperationFlag=false;aEndFunction()})
+        animateMove(aDirection:aDirection,aTrout:tTrout!,aEndFunction:{()->()in self.mOperationFlag=false;aEndFunction(true)})
     }
     //移動アニメーション
     func animateMove(aDirection:String,aTrout:MapTrout,aEndFunction:@escaping (()->())){

@@ -45,12 +45,21 @@ extension MapDictionary{
              "chip":["terrain":"grass",
                      "shape":0.00,
                      "event":[
-                        
-                        ["event":"changeMap","mapName":"debug2","position":FeildPosition(x:0,y:0,z:0)],
-                        ["event":"speak","sentence":"マップ移動"],
+                        ["event":"changeMap","mapName":"debug2","position":FeildPosition(x:0,y:0,z:1)],
+//                        ["event":"speak","sentence":"マップ移動"],
                         ]
                 ]
+            ],
+            ["position":FeildPosition(x:4,y:1,z:-1),
+             "chip":["terrain":"grass",
+                     "shape":0.00,
+                     "event":[
+                        
+                        ["event":"changeMap","mapName":"debug3","position":FeildPosition(x:2,y:0,z:5)],
+                ]
+                ]
             ]
-        ]
+        ],
+        encountData:nil
     )
 }

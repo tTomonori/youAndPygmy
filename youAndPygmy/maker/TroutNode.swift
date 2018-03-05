@@ -24,4 +24,10 @@ class TroutNode:SCNNode{
         default:print("不正な地形名になってるよ→",aTerrain);break
         }
     }
+    //物体設置
+    func addObject(aObjectName:String){
+        let tObject=ObjectMaker.make(aObjectName:aObjectName)
+        tObject.position=SCNVector3(0,gTroutSizeCG/2,gTroutSizeCG/10)
+        self.addChildNode(tObject)
+    }
 }

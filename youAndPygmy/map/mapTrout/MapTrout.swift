@@ -21,6 +21,8 @@ class MapTrout{
     var mRightHeight:CGFloat!
     //このマスにいるキャラ
     var mOnChara:MapChara?=nil
+    //このマスにある物体
+    var mObject:SCNNode?
     //このマスの座標
     var mPosition:FeildPosition!
     public
@@ -40,6 +42,10 @@ class MapTrout{
         mCanOn=(aChip["canOn"] != nil) ? aChip["canOn"] as! Bool:true
         mEvents=(aChip["event"] != nil) ? aChip["event"] as! [Dictionary<String,Any>]:[]
         mTrout.changeTerrain(aTerrain:aChip["terrain"] as! String)
+        //物体
+        if let tObjectName=aChip["object"]{
+            mTrout.addObject(aObjectName:tObjectName as! String)
+        }
     }
     //マスの高さ取得
     func getHeight(aDirection:String)->CGFloat?{

@@ -53,6 +53,11 @@ struct FeildPosition{
     let y:Int
     let z:Int
 }
+//2d座標
+struct BattlePosition{
+    let x:Int
+    let y:Int
+}
 
 /*
  switch aDirection {

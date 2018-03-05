@@ -9,10 +9,16 @@
 /* Begin PBXBuildFile section */
 		E505A62F2033DB7F00F781AA /* NonPlayerChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505A62E2033DB7F00F781AA /* NonPlayerChara.swift */; };
 		E505A635203419E200F781AA /* MapDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505A634203419E200F781AA /* MapDictionary.swift */; };
+		E51494B3204CD6130000406E /* EncountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51494B2204CD6130000406E /* EncountData.swift */; };
+		E51494B5204CFD750000406E /* Encounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51494B4204CFD750000406E /* Encounter.swift */; };
+		E51494B9204D06220000406E /* enterBattle.sks in Resources */ = {isa = PBXBuildFile; fileRef = E51494B8204D06220000406E /* enterBattle.sks */; };
 		E5164AAC203EF825000A921C /* SceneChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5164AAB203EF825000A921C /* SceneChanger.swift */; };
 		E5164AAE203EF874000A921C /* changeMap.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5164AAD203EF874000A921C /* changeMap.sks */; };
 		E517DE8620468BDE00438614 /* healItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517DE8520468BDE00438614 /* healItems.swift */; };
 		E518691B2037EDE500F12256 /* MapBoxTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518691A2037EDE500F12256 /* MapBoxTrout.swift */; };
+		E518B4CF204BE363002AE93C /* Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518B4CE204BE363002AE93C /* Battle.swift */; };
+		E518B4D1204BE3E2002AE93C /* debugMap3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518B4D0204BE3E1002AE93C /* debugMap3.swift */; };
+		E518B4D3204C077D002AE93C /* ObjectMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518B4D2204C077D002AE93C /* ObjectMaker.swift */; };
 		E518BEF02043F2030072F0C8 /* ItemDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518BEEF2043F2030072F0C8 /* ItemDictionary.swift */; };
 		E518BEF62043F7050072F0C8 /* debugMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518BEF52043F7050072F0C8 /* debugMap.swift */; };
 		E518BEF82043FA2A0072F0C8 /* StatusCalcurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518BEF72043FA2A0072F0C8 /* StatusCalcurator.swift */; };
@@ -44,6 +50,7 @@
 		E551357F2046922200E7DB84 /* yamiSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551357E2046922200E7DB84 /* yamiSkill.swift */; };
 		E5580523203D12BC00D1CA09 /* MapTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5580522203D12BC00D1CA09 /* MapTrout.swift */; };
 		E5580525203D133A00D1CA09 /* MapTroutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5580524203D133A00D1CA09 /* MapTroutMaker.swift */; };
+		E56580A9204A5C990004137D /* debugMap2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56580A8204A5C990004137D /* debugMap2.swift */; };
 		E56BDA6C203DD374001C4F00 /* SpeakWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56BDA6B203DD374001C4F00 /* SpeakWindow.swift */; };
 		E56BDA6E203DD3BD001C4F00 /* speakWindow.sks in Resources */ = {isa = PBXBuildFile; fileRef = E56BDA6D203DD3BD001C4F00 /* speakWindow.sks */; };
 		E57E0B8A2037EEF900984890 /* MapSlopTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57E0B892037EEF900984890 /* MapSlopTrout.swift */; };
@@ -70,10 +77,16 @@
 /* Begin PBXFileReference section */
 		E505A62E2033DB7F00F781AA /* NonPlayerChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonPlayerChara.swift; sourceTree = "<group>"; };
 		E505A634203419E200F781AA /* MapDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDictionary.swift; sourceTree = "<group>"; };
-		E5164AAB203EF825000A921C /* SceneChanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneChanger.swift; path = sceneChange/SceneChanger.swift; sourceTree = "<group>"; };
-		E5164AAD203EF874000A921C /* changeMap.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = changeMap.sks; path = sceneChange/changeMap.sks; sourceTree = "<group>"; };
+		E51494B2204CD6130000406E /* EncountData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncountData.swift; sourceTree = "<group>"; };
+		E51494B4204CFD750000406E /* Encounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encounter.swift; sourceTree = "<group>"; };
+		E51494B8204D06220000406E /* enterBattle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = enterBattle.sks; sourceTree = "<group>"; };
+		E5164AAB203EF825000A921C /* SceneChanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneChanger.swift; sourceTree = "<group>"; };
+		E5164AAD203EF874000A921C /* changeMap.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = changeMap.sks; sourceTree = "<group>"; };
 		E517DE8520468BDE00438614 /* healItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = healItems.swift; sourceTree = "<group>"; };
 		E518691A2037EDE500F12256 /* MapBoxTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapBoxTrout.swift; path = map/mapTrout/MapBoxTrout.swift; sourceTree = "<group>"; };
+		E518B4CE204BE363002AE93C /* Battle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Battle.swift; sourceTree = "<group>"; };
+		E518B4D0204BE3E1002AE93C /* debugMap3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = debugMap3.swift; sourceTree = "<group>"; };
+		E518B4D2204C077D002AE93C /* ObjectMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectMaker.swift; path = maker/ObjectMaker.swift; sourceTree = "<group>"; };
 		E518BEEF2043F2030072F0C8 /* ItemDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDictionary.swift; sourceTree = "<group>"; };
 		E518BEF52043F7050072F0C8 /* debugMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = debugMap.swift; sourceTree = "<group>"; };
 		E518BEF72043FA2A0072F0C8 /* StatusCalcurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCalcurator.swift; sourceTree = "<group>"; };
@@ -105,6 +118,7 @@
 		E551357E2046922200E7DB84 /* yamiSkill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yamiSkill.swift; sourceTree = "<group>"; };
 		E5580522203D12BC00D1CA09 /* MapTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTrout.swift; path = map/mapTrout/MapTrout.swift; sourceTree = "<group>"; };
 		E5580524203D133A00D1CA09 /* MapTroutMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTroutMaker.swift; path = map/MapTroutMaker.swift; sourceTree = "<group>"; };
+		E56580A8204A5C990004137D /* debugMap2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = debugMap2.swift; sourceTree = "<group>"; };
 		E56BDA6B203DD374001C4F00 /* SpeakWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeakWindow.swift; path = textWindow/SpeakWindow.swift; sourceTree = "<group>"; };
 		E56BDA6D203DD3BD001C4F00 /* speakWindow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = speakWindow.sks; path = textWindow/speakWindow.sks; sourceTree = "<group>"; };
 		E57E0B892037EEF900984890 /* MapSlopTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapSlopTrout.swift; path = map/mapTrout/MapSlopTrout.swift; sourceTree = "<group>"; };
@@ -144,18 +158,30 @@
 		E505A63620341B6C00F781AA /* map */ = {
 			isa = PBXGroup;
 			children = (
+				E56580A8204A5C990004137D /* debugMap2.swift */,
 				E518BEF52043F7050072F0C8 /* debugMap.swift */,
+				E518B4D0204BE3E1002AE93C /* debugMap3.swift */,
 			);
 			path = map;
+			sourceTree = "<group>";
+		};
+		E51494B0204CD5DE0000406E /* encount */ = {
+			isa = PBXGroup;
+			children = (
+				E51494B2204CD6130000406E /* EncountData.swift */,
+				E51494B4204CFD750000406E /* Encounter.swift */,
+			);
+			path = encount;
 			sourceTree = "<group>";
 		};
 		E5164AAA203EF7DF000A921C /* sceneChange */ = {
 			isa = PBXGroup;
 			children = (
+				E51494B8204D06220000406E /* enterBattle.sks */,
 				E5164AAB203EF825000A921C /* SceneChanger.swift */,
 				E5164AAD203EF874000A921C /* changeMap.sks */,
 			);
-			name = sceneChange;
+			path = sceneChange;
 			sourceTree = "<group>";
 		};
 		E51869192037EDB900F12256 /* mapTrout */ = {
@@ -166,6 +192,15 @@
 				E57E0B892037EEF900984890 /* MapSlopTrout.swift */,
 			);
 			name = mapTrout;
+			sourceTree = "<group>";
+		};
+		E518B4CD204BE330002AE93C /* battle */ = {
+			isa = PBXGroup;
+			children = (
+				E51494B0204CD5DE0000406E /* encount */,
+				E518B4CE204BE363002AE93C /* Battle.swift */,
+			);
+			path = battle;
 			sourceTree = "<group>";
 		};
 		E518BEF32043F5790072F0C8 /* itemData */ = {
@@ -213,6 +248,7 @@
 				E5FE6DF620493706001BFABD /* SkillBarMaker.swift */,
 				E5FE6DFA20493AD3001BFABD /* BarMaker.swift */,
 				E5FD5654204A41E300CAD902 /* StatusDisplayer.swift */,
+				E518B4D2204C077D002AE93C /* ObjectMaker.swift */,
 			);
 			name = maker;
 			sourceTree = "<group>";
@@ -312,6 +348,7 @@
 		E59E4A6F20230370009553C9 /* youAndPygmy */ = {
 			isa = PBXGroup;
 			children = (
+				E518B4CD204BE330002AE93C /* battle */,
 				E5C8F8582041864800CD908A /* you */,
 				E5164AAA203EF7DF000A921C /* sceneChange */,
 				E56BDA6A203DD311001C4F00 /* textWindow */,
@@ -459,6 +496,7 @@
 				E56BDA6E203DD3BD001C4F00 /* speakWindow.sks in Resources */,
 				E525D189203D57D7003C0E6A /* title.sks in Resources */,
 				E5456E49203FF0A100122781 /* pygmyMenu.sks in Resources */,
+				E51494B9204D06220000406E /* enterBattle.sks in Resources */,
 				E5C74E4F20369A220071326D /* mapUi.sks in Resources */,
 				E525D18C203D58A5003C0E6A /* mainMenu.sks in Resources */,
 				E59E4A7820230370009553C9 /* Main.storyboard in Resources */,
@@ -473,6 +511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E526756E2032C0BE005E0235 /* define.swift in Sources */,
+				E56580A9204A5C990004137D /* debugMap2.swift in Sources */,
 				E51A0BBC2040FB4F00F97159 /* Menu.swift in Sources */,
 				E505A62F2033DB7F00F781AA /* NonPlayerChara.swift in Sources */,
 				E5580523203D12BC00D1CA09 /* MapTrout.swift in Sources */,
@@ -492,13 +531,16 @@
 				E551357D2046910A00E7DB84 /* totuSkill.swift in Sources */,
 				E525D18E203D6202003C0E6A /* MapEvent.swift in Sources */,
 				E518BEF02043F2030072F0C8 /* ItemDictionary.swift in Sources */,
+				E518B4D3204C077D002AE93C /* ObjectMaker.swift in Sources */,
 				E56BDA6C203DD374001C4F00 /* SpeakWindow.swift in Sources */,
 				E525D181203D54F8003C0E6A /* SceneController.swift in Sources */,
 				E52036B9202D535200BB3ED5 /* SaveData.swift in Sources */,
 				E5DC99742042A7980077E254 /* StatusBarMaker.swift in Sources */,
 				E5FD5655204A41E300CAD902 /* StatusDisplayer.swift in Sources */,
+				E518B4D1204BE3E2002AE93C /* debugMap3.swift in Sources */,
 				E518BEF82043FA2A0072F0C8 /* StatusCalcurator.swift in Sources */,
 				E57E0B8A2037EEF900984890 /* MapSlopTrout.swift in Sources */,
+				E51494B3204CD6130000406E /* EncountData.swift in Sources */,
 				E5456E47203FF09300122781 /* PygmyMenu.swift in Sources */,
 				E52C881B2043FCF4004AC8AC /* AccessoryDictionary.swift in Sources */,
 				E5FE6DF720493706001BFABD /* SkillBarMaker.swift in Sources */,
@@ -514,10 +556,12 @@
 				E52036B6202D52D900BB3ED5 /* TroutMaker.swift in Sources */,
 				E51F5E3E2033DB010015F328 /* PlayerChara.swift in Sources */,
 				E52036B1202D2FBB00BB3ED5 /* MapFeild.swift in Sources */,
+				E518B4CF204BE363002AE93C /* Battle.swift in Sources */,
 				E5C8F85A2041866B00CD908A /* You.swift in Sources */,
 				E5FE6DF520492F3B001BFABD /* PygmyDetails.swift in Sources */,
 				E5C8F85E20418C9900CD908A /* PygmyDictionary.swift in Sources */,
 				E5456E4C203FF9FD00122781 /* MenuParent.swift in Sources */,
+				E51494B5204CFD750000406E /* Encounter.swift in Sources */,
 				E59E4A7120230370009553C9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

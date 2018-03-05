@@ -42,14 +42,22 @@ class SceneController{
     }
     //マップ移動
     static func changeMap(aMapName:String,aPosition:FeildPosition,aEndFunction:@escaping ()->()){
-        MapFeild.setMap(aMapData:MapDictionary.get(key:aMapName))
-        MapFeild.setHero(aPosition:aPosition)
-        MapFeild.makeCameraFollowHero()
         SceneChanger.animateChangeMap(aChanging:{()->()in
             //画面全体が隠れた
+            MapFeild.setMap(aMapData:MapDictionary.get(key:aMapName))
+            MapFeild.setHero(aPosition:aPosition)
+            MapFeild.makeCameraFollowHero()
             MapFeild.display()
         }, aChanged:{()->()in
             //アニメーション終了
+            aEndFunction()
+        })
+    }
+    //戦闘シーン
+    static func enterBattle(aEndFunction:@escaping ()->()){
+        SceneChanger.animateEnterBattle(aChanging:{()->()in
+            Battle.display()
+        }, aChanged:{()->()in
             aEndFunction()
         })
     }

@@ -9,19 +9,32 @@
 import Foundation
 import SceneKit
 
-var gPlayerChara:PlayerChara!
+var gPlayerChara:PlayerChara!=PlayerChara(aPosition:FeildPosition(x:0,y:0,z:0))
 class PlayerChara : MapChara{
     init(aPosition:FeildPosition){
         super.init(aPosition: aPosition, aImageName: "chara")
     }
-    //キャラの移動
-    override func animateMove(aDirection: String, aTrout: MapTrout, aEndFunction: @escaping (() -> ())) {
+    //ユーザの操作による移動
+    func inputMove(){
+        //操作フラグ
         gGameViewController.denyUserOperate()
-        super.animateMove(aDirection:aDirection,aTrout:aTrout,aEndFunction:{()->()in
-            MapEvent.runEvents(aEvents:self.mTrout.getEvent(),aEndFunction:{()->()in
-                MapUi.display()
+        let tDirection=PanOperator.getDirection()
+        if(tDirection==""){gGameViewController.allowUserOperate();print("stay");return}
+        print("moveStart")
+        //移動
+        move(aDirection:tDirection,aEndFunction:{(aResult)->()in
+            print("moveEnd")
+            if(!aResult){
+                print("moveFalse")
                 gGameViewController.allowUserOperate()
-                aEndFunction()
+                return
+            }
+            print("moveTrue")
+            //イベント処理
+            MapEvent.runEvents(aEvents:self.mTrout.getEvent(),aEndFunction:{()->()in
+                print("endEvent")
+                MapUi.display()
+                self.inputMove()
             })
         })
     }

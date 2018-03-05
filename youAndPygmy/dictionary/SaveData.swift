@@ -12,9 +12,10 @@ class SaveData{
     private static var mMapName:String!
     private static var mPosition:FeildPosition!
     private static var mAccompanying:[AccompanyingData]!
+    private static var mEncountCount:Int=5
     static func load(){
         mMapName="debug"
-        mPosition=FeildPosition(x:7,y:1,z:4)
+        mPosition=FeildPosition(x:4,y:1,z:0)
 //        mPosition=FeildPosition(x:0,y:0,z:1)
         mAccompanying=[
                     AccompanyingData(
@@ -47,4 +48,15 @@ class SaveData{
     static func getPosition()->FeildPosition{return mPosition}
     //手持ちぴぐみー
     static func getAccompanying()->[AccompanyingData]{return mAccompanying}
+    //エンカウント判定
+    static func countEncount()->Bool{
+        if(mEncountCount<=1){
+            mEncountCount=5
+            return true
+        }
+        else{
+            mEncountCount-=1
+            return false
+        }
+    }
 }

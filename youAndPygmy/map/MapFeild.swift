@@ -19,11 +19,11 @@ class MapFeild{
     static var mNpcs:Dictionary<String,MapChara>!
     static var mTroutSize=Float(gTroutSize)
     static var mCameraNode:SCNNode!
-    public
+    static func getMapData()->MapData{return mMapData}
     //現在のマップを設定
     static func setMap(aMapData:MapData){
         mMapData=aMapData
-        mScene=SCNScene();
+        mScene=SCNScene()
         mTrouts=[:]
         mNpcs=[:]
         //マップチップデータをセット
@@ -68,7 +68,7 @@ class MapFeild{
     //自キャラ配置
     static func setHero(aPosition:FeildPosition){
         //自キャラ
-        gPlayerChara=PlayerChara(aPosition: aPosition)
+        gPlayerChara.setPosition(aPosition:aPosition)
         mScene.rootNode.addChildNode(gPlayerChara.getNode())
     }
     //カメラを主人公に追従させる

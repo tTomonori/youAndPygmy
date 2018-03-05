@@ -12,7 +12,7 @@ class MapEvent{
     //主人公の正面のマスを調べる
     static func investigate(){
         //正面のマス
-        let tFrontTrout=MapFeild.getNeighborTrout(aPosition:gPlayerChara.getPosition(),aDirection:gPlayerChara.getDirection())
+        let tFrontTrout=MapFeild.getNeighborTrout(aPosition:gPlayerChara.getPosition(),aDirection:gPlayerChara!.getDirection())
         if(tFrontTrout == nil){return}
         //正面のマスにいるキャラ
         let tOnChara=tFrontTrout!.getChara()
@@ -31,7 +31,7 @@ class MapEvent{
         var tRun:(Int)->()={(_)->()in}
         tRun={(aIndex:Int)->()in
             if(aEvents.count<=aIndex){
-                aEndFunction();
+                aEndFunction()
                 return}//イベント処理全て終了
             let tEvent=aEvents[aIndex]
             var tEndFunction={()->()in tRun(aIndex+1)}
@@ -42,23 +42,30 @@ class MapEvent{
             //イベント処理
             switch tEvent["event"] as! String {
             case "speak"://会話文表示
-                gGameViewController.allowUserOperate()
                 SpeakWindow.display(aSentence:tEvent["sentence"] as! String,aEndFunction:{()->()in
-                    gGameViewController.denyUserOperate()
-                    SpeakWindow.close()
                     tEndFunction()
                 })
             case "changeMap"://マップ移動
                 SceneController.changeMap(aMapName:tEvent["mapName"] as! String, aPosition:tEvent["position"] as! FeildPosition,
                                           aEndFunction:{()->()in
                                             //マップ移動終了後
-                                            //残りのイベント実行
-                                            self.runEvents(aEvents:Array(aEvents.dropFirst(aIndex+1)),aEndFunction:{()->()in
-                                                //全てイベント終了
-                                                MapUi.display()
-                                                gGameViewController.allowUserOperate()
-                                            })
+                                            tEndFunction()
+                                            return
                 })
+            case "encount"://戦闘
+                if(SaveData.countEncount()){
+                    Encounter.encount(
+                        aEncountData:MapFeild.getMapData().encountData,
+                        aEncountNum:tEvent["encountGroupNum"] as! Int,
+                        aEndFunction:{(aResult)->()in
+                            MapFeild.display()
+                            tEndFunction()
+                    }
+                    )
+                }
+                else{
+                    tEndFunction()
+                }
             default:print("不正なイベントを実行しようとしたぞ→",tEvent)
             }
         }
