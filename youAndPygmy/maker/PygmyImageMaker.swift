@@ -14,11 +14,11 @@ class PygmyImageMaker{
     static func setImage(aNode:SKSpriteNode,aPygmy:Pygmy){
         if(aNode.children.count>0){
             (aNode.childNode(withName:"body") as! SKSpriteNode).texture
-                = SKTexture(imageNamed:aPygmy.getRaceData().key+"_body")
+                = SKTexture(imageNamed:aPygmy.getRaceData().raceKey+"_body")
             (aNode.childNode(withName:"eye") as! SKSpriteNode).texture
-                = SKTexture(imageNamed:aPygmy.getRaceData().key+"_eye")
+                = SKTexture(imageNamed:aPygmy.getRaceData().raceKey+"_eye")
             (aNode.childNode(withName:"mouth") as! SKSpriteNode).texture
-                = SKTexture(imageNamed:aPygmy.getRaceData().key+"_mouth")
+                = SKTexture(imageNamed:aPygmy.getRaceData().raceKey+"_mouth")
         }
         else{
             //ノードが用意されていない
@@ -26,7 +26,7 @@ class PygmyImageMaker{
             for tParts in ["body","eye","mouth"]{
                 let tNode=SKSpriteNode()
                 tNode.size=aNode.size
-                tNode.texture=SKTexture(imageNamed:aPygmy.getRaceData().key+"_"+tParts)
+                tNode.texture=SKTexture(imageNamed:aPygmy.getRaceData().raceKey+"_"+tParts)
                 tNode.name=tParts
                 aNode.addChild(tNode)
             }

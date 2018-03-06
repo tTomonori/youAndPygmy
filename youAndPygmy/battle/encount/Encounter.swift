@@ -34,18 +34,55 @@ class Encounter{
     }
     //敵の情報を戦闘用のデータに変換
     static func convertEnemyData(aData:[BattleEnemyData?])->[BattleCharaData?]{
-        let tBattleData:[BattleCharaData?]=[]
+        var tBattleData:[BattleCharaData?]=[]
         for tEnemyData in aData{
-            
+            if(tEnemyData==nil){tBattleData.append(nil);continue}
+            let tRaceData=(tEnemyData!.pygmyFlag)
+                ?PygmyDictionary.get(key:tEnemyData!.raceKey)
+                :PygmyDictionary.get(key:tEnemyData!.raceKey)
+            tBattleData.append(BattleCharaData(
+                pygmyFlag: tEnemyData!.pygmyFlag,
+                raceKey: tEnemyData!.raceKey,
+                name: (tEnemyData!.name==nil) ?tRaceData.raceName:tEnemyData!.name!,
+                level: tEnemyData!.level,
+                status: (tEnemyData!.status==nil)
+                  ?tRaceData.raceStatus
+                  :tRaceData.raceStatus+tEnemyData!.status!,
+                mobility: (tEnemyData!.mobility==nil)
+                  ?tRaceData.mobility
+                  :tEnemyData!.mobility!,
+                currentHp:(tEnemyData!.currentHp==nil)
+                  ?tRaceData.raceStatus.hp
+                  :(tRaceData.raceStatus.hp<tEnemyData!.currentHp!) ?tRaceData.raceStatus.hp:tEnemyData!.currentHp!,
+                skill: tEnemyData!.skill,
+                item: tEnemyData!.item,
+                itemNum: tEnemyData!.itemNum
+            ))
         }
         return tBattleData
     }
     //味方の戦闘用データ生成
     static func buildAllyBattleData(aNum:Int)->[BattleCharaData?]{
-        let tBattleData:[BattleCharaData?]=[]
-        let tAccompanies=You.getAccompanying()
-        for tNum in 0...aNum{
-            
+        var tBattleData:[BattleCharaData?]=[]
+        let tAccompanies=You.getBattleParticipants(aNum:aNum)
+        for i in 0...aNum{
+            if(tAccompanies.count<=i){tBattleData.append(nil);continue}
+            let tPygmy=tAccompanies[i]
+            let tRaceData=tPygmy.getRaceData()
+            let (tItemKey,tItemNum)=tPygmy.getItem()
+            tBattleData.append(BattleCharaData(
+                pygmyFlag: true,
+                raceKey: tRaceData.raceKey,
+                name: tPygmy.getName(),
+                level: tPygmy.getLevel(),
+                status: tPygmy.getCorrectedStatus(),
+                mobility: tPygmy.getCorrectedMobility(),
+                currentHp: tPygmy.getCurrentHp(),
+                skill: tPygmy.getSettedSkills(),
+                item: tItemKey,
+                itemNum: tItemNum
+                )
+            )
         }
         return tBattleData
     }
@@ -66,5 +103,14 @@ struct BattleData{
 
 //戦闘用のキャラデータ
 struct BattleCharaData{
-    
+    let pygmyFlag:Bool//ぴぐみーor敵
+    let raceKey:String//種族のキー
+    let name:String//キャラ名
+    let level:Int//レベル
+    let status:Status//ステータス(全補正値込み)
+    let mobility:Mobility//移動力
+    let currentHp:Int//戦闘開始時のhp
+    let skill:[String]//スキル
+    let item:String//アイテム
+    let itemNum:Int//持ち物の数
 }

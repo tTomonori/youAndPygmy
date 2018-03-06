@@ -11,12 +11,13 @@ import SpriteKit
 
 class ItemBarMaker{
     //アイテム名セット
-    static func setItemLabel(aNode:SKSpriteNode,aItem:(ItemData?,Int)){
+    static func setItemLabel(aNode:SKSpriteNode,aItem:(String,Int)){
         let (tItem,tNum)=aItem
         let tLabel=aNode.childNode(withName:"label")!
-        if(tItem != nil){
+        if(tItem != ""){
             //持ち物あり
-            (tLabel.childNode(withName:"name") as! SKLabelNode).text=tItem!.name
+            let tItemData=ItemDictionary.get(key:tItem)
+            (tLabel.childNode(withName:"name") as! SKLabelNode).text=tItemData.name
             (tLabel.childNode(withName:"x") as! SKLabelNode).text="x"
             (tLabel.childNode(withName:"number") as! SKLabelNode).text=String(tNum)
         }

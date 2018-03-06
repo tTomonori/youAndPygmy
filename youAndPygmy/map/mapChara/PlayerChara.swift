@@ -19,20 +19,15 @@ class PlayerChara : MapChara{
         //操作フラグ
         gGameViewController.denyUserOperate()
         let tDirection=PanOperator.getDirection()
-        if(tDirection==""){gGameViewController.allowUserOperate();print("stay");return}
-        print("moveStart")
+        if(tDirection==""){gGameViewController.allowUserOperate();return}
         //移動
         move(aDirection:tDirection,aEndFunction:{(aResult)->()in
-            print("moveEnd")
             if(!aResult){
-                print("moveFalse")
                 gGameViewController.allowUserOperate()
                 return
             }
-            print("moveTrue")
             //イベント処理
             MapEvent.runEvents(aEvents:self.mTrout.getEvent(),aEndFunction:{()->()in
-                print("endEvent")
                 MapUi.display()
                 self.inputMove()
             })

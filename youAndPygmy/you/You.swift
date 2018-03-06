@@ -21,6 +21,16 @@ class You{
     static func getAccompanying()->[Pygmy]{
         return mAccompanying
     }
+    //戦闘に参加させるぴぐみー取得
+    static func getBattleParticipants(aNum:Int)->[Pygmy]{
+        var tParticipants:[Pygmy]=[]
+        for tPygmy in mAccompanying{
+            if(tPygmy.getCurrentHp()<=0){continue}
+            tParticipants.append(tPygmy)
+            if(tParticipants.count==aNum){break}
+        }
+        return tParticipants
+    }
 }
 
 struct AccompanyingData{

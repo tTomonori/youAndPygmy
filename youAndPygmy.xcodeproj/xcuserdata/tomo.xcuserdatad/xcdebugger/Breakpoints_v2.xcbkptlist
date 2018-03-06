@@ -244,11 +244,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/map/mapChara/PlayerChara.swift"
-            timestampString = "541855723.557507"
+            timestampString = "542011448.47437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "inputMove()"
             landmarkType = "7">
             <Locations>
@@ -356,11 +356,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/map/mapChara/PlayerChara.swift"
-            timestampString = "541855723.557507"
+            timestampString = "542011448.47437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "inputMove()"
             landmarkType = "7">
          </BreakpointContent>

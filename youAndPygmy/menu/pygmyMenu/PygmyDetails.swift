@@ -33,7 +33,7 @@ class PygmyDetails:Menu{
         //名前
         (tInfo.childNode(withName:"name") as! SKLabelNode).text=tPygmy.getName()
         //種族名
-        (tInfo.childNode(withName:"raceName") as! SKLabelNode).text=tPygmy.getRaceData().name
+        (tInfo.childNode(withName:"raceName") as! SKLabelNode).text=tPygmy.getRaceData().raceName
         //レベル
         (tInfo.childNode(withName:"level") as! SKLabelNode).text=String(tPygmy.getLevel())
         //hp

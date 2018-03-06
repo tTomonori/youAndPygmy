@@ -16,14 +16,14 @@ class PygmyDictionary : NSObject{
 
 //キャラ情報
 class RaceData :NSObject{
-    let key:String//種族名(キー名)
-    let name:String//種族名(表示名)
+    let raceKey:String//種族名(キー名)
+    let raceName:String//種族名(表示名)
     let raceStatus:Status//種族値
     let mobility:Mobility//移動力
     let image:Dictionary<String,String>//画像
-    init(key:String,name:String,raceStatus:Status,mobility:Mobility,image:Dictionary<String,String>){
-        self.key=key
-        self.name=name
+    init(raceKey:String,raceName:String,raceStatus:Status,mobility:Mobility,image:Dictionary<String,String>){
+        self.raceKey=raceKey
+        self.raceName=raceName
         self.raceStatus=raceStatus
         self.mobility=mobility
         self.image=image

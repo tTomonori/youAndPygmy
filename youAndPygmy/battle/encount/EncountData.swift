@@ -60,7 +60,16 @@ struct BattleChipData{
 }
 //敵キャラのデータ
 struct BattleEnemyData{
-    let pygmyFlag:Bool
+    let pygmyFlag:Bool//ぴぐみーor敵
+    let raceKey:String//種族のキー
+    let name:String?//キャラ名
+    let level:Int//レベル
+    let status:Status?//ステータス
+    let mobility:Mobility?//移動力
+    let currentHp:Int?//戦闘開始時のhp
+    let skill:[String]//スキル
+    let item:String//アイテム
+    let itemNum:Int//持ち物の数
 }
 //初期化済みの戦闘データ
 struct initializedBattleData{

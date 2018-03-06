@@ -35,7 +35,7 @@ class MapTrout{
     //座標設定
     func setPosition(aPosition:FeildPosition){
         mPosition=aPosition
-        mTrout.position=SCNVector3(x:gTroutSize*aPosition.x,y:gTroutSize*aPosition.y,z:gTroutSize*aPosition.z)
+        mTrout.setPosition(aPosition:mPosition)
     }
     //マップチップ設定
     func setChip(aChip:Dictionary<String,Any>){

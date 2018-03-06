@@ -30,4 +30,11 @@ class TroutNode:SCNNode{
         tObject.position=SCNVector3(0,gTroutSizeCG/2,gTroutSizeCG/10)
         self.addChildNode(tObject)
     }
+    //座標設定
+    func setPosition(aPosition:FeildPosition){
+        self.position=SCNVector3(x:gTroutSize*aPosition.x,y:gTroutSize*aPosition.y,z:gTroutSize*aPosition.z)
+    }
+    func setPosition(aPosition:BattlePosition){
+        self.position=SCNVector3(x:gTroutSize*aPosition.x,y:gTroutSize*0,z:gTroutSize*aPosition.y)
+    }
 }
