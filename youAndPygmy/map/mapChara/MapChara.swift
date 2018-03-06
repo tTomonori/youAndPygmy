@@ -13,38 +13,19 @@ import SceneKit
 var gMoveSpeed:Double=0.2
 
 class MapChara{
-    static let mGeometrySource = [SCNGeometrySource(vertices: gMapCharaVertices, count: gMapCharaVertices.count),
-                                  SCNGeometrySource(normals: gMapCharaNormals, count: gMapCharaNormals.count),
-                                  SCNGeometrySource(textureCoordinates: gMapCharaTexcoords)]
-    var mGeometry:SCNGeometry=SCNGeometry(sources: mGeometrySource, elements: [gPlaneFaceSource])
-    var mCharaImage:UIImage!
-    var mCharaNode:SCNNode//ノード
+    var mCharaNode:PanelNode//ノード
     var mPosition:FeildPosition!//今いる座標
     var mDirection:String!//キャラが向いている方向
     var mTrout:MapTrout!//今いるマス
     var mOperationFlag:Bool=false//falseなら操作可能
-    var mMaterials:[[SCNMaterial]]
     init(aPosition:FeildPosition,aImageName:String){
-        mCharaImage=UIImage(named:aImageName)!//画像設定
-        mCharaNode=SCNNode(geometry:mGeometry)//ノード生成
-        //キャラ画像マテリアル生成
-        mMaterials=[]
-        for tX in 0...2{
-            mMaterials.append([])
-            for tY in 0...3{
-                //画像読み込み&カット
-                let tImage=mCharaImage.cgImage!.cropping(to:
-                    CGRect(x:mCharaImage.size.width/3*CGFloat(tX),y:mCharaImage.size.height/4*CGFloat(tY),
-                           width:mCharaImage.size.width/3,height:mCharaImage.size.height/4))
-                //テクスチャ
-                let tMaterial = SCNMaterial()
-                tMaterial.diffuse.contents=tImage
-                mMaterials[tX].append(tMaterial)
-            }
-        }
+        //キャラ画像のノード生成
+        mCharaNode=PanelNode(aWidth:gTroutSizeCG*1.2,aHeight:gTroutSizeCG*1.2)
+        mCharaNode.setImage(aImage:aImageName,aWidthNum:3,aHeightNum:4)
+        changeImage(aDirection: "down", aNum: 1)//キャラの向き
         //座標設定
         setPosition(aPosition:aPosition)
-        changeImage(aDirection: "down", aNum: 1)//キャラの向き
+        
         mTrout.on(aChara:self)
     }
     //座標設定
@@ -75,7 +56,7 @@ class MapChara{
         }
         mDirection=aDirection
         //テクスチャ
-        mCharaNode.geometry!.materials=[mMaterials[tX][tY]]
+        mCharaNode.changeImage(aX: tX, aY: tY)
     }
     //移動
     func move(aDirection:String,aEndFunction:@escaping ((Bool)->())){
@@ -111,30 +92,3 @@ class MapChara{
         return []
     }
 }
-//頂点座標
-let gMapCharaVertices = [
-    SCNVector3(-gHalf*1.2, +gHalf*1.4, 0), // 左上 0
-    SCNVector3(+gHalf*1.2, +gHalf*1.4, 0), // 右上 1
-    SCNVector3(-gHalf*1.2, -gHalf, 0), // 左下 2
-    SCNVector3(+gHalf*1.2, -gHalf, 0), // 右下 3
-]
-// 各頂点における法線ベクトル
-let gMapCharaNormals = [
-    SCNVector3(0, 0, 1),
-    SCNVector3(0, 0, 1),
-    SCNVector3(0, 0, 1),
-    SCNVector3(0, 0, 1),
-]
-//ポリゴン
-let gMapCharaIndices: [Int32] = [
-    0,2,1,
-    1,2,3
-]
-// 各頂点におけるテクスチャ座標
-let gMapCharaTexcoords:[CGPoint]=[
-    CGPoint(x:0, y:0),
-    CGPoint(x:1, y:0),
-    CGPoint(x:0, y:1),
-    CGPoint(x:1, y:1),
-]
-let gPlaneFaceSource = SCNGeometryElement(indices: gMapCharaIndices, primitiveType: .triangles)

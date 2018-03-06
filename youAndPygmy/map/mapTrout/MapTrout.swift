@@ -50,11 +50,11 @@ class MapTrout{
     //マスの高さ取得
     func getHeight(aDirection:String)->CGFloat?{
         switch aDirection {
-        case "center":return CGFloat(mPosition.y)+mCenterHeight
-        case "up":return CGFloat(mPosition.y)+mUpHeight
-        case "down":return CGFloat(mPosition.y)+mDownHeight
-        case "left":return CGFloat(mPosition.y)+mLeftHeight
-        case "right":return CGFloat(mPosition.y)+mRightHeight
+        case "center":return CGFloat(mPosition.y)+mCenterHeight-0.5
+        case "up":return CGFloat(mPosition.y)+mUpHeight-0.5
+        case "down":return CGFloat(mPosition.y)+mDownHeight-0.5
+        case "left":return CGFloat(mPosition.y)+mLeftHeight-0.5
+        case "right":return CGFloat(mPosition.y)+mRightHeight-0.5
         default:print("謎な位置の高さを取得しようとしたよ→",aDirection)
         }
         return nil

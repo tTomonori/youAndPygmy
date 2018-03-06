@@ -164,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/map/mapChara/MapChara.swift"
-            timestampString = "541855723.557507"
+            timestampString = "542035038.823281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "move(aDirection:aEndFunction:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/map/mapChara/MapChara.swift"
-            timestampString = "541855723.557507"
+            timestampString = "542035038.823281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "animateMove(aDirection:aTrout:aEndFunction:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/map/mapChara/MapChara.swift"
-            timestampString = "541855723.557507"
+            timestampString = "542035038.823281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "animateMove(aDirection:aTrout:aEndFunction:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -292,11 +292,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/map/mapChara/MapChara.swift"
-            timestampString = "541855723.557507"
+            timestampString = "542035038.823281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "animateMove(aDirection:aTrout:aEndFunction:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -308,43 +308,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/map/mapChara/MapChara.swift"
-            timestampString = "541855723.557507"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "animateMove(aDirection:aTrout:aEndFunction:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "youAndPygmy/map/mapChara/MapChara.swift"
-            timestampString = "541855723.557507"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "animateMove(aDirection:aTrout:aEndFunction:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "youAndPygmy/map/mapChara/MapChara.swift"
-            timestampString = "541855723.557507"
+            timestampString = "542035038.823281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
             endingLineNumber = "83"
+            landmarkName = "animateMove(aDirection:aTrout:aEndFunction:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youAndPygmy/map/mapChara/MapChara.swift"
+            timestampString = "542035038.823281"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "animateMove(aDirection:aTrout:aEndFunction:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youAndPygmy/map/mapChara/MapChara.swift"
+            timestampString = "542035038.823281"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "move(aDirection:aEndFunction:)"
             landmarkType = "7">
          </BreakpointContent>

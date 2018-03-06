@@ -14,10 +14,22 @@
 		E51494B9204D06220000406E /* enterBattle.sks in Resources */ = {isa = PBXBuildFile; fileRef = E51494B8204D06220000406E /* enterBattle.sks */; };
 		E5164AAC203EF825000A921C /* SceneChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5164AAB203EF825000A921C /* SceneChanger.swift */; };
 		E5164AAE203EF874000A921C /* changeMap.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5164AAD203EF874000A921C /* changeMap.sks */; };
+		E517324C204EB40C0016A827 /* ObjectMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5173249204EB40C0016A827 /* ObjectMaker.swift */; };
+		E517324D204EB40C0016A827 /* TroutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517324A204EB40C0016A827 /* TroutMaker.swift */; };
+		E517324E204EB40C0016A827 /* TroutNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517324B204EB40C0016A827 /* TroutNode.swift */; };
+		E5173250204EB4110016A827 /* PygmyImageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517324F204EB4110016A827 /* PygmyImageMaker.swift */; };
+		E5173256204EB41C0016A827 /* BarMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5173251204EB41C0016A827 /* BarMaker.swift */; };
+		E5173257204EB41C0016A827 /* ItemBarMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5173252204EB41C0016A827 /* ItemBarMaker.swift */; };
+		E5173258204EB41C0016A827 /* SkillBarMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5173253204EB41C0016A827 /* SkillBarMaker.swift */; };
+		E5173259204EB41C0016A827 /* StatusBarMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5173254204EB41C0016A827 /* StatusBarMaker.swift */; };
+		E517325A204EB41C0016A827 /* StatusDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5173255204EB41C0016A827 /* StatusDisplayer.swift */; };
+		E517325C204EB4580016A827 /* CharaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517325B204EB4580016A827 /* CharaObject.swift */; };
+		E517325E204EB6D70016A827 /* PygmyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517325D204EB6D70016A827 /* PygmyObject.swift */; };
+		E5173260204EB6E40016A827 /* EnemyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517325F204EB6E40016A827 /* EnemyObject.swift */; };
+		E5173262204EBA7F0016A827 /* PanelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5173261204EBA7F0016A827 /* PanelNode.swift */; };
 		E517DE8620468BDE00438614 /* healItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517DE8520468BDE00438614 /* healItems.swift */; };
 		E518691B2037EDE500F12256 /* MapBoxTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518691A2037EDE500F12256 /* MapBoxTrout.swift */; };
 		E518B4D1204BE3E2002AE93C /* debugMap3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518B4D0204BE3E1002AE93C /* debugMap3.swift */; };
-		E518B4D3204C077D002AE93C /* ObjectMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518B4D2204C077D002AE93C /* ObjectMaker.swift */; };
 		E518BEF02043F2030072F0C8 /* ItemDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518BEEF2043F2030072F0C8 /* ItemDictionary.swift */; };
 		E518BEF62043F7050072F0C8 /* debugMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518BEF52043F7050072F0C8 /* debugMap.swift */; };
 		E518BEF82043FA2A0072F0C8 /* StatusCalcurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518BEF72043FA2A0072F0C8 /* StatusCalcurator.swift */; };
@@ -31,7 +43,6 @@
 		E51F5E3C2033DAB80015F328 /* MapChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F5E3B2033DAB80015F328 /* MapChara.swift */; };
 		E51F5E3E2033DB010015F328 /* PlayerChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F5E3D2033DB010015F328 /* PlayerChara.swift */; };
 		E52036B1202D2FBB00BB3ED5 /* MapFeild.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52036B0202D2FBB00BB3ED5 /* MapFeild.swift */; };
-		E52036B6202D52D900BB3ED5 /* TroutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52036B5202D52D900BB3ED5 /* TroutMaker.swift */; };
 		E52036B9202D535200BB3ED5 /* SaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52036B8202D535200BB3ED5 /* SaveData.swift */; };
 		E525D17F203D52E6003C0E6A /* MapUi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525D17E203D52E6003C0E6A /* MapUi.swift */; };
 		E525D181203D54F8003C0E6A /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525D180203D54F8003C0E6A /* SceneController.swift */; };
@@ -42,7 +53,6 @@
 		E525D18E203D6202003C0E6A /* MapEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525D18D203D6202003C0E6A /* MapEvent.swift */; };
 		E526756E2032C0BE005E0235 /* define.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526756D2032C0BD005E0235 /* define.swift */; };
 		E52C881B2043FCF4004AC8AC /* AccessoryDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52C881A2043FCF4004AC8AC /* AccessoryDictionary.swift */; };
-		E52C881D20440ABC004AC8AC /* ItemBarMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52C881C20440ABC004AC8AC /* ItemBarMaker.swift */; };
 		E52FA9AB204530A90032F3EB /* pygmyDetails.sks in Resources */ = {isa = PBXBuildFile; fileRef = E52FA9AA204530A90032F3EB /* pygmyDetails.sks */; };
 		E5456E47203FF09300122781 /* PygmyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5456E46203FF09300122781 /* PygmyMenu.swift */; };
 		E5456E49203FF0A100122781 /* pygmyMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5456E48203FF0A100122781 /* pygmyMenu.sks */; };
@@ -62,18 +72,12 @@
 		E59E4A7820230370009553C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59E4A7620230370009553C9 /* Main.storyboard */; };
 		E59E4A7D20230370009553C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59E4A7B20230370009553C9 /* LaunchScreen.storyboard */; };
 		E5C74E4F20369A220071326D /* mapUi.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5C74E4E20369A220071326D /* mapUi.sks */; };
-		E5C80ED1204541E500F89541 /* PygmyImageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C80ED0204541E500F89541 /* PygmyImageMaker.swift */; };
 		E5C80ED32045488B00F89541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5C80ED22045488B00F89541 /* Assets.xcassets */; };
 		E5C8F85A2041866B00CD908A /* You.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C8F8592041866B00CD908A /* You.swift */; };
 		E5C8F85C2041869700CD908A /* Pygmy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C8F85B2041869700CD908A /* Pygmy.swift */; };
 		E5C8F85E20418C9900CD908A /* PygmyDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C8F85D20418C9900CD908A /* PygmyDictionary.swift */; };
-		E5DC99742042A7980077E254 /* StatusBarMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5DC99732042A7980077E254 /* StatusBarMaker.swift */; };
-		E5E2D8FA2038005E0042F2B9 /* TroutNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E2D8F92038005E0042F2B9 /* TroutNode.swift */; };
-		E5FD5655204A41E300CAD902 /* StatusDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FD5654204A41E300CAD902 /* StatusDisplayer.swift */; };
 		E5FE6DF520492F3B001BFABD /* PygmyDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE6DF420492F3B001BFABD /* PygmyDetails.swift */; };
-		E5FE6DF720493706001BFABD /* SkillBarMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE6DF620493706001BFABD /* SkillBarMaker.swift */; };
 		E5FE6DF920493792001BFABD /* passive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE6DF820493792001BFABD /* passive.swift */; };
-		E5FE6DFB20493AD3001BFABD /* BarMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FE6DFA20493AD3001BFABD /* BarMaker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,10 +88,22 @@
 		E51494B8204D06220000406E /* enterBattle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = enterBattle.sks; sourceTree = "<group>"; };
 		E5164AAB203EF825000A921C /* SceneChanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneChanger.swift; sourceTree = "<group>"; };
 		E5164AAD203EF874000A921C /* changeMap.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = changeMap.sks; sourceTree = "<group>"; };
+		E5173249204EB40C0016A827 /* ObjectMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectMaker.swift; sourceTree = "<group>"; };
+		E517324A204EB40C0016A827 /* TroutMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TroutMaker.swift; sourceTree = "<group>"; };
+		E517324B204EB40C0016A827 /* TroutNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TroutNode.swift; sourceTree = "<group>"; };
+		E517324F204EB4110016A827 /* PygmyImageMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PygmyImageMaker.swift; sourceTree = "<group>"; };
+		E5173251204EB41C0016A827 /* BarMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarMaker.swift; sourceTree = "<group>"; };
+		E5173252204EB41C0016A827 /* ItemBarMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemBarMaker.swift; sourceTree = "<group>"; };
+		E5173253204EB41C0016A827 /* SkillBarMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillBarMaker.swift; sourceTree = "<group>"; };
+		E5173254204EB41C0016A827 /* StatusBarMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarMaker.swift; sourceTree = "<group>"; };
+		E5173255204EB41C0016A827 /* StatusDisplayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusDisplayer.swift; sourceTree = "<group>"; };
+		E517325B204EB4580016A827 /* CharaObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharaObject.swift; sourceTree = "<group>"; };
+		E517325D204EB6D70016A827 /* PygmyObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PygmyObject.swift; sourceTree = "<group>"; };
+		E517325F204EB6E40016A827 /* EnemyObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyObject.swift; sourceTree = "<group>"; };
+		E5173261204EBA7F0016A827 /* PanelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelNode.swift; sourceTree = "<group>"; };
 		E517DE8520468BDE00438614 /* healItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = healItems.swift; sourceTree = "<group>"; };
 		E518691A2037EDE500F12256 /* MapBoxTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapBoxTrout.swift; path = map/mapTrout/MapBoxTrout.swift; sourceTree = "<group>"; };
 		E518B4D0204BE3E1002AE93C /* debugMap3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = debugMap3.swift; sourceTree = "<group>"; };
-		E518B4D2204C077D002AE93C /* ObjectMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectMaker.swift; path = maker/ObjectMaker.swift; sourceTree = "<group>"; };
 		E518BEEF2043F2030072F0C8 /* ItemDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDictionary.swift; sourceTree = "<group>"; };
 		E518BEF52043F7050072F0C8 /* debugMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = debugMap.swift; sourceTree = "<group>"; };
 		E518BEF72043FA2A0072F0C8 /* StatusCalcurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCalcurator.swift; sourceTree = "<group>"; };
@@ -101,7 +117,6 @@
 		E51F5E3B2033DAB80015F328 /* MapChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapChara.swift; path = map/mapChara/MapChara.swift; sourceTree = "<group>"; };
 		E51F5E3D2033DB010015F328 /* PlayerChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerChara.swift; path = map/mapChara/PlayerChara.swift; sourceTree = "<group>"; };
 		E52036B0202D2FBB00BB3ED5 /* MapFeild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapFeild.swift; path = map/MapFeild.swift; sourceTree = "<group>"; };
-		E52036B5202D52D900BB3ED5 /* TroutMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TroutMaker.swift; path = maker/TroutMaker.swift; sourceTree = "<group>"; };
 		E52036B8202D535200BB3ED5 /* SaveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveData.swift; sourceTree = "<group>"; };
 		E525D17E203D52E6003C0E6A /* MapUi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapUi.swift; path = map/MapUi.swift; sourceTree = "<group>"; };
 		E525D180203D54F8003C0E6A /* SceneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
@@ -112,7 +127,6 @@
 		E525D18D203D6202003C0E6A /* MapEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapEvent.swift; path = map/MapEvent.swift; sourceTree = "<group>"; };
 		E526756D2032C0BD005E0235 /* define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = define.swift; sourceTree = "<group>"; };
 		E52C881A2043FCF4004AC8AC /* AccessoryDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryDictionary.swift; sourceTree = "<group>"; };
-		E52C881C20440ABC004AC8AC /* ItemBarMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemBarMaker.swift; path = maker/ItemBarMaker.swift; sourceTree = "<group>"; };
 		E52FA9AA204530A90032F3EB /* pygmyDetails.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = pygmyDetails.sks; path = pygmyMenu/pygmyDetails.sks; sourceTree = "<group>"; };
 		E5456E46203FF09300122781 /* PygmyMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PygmyMenu.swift; path = pygmyMenu/PygmyMenu.swift; sourceTree = "<group>"; };
 		E5456E48203FF0A100122781 /* pygmyMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = pygmyMenu.sks; path = /Users/tomo/Desktop/game/youAndPygmy/youAndPygmy/menu/pygmyMenu/pygmyMenu.sks; sourceTree = "<absolute>"; };
@@ -134,18 +148,12 @@
 		E59E4A7C20230370009553C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E59E4A7E20230370009553C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5C74E4E20369A220071326D /* mapUi.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = mapUi.sks; path = map/mapUi.sks; sourceTree = "<group>"; };
-		E5C80ED0204541E500F89541 /* PygmyImageMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PygmyImageMaker.swift; path = maker/PygmyImageMaker.swift; sourceTree = "<group>"; };
 		E5C80ED22045488B00F89541 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5C8F8592041866B00CD908A /* You.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = You.swift; path = you/You.swift; sourceTree = "<group>"; };
 		E5C8F85B2041869700CD908A /* Pygmy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pygmy.swift; path = you/Pygmy.swift; sourceTree = "<group>"; };
 		E5C8F85D20418C9900CD908A /* PygmyDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PygmyDictionary.swift; sourceTree = "<group>"; };
-		E5DC99732042A7980077E254 /* StatusBarMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusBarMaker.swift; path = maker/StatusBarMaker.swift; sourceTree = "<group>"; };
-		E5E2D8F92038005E0042F2B9 /* TroutNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TroutNode.swift; path = maker/TroutNode.swift; sourceTree = "<group>"; };
-		E5FD5654204A41E300CAD902 /* StatusDisplayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusDisplayer.swift; path = maker/StatusDisplayer.swift; sourceTree = "<group>"; };
 		E5FE6DF420492F3B001BFABD /* PygmyDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PygmyDetails.swift; path = pygmyMenu/PygmyDetails.swift; sourceTree = "<group>"; };
-		E5FE6DF620493706001BFABD /* SkillBarMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkillBarMaker.swift; path = maker/SkillBarMaker.swift; sourceTree = "<group>"; };
 		E5FE6DF820493792001BFABD /* passive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = passive.swift; sourceTree = "<group>"; };
-		E5FE6DFA20493AD3001BFABD /* BarMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarMaker.swift; path = maker/BarMaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +194,40 @@
 				E5164AAD203EF874000A921C /* changeMap.sks */,
 			);
 			path = sceneChange;
+			sourceTree = "<group>";
+		};
+		E5173246204EB3B30016A827 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				E5173251204EB41C0016A827 /* BarMaker.swift */,
+				E5173252204EB41C0016A827 /* ItemBarMaker.swift */,
+				E5173253204EB41C0016A827 /* SkillBarMaker.swift */,
+				E5173254204EB41C0016A827 /* StatusBarMaker.swift */,
+				E5173255204EB41C0016A827 /* StatusDisplayer.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		E5173247204EB3D50016A827 /* pygmy */ = {
+			isa = PBXGroup;
+			children = (
+				E517324F204EB4110016A827 /* PygmyImageMaker.swift */,
+				E517325B204EB4580016A827 /* CharaObject.swift */,
+				E517325D204EB6D70016A827 /* PygmyObject.swift */,
+				E517325F204EB6E40016A827 /* EnemyObject.swift */,
+			);
+			path = pygmy;
+			sourceTree = "<group>";
+		};
+		E5173248204EB3E20016A827 /* object */ = {
+			isa = PBXGroup;
+			children = (
+				E5173249204EB40C0016A827 /* ObjectMaker.swift */,
+				E517324A204EB40C0016A827 /* TroutMaker.swift */,
+				E517324B204EB40C0016A827 /* TroutNode.swift */,
+				E5173261204EBA7F0016A827 /* PanelNode.swift */,
+			);
+			path = object;
 			sourceTree = "<group>";
 		};
 		E51869192037EDB900F12256 /* mapTrout */ = {
@@ -254,17 +296,11 @@
 		E52036B2202D409E00BB3ED5 /* maker */ = {
 			isa = PBXGroup;
 			children = (
-				E52C881C20440ABC004AC8AC /* ItemBarMaker.swift */,
-				E52036B5202D52D900BB3ED5 /* TroutMaker.swift */,
-				E5E2D8F92038005E0042F2B9 /* TroutNode.swift */,
-				E5DC99732042A7980077E254 /* StatusBarMaker.swift */,
-				E5C80ED0204541E500F89541 /* PygmyImageMaker.swift */,
-				E5FE6DF620493706001BFABD /* SkillBarMaker.swift */,
-				E5FE6DFA20493AD3001BFABD /* BarMaker.swift */,
-				E5FD5654204A41E300CAD902 /* StatusDisplayer.swift */,
-				E518B4D2204C077D002AE93C /* ObjectMaker.swift */,
+				E5173248204EB3E20016A827 /* object */,
+				E5173247204EB3D50016A827 /* pygmy */,
+				E5173246204EB3B30016A827 /* ui */,
 			);
-			name = maker;
+			path = maker;
 			sourceTree = "<group>";
 		};
 		E52036B7202D533A00BB3ED5 /* dictionary */ = {
@@ -526,6 +562,7 @@
 			files = (
 				E526756E2032C0BE005E0235 /* define.swift in Sources */,
 				E56580A9204A5C990004137D /* debugMap2.swift in Sources */,
+				E5173259204EB41C0016A827 /* StatusBarMaker.swift in Sources */,
 				E51A0BBC2040FB4F00F97159 /* Menu.swift in Sources */,
 				E505A62F2033DB7F00F781AA /* NonPlayerChara.swift in Sources */,
 				E5580523203D12BC00D1CA09 /* MapTrout.swift in Sources */,
@@ -533,46 +570,49 @@
 				E551357A20468F9E00E7DB84 /* SkillDictionary.swift in Sources */,
 				E518691B2037EDE500F12256 /* MapBoxTrout.swift in Sources */,
 				E51D542F204E70C6003B9408 /* Battle.swift in Sources */,
+				E5173262204EBA7F0016A827 /* PanelNode.swift in Sources */,
 				E5164AAC203EF825000A921C /* SceneChanger.swift in Sources */,
 				E5FE6DF920493792001BFABD /* passive.swift in Sources */,
-				E5E2D8FA2038005E0042F2B9 /* TroutNode.swift in Sources */,
 				E51A59D3203AA15B000D00E3 /* PanOperator.swift in Sources */,
 				E5580525203D133A00D1CA09 /* MapTroutMaker.swift in Sources */,
 				E505A635203419E200F781AA /* MapDictionary.swift in Sources */,
 				E51D542B204E6408003B9408 /* BattleTrout.swift in Sources */,
+				E517325A204EB41C0016A827 /* StatusDisplayer.swift in Sources */,
 				E5C8F85C2041869700CD908A /* Pygmy.swift in Sources */,
+				E517324C204EB40C0016A827 /* ObjectMaker.swift in Sources */,
 				E551357F2046922200E7DB84 /* yamiSkill.swift in Sources */,
 				E51BDEA820468DDA00D358F0 /* totuAccessory.swift in Sources */,
-				E5FE6DFB20493AD3001BFABD /* BarMaker.swift in Sources */,
 				E551357D2046910A00E7DB84 /* totuSkill.swift in Sources */,
 				E525D18E203D6202003C0E6A /* MapEvent.swift in Sources */,
+				E5173260204EB6E40016A827 /* EnemyObject.swift in Sources */,
 				E518BEF02043F2030072F0C8 /* ItemDictionary.swift in Sources */,
-				E518B4D3204C077D002AE93C /* ObjectMaker.swift in Sources */,
 				E56BDA6C203DD374001C4F00 /* SpeakWindow.swift in Sources */,
+				E517325E204EB6D70016A827 /* PygmyObject.swift in Sources */,
+				E5173256204EB41C0016A827 /* BarMaker.swift in Sources */,
 				E525D181203D54F8003C0E6A /* SceneController.swift in Sources */,
+				E5173257204EB41C0016A827 /* ItemBarMaker.swift in Sources */,
 				E52036B9202D535200BB3ED5 /* SaveData.swift in Sources */,
-				E5DC99742042A7980077E254 /* StatusBarMaker.swift in Sources */,
-				E5FD5655204A41E300CAD902 /* StatusDisplayer.swift in Sources */,
 				E518B4D1204BE3E2002AE93C /* debugMap3.swift in Sources */,
 				E51D542A204E6408003B9408 /* BattleChara.swift in Sources */,
 				E518BEF82043FA2A0072F0C8 /* StatusCalcurator.swift in Sources */,
 				E57E0B8A2037EEF900984890 /* MapSlopTrout.swift in Sources */,
 				E51494B3204CD6130000406E /* EncountData.swift in Sources */,
+				E5173258204EB41C0016A827 /* SkillBarMaker.swift in Sources */,
+				E517324E204EB40C0016A827 /* TroutNode.swift in Sources */,
 				E5456E47203FF09300122781 /* PygmyMenu.swift in Sources */,
 				E52C881B2043FCF4004AC8AC /* AccessoryDictionary.swift in Sources */,
-				E5FE6DF720493706001BFABD /* SkillBarMaker.swift in Sources */,
 				E518BEFA2043FA390072F0C8 /* myutansu.swift in Sources */,
 				E525D17F203D52E6003C0E6A /* MapUi.swift in Sources */,
 				E51F5E3C2033DAB80015F328 /* MapChara.swift in Sources */,
-				E52C881D20440ABC004AC8AC /* ItemBarMaker.swift in Sources */,
+				E517325C204EB4580016A827 /* CharaObject.swift in Sources */,
 				E525D186203D57BB003C0E6A /* MainMenu.swift in Sources */,
 				E525D18A203D57D7003C0E6A /* Title.swift in Sources */,
 				E518BEF62043F7050072F0C8 /* debugMap.swift in Sources */,
-				E5C80ED1204541E500F89541 /* PygmyImageMaker.swift in Sources */,
 				E517DE8620468BDE00438614 /* healItems.swift in Sources */,
-				E52036B6202D52D900BB3ED5 /* TroutMaker.swift in Sources */,
 				E51F5E3E2033DB010015F328 /* PlayerChara.swift in Sources */,
 				E52036B1202D2FBB00BB3ED5 /* MapFeild.swift in Sources */,
+				E517324D204EB40C0016A827 /* TroutMaker.swift in Sources */,
+				E5173250204EB4110016A827 /* PygmyImageMaker.swift in Sources */,
 				E5C8F85A2041866B00CD908A /* You.swift in Sources */,
 				E5FE6DF520492F3B001BFABD /* PygmyDetails.swift in Sources */,
 				E5C8F85E20418C9900CD908A /* PygmyDictionary.swift in Sources */,
