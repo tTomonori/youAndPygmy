@@ -23,11 +23,20 @@ struct EncountData{
         let tInitialFeildNum=retrieveRandomly(aList:tEncountGroup)
         let (tFeildNum,tInitialPosition,tEnemyGroupNumList)=initialFeildData[tInitialFeildNum]!
         
+        //的キャラ決定
         var tEnemyData:[BattleEnemyData?]=[]
-        for tEnemyGroupNum in tEnemyGroupNumList{
-            let tEnemyNum=retrieveRandomly(aList:enemyGroup[tEnemyGroupNum]!)
-            let tEnemy=(tEnemyNum == -1) ?nil:enemy[tEnemyNum]
-            tEnemyData.append(tEnemy)
+        decide_enemy: while(true){
+            tEnemyData=[]
+            for tEnemyGroupNum in tEnemyGroupNumList{
+                let tEnemyNum=retrieveRandomly(aList:enemyGroup[tEnemyGroupNum]!)
+                let tEnemy=(tEnemyNum == -1) ?nil:enemy[tEnemyNum]
+                tEnemyData.append(tEnemy)
+            }
+            //敵キャラが無しになったら決定し直し
+            for tData in tEnemyData{
+                if(tData != nil){break decide_enemy}//敵キャラが一体以上いた
+            }
+            continue//的キャラ無しなのでやり直し
         }
         
         return initializedBattleData(
@@ -39,10 +48,15 @@ struct EncountData{
     }
     //当選確率のリストからランダムに取り出す
     func retrieveRandomly(aList:[(Int,Double)])->Int{
-        let tRandom:Double=Double(arc4random_uniform(1000)/10)
+        var tTotalProbability=0.0
+        for (_,tProbability) in aList{tTotalProbability += tProbability}
+        let tRandom:Double=Double(arc4random_uniform(UInt32(tTotalProbability*10))/10)
+        
+        var tTotal=0.0
         for tData in aList{
             let (tElement,tProbability)=tData
-            if(tProbability<tRandom){continue}
+            tTotal += tProbability
+            if(tTotal<tRandom){continue}
             return tElement
         }
         print("当選確率がおかしいよ",aList)

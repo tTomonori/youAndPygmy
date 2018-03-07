@@ -62,18 +62,31 @@ extension MapDictionary{
                        [0,0,0,0,0,0,0,0]],
                 chip:[0:BattleChipData(attribute:"grass",terrain:"grass")]
                 )],
-            enemyGroup:[0:[(0,100)]],
-            enemy:[0:BattleEnemyData(
-                pygmyFlag: true,
-                raceKey: "myutansu",
-                name: nil,
-                level: 9,
-                status: nil,
-                mobility: nil,
-                currentHp: nil,
-                skill: ["sougeki"],
-                item: "",
-                itemNum: 0
+            enemyGroup:[0:[(0,20),(1,50),(-1,30)]],
+            enemy:[
+                0:BattleEnemyData(
+                    pygmyFlag: true,
+                    raceKey: "myutansu",
+                    name: nil,
+                    level: 9,
+                    status: nil,
+                    mobility: nil,
+                    currentHp: nil,
+                    skill: ["sougeki"],
+                    item: "",
+                    itemNum: 0
+                ),
+                1:BattleEnemyData(
+                    pygmyFlag: false,
+                    raceKey: "kedama",
+                    name: nil,
+                    level: 10,
+                    status: nil,
+                    mobility: nil,
+                    currentHp: nil,
+                    skill: ["zutuki"],
+                    item: "",
+                    itemNum: 0
                 )
             ]
         )

@@ -11,6 +11,7 @@ import Foundation
 extension SkillDictionary{
     static let kansen=SkillData(
         name:"感染",
-        category:SkillCategory.magic
+        category:SkillCategory.magic,
+        type:.ja
     )
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import SpriteKit
+import SceneKit
 
 let gEmptyFunction={()->()in}
 
@@ -27,9 +28,13 @@ func + (left: Int, right: Float) -> Float{
 func * (left: Float, right: Int) -> Float{
     return left * Float(right)
 }
-//int + cgfloat
+//int + CGFloat
 func + (left: Int, right: CGFloat) -> Float{
     return left + Float(right)
+}
+//int * CGFloat
+func * (left: Int, right: CGFloat) -> CGFloat{
+    return CGFloat(left) * right
 }
 //cgpoint - cgpoint
 func - (left:CGPoint,right:CGPoint)->CGPoint{
@@ -57,6 +62,9 @@ struct FeildPosition{
 struct BattlePosition{
     let x:Int
     let y:Int
+    func convertVector()->SCNVector3{
+        return SCNVector3(x*gTroutSizeCG,0.5*gTroutSizeCG,y*gTroutSizeCG)
+    }
 }
 
 /*

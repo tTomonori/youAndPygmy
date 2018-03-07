@@ -9,7 +9,7 @@
 import Foundation
 import SceneKit
 
-var gPlayerChara:PlayerChara!=PlayerChara(aPosition:FeildPosition(x:0,y:0,z:0))
+var gPlayerChara:PlayerChara!=nil
 class PlayerChara : MapChara{
     init(aPosition:FeildPosition){
         super.init(aPosition: aPosition, aImageName: "chara")

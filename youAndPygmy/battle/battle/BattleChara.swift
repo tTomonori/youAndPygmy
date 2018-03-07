@@ -10,9 +10,10 @@ import Foundation
 import SceneKit
 
 class BattleChara{
-    private let mNode:SCNNode
+    private let mNode:CharaNode
     init(aData:BattleCharaData,aPosition:BattlePosition){
-        mNode=SCNNode()
+        mNode=CharaNode.init(aData:aData.image)
+        mNode.setPosition(aPosition:aPosition)
     }
     func getNode()->SCNNode{return mNode}
 }

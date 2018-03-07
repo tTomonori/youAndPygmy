@@ -54,7 +54,7 @@ class Battle{
         mCameraNode=SCNNode()
         mCameraNode.camera=SCNCamera()
         mCameraNode.rotation=SCNVector4(-1,-0.5*Float.pi,0,0.2*Float.pi)
-        mCameraNode.position=SCNVector3(x:gTroutSize*(-3),y:gTroutSize*2.7,z:gTroutSize*(aBattleData.feild.feild.count+3))
+        mCameraNode.position=SCNVector3(x:gTroutSize*(-2),y:gTroutSize*2.7,z:gTroutSize*(aBattleData.feild.feild.count+2))
         mScene.rootNode.addChildNode(mCameraNode)
     }
     //戦闘開始

@@ -46,12 +46,17 @@ class PanelNode:SCNNode{
                                SCNGeometrySource(normals: PanelNode.mNormals, count: PanelNode.mNormals.count),
                                SCNGeometrySource(textureCoordinates: PanelNode.mTexcoords)]
         let tGeometry:SCNGeometry=SCNGeometry(sources: tGeometrySource, elements: [tPlaneFaceSource])
-        //マテリアル
         self.geometry=tGeometry
     }
     //SCNNodeを継承し、イニシャライザを実装するなら必要(らしい?)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    //透明にする
+    func toPenetrate(){
+        let tMaterial=SCNMaterial()
+        tMaterial.diffuse.contents=UIColor(red:0,green:0,blue:0,alpha:0)
+        self.geometry!.materials=[tMaterial]
     }
     ////////////////////////////////////////
     //画像設定(画像変更しない場合)

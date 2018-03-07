@@ -10,6 +10,7 @@ import Foundation
 
 extension AccessoryDictionary{
     static let kanzasi=AccessoryData(
-        name:"簪"
+        name:"簪",
+        image:""
     )
 }

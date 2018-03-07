@@ -9,7 +9,7 @@
 import Foundation
 
 extension PygmyDictionary{
-    static let myutansu=RaceData(
+    static let myutansu=PygmyRaceData(
         raceKey:"myutansu",
         raceName:"みゅーたんす",
         raceStatus:Status(
@@ -37,6 +37,11 @@ extension PygmyDictionary{
             body:["normal":"myutansu_body"],
             eye:["normal":"myutansu_eye","damage":"myutansu_eye_damage"],
             mouth:["normal":"myutansu_mouth","damage":"myutansu_mouth_damage"]
-        )
+        ),
+        skills:[
+            (0,"sougeki"),
+            (10,"kansen")
+        ],
+        equipType:[.totu]
     )
 }

@@ -65,6 +65,12 @@ class MapFeild{
     static func makeTroutKey(aX:Int,aY:Int,aZ:Int)->String{
     return String(aX)+","+String(aY)+","+String(aZ)
     }
+    //自キャラ配置(ゲーム起動時)
+    static func initHero(aPosition:FeildPosition){
+        //自キャラ
+        gPlayerChara=PlayerChara.init(aPosition:aPosition)
+        mScene.rootNode.addChildNode(gPlayerChara.getNode())
+    }
     //自キャラ配置
     static func setHero(aPosition:FeildPosition){
         //自キャラ

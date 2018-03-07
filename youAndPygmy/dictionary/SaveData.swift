@@ -14,9 +14,8 @@ class SaveData{
     private static var mAccompanying:[AccompanyingData]!
     private static var mEncountCount:Int=5
     static func load(){
-        mMapName="debug"
-        mPosition=FeildPosition(x:4,y:1,z:0)
-//        mPosition=FeildPosition(x:0,y:0,z:1)
+        mMapName="debug3"
+        mPosition=FeildPosition(x:1,y:1,z:1)
         mAccompanying=[
                     AccompanyingData(
                         name:"みう",

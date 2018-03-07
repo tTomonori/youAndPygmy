@@ -29,11 +29,12 @@ class ItemBarMaker{
         }
     }
     //アクセサリ名セット
-    static func setAccessoryLabel(aNode:SKSpriteNode,aAccessory:AccessoryData?){
+    static func setAccessoryLabel(aNode:SKSpriteNode,aAccessory:String){
         let tLabel=aNode.childNode(withName:"label")!
-        if(aAccessory != nil){
+        if(aAccessory != ""){
             //持ち物あり
-            (tLabel.childNode(withName:"name") as! SKLabelNode).text=aAccessory!.name
+            let tAccessoryData=AccessoryDictionary.get(key:aAccessory)
+            (tLabel.childNode(withName:"name") as! SKLabelNode).text=tAccessoryData.name
         }
         else{
             //持ち物なし

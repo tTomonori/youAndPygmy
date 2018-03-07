@@ -17,12 +17,15 @@ class SkillDictionary:NSObject{
 class SkillData:NSObject{
     let name:String//スキル名
     let category:SkillCategory//物理or魔法or支援or回復orパッシブ
+    let type:SkillType//属性
     init(
         name:String,
-        category:SkillCategory
+        category:SkillCategory,
+        type:SkillType
         ){
         self.name=name
         self.category=category
+        self.type=type
     }
 }
 
@@ -32,4 +35,13 @@ enum SkillCategory {
     case assist//支援
     case heal//回復
     case passive//パッシブ
+}
+enum SkillType{
+    case zan//斬
+    case totu//突
+    case da//打
+    case hi//火
+    case water//水
+    case sei//聖
+    case ja//邪
 }

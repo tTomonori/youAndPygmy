@@ -39,7 +39,7 @@ class Encounter{
             if(tEnemyData==nil){tBattleData.append(nil);continue}
             let tRaceData=(tEnemyData!.pygmyFlag)
                 ?PygmyDictionary.get(key:tEnemyData!.raceKey)
-                :PygmyDictionary.get(key:tEnemyData!.raceKey)
+                :EnemyDictionary.get(key:tEnemyData!.raceKey)
             tBattleData.append(BattleCharaData(
                 pygmyFlag: tEnemyData!.pygmyFlag,
                 raceKey: tEnemyData!.raceKey,
@@ -56,7 +56,8 @@ class Encounter{
                   :(tRaceData.raceStatus.hp<tEnemyData!.currentHp!) ?tRaceData.raceStatus.hp:tEnemyData!.currentHp!,
                 skill: tEnemyData!.skill,
                 item: tEnemyData!.item,
-                itemNum: tEnemyData!.itemNum
+                itemNum: tEnemyData!.itemNum,
+                image:tRaceData.image
             ))
         }
         return tBattleData
@@ -80,7 +81,8 @@ class Encounter{
                 currentHp: tPygmy.getCurrentHp(),
                 skill: tPygmy.getSettedSkills(),
                 item: tItemKey,
-                itemNum: tItemNum
+                itemNum: tItemNum,
+                image:tPygmy.getImage()
                 )
             )
         }
@@ -113,4 +115,5 @@ struct BattleCharaData{
     let skill:[String]//スキル
     let item:String//アイテム
     let itemNum:Int//持ち物の数
+    let image:CharaImageData//画像
 }

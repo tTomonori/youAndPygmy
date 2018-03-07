@@ -16,7 +16,15 @@ class AccessoryDictionary:NSObject{
 
 class AccessoryData:NSObject{
     let name:String//アクセサリ名
-    init(name:String){
+    let image:String//画像名
+    init(name:String,image:String){
         self.name=name
+        self.image=image
     }
+}
+
+enum AccessoryType{
+    case zan
+    case totu
+    case da
 }

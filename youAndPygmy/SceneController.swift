@@ -21,7 +21,7 @@ class SceneController{
         //マップ設定
         MapFeild.setMap(aMapData:MapDictionary.get(key:SaveData.getMapName()))
         //自キャラ配置
-        MapFeild.setHero(aPosition:SaveData.getPosition())
+        MapFeild.initHero(aPosition:SaveData.getPosition())
         MapFeild.makeCameraFollowHero()
         MapFeild.display()
         MapUi.display()

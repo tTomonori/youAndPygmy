@@ -12,7 +12,7 @@ import SceneKit
 
 class Pygmy{
     private var mName:String//名前
-    private var mRaceData:RaceData//種族値+α
+    private var mRaceData:PygmyRaceData//種族値+α
     private var mPersonal:Status//個性値
     private var mLevel:Int//レベル
     private var mStatus:Status//ステータス
@@ -21,7 +21,7 @@ class Pygmy{
     private var mMasteredSkills:[String]//習得しているスキル
     private var mItem:String//持ち物
     private var mItemNum:Int//持ち物の数
-    private var mAccessory:AccessoryData?//アクセサリ
+    private var mAccessory:String//アクセサリ
     init(aData:AccompanyingData){
         mName=aData.name
         mRaceData=PygmyDictionary.get(key:aData.raceName)
@@ -33,11 +33,11 @@ class Pygmy{
         mMasteredSkills=aData.masteredSkills
         mItem=aData.item
         mItemNum=aData.itemNum
-        mAccessory=(aData.accessory != "") ? AccessoryDictionary.get(key:aData.accessory):nil
+        mAccessory=aData.accessory
     }
     //データ取得
     func getName()->String{return mName}
-    func getRaceData()->RaceData{return mRaceData}
+    func getRaceData()->PygmyRaceData{return mRaceData}
     func getLevel()->Int{return mLevel}
     func getStatus()->Status{return mStatus}
     func getCurrentHp()->Int{return mCurrentHp}
@@ -45,8 +45,13 @@ class Pygmy{
     func getNextExperience()->Int{return 100}
     func getMasteredSkills()->[String]{return mMasteredSkills}
     func getItem()->(String,Int){return (mItem,mItemNum)}
-    func getAccessory()->AccessoryData?{return mAccessory}
-    func getImage()->CharaImageData{return mRaceData.image}
+    func getAccessory()->String{return mAccessory}
+    func getImage()->CharaImageData{
+        if(mAccessory != ""){//アクセサリあり
+            return CharaImageData.init(base:mRaceData.image,accessory:AccessoryDictionary.get(key:mAccessory).image)
+        }
+        return CharaImageData.init(base:mRaceData.image,accessory:nil)
+    }
     func getSettedSkills()->[String]{
         var tSettedSkills:[String]=[]
         for i in mSettedSkills{

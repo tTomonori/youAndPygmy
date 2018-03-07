@@ -11,6 +11,7 @@ import Foundation
 extension SkillDictionary{
     static let kansengen=SkillData(
         name:"感染源",
-        category:SkillCategory.passive
+        category:SkillCategory.passive,
+        type:.ja
     )
 }
