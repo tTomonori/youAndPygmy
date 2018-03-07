@@ -46,6 +46,7 @@ class Pygmy{
     func getMasteredSkills()->[String]{return mMasteredSkills}
     func getItem()->(String,Int){return (mItem,mItemNum)}
     func getAccessory()->AccessoryData?{return mAccessory}
+    func getImage()->CharaImageData{return mRaceData.image}
     func getSettedSkills()->[String]{
         var tSettedSkills:[String]=[]
         for i in mSettedSkills{

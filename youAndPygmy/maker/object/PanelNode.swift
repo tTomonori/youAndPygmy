@@ -82,9 +82,9 @@ class PanelNode:SCNNode{
         let tOriginalImage=UIImage(named:aImage)!
         let tWidth=tOriginalImage.size.width/CGFloat(aWidthNum)
         let tHeight=tOriginalImage.size.height/CGFloat(aHeightNum)
-        for tX in 0...aWidthNum{
+        for tX in 0..<aWidthNum{
             mDividedMaterials.append([])
-            for tY in 0...aHeightNum{
+            for tY in 0..<aHeightNum{
                 //画像読み込み&カット
                 let tImage=tOriginalImage.cgImage!.cropping(to:
                     CGRect(x:tWidth*CGFloat(tX),

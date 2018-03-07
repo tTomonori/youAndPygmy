@@ -33,10 +33,10 @@ extension PygmyDictionary{
             ice:2,
             air:-1
         ),
-        image:[
-            "body":"mutansu_body",
-            "eye":"mutansu_eye",
-            "mouth":"mutansu_mouth"
-        ]
+        image:CharaImageData.init(
+            body:["normal":"myutansu_body"],
+            eye:["normal":"myutansu_eye","damage":"myutansu_eye_damage"],
+            mouth:["normal":"myutansu_mouth","damage":"myutansu_mouth_damage"]
+        )
     )
 }

@@ -15,7 +15,6 @@ class CharaObject{
         mNode=SCNNode()
         for i in 0..<aImage.count{
             let tImageName=aImage[i]
-            
         }
     }
 }
