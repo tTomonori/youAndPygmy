@@ -27,7 +27,7 @@ class PygmyDetails:Menu{
         let tPygmies=You.getAccompanying()
         let tPygmy=tPygmies[aOptions["accompanyingNum"] as! Int]
         //画像
-        PygmyImageMaker.setImage(aNode:mScene.childNode(withName:"image") as! SKSpriteNode,aPygmy:tPygmy)
+        PygmyImageMaker.setImage(aNode:mScene.childNode(withName:"image")!,aImageData:tPygmy.getImage())
         //キャラ基本情報
         let tInfo=mScene.childNode(withName:"infoBox")!
         //名前

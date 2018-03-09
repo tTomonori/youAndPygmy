@@ -8,13 +8,16 @@
 
 import Foundation
 import SceneKit
+import SpriteKit
 
 class Battle{
     private static var mScene:SCNScene!
-    private static var mTrouts:[BattleTrout]!
-    private static var mCameraNode:SCNNode!
-    private static var mAllies:[BattleChara]!
-    private static var mEnemies:[BattleChara]!
+    private static var mUiScene:SKScene!
+    private static var mTrouts:[[BattleTrout]]!
+    private static var mCameraNode:SCNNode!//カメラ
+    private static var mAllies:[BattleChara]!//味方
+    private static var mEnemies:[BattleChara]!//敵
+    private static var mEndFunction:((String)->())!//戦闘終了時に呼ぶ関数
     //戦闘情報をセット
     static func setBattle(aBattleData:BattleData){
         mScene=SCNScene()
@@ -24,20 +27,22 @@ class Battle{
         //マス設定
         for tY in 0..<aBattleData.feild.feild.count{
             let tLine=aBattleData.feild.feild[tY]
+            var tMasList:[BattleTrout]=[]
             for tX in 0..<tLine.count{
                 let tChipNum=tLine[tX]
                 let tChipData=aBattleData.feild.chip[tChipNum]!
                 let tTrout=BattleTrout(aChip:tChipData,aPosition:BattlePosition(x:tX,y:tY))
                 mScene.rootNode.addChildNode(tTrout.getNode())
-                mTrouts.append(tTrout)
+                tMasList.append(tTrout)
             }
+            mTrouts.append(tMasList)
         }
         //味方配置
         for i in 0..<aBattleData.allies.count{
             let tBattleData=aBattleData.allies[i]
             if(tBattleData==nil){continue}
             let tPosition=aBattleData.allyPosition[i]
-            let tChara=BattleChara(aData:tBattleData!,aPosition:tPosition)
+            let tChara=BattleChara(aData:tBattleData!,aPosition:tPosition,aTeam:.you)
             mScene.rootNode.addChildNode(tChara.getNode())
             mAllies.append(tChara)
         }
@@ -46,7 +51,7 @@ class Battle{
             let tBattleData=aBattleData.enemies[i]
             if(tBattleData==nil){continue}
             let tPosition=aBattleData.enemyPosition[i]
-            let tChara=BattleChara(aData:tBattleData!,aPosition:tPosition)
+            let tChara=BattleChara(aData:tBattleData!,aPosition:tPosition,aTeam:.enemy)
             mScene.rootNode.addChildNode(tChara.getNode())
             mEnemies.append(tChara)
         }
@@ -56,13 +61,36 @@ class Battle{
         mCameraNode.rotation=SCNVector4(-1,-0.5*Float.pi,0,0.2*Float.pi)
         mCameraNode.position=SCNVector3(x:gTroutSize*(-2),y:gTroutSize*2.7,z:gTroutSize*(aBattleData.feild.feild.count+2))
         mScene.rootNode.addChildNode(mCameraNode)
+        
+        Turn.setCharas(aCharas:mAllies+mEnemies)
     }
     //戦闘開始
-    static func start(aEndFunction:(String)->()){
-        aEndFunction("win")
+    static func start(aEndFunction:@escaping (String)->()){
+        mEndFunction=aEndFunction
+        mUiScene=SKScene(fileNamed:"battleDataUi")
+        gGameViewController.set2dScene(aScene:mUiScene)
+        Turn.start()
     }
     //シーン表示
     static func display(){
         gGameViewController.set3dScene(aScene:mScene)
+    }
+    static func addScene(aFileName:String,aDisplay:Bool){
+        let tNode=SKScene(fileNamed:aFileName)!.children[0]
+        tNode.removeFromParent()
+        if(!aDisplay){tNode.alpha=0}
+        mUiScene.addChild(tNode)
+    }
+    //マス取得
+    static func getTrout(aPosition:BattlePosition)->BattleTrout?{
+        if(aPosition.x<0){return nil}
+        if(aPosition.y<0){return nil}
+        if(aPosition.y>=mTrouts.count){return nil}
+        if(aPosition.x>=mTrouts[aPosition.y].count){return nil}
+        return mTrouts[aPosition.y][aPosition.x]
+    }
+    //uisceneのノード取得
+    static func getNodeFromScene(aName:String)->SKNode?{
+        return mUiScene.childNode(withName:aName)
     }
 }

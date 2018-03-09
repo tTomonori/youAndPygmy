@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class CharaAi{
+    static func toAct(aChara:BattleChara){
+        
+    }
+}
+
+enum AiType{
+    case you
+    case tonikakunaguru
+}

@@ -11,7 +11,7 @@ import SpriteKit
 
 class ItemBarMaker{
     //アイテム名セット
-    static func setItemLabel(aNode:SKSpriteNode,aItem:(String,Int)){
+    static func setItemLabel(aNode:SKNode,aItem:(String,Int)){
         let (tItem,tNum)=aItem
         let tLabel=aNode.childNode(withName:"label")!
         if(tItem != ""){

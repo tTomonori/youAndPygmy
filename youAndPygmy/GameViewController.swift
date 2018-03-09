@@ -17,8 +17,8 @@ var gScreenSize: CGSize = UIScreen.main.bounds.size
 
 var gEmptySprite=SKScene()
 var gEmptyScene=SCNScene()
-
 class GameViewController: UIViewController {
+    //ユーザの操作を受け付けるか
     private var mUserOperationRight:Bool=false
     //main関数
     override func viewDidLoad() {
@@ -54,22 +54,13 @@ class GameViewController: UIViewController {
             let tNodes=tScene.nodes(at: t2dPoint);
             for tNode in tNodes{
                 let tFunction:[Any]
-                if tNode.accessibilityElements != nil{
-                    tFunction=tNode.accessibilityElements!
-                }
-                else{
-                    tFunction=["none"]
-                }
+                if tNode.accessibilityElements != nil{tFunction=tNode.accessibilityElements!}
+                else{tFunction=["none"]}
                 switch tFunction[0] as! String {
-                case "run":
-                    (tFunction[1] as! ()->())();
-                    return;
-                case "block":
-                    return;
-                case "none":
-                    break;
-                default:
-                    break;
+                case "run":(tFunction[1] as! ()->())();return
+                case "block":return
+                case "none":break
+                default:break
                 }
             }
         }
@@ -77,20 +68,14 @@ class GameViewController: UIViewController {
             //3dシーン
             let tObjects=tView.hitTest(tPoint);
             for tObject in tObjects{
-                if(tObject.node.accessibilityElements == nil){
-                    return;
-                }
-                let tFunction=tObject.node.accessibilityElements!;
+                let tFunction:[Any]
+                if(tObject.node.accessibilityElements == nil){tFunction=["none"]}
+                else{tFunction=tObject.node.accessibilityElements!}
                 switch tFunction[0] as! String {
-                case "run":
-                    (tFunction[1] as! ()->())();
-                    break;
-                case "block":
-                    return;
-                case "none":
-                    break;
-                default:
-                    break;
+                case "run":(tFunction[1] as! ()->())();return
+                case "block":return
+                case "none":break
+                default:break
                 }
             }
         }

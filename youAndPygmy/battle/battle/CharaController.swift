@@ -7,3 +7,15 @@
 //
 
 import Foundation
+import SceneKit
+
+class CharaController{
+    static var mRoute:[(BattleTrout,[BattlePosition])]!
+    static func toAct(aChara:BattleChara){
+        mRoute=RouteSearcher.search(aChara:aChara)
+        for (tTrout,_) in mRoute{
+            tTrout.changeColor(aColor:UIColor(red:0,green:0,blue:1,alpha:0.4))
+        }
+        gGameViewController.allowUserOperate()
+    }
+}

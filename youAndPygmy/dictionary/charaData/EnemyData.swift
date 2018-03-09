@@ -18,6 +18,7 @@ class EnemyRaceData:RaceData{
         mobility:Mobility,
         image:CharaImageData,
         skills:[(Int,String)],
+        ai:AiType,
         strongType:[(SkillType,Int)],
         weakType:[(SkillType,Int)]
         ){
@@ -29,7 +30,8 @@ class EnemyRaceData:RaceData{
             raceStatus:raceStatus,
             mobility:mobility,
             image:image,
-            skills:skills
+            skills:skills,
+            ai:ai
         )
     }
 }

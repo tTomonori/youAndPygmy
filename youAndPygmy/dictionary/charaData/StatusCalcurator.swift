@@ -29,6 +29,9 @@ class StatusCalcurator{
             pie:(aRaceStatus.pie+tPersonality.pie)*(5+95*aLevel/100)/100
         )
     }
+    static func calcurate(aRaceStatus:Status,aLevel:Int)->Status{
+        return calcurate(aRaceStatus:aRaceStatus,aLevel:aLevel,aPersonality:gZeroStatus)
+    }
 }
 
 struct Status{
@@ -57,31 +60,7 @@ struct Status{
         return 0
     }
 }
-struct Mobility{
-    let mov:Double//移動力
-    let grass:Double//草原
-    let sand:Double//砂地
-    let water:Double//水路
-    let magma:Double//溶岩
-    let snow:Double//雪原
-    let ice:Double//氷上
-    let air:Double//空中
-    func get(key:String)->Double{
-      switch key {
-        case "move":fallthrough
-        case "mov":return mov
-        case "grass":return grass
-        case "sand":return sand
-        case "water":return water
-        case "magma":return magma
-        case "snow":return snow
-        case "ice":return ice
-        case "air":return air
-        default:print("不正な地形属性名",key)
-      }
-      return -1
-    }
-}
+let gZeroStatus=Status(hp:0,mp:0,atk:0,def:0,int:0,spt:0,dex:0,spd:0,pie:0)
 func + (left:Status,right:Status)->Status{
     return Status(
         hp: left.hp+right.hp,

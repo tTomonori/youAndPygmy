@@ -41,6 +41,7 @@ extension EnemyDictionary{
         skills:[
             (0,"zutuki"),
         ],
+        ai: .tonikakunaguru,
         strongType:[],
         weakType:[]
     )

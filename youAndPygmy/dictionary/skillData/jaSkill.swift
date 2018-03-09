@@ -12,6 +12,9 @@ extension SkillDictionary{
     static let kansen=SkillData(
         name:"感染",
         category:SkillCategory.magic,
-        type:.ja
+        type:.ja,
+        mp:5,
+        counter:false,
+        power:0
     )
 }

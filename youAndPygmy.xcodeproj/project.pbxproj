@@ -64,8 +64,16 @@
 		E55257D920501A0400D140BE /* EnemyDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55257D820501A0400D140BE /* EnemyDictionary.swift */; };
 		E55257DB20501A2B00D140BE /* kedama.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55257DA20501A2B00D140BE /* kedama.swift */; };
 		E55257DD20501B1400D140BE /* daSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55257DC20501B1400D140BE /* daSkill.swift */; };
+		E55257DF2050338000D140BE /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55257DE2050338000D140BE /* Turn.swift */; };
+		E55257E120503D2A00D140BE /* CharaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55257E020503D2A00D140BE /* CharaController.swift */; };
+		E55257E320503D4200D140BE /* CharaAi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55257E220503D4200D140BE /* CharaAi.swift */; };
+		E55257E52050408C00D140BE /* RouteSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55257E42050408C00D140BE /* RouteSearcher.swift */; };
 		E5580523203D12BC00D1CA09 /* MapTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5580522203D12BC00D1CA09 /* MapTrout.swift */; };
 		E5580525203D133A00D1CA09 /* MapTroutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5580524203D133A00D1CA09 /* MapTroutMaker.swift */; };
+		E55CD8B32050D9E30083D984 /* TroutAttributeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55CD8B22050D9E30083D984 /* TroutAttributeDictionary.swift */; };
+		E55CD8B6205114410083D984 /* TroutTapMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55CD8B5205114410083D984 /* TroutTapMonitor.swift */; };
+		E55CD8B8205117D60083D984 /* BattleDataUi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55CD8B7205117D60083D984 /* BattleDataUi.swift */; };
+		E55CD8BA205118DE0083D984 /* battleDataUi.sks in Resources */ = {isa = PBXBuildFile; fileRef = E55CD8B9205118DE0083D984 /* battleDataUi.sks */; };
 		E56580A9204A5C990004137D /* debugMap2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56580A8204A5C990004137D /* debugMap2.swift */; };
 		E56BDA6C203DD374001C4F00 /* SpeakWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56BDA6B203DD374001C4F00 /* SpeakWindow.swift */; };
 		E56BDA6E203DD3BD001C4F00 /* speakWindow.sks in Resources */ = {isa = PBXBuildFile; fileRef = E56BDA6D203DD3BD001C4F00 /* speakWindow.sks */; };
@@ -142,8 +150,16 @@
 		E55257D820501A0400D140BE /* EnemyDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyDictionary.swift; sourceTree = "<group>"; };
 		E55257DA20501A2B00D140BE /* kedama.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kedama.swift; sourceTree = "<group>"; };
 		E55257DC20501B1400D140BE /* daSkill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = daSkill.swift; sourceTree = "<group>"; };
+		E55257DE2050338000D140BE /* Turn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
+		E55257E020503D2A00D140BE /* CharaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharaController.swift; sourceTree = "<group>"; };
+		E55257E220503D4200D140BE /* CharaAi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharaAi.swift; sourceTree = "<group>"; };
+		E55257E42050408C00D140BE /* RouteSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteSearcher.swift; sourceTree = "<group>"; };
 		E5580522203D12BC00D1CA09 /* MapTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTrout.swift; path = map/mapTrout/MapTrout.swift; sourceTree = "<group>"; };
 		E5580524203D133A00D1CA09 /* MapTroutMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTroutMaker.swift; path = map/MapTroutMaker.swift; sourceTree = "<group>"; };
+		E55CD8B22050D9E30083D984 /* TroutAttributeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TroutAttributeDictionary.swift; sourceTree = "<group>"; };
+		E55CD8B5205114410083D984 /* TroutTapMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TroutTapMonitor.swift; sourceTree = "<group>"; };
+		E55CD8B7205117D60083D984 /* BattleDataUi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleDataUi.swift; sourceTree = "<group>"; };
+		E55CD8B9205118DE0083D984 /* battleDataUi.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = battleDataUi.sks; sourceTree = "<group>"; };
 		E56580A8204A5C990004137D /* debugMap2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = debugMap2.swift; sourceTree = "<group>"; };
 		E56BDA6B203DD374001C4F00 /* SpeakWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeakWindow.swift; path = textWindow/SpeakWindow.swift; sourceTree = "<group>"; };
 		E56BDA6D203DD3BD001C4F00 /* speakWindow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = speakWindow.sks; path = textWindow/speakWindow.sks; sourceTree = "<group>"; };
@@ -285,6 +301,13 @@
 				E51D542E204E70C6003B9408 /* Battle.swift */,
 				E51D5427204E6408003B9408 /* BattleChara.swift */,
 				E51D5428204E6408003B9408 /* BattleTrout.swift */,
+				E55257DE2050338000D140BE /* Turn.swift */,
+				E55257E020503D2A00D140BE /* CharaController.swift */,
+				E55257E220503D4200D140BE /* CharaAi.swift */,
+				E55257E42050408C00D140BE /* RouteSearcher.swift */,
+				E55CD8B5205114410083D984 /* TroutTapMonitor.swift */,
+				E55CD8B7205117D60083D984 /* BattleDataUi.swift */,
+				E55CD8B9205118DE0083D984 /* battleDataUi.sks */,
 			);
 			path = battle;
 			sourceTree = "<group>";
@@ -324,6 +347,7 @@
 				E52C881A2043FCF4004AC8AC /* AccessoryDictionary.swift */,
 				E551357920468F9E00E7DB84 /* SkillDictionary.swift */,
 				E55257D820501A0400D140BE /* EnemyDictionary.swift */,
+				E55CD8B22050D9E30083D984 /* TroutAttributeDictionary.swift */,
 			);
 			path = dictionary;
 			sourceTree = "<group>";
@@ -552,6 +576,7 @@
 			files = (
 				E52FA9AB204530A90032F3EB /* pygmyDetails.sks in Resources */,
 				E59E4A7320230370009553C9 /* art.scnassets in Resources */,
+				E55CD8BA205118DE0083D984 /* battleDataUi.sks in Resources */,
 				E5C80ED32045488B00F89541 /* Assets.xcassets in Resources */,
 				E5164AAE203EF874000A921C /* changeMap.sks in Resources */,
 				E59E4A7D20230370009553C9 /* LaunchScreen.storyboard in Resources */,
@@ -578,14 +603,19 @@
 				E51A0BBC2040FB4F00F97159 /* Menu.swift in Sources */,
 				E505A62F2033DB7F00F781AA /* NonPlayerChara.swift in Sources */,
 				E5580523203D12BC00D1CA09 /* MapTrout.swift in Sources */,
+				E55257E120503D2A00D140BE /* CharaController.swift in Sources */,
 				E59E4A7520230370009553C9 /* GameViewController.swift in Sources */,
 				E551357A20468F9E00E7DB84 /* SkillDictionary.swift in Sources */,
 				E518691B2037EDE500F12256 /* MapBoxTrout.swift in Sources */,
 				E51D542F204E70C6003B9408 /* Battle.swift in Sources */,
+				E55CD8B8205117D60083D984 /* BattleDataUi.swift in Sources */,
+				E55CD8B6205114410083D984 /* TroutTapMonitor.swift in Sources */,
 				E5173262204EBA7F0016A827 /* PanelNode.swift in Sources */,
 				E55257DD20501B1400D140BE /* daSkill.swift in Sources */,
+				E55CD8B32050D9E30083D984 /* TroutAttributeDictionary.swift in Sources */,
 				E55257D52050147400D140BE /* PygmyRaceData.swift in Sources */,
 				E5164AAC203EF825000A921C /* SceneChanger.swift in Sources */,
+				E55257DF2050338000D140BE /* Turn.swift in Sources */,
 				E5FE6DF920493792001BFABD /* passive.swift in Sources */,
 				E51A59D3203AA15B000D00E3 /* PanOperator.swift in Sources */,
 				E5580525203D133A00D1CA09 /* MapTroutMaker.swift in Sources */,
@@ -597,6 +627,7 @@
 				E551357F2046922200E7DB84 /* jaSkill.swift in Sources */,
 				E51BDEA820468DDA00D358F0 /* totuAccessory.swift in Sources */,
 				E551357D2046910A00E7DB84 /* totuSkill.swift in Sources */,
+				E55257E320503D4200D140BE /* CharaAi.swift in Sources */,
 				E525D18E203D6202003C0E6A /* MapEvent.swift in Sources */,
 				E518BEF02043F2030072F0C8 /* ItemDictionary.swift in Sources */,
 				E56BDA6C203DD374001C4F00 /* SpeakWindow.swift in Sources */,
@@ -609,6 +640,7 @@
 				E518BEF82043FA2A0072F0C8 /* StatusCalcurator.swift in Sources */,
 				E57E0B8A2037EEF900984890 /* MapSlopTrout.swift in Sources */,
 				E51494B3204CD6130000406E /* EncountData.swift in Sources */,
+				E55257E52050408C00D140BE /* RouteSearcher.swift in Sources */,
 				E5173258204EB41C0016A827 /* SkillBarMaker.swift in Sources */,
 				E517324E204EB40C0016A827 /* TroutNode.swift in Sources */,
 				E55257DB20501A2B00D140BE /* kedama.swift in Sources */,

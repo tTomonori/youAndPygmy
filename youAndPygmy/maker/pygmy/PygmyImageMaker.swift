@@ -11,13 +11,12 @@ import SpriteKit
 
 class PygmyImageMaker{
     //画像セット
-    static func setImage(aNode:SKSpriteNode,aPygmy:Pygmy){
+    static func setImage(aNode:SKNode,aImageData:CharaImageData){
         //sksファイルでキャラ画像の位置がわかりやすいように色をつけていた場合、色を消す
-        aNode.color=UIColor(red:0,green:0,blue:0,alpha:0)
+        (aNode as! SKSpriteNode).color=UIColor(red:0,green:0,blue:0,alpha:0)
         
-        let tImageData=aPygmy.getImage()
         for tParts in ["body","eye","mouth","accessory"]{
-            let tImageName=tImageData.get(parts:tParts,pattern:"normal")
+            let tImageName=aImageData.get(parts:tParts,pattern:"normal")
             if(tImageName==nil){//画像がなかった
                 (aNode.childNode(withName:tParts) as? SKSpriteNode)?.texture=nil//画像削除
                 continue
@@ -30,7 +29,7 @@ class PygmyImageMaker{
             else{
                 //ノードがない
                 let tNewNode=SKSpriteNode()
-                tNewNode.size=aNode.size
+                tNewNode.size=(aNode as! SKSpriteNode).size
                 tNewNode.texture=SKTexture(imageNamed:tImageName!)
                 tNewNode.name=tParts
                 aNode.addChild(tNewNode)

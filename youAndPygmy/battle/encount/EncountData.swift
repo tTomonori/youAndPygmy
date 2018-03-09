@@ -68,10 +68,6 @@ struct BattleFeildData{
     let feild:[[Int]]
     let chip:Dictionary<Int,BattleChipData>
 }
-struct BattleChipData{
-    let attribute:String//属性
-    let terrain:String//地形名
-}
 //敵キャラのデータ
 struct BattleEnemyData{
     let pygmyFlag:Bool//ぴぐみーor敵
@@ -84,6 +80,7 @@ struct BattleEnemyData{
     let skill:[String]//スキル
     let item:String//アイテム
     let itemNum:Int//持ち物の数
+    let ai:AiType?//行動パターン
 }
 //初期化済みの戦闘データ
 struct initializedBattleData{

@@ -12,6 +12,9 @@ extension SkillDictionary{
     static let zutuki=SkillData(
         name: "頭突き",
         category: .physics,
-        type: .da
+        type: .da,
+        mp:0,
+        counter:true,
+        power:0
     )
 }

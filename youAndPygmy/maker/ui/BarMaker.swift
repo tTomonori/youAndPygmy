@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 class BarMaker{
-    static func setBarImage(aNode:SKSpriteNode,aBarName:String){
+    static func setBarImage(aNode:SKNode,aBarName:String){
         for tNode in aNode.children{
             //テクスチャに使用している画像名
             let tName=(tNode as! SKSpriteNode).texture!.description.components(separatedBy:"'")[1]

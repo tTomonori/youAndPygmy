@@ -59,7 +59,7 @@ class PygmyMenu:Menu{
                 tCover.alpha=0
                 let tPygmy=tPygmies[i]
                 //キャライラスト
-                PygmyImageMaker.setImage(aNode:tNode.childNode(withName:"image") as! SKSpriteNode,aPygmy:tPygmy)
+                PygmyImageMaker.setImage(aNode:tNode.childNode(withName:"image")!,aImageData:tPygmy.getImage())
                 //名前
                 (tNode.childNode(withName:"name") as! SKLabelNode).text=tPygmy.getName()
                 //レベル

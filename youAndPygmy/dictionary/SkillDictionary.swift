@@ -18,6 +18,25 @@ class SkillData:NSObject{
     let name:String//スキル名
     let category:SkillCategory//物理or魔法or支援or回復orパッシブ
     let type:SkillType//属性
+    let mp:Int//消費やる気
+    let counter:Bool//反撃スキルかどうか
+    let power:Int//威力
+    init(
+        name:String,
+        category:SkillCategory,
+        type:SkillType,
+        mp:Int,
+        counter:Bool,
+        power:Int
+        ){
+        self.name=name
+        self.category=category
+        self.type=type
+        self.mp=mp
+        self.counter=counter
+        self.power=power
+    }
+    //パッシブスキル用
     init(
         name:String,
         category:SkillCategory,
@@ -26,6 +45,9 @@ class SkillData:NSObject{
         self.name=name
         self.category=category
         self.type=type
+        self.mp=0
+        self.counter=false
+        self.power=0
     }
 }
 

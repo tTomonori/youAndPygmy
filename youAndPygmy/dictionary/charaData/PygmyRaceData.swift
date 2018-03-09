@@ -17,6 +17,7 @@ class PygmyRaceData:RaceData{
         mobility:Mobility,
         image:CharaImageData,
         skills:[(Int,String)],
+        ai:AiType,
         equipType:[AccessoryType]
         ){
         self.equipType=equipType
@@ -26,7 +27,8 @@ class PygmyRaceData:RaceData{
             raceStatus:raceStatus,
             mobility:mobility,
             image:image,
-            skills:skills
+            skills:skills,
+            ai:ai
         )
     }
 }

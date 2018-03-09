@@ -37,27 +37,32 @@ class Encounter{
         var tBattleData:[BattleCharaData?]=[]
         for tEnemyData in aData{
             if(tEnemyData==nil){tBattleData.append(nil);continue}
+            //種族値取得
             let tRaceData=(tEnemyData!.pygmyFlag)
                 ?PygmyDictionary.get(key:tEnemyData!.raceKey)
                 :EnemyDictionary.get(key:tEnemyData!.raceKey)
+            //ステータス計算
+            let tStatus=(tEnemyData!.status==nil)
+                ?StatusCalcurator.calcurate(aRaceStatus:tRaceData.raceStatus,aLevel:tEnemyData!.level)
+                :StatusCalcurator.calcurate(aRaceStatus:tRaceData.raceStatus,aLevel:tEnemyData!.level)+tEnemyData!.status!
+            //データ設定
             tBattleData.append(BattleCharaData(
                 pygmyFlag: tEnemyData!.pygmyFlag,
                 raceKey: tEnemyData!.raceKey,
                 name: (tEnemyData!.name==nil) ?tRaceData.raceName:tEnemyData!.name!,
                 level: tEnemyData!.level,
-                status: (tEnemyData!.status==nil)
-                  ?tRaceData.raceStatus
-                  :tRaceData.raceStatus+tEnemyData!.status!,
+                status: tStatus,
                 mobility: (tEnemyData!.mobility==nil)
                   ?tRaceData.mobility
                   :tEnemyData!.mobility!,
                 currentHp:(tEnemyData!.currentHp==nil)
-                  ?tRaceData.raceStatus.hp
-                  :(tRaceData.raceStatus.hp<tEnemyData!.currentHp!) ?tRaceData.raceStatus.hp:tEnemyData!.currentHp!,
+                  ?tStatus.hp
+                  :(tStatus.hp<tEnemyData!.currentHp!) ?tStatus.hp:tEnemyData!.currentHp!,
                 skill: tEnemyData!.skill,
                 item: tEnemyData!.item,
                 itemNum: tEnemyData!.itemNum,
-                image:tRaceData.image
+                image:tRaceData.image,
+                ai:(tEnemyData!.ai==nil) ?tRaceData.ai:tEnemyData!.ai!
             ))
         }
         return tBattleData
@@ -82,7 +87,8 @@ class Encounter{
                 skill: tPygmy.getSettedSkills(),
                 item: tItemKey,
                 itemNum: tItemNum,
-                image:tPygmy.getImage()
+                image:tPygmy.getImage(),
+                ai:.you
                 )
             )
         }
@@ -116,4 +122,5 @@ struct BattleCharaData{
     let item:String//アイテム
     let itemNum:Int//持ち物の数
     let image:CharaImageData//画像
+    let ai:AiType//行動パターン
 }

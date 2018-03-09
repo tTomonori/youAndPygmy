@@ -16,13 +16,15 @@ class RaceData :NSObject{
     let mobility:Mobility//移動力
     let image:CharaImageData//画像
     let skills:[(Int,String)]//習得するスキル(習得レベル,スキル名)
+    let ai:AiType//行動パターン
     init(
         raceKey:String,
          raceName:String,
          raceStatus:Status,
          mobility:Mobility,
          image:CharaImageData,
-         skills:[(Int,String)]
+         skills:[(Int,String)],
+         ai:AiType
         ){
         self.raceKey=raceKey
         self.raceName=raceName
@@ -30,6 +32,7 @@ class RaceData :NSObject{
         self.mobility=mobility
         self.image=image
         self.skills=skills
+        self.ai=ai
     }
 }
 
