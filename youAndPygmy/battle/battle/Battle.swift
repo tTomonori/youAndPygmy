@@ -67,7 +67,10 @@ class Battle{
     //戦闘開始
     static func start(aEndFunction:@escaping (String)->()){
         mEndFunction=aEndFunction
-        mUiScene=SKScene(fileNamed:"battleDataUi")
+        mUiScene=SKScene(fileNamed:"battleDataUi")!
+        mUiScene.childNode(withName:"selectedDataBox")!.childNode(withName:"changeButton")!.accessibilityElements
+            = ["run",{()->()in BattleDataUi.changeInfo()}]
+        
         gGameViewController.set2dScene(aScene:mUiScene)
         Turn.start()
     }

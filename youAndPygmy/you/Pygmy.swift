@@ -55,7 +55,8 @@ class Pygmy{
     func getSettedSkills()->[String]{
         var tSettedSkills:[String]=[]
         for i in mSettedSkills{
-            tSettedSkills.append(mMasteredSkills[i])
+            if(i == -1){tSettedSkills.append("")}
+            else{tSettedSkills.append(mMasteredSkills[i])}
         }
         return tSettedSkills
     }

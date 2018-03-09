@@ -45,6 +45,7 @@ class BattleChara{
     func getCurrentMp()->Int{return mCurrentMp}
     func getMaxMp()->Int{return mInitialData.status.mp}
     func getItem()->(String,Int){return (mItem,mItemNum)}
+    func getSkill()->[String]{return mInitialData.skill}
 }
 
 enum Team{

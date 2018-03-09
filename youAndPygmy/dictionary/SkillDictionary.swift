@@ -55,6 +55,7 @@ enum SkillCategory {
     case physics//物理
     case magic//魔法
     case assist//支援
+    case disturbance//妨害
     case heal//回復
     case passive//パッシブ
 }

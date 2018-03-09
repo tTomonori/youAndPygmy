@@ -11,74 +11,103 @@ import SpriteKit
 
 class SkillBarMaker{
     //装備スキルセット
-    static func setSettedSkillsList(aNode:SKSpriteNode,aSkills:[String]){
-        var tSkills=["","","",""]
-        var tAttackNum:Int=0
-        var tPassiveNum:Int=0
-        for tSkillName in aSkills{
-            let tSkillData=SkillDictionary.get(key:tSkillName)
-            if(tSkillData.category != .passive){
-                //パッシブ以外
-                tSkills[tAttackNum]=tSkillName
-                tAttackNum+=1
+    static func setSettedSkillsList(aNode:SKNode,aSkills:[String]){
+        for i in 0...3{
+            let tSkillName:String
+            let tCategory:SkillCategory
+            let tDark:Bool
+            if(aSkills[i] != ""){
+                //スキルあり
+                let tSkillData=SkillDictionary.get(key:aSkills[i])
+                tSkillName=tSkillData.name
+                tCategory=tSkillData.category
+                tDark=false
             }
             else{
-                //パッシブ
-                tSkills[3-tPassiveNum]=tSkillName
-                tPassiveNum+=1
+                //スキルなし
+                tSkillName=""
+                tCategory=(i == 3) ?.passive:.physics
+                tDark=(i == 2) ?true:false
             }
-        }
-        //スキル2を暗転
-        blendBar(aNode:aNode.childNode(withName:"skill2")!.childNode(withName:"background") as! SKSpriteNode,
-                 aColor:UIColor(red:0,green:0,blue:0,alpha:1),
-                 aBlend:0.3)
-        //スキル名セット
-        for i in 0...3{
-            setSkill(aNode:aNode.childNode(withName:"skill"+String(i)) as! SKSpriteNode,aSkill:tSkills[i])
+            //バーにセット
+            setSkillBar(
+                aNode:aNode.childNode(withName:"skill"+String(i))!,
+                aSkillName:tSkillName,
+                aCategory:tCategory,
+                aDark:tDark
+            )
         }
     }
     //習得スキルセット
-    static func setMasteredSkillsList(aNode:SKSpriteNode,aSkills:[String]){
+    static func setMasteredSkillsList(aNode:SKNode,aSkills:[String]){
         for i in 0...3{
             if(aSkills.count<i){
                 //スキルなし
-                setSkill(aNode:aNode.childNode(withName:"skill"+String(i)) as! SKSpriteNode,aSkill:"")
+                setSkillBar(aNode:aNode.childNode(withName:"skill"+String(i))!,
+                    aSkillName:"",
+                    aCategory:.physics,
+                    aDark:false
+                )
                 continue
             }
+            //スキルあり
             let tSkillName=aSkills[i]
             let tSkillData=SkillDictionary.get(key:tSkillName)
-            if(tSkillData.category != .passive){
-                //パッシブ以外
-                setSkill(aNode:aNode.childNode(withName:"skill"+String(i)) as! SKSpriteNode,aSkill:tSkillName)
-            }
-            else{
-                //パッシブ
-                setSkill(aNode:aNode.childNode(withName:"skill"+String(i)) as! SKSpriteNode,aSkill:tSkillName)
-            }
+            setSkillBar(aNode:aNode.childNode(withName:"skill"+String(i))!,
+                        aSkillName:tSkillData.name,
+                        aCategory:tSkillData.category,
+                        aDark:false
+            )
         }
     }
-    static func setSkill(aNode:SKSpriteNode,aSkill:String){
-        if(aSkill==""){
-            //スキルなし
-            (aNode.childNode(withName:"label")!.childNode(withName:"name") as! SKLabelNode).text=""
-            BarMaker.setBarImage(aNode:aNode.childNode(withName:"background") as! SKSpriteNode,aBarName:"blueNameFrame")
-            return
+    //スキルを詰めて表示
+    static func stuffedSetSkill(aNode:SKNode,aSkills:[String]){
+        var tNum=0
+        //スキルなしの部分は詰めて表示
+        for tSkillKey in aSkills{
+            if(tSkillKey==""){continue}//スキルなし
+            let tSkillData=SkillDictionary.get(key:tSkillKey)
+            //スキルのバーセット
+            setSkillBar(aNode:aNode.childNode(withName:"skill"+String(tNum))!,
+                        aSkillName:tSkillData.name,
+                        aCategory:tSkillData.category,
+                        aDark:false
+            )
+            tNum+=1
         }
-        
-        let tSkillData=SkillDictionary.get(key:aSkill)
+        //余ったバーを透過する
+        for i in tNum...3{
+            aNode.childNode(withName:"skill"+String(i))!.alpha=0
+        }
+    }
+    //スキルバーセット
+    static func setSkillBar(aNode:SKNode,aSkillName:String,aCategory:SkillCategory,aDark:Bool){
+        aNode.alpha=1
         //スキル名
-        (aNode.childNode(withName:"label")!.childNode(withName:"name") as! SKLabelNode).text=tSkillData.name
+        (aNode.childNode(withName:"label")!.childNode(withName:"name") as! SKLabelNode).text=aSkillName
         //スキル種別
-        if(tSkillData.category != .passive){
-            //パッシブ以外
-            BarMaker.setBarImage(aNode:aNode.childNode(withName:"background") as! SKSpriteNode,aBarName:"blueNameFrame")
+        let tBarName:String
+        switch aCategory {
+        case .physics:fallthrough//物理
+        case .magic:fallthrough//魔法
+        case .assist:fallthrough//支援
+        case .disturbance:fallthrough//妨害
+        case .heal://回復
+            tBarName="blueNameFrame"
+        case .passive://パッシブ
+            tBarName="redNameFrame"
         }
-        else{
-            //パッシブ
-            BarMaker.setBarImage(aNode:aNode.childNode(withName:"background") as! SKSpriteNode,aBarName:"redNameFrame")
+        //バーの色変更
+        BarMaker.setBarImage(aNode:aNode.childNode(withName:"background")!,aBarName:tBarName)
+        //バーの暗転
+        if(aDark){
+            blendBar(aNode:aNode.childNode(withName:"background")!,
+                                   aColor:UIColor(red:0,green:0,blue:0,alpha:1),
+                                   aBlend:0.3)
         }
     }
-    static func blendBar(aNode:SKSpriteNode,aColor:UIColor,aBlend:CGFloat){
+    //バーの変色
+    static func blendBar(aNode:SKNode,aColor:UIColor,aBlend:CGFloat){
         for tNode in aNode.children{
             (tNode as! SKSpriteNode).color=aColor
             (tNode as! SKSpriteNode).colorBlendFactor=aBlend

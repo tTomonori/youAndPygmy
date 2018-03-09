@@ -33,7 +33,7 @@ class SaveData{
                         ),
                         level:10,
                         currentHp:10,
-                        setedSkills:[0,2,3],
+                        setedSkills:[0,2,-1,3],
                         masteredSkills:["sougeki","kyuuketu","kansen","kansengen"],
                         item:"tiisanakinomi",
                         itemNum:3,

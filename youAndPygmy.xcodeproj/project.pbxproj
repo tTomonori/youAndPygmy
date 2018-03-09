@@ -77,6 +77,7 @@
 		E56580A9204A5C990004137D /* debugMap2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56580A8204A5C990004137D /* debugMap2.swift */; };
 		E56BDA6C203DD374001C4F00 /* SpeakWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56BDA6B203DD374001C4F00 /* SpeakWindow.swift */; };
 		E56BDA6E203DD3BD001C4F00 /* speakWindow.sks in Resources */ = {isa = PBXBuildFile; fileRef = E56BDA6D203DD3BD001C4F00 /* speakWindow.sks */; };
+		E5729BB12052DD7D00857586 /* DamageCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5729BB02052DD7D00857586 /* DamageCalculator.swift */; };
 		E57E0B8A2037EEF900984890 /* MapSlopTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57E0B892037EEF900984890 /* MapSlopTrout.swift */; };
 		E59E4A7120230370009553C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E4A7020230370009553C9 /* AppDelegate.swift */; };
 		E59E4A7320230370009553C9 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E59E4A7220230370009553C9 /* art.scnassets */; };
@@ -163,6 +164,7 @@
 		E56580A8204A5C990004137D /* debugMap2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = debugMap2.swift; sourceTree = "<group>"; };
 		E56BDA6B203DD374001C4F00 /* SpeakWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpeakWindow.swift; path = textWindow/SpeakWindow.swift; sourceTree = "<group>"; };
 		E56BDA6D203DD3BD001C4F00 /* speakWindow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = speakWindow.sks; path = textWindow/speakWindow.sks; sourceTree = "<group>"; };
+		E5729BB02052DD7D00857586 /* DamageCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DamageCalculator.swift; sourceTree = "<group>"; };
 		E57E0B892037EEF900984890 /* MapSlopTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapSlopTrout.swift; path = map/mapTrout/MapSlopTrout.swift; sourceTree = "<group>"; };
 		E59E4A6D20230370009553C9 /* youAndPygmy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = youAndPygmy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59E4A7020230370009553C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				E55CD8B5205114410083D984 /* TroutTapMonitor.swift */,
 				E55CD8B7205117D60083D984 /* BattleDataUi.swift */,
 				E55CD8B9205118DE0083D984 /* battleDataUi.sks */,
+				E5729BB02052DD7D00857586 /* DamageCalculator.swift */,
 			);
 			path = battle;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				E56580A9204A5C990004137D /* debugMap2.swift in Sources */,
 				E5173259204EB41C0016A827 /* StatusBarMaker.swift in Sources */,
 				E51A0BBC2040FB4F00F97159 /* Menu.swift in Sources */,
+				E5729BB12052DD7D00857586 /* DamageCalculator.swift in Sources */,
 				E505A62F2033DB7F00F781AA /* NonPlayerChara.swift in Sources */,
 				E5580523203D12BC00D1CA09 /* MapTrout.swift in Sources */,
 				E55257E120503D2A00D140BE /* CharaController.swift in Sources */,
