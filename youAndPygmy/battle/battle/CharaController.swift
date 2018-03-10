@@ -10,7 +10,7 @@ import Foundation
 import SceneKit
 
 class CharaController{
-    static var mRoute:[(BattleTrout,[BattlePosition])]!
+    static var mRoute:[(BattleTrout,[BattlePosition])]!//キャラの移動可能範囲とそこへの経路
     static func toAct(aChara:BattleChara){
         mRoute=RouteSearcher.search(aChara:aChara)
         for (tTrout,_) in mRoute{

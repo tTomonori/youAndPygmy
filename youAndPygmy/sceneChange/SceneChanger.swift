@@ -10,11 +10,13 @@ import Foundation
 import SpriteKit
 
 class SceneChanger{
+    private static let mChangeMapScene=SKScene(fileNamed:"changeMap")!
+    private static let mEnterBattleScene=SKScene(fileNamed:"enterBattle")!
     //マップを移動する時のアニメ
     static func animateChangeMap(aChanging:@escaping ()->(),aChanged:@escaping ()->()){
-        let tScene=SKScene(fileNamed:"changeMap")!
-        gGameViewController.set2dScene(aScene:tScene)
-        tScene.children[0].run(SKAction.sequence([
+        gGameViewController.set2dScene(aScene:mChangeMapScene)
+        mChangeMapScene.children[0].run(SKAction.sequence([
+            SKAction.move(to:CGPoint(x:750,y:-420),duration:0),
             SKAction.moveBy(x: -750, y: 420, duration: 1.0),
             SKAction.run({()->()in aChanging()}),
             SKAction.moveBy(x: -750, y: 420, duration: 1.0),
@@ -23,10 +25,9 @@ class SceneChanger{
     }
     //戦闘開始時のアニメ
     static func animateEnterBattle(aChanging:@escaping ()->(),aChanged:@escaping ()->()){
-        let tScene=SKScene(fileNamed:"enterBattle")!
-        gGameViewController.set2dScene(aScene:tScene)
-        let tFlashing=tScene.childNode(withName:"flashing")!
-        let tCover=tScene.childNode(withName:"cover")!
+        gGameViewController.set2dScene(aScene:mEnterBattleScene)
+        let tFlashing=mEnterBattleScene.childNode(withName:"flashing")!
+        let tCover=mEnterBattleScene.childNode(withName:"cover")!
         let tCoverSize=(tCover as! SKSpriteNode).size
         tFlashing.run(SKAction.sequence([
             SKAction.fadeAlpha(to:0.5,duration:0.2),

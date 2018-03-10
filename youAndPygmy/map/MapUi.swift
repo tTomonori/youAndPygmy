@@ -10,12 +10,11 @@ import Foundation
 import SpriteKit
 
 class MapUi{
-    static var mScene:SKScene!
-    static func display(){
-        let mScene=SKScene(fileNamed: "mapUi")!
-        gGameViewController.set2dScene(aScene: mScene)
+    private static var mScene:SKScene=createScene()
+    static func createScene()->SKScene{
+        let tScene=SKScene(fileNamed: "mapUi")!
         //タップ時関数セット
-        for tNode in mScene.children{
+        for tNode in tScene.children{
             if(tNode.name==nil){continue}
             switch tNode.name! {
             case "menu":
@@ -26,21 +25,13 @@ class MapUi{
             }
         }
         //マップ移動関数セット
-        mScene.accessibilityElements=[{(_:UIGestureRecognizer)->()in
+        tScene.accessibilityElements=[{(_:UIGestureRecognizer)->()in
             gPlayerChara.inputMove()
-//            let tDirection=PanOperator.getDirection()
-//            if(tDirection==""){return}
-//            var tMoveFunction:((String)->())!
-//            tMoveFunction={(aDirection:String)->()in
-//                gPlayerChara.move(aDirection:aDirection,aEndFunction:{()->()in
-//                    let tDirection=PanOperator.getDirection()
-//                    if(tDirection != ""){
-//                        tMoveFunction(tDirection)
-//                    }
-//                })
-//            }
-//            tMoveFunction(tDirection)
             }]
+        return tScene
+    }
+    static func display(){
+        gGameViewController.set2dScene(aScene: mScene)
     }
     static func close(){
         gGameViewController.set2dScene(aScene:gEmptySprite)
