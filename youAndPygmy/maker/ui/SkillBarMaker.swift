@@ -80,25 +80,68 @@ class SkillBarMaker{
             aNode.childNode(withName:"skill"+String(i))!.alpha=0
         }
     }
+    //パッシブ以外のスキルを表示
+    static func setActiveSkill(aNode:SKNode,aSkills:[String]){
+        var tNum=0
+        for tSkillKey in aSkills{
+            if(tSkillKey==""){continue}//スキルなし
+            let tSkillData=SkillDictionary.get(key:tSkillKey)
+            if(tSkillData.category == .passive){continue}//パッシブスキル
+            let tSkillBar=aNode.childNode(withName:"skill"+String(tNum))!
+            //スキルのバーセット
+            setSkillBar(aNode:tSkillBar,
+                        aSkillName:tSkillData.name,
+                        aCategory:tSkillData.category,
+                        aDark:false
+            )
+            let tLabel=tSkillBar.childNode(withName:"label")!
+            //威力
+            (tLabel.childNode(withName:"power") as! SKLabelNode).text
+                = (tSkillData.category == .physics || tSkillData.category == .magic)
+                ?String(tSkillData.power)
+                :"-"
+            //やる気
+            tNum+=1
+            (tLabel.childNode(withName:"mp") as! SKLabelNode).text=String(tSkillData.mp)
+        }
+        //余ったバーを透過する
+        for i in tNum...3{
+            aNode.childNode(withName:"skill"+String(i))!.alpha=0
+        }
+    }
     //スキルバーセット
     static func setSkillBar(aNode:SKNode,aSkillName:String,aCategory:SkillCategory,aDark:Bool){
         aNode.alpha=1
+        //バーの画像名
+        var tBarName:String=""
+        var tUperFlag=false
+        for tChar in(aNode.childNode(withName:"background")!.children[0] as! SKSpriteNode)
+            .texture!.description.components(separatedBy:"'")[1].characters{
+                if(tUperFlag){tBarName+=String(tChar);continue}
+                if(String(tChar)==String(tChar).uppercased()){
+                    tUperFlag=true
+                    tBarName+=String(tChar)
+                }
+        }
+        tBarName=tBarName.substring(to:tBarName.index(tBarName.endIndex,offsetBy:-1))
+        
         //スキル名
         (aNode.childNode(withName:"label")!.childNode(withName:"name") as! SKLabelNode).text=aSkillName
         //スキル種別
-        let tBarName:String
+        let tBarColor:String
         switch aCategory {
         case .physics:fallthrough//物理
         case .magic:fallthrough//魔法
         case .assist:fallthrough//支援
-        case .disturbance:fallthrough//妨害
+        case .disturbance://妨害
+            tBarColor="blue"
         case .heal://回復
-            tBarName="blueNameFrame"
+            tBarColor="green"
         case .passive://パッシブ
-            tBarName="redNameFrame"
+            tBarColor="red"
         }
         //バーの色変更
-        BarMaker.setBarImage(aNode:aNode.childNode(withName:"background")!,aBarName:tBarName)
+        BarMaker.setBarImage(aNode:aNode.childNode(withName:"background")!,aBarName:tBarColor+tBarName)
         //バーの暗転
         if(aDark){
             blendBar(aNode:aNode.childNode(withName:"background")!,

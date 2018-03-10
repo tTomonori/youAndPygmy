@@ -46,6 +46,39 @@ class BattleChara{
     func getMaxMp()->Int{return mInitialData.status.mp}
     func getItem()->(String,Int){return (mItem,mItemNum)}
     func getSkill()->[String]{return mInitialData.skill}
+    //指定した座標へ瞬間移動
+    func move(aPosition:BattlePosition){
+        Battle.getTrout(aPosition:mPosition)!.out()
+        let tTrout=Battle.getTrout(aPosition:aPosition)!
+        mNode.setPosition(aPosition:aPosition)
+        tTrout.ride(aChara:self)
+        mPosition=aPosition
+    }
+    //ルートに沿って移動
+    func move(aRoute:[BattlePosition],aEndFunction:@escaping ()->()){
+        //マスから移動
+        Battle.getTrout(aPosition:mPosition)!.out()
+        //移動アニメーション作成
+        var tAnimation:[SCNAction]=[]
+        var tPrePosition=mPosition
+        for tPosition in aRoute{
+            let tXDif=tPosition.x-tPrePosition.x
+            let tYDif=tPosition.y-tPrePosition.y
+            tAnimation.append(SCNAction.move(
+                by: SCNVector3(tXDif*gTroutSizeCG,0,tYDif*gTroutSizeCG),
+                duration:0.25)
+            )
+            tPrePosition=tPosition
+        }
+        tAnimation.append(SCNAction.run({ (_) in
+            //移動終了時の関数
+            self.mPosition=aRoute.last!
+            //マスに乗る
+            Battle.getTrout(aPosition:self.mPosition)?.ride(aChara:self)
+            aEndFunction()
+        }))
+        mNode.runAction(SCNAction.sequence(tAnimation))
+    }
 }
 
 enum Team{

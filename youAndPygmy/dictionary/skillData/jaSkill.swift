@@ -15,6 +15,7 @@ extension SkillDictionary{
         type:.ja,
         mp:5,
         counter:false,
-        power:0
+        power:0,
+        range:SkillRange(type:.circumference,range:1)
     )
 }

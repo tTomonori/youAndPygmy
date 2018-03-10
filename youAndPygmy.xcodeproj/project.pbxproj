@@ -55,6 +55,8 @@
 		E5456E47203FF09300122781 /* PygmyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5456E46203FF09300122781 /* PygmyMenu.swift */; };
 		E5456E49203FF0A100122781 /* pygmyMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5456E48203FF0A100122781 /* pygmyMenu.sks */; };
 		E5456E4C203FF9FD00122781 /* MenuParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5456E4B203FF9FD00122781 /* MenuParent.swift */; };
+		E54EDC932053C55F00F0D83B /* BattleUiScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54EDC922053C55F00F0D83B /* BattleUiScene.swift */; };
+		E54EDC9520543ACD00F0D83B /* SkillRangeSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54EDC9420543ACD00F0D83B /* SkillRangeSearcher.swift */; };
 		E551357A20468F9E00E7DB84 /* SkillDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551357920468F9E00E7DB84 /* SkillDictionary.swift */; };
 		E551357D2046910A00E7DB84 /* totuSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551357C2046910A00E7DB84 /* totuSkill.swift */; };
 		E551357F2046922200E7DB84 /* jaSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551357E2046922200E7DB84 /* jaSkill.swift */; };
@@ -142,6 +144,8 @@
 		E5456E46203FF09300122781 /* PygmyMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PygmyMenu.swift; path = pygmyMenu/PygmyMenu.swift; sourceTree = "<group>"; };
 		E5456E48203FF0A100122781 /* pygmyMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = pygmyMenu.sks; path = /Users/tomo/Desktop/game/youAndPygmy/youAndPygmy/menu/pygmyMenu/pygmyMenu.sks; sourceTree = "<absolute>"; };
 		E5456E4B203FF9FD00122781 /* MenuParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuParent.swift; sourceTree = "<group>"; };
+		E54EDC922053C55F00F0D83B /* BattleUiScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleUiScene.swift; sourceTree = "<group>"; };
+		E54EDC9420543ACD00F0D83B /* SkillRangeSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillRangeSearcher.swift; sourceTree = "<group>"; };
 		E551357920468F9E00E7DB84 /* SkillDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillDictionary.swift; sourceTree = "<group>"; };
 		E551357C2046910A00E7DB84 /* totuSkill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = totuSkill.swift; sourceTree = "<group>"; };
 		E551357E2046922200E7DB84 /* jaSkill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jaSkill.swift; sourceTree = "<group>"; };
@@ -311,6 +315,8 @@
 				E55CD8B7205117D60083D984 /* BattleDataUi.swift */,
 				E55CD8B9205118DE0083D984 /* battleDataUi.sks */,
 				E5729BB02052DD7D00857586 /* DamageCalculator.swift */,
+				E54EDC922053C55F00F0D83B /* BattleUiScene.swift */,
+				E54EDC9420543ACD00F0D83B /* SkillRangeSearcher.swift */,
 			);
 			path = battle;
 			sourceTree = "<group>";
@@ -611,6 +617,7 @@
 				E59E4A7520230370009553C9 /* GameViewController.swift in Sources */,
 				E551357A20468F9E00E7DB84 /* SkillDictionary.swift in Sources */,
 				E518691B2037EDE500F12256 /* MapBoxTrout.swift in Sources */,
+				E54EDC9520543ACD00F0D83B /* SkillRangeSearcher.swift in Sources */,
 				E51D542F204E70C6003B9408 /* Battle.swift in Sources */,
 				E55CD8B8205117D60083D984 /* BattleDataUi.swift in Sources */,
 				E55CD8B6205114410083D984 /* TroutTapMonitor.swift in Sources */,
@@ -662,6 +669,7 @@
 				E518BEF62043F7050072F0C8 /* debugMap.swift in Sources */,
 				E517DE8620468BDE00438614 /* healItems.swift in Sources */,
 				E51F5E3E2033DB010015F328 /* PlayerChara.swift in Sources */,
+				E54EDC932053C55F00F0D83B /* BattleUiScene.swift in Sources */,
 				E52036B1202D2FBB00BB3ED5 /* MapFeild.swift in Sources */,
 				E517324D204EB40C0016A827 /* TroutMaker.swift in Sources */,
 				E5173250204EB4110016A827 /* PygmyImageMaker.swift in Sources */,

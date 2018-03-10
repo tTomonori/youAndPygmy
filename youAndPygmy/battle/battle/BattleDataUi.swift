@@ -10,25 +10,27 @@ import Foundation
 import SpriteKit
 
 class BattleDataUi{
+    private static let mTurnCharaData=BattleUiScene.getNode(aName:"turnCharaDataBox")!.childNode(withName:"charaData")!
+    private static let mSelectedCharaData=BattleUiScene.getNode(aName:"selectedDataBox")!.childNode(withName:"charaData")!
+    private static let mSelectedTroutData=BattleUiScene.getNode(aName:"selectedDataBox")!.childNode(withName:"troutData")!
+    private static let mSkillData=BattleUiScene.getNode(aName:"selectedCharaSkillBox")!.childNode(withName:"data")!
+    private static let mChangeButton=BattleUiScene.getNode(aName:"selectedDataBox")!.childNode(withName:"changeButton")!
     //行動するキャラの情報セット
     static func setTurnCharaData(aChara:BattleChara){
+        mTurnCharaData.alpha=1
         setCharaBox(
-            aNode:Battle.getNodeFromScene(aName:"turnCharaDataBox")!.childNode(withName:"charaData")!,
+            aNode:mTurnCharaData,
             aChara:aChara
         )
     }
     //タップされたマスの情報セット
     static func setTroutData(aTrout:BattleTrout){
-        let tSelectedBox=Battle.getNodeFromScene(aName:"selectedDataBox")!
         let tChara=aTrout.getRidingChara()
-        let tTroutBox=tSelectedBox.childNode(withName:"troutData")!
-        let tCharaBox=tSelectedBox.childNode(withName:"charaData")!
-        let tButton=tSelectedBox.childNode(withName:"changeButton")!
         //マスの情報
-        setTroutBox(aNode:tTroutBox,aTrout:aTrout)
+        setTroutBox(aNode:mSelectedTroutData,aTrout:aTrout)
         //キャラ,スキルの情報
         if(tChara != nil){
-            setCharaBox(aNode:tCharaBox,aChara:tChara!)
+            setCharaBox(aNode:mSelectedCharaData,aChara:tChara!)
             setSkillBox(aChara:tChara!)
         }
         else{
@@ -37,15 +39,15 @@ class BattleDataUi{
         
         if(tChara != nil){
             //キャラがいる
-            tTroutBox.alpha=0
-            tCharaBox.alpha=1
-            tButton.alpha=1
+            mSelectedTroutData.alpha=0
+            mSelectedCharaData.alpha=1
+            mChangeButton.alpha=1
         }
         else{
             //キャラがいない
-            tTroutBox.alpha=1
-            tCharaBox.alpha=0
-            tButton.alpha=0
+            mSelectedTroutData.alpha=1
+            mSelectedCharaData.alpha=0
+            mChangeButton.alpha=0
         }
     }
     //キャラの情報セット
@@ -81,45 +83,43 @@ class BattleDataUi{
     }
     //スキルの情報セット
     static func setSkillBox(aChara:BattleChara){
-        let tSkillBox=Battle.getNodeFromScene(aName:"skillBox")!.childNode(withName:"data")!
-        tSkillBox.alpha=1
+        mSkillData.alpha=1
         let tSkills=aChara.getSkill()
         //スキル名
-        SkillBarMaker.stuffedSetSkill(aNode:tSkillBox,aSkills:tSkills)
+        SkillBarMaker.stuffedSetSkill(aNode:mSkillData,aSkills:tSkills)
         
         var tNum=0
         for tSkillKey in tSkills{
             if(tSkillKey==""){continue}//スキルなし
             let tSkillData=SkillDictionary.get(key:tSkillKey)
             //反撃
-            tSkillBox.childNode(withName:"counterMark"+String(tNum))!.alpha=(tSkillData.counter) ?1:0
+            mSkillData.childNode(withName:"counterMark"+String(tNum))!.alpha=(tSkillData.counter) ?1:0
             //火力
             if let tBurst=DamageCalculator.calculateBurst(aChara:aChara,aSkill:tSkillKey){
-                (tSkillBox.childNode(withName:"burst"+String(tNum)) as! SKLabelNode).text=String(tBurst)
+                (mSkillData.childNode(withName:"burst"+String(tNum)) as! SKLabelNode).text=String(tBurst)
             }
             else{
                 if(tSkillData.category == .heal){
-                    (tSkillBox.childNode(withName:"burst"+String(tNum)) as! SKLabelNode).text="回復"
+                    (mSkillData.childNode(withName:"burst"+String(tNum)) as! SKLabelNode).text="回復"
                 }
                 else{
-                    (tSkillBox.childNode(withName:"burst"+String(tNum)) as! SKLabelNode).text=""
+                    (mSkillData.childNode(withName:"burst"+String(tNum)) as! SKLabelNode).text=""
                 }
             }
             tNum+=1
         }
         for i in tNum...3{
-            tSkillBox.childNode(withName:"counterMark"+String(i))!.alpha=0
-            (tSkillBox.childNode(withName:"burst"+String(i)) as! SKLabelNode).text=""
+            mSkillData.childNode(withName:"counterMark"+String(i))!.alpha=0
+            (mSkillData.childNode(withName:"burst"+String(i)) as! SKLabelNode).text=""
         }
     }
     //スキルの情報リセット
     static func resetSkillBox(){
-        let tSkillBox=Battle.getNodeFromScene(aName:"skillBox")!.childNode(withName:"data")!
-        tSkillBox.alpha=0
+        mSkillData.alpha=0
     }
     //情報変更ボタンが押された
     static func changeInfo(){
-        let tSelectedBox=Battle.getNodeFromScene(aName:"selectedDataBox")!
+        let tSelectedBox=BattleUiScene.getNode(aName:"selectedDataBox")!
         let tButton=tSelectedBox.childNode(withName:"changeButton")!
         if(tButton.alpha==0){return}//キャラがいないマス(ボタンが非表示)だったら何もしない
         let tTroutBox=tSelectedBox.childNode(withName:"troutData")!

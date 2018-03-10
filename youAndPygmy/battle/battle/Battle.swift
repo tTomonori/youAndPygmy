@@ -12,7 +12,6 @@ import SpriteKit
 
 class Battle{
     private static var mScene:SCNScene!
-    private static var mUiScene:SKScene!
     private static var mTrouts:[[BattleTrout]]!
     private static var mCameraNode:SCNNode!//カメラ
     private static var mAllies:[BattleChara]!//味方
@@ -67,22 +66,13 @@ class Battle{
     //戦闘開始
     static func start(aEndFunction:@escaping (String)->()){
         mEndFunction=aEndFunction
-        mUiScene=SKScene(fileNamed:"battleDataUi")!
-        mUiScene.childNode(withName:"selectedDataBox")!.childNode(withName:"changeButton")!.accessibilityElements
-            = ["run",{()->()in BattleDataUi.changeInfo()}]
-        
-        gGameViewController.set2dScene(aScene:mUiScene)
+        BattleUiScene.initScene()
+        BattleUiScene.display()
         Turn.start()
     }
     //シーン表示
     static func display(){
         gGameViewController.set3dScene(aScene:mScene)
-    }
-    static func addScene(aFileName:String,aDisplay:Bool){
-        let tNode=SKScene(fileNamed:aFileName)!.children[0]
-        tNode.removeFromParent()
-        if(!aDisplay){tNode.alpha=0}
-        mUiScene.addChild(tNode)
     }
     //マス取得
     static func getTrout(aPosition:BattlePosition)->BattleTrout?{
@@ -91,9 +81,5 @@ class Battle{
         if(aPosition.y>=mTrouts.count){return nil}
         if(aPosition.x>=mTrouts[aPosition.y].count){return nil}
         return mTrouts[aPosition.y][aPosition.x]
-    }
-    //uisceneのノード取得
-    static func getNodeFromScene(aName:String)->SKNode?{
-        return mUiScene.childNode(withName:aName)
     }
 }

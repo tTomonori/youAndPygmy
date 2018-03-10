@@ -17,7 +17,7 @@ class RouteSearcher{
         var tSearched:[(Double,BattlePosition,[BattlePosition])]=[]//(移動コスト,移動先の座標,移動経路)
         //これから調べる座標
         var tSearching:[(Double,BattlePosition,[BattlePosition])]//(移動コスト,調べる座標,移動経路)
-        tSearching=[(0,tStartingPosition,[tStartingPosition])]
+        tSearching=[(0,tStartingPosition,[])]
         //経路探索
         while(tSearching.count>0){
             //次に調べるマスのデータを取り出す

@@ -15,6 +15,7 @@ extension SkillDictionary{
         type: .da,
         mp:0,
         counter:true,
-        power:0
+        power:0,
+        range:SkillRange(type:.adjacent)
     )
 }

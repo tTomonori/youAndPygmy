@@ -66,6 +66,10 @@ struct BattlePosition{
         return SCNVector3(x*gTroutSizeCG,0.5*gTroutSizeCG,y*gTroutSizeCG)
     }
 }
+//BattlePosition + (Int,Int)
+func + (left:BattlePosition,right:(Int,Int))->BattlePosition{
+    return BattlePosition(x:left.x+right.0,y:left.y+right.1)
+}
 
 /*
  switch aDirection {

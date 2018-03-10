@@ -15,9 +15,13 @@ class TroutTapMonitor{
     //マスがタップされた時
     static func tappedTrout(aTrout:BattleTrout){
         mTappedTrout=aTrout
+        //タップされたマスを可視化
         aTrout.addNode(aNode:mSelectedMarker)
+        //タップされたマスの情報を表示
         BattleDataUi.setTroutData(aTrout:aTrout)
     }
+    //選択されたマスを返す
+    static func getSelectedTrout()->BattleTrout?{return mTappedTrout}
     //タップされたマスを示すノードを生成
     static func createMarker()->SCNNode{
         let tRadius=gTroutSizeCG/2*1.4
