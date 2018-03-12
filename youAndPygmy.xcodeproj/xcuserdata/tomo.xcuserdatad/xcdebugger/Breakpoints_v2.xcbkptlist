@@ -1017,5 +1017,149 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youAndPygmy/battle/battle/AttackOperator.swift"
+            timestampString = "542552043.283527"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "counter(aCounterAttacker:aDefender:aEndFunction:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youAndPygmy/battle/battle/AttackOperator.swift"
+            timestampString = "542552083.494221"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "counter(aCounterAttacker:aDefender:aEndFunction:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youAndPygmy/battle/battle/AttackOperator.swift"
+            timestampString = "542552091.0391999"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "counter(aCounterAttacker:aDefender:aEndFunction:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youAndPygmy/battle/battle/AttackOperator.swift"
+            timestampString = "542552156.902545"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "operateSkill(aChara:aSkill:aTargetTrout:aInvolvement:aCounter:aEndFunction:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youAndPygmy/battle/battle/AttackOperator.swift"
+            timestampString = "542552164.151487"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "operateSkill(aChara:aSkill:aTargetTrout:aInvolvement:aCounter:aEndFunction:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youAndPygmy/battle/battle/AttackOperator.swift"
+            timestampString = "542554530.9660079"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "operateSkill(aChara:aSkill:aTargetTrout:aInvolvement:aCounter:aEndFunction:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static youAndPygmy.AttackOperator.(operateSkill (aChara : youAndPygmy.BattleChara, aSkill : Swift.String, aTargetTrout : youAndPygmy.BattleTrout, aInvolvement : Swift.Array&lt;youAndPygmy.BattleTrout&gt;, aCounter : Swift.Bool, aEndFunction : () -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "youAndPygmy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomo/Desktop/game/youAndPygmy/youAndPygmy/battle/battle/AttackOperator.swift"
+                  timestampString = "542552298.999418"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static youAndPygmy.AttackOperator.(operateSkill (aChara : youAndPygmy.BattleChara, aSkill : Swift.String, aTargetTrout : youAndPygmy.BattleTrout, aInvolvement : Swift.Array&lt;youAndPygmy.BattleTrout&gt;, aCounter : Swift.Bool, aEndFunction : () -&gt; ()) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "youAndPygmy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomo/Desktop/game/youAndPygmy/youAndPygmy/battle/battle/AttackOperator.swift"
+                  timestampString = "542552299.002947"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youAndPygmy/battle/battle/AttackOperator.swift"
+            timestampString = "542553864.545736"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "operateSkill(aChara:aSkill:aTargetTrout:aInvolvement:aCounter:aEndFunction:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
