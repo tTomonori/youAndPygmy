@@ -57,6 +57,8 @@
 		E5456E4C203FF9FD00122781 /* MenuParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5456E4B203FF9FD00122781 /* MenuParent.swift */; };
 		E54EDC932053C55F00F0D83B /* BattleUiScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54EDC922053C55F00F0D83B /* BattleUiScene.swift */; };
 		E54EDC9520543ACD00F0D83B /* SkillRangeSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54EDC9420543ACD00F0D83B /* SkillRangeSearcher.swift */; };
+		E551200020561FE300CAC557 /* itemEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5511FFF20561FE300CAC557 /* itemEffects.swift */; };
+		E551200220565C5C00CAC557 /* CharaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551200120565C5C00CAC557 /* CharaManager.swift */; };
 		E551357A20468F9E00E7DB84 /* SkillDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551357920468F9E00E7DB84 /* SkillDictionary.swift */; };
 		E551357D2046910A00E7DB84 /* totuSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551357C2046910A00E7DB84 /* totuSkill.swift */; };
 		E551357F2046922200E7DB84 /* jaSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551357E2046922200E7DB84 /* jaSkill.swift */; };
@@ -72,6 +74,7 @@
 		E55257E52050408C00D140BE /* RouteSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55257E42050408C00D140BE /* RouteSearcher.swift */; };
 		E5580523203D12BC00D1CA09 /* MapTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5580522203D12BC00D1CA09 /* MapTrout.swift */; };
 		E5580525203D133A00D1CA09 /* MapTroutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5580524203D133A00D1CA09 /* MapTroutMaker.swift */; };
+		E55A43AA20550B560091F2BB /* AttackOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55A43A920550B560091F2BB /* AttackOperator.swift */; };
 		E55CD8B32050D9E30083D984 /* TroutAttributeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55CD8B22050D9E30083D984 /* TroutAttributeDictionary.swift */; };
 		E55CD8B6205114410083D984 /* TroutTapMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55CD8B5205114410083D984 /* TroutTapMonitor.swift */; };
 		E55CD8B8205117D60083D984 /* BattleDataUi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55CD8B7205117D60083D984 /* BattleDataUi.swift */; };
@@ -146,6 +149,8 @@
 		E5456E4B203FF9FD00122781 /* MenuParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuParent.swift; sourceTree = "<group>"; };
 		E54EDC922053C55F00F0D83B /* BattleUiScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleUiScene.swift; sourceTree = "<group>"; };
 		E54EDC9420543ACD00F0D83B /* SkillRangeSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillRangeSearcher.swift; sourceTree = "<group>"; };
+		E5511FFF20561FE300CAC557 /* itemEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemEffects.swift; sourceTree = "<group>"; };
+		E551200120565C5C00CAC557 /* CharaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharaManager.swift; sourceTree = "<group>"; };
 		E551357920468F9E00E7DB84 /* SkillDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillDictionary.swift; sourceTree = "<group>"; };
 		E551357C2046910A00E7DB84 /* totuSkill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = totuSkill.swift; sourceTree = "<group>"; };
 		E551357E2046922200E7DB84 /* jaSkill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jaSkill.swift; sourceTree = "<group>"; };
@@ -161,6 +166,7 @@
 		E55257E42050408C00D140BE /* RouteSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteSearcher.swift; sourceTree = "<group>"; };
 		E5580522203D12BC00D1CA09 /* MapTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTrout.swift; path = map/mapTrout/MapTrout.swift; sourceTree = "<group>"; };
 		E5580524203D133A00D1CA09 /* MapTroutMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTroutMaker.swift; path = map/MapTroutMaker.swift; sourceTree = "<group>"; };
+		E55A43A920550B560091F2BB /* AttackOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttackOperator.swift; sourceTree = "<group>"; };
 		E55CD8B22050D9E30083D984 /* TroutAttributeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TroutAttributeDictionary.swift; sourceTree = "<group>"; };
 		E55CD8B5205114410083D984 /* TroutTapMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TroutTapMonitor.swift; sourceTree = "<group>"; };
 		E55CD8B7205117D60083D984 /* BattleDataUi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleDataUi.swift; sourceTree = "<group>"; };
@@ -317,6 +323,8 @@
 				E5729BB02052DD7D00857586 /* DamageCalculator.swift */,
 				E54EDC922053C55F00F0D83B /* BattleUiScene.swift */,
 				E54EDC9420543ACD00F0D83B /* SkillRangeSearcher.swift */,
+				E55A43A920550B560091F2BB /* AttackOperator.swift */,
+				E551200120565C5C00CAC557 /* CharaManager.swift */,
 			);
 			path = battle;
 			sourceTree = "<group>";
@@ -407,6 +415,7 @@
 				E55257DC20501B1400D140BE /* daSkill.swift */,
 				E551357E2046922200E7DB84 /* jaSkill.swift */,
 				E5FE6DF820493792001BFABD /* passive.swift */,
+				E5511FFF20561FE300CAC557 /* itemEffects.swift */,
 			);
 			path = skillData;
 			sourceTree = "<group>";
@@ -623,6 +632,7 @@
 				E55CD8B6205114410083D984 /* TroutTapMonitor.swift in Sources */,
 				E5173262204EBA7F0016A827 /* PanelNode.swift in Sources */,
 				E55257DD20501B1400D140BE /* daSkill.swift in Sources */,
+				E551200020561FE300CAC557 /* itemEffects.swift in Sources */,
 				E55CD8B32050D9E30083D984 /* TroutAttributeDictionary.swift in Sources */,
 				E55257D52050147400D140BE /* PygmyRaceData.swift in Sources */,
 				E5164AAC203EF825000A921C /* SceneChanger.swift in Sources */,
@@ -639,6 +649,7 @@
 				E51BDEA820468DDA00D358F0 /* totuAccessory.swift in Sources */,
 				E551357D2046910A00E7DB84 /* totuSkill.swift in Sources */,
 				E55257E320503D4200D140BE /* CharaAi.swift in Sources */,
+				E55A43AA20550B560091F2BB /* AttackOperator.swift in Sources */,
 				E525D18E203D6202003C0E6A /* MapEvent.swift in Sources */,
 				E518BEF02043F2030072F0C8 /* ItemDictionary.swift in Sources */,
 				E56BDA6C203DD374001C4F00 /* SpeakWindow.swift in Sources */,
@@ -675,6 +686,7 @@
 				E5173250204EB4110016A827 /* PygmyImageMaker.swift in Sources */,
 				E5C8F85A2041866B00CD908A /* You.swift in Sources */,
 				E5FE6DF520492F3B001BFABD /* PygmyDetails.swift in Sources */,
+				E551200220565C5C00CAC557 /* CharaManager.swift in Sources */,
 				E5C8F85E20418C9900CD908A /* PygmyDictionary.swift in Sources */,
 				E5456E4C203FF9FD00122781 /* MenuParent.swift in Sources */,
 				E51494B5204CFD750000406E /* Encounter.swift in Sources */,

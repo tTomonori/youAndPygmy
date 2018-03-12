@@ -12,10 +12,10 @@ import SceneKit
 class BattleChara{
     private let mNode:CharaNode
     private let mTeam:Team
-    private let mCurrentHp:Int
-    private let mCurrentMp:Int
-    private let mItem:String
-    private let mItemNum:Int
+    private var mCurrentHp:Int
+    private var mCurrentMp:Int
+    private var mItem:String
+    private var mItemNum:Int
     private let mInitialData:BattleCharaData
     private var mPosition:BattlePosition//このキャラがいる座標
     init(aData:BattleCharaData,aPosition:BattlePosition,aTeam:Team){
@@ -46,6 +46,7 @@ class BattleChara{
     func getMaxMp()->Int{return mInitialData.status.mp}
     func getItem()->(String,Int){return (mItem,mItemNum)}
     func getSkill()->[String]{return mInitialData.skill}
+    func getTeam()->Team{return mTeam}
     //指定した座標へ瞬間移動
     func move(aPosition:BattlePosition){
         Battle.getTrout(aPosition:mPosition)!.out()
@@ -78,6 +79,31 @@ class BattleChara{
             aEndFunction()
         }))
         mNode.runAction(SCNAction.sequence(tAnimation))
+    }
+    //スキルを使用してmp消費
+    func useMp(aMp:Int){
+        mCurrentMp-=aMp
+    }
+    //ダメージを受ける
+    func addDamage(aDamage:Int,aEndFunction:@escaping ()->()){
+        mCurrentHp-=aDamage
+        if(mCurrentHp<0){mCurrentHp=0}
+        //アニメーション
+        mNode.animateDamage(aEndFunction:aEndFunction)
+    }
+    //回復する
+    func heal(aHeal:Int,aEndFunction:@escaping ()->()){
+        mCurrentHp+=aHeal
+        if(mInitialData.status.hp<mCurrentHp){mCurrentHp=mInitialData.status.hp}
+        //アニメーション
+    }
+    //アイテムを使用した
+    func useItem(){
+        mItemNum-=1
+        if(mItemNum==0){
+            //アイテムがなくなった
+            mItem=""
+        }
     }
 }
 

@@ -9,12 +9,19 @@
 import Foundation
 
 class SkillRangeSearcher{
+    //スキルの場合の攻撃範囲
+    static func searchSkillRange(aChara:BattleChara,aSkill:String)->[(BattleTrout,[BattleTrout])]{
+        return search(aChara:aChara,aSkillData:SkillDictionary.get(key:aSkill))
+    }
+//    //アイテムの場合の効果範囲
+//    static func searchItemRange(aChara:BattleChara,aItemKey:String)->[(BattleTrout,[BattleTrout])]{
+//        return search(aChara:aChara,aSkillData:ItemDictionary.get(key:aItemKey).battleEffect!)
+//    }
     //スキルの攻撃範囲を求める
-    static func search(aChara:BattleChara,aSkill:String)->[(BattleTrout,[BattleTrout])]{//[(攻撃範囲,[巻き込み範囲])]
-        let tSkillData=SkillDictionary.get(key:aSkill)
+    static func search(aChara:BattleChara,aSkillData:SkillData)->[(BattleTrout,[BattleTrout])]{//[(攻撃範囲,[巻き込み範囲])]
         let tMyPosition=aChara.getPosition()
         var tRange:[(BattlePosition,[BattlePosition])]=[]
-        switch tSkillData.range.rangeType {
+        switch aSkillData.range.rangeType {
         case .adjacentIncludeMyself://自身と隣接マス
             tRange.append((tMyPosition,[]))
             fallthrough
@@ -27,7 +34,7 @@ class SkillRangeSearcher{
             tRange.append((tMyPosition,[]))
             fallthrough
         case .range://射程
-            let tDistance=tSkillData.range.range!
+            let tDistance=aSkillData.range.range!
             for x in 0...tDistance{
                 for y in 0...tDistance-x{
                     if(x==0&&y==0){continue}
@@ -39,7 +46,7 @@ class SkillRangeSearcher{
             fallthrough
         case .circumference://周囲
             var tCircumference:[BattlePosition]=[]
-            for i in 1...tSkillData.range.range!{
+            for i in 1...aSkillData.range.range!{
                 //y=i
                 for x in -i...i{
                     tCircumference.append(tMyPosition+(x,i))
@@ -52,20 +59,29 @@ class SkillRangeSearcher{
                 }
             }
             for tPosition in tCircumference{
-                tRange.append((tPosition,tCircumference))
+                //選択したマスを巻き込み範囲から削除
+                var tInvolvement=tCircumference
+                for i in 0..<tInvolvement.count{
+                    let tCircumferencePosition=tInvolvement[i]
+                    if(tCircumferencePosition.x != tPosition.x || tCircumferencePosition.y != tPosition.y){continue}
+                    tInvolvement.remove(at:i)
+                    break
+                }
+                tRange.append((tPosition,tInvolvement))
             }
         case .myself://自身
             tRange.append((tMyPosition,[]))
         case .line://直線
-            let tDistance=tSkillData.range.range
+            let tDistance=aSkillData.range.range
             for tDirection in [(0,-1),(0,1),(-1,0),(1,0)]{
-                var tInvolvement:[BattlePosition]=[]
-                //巻き込み範囲算出
                 for i in 1...tDistance!{
-                    tInvolvement.append(BattlePosition(x:tDirection.0*i,y:tDirection.1*i))
-                }
-                for i in 1...tDistance!{
-                    tRange.append((tMyPosition+(tDirection.0*i,tDirection.1*i),tInvolvement))
+                    //巻き込み範囲算出
+                    var tInvolvement:[BattlePosition]=[]
+                    for j in 1...tDistance!{
+                        if(i==j){continue}
+                        tInvolvement.append(tMyPosition+(tDirection.0*j,tDirection.1*j))
+                    }
+                    tRange.append(((tMyPosition+(tDirection.0*i,tDirection.1*i),tInvolvement)))
                 }
             }
         }

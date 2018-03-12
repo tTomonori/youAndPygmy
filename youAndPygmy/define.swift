@@ -16,6 +16,10 @@ let gEmptyFunction={()->()in}
 func decimal(aNum:Float)->Float{
     return aNum-floor(aNum)
 }
+//Double * Int
+func * (left:Double,right:Int)->Double{
+    return left * Double(right)
+}
 //float + int
 func + (left: Float, right: Int) -> Float{
     return left + Float(right)

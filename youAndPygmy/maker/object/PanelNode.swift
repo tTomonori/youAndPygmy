@@ -77,7 +77,10 @@ class PanelNode:SCNNode{
     }
     //画像変更
     func changeImage(aKey:String){
-        self.geometry!.materials=[mMaterials[aKey]!]
+        if(mMaterials==nil){return}
+        if let tMaterial=mMaterials[aKey]{
+            self.geometry!.materials=[tMaterial]
+        }
     }
     ////////////////////////////////////////
     //画像設定(分割表示する場合)

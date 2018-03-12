@@ -46,4 +46,44 @@ class CharaNode:SCNNode{
     func setPosition(aPosition:BattlePosition){
         self.position=aPosition.convertVector()
     }
+    //全部位の画像パターン変更
+    func changePattern(aPattern:String){
+        for (_,tPanel) in mParts{
+            tPanel.changeImage(aKey:aPattern)
+        }
+    }
+    //指定した部位の画像パターン変更
+    func changeImage(aParts:String,aPattern:String){
+        let tPanel=mParts[aParts]!
+        tPanel.changeImage(aKey:aPattern)
+    }
+    //ダメージアニメーション
+    func animateDamage(aEndFunction:@escaping ()->()){
+        changePattern(aPattern:"damage")
+        self.runAction(SCNAction.sequence([
+            SCNAction.fadeOut(duration:0),
+            SCNAction.wait(duration:0.1),
+            SCNAction.fadeIn(duration:0),
+            SCNAction.wait(duration:0.1),
+            SCNAction.fadeOut(duration:0),
+            SCNAction.wait(duration:0.1),
+            SCNAction.fadeIn(duration:0),
+            SCNAction.wait(duration:0.1),
+            SCNAction.fadeOut(duration:0),
+            SCNAction.wait(duration:0.1),
+            SCNAction.fadeIn(duration:0),
+            SCNAction.wait(duration:0.1),
+            SCNAction.fadeOut(duration:0),
+            SCNAction.wait(duration:0.1),
+            SCNAction.fadeIn(duration:0),
+            SCNAction.wait(duration:0.1),
+            SCNAction.fadeOut(duration:0),
+            SCNAction.wait(duration:0.1),
+            SCNAction.fadeIn(duration:0),
+            SCNAction.run({(_)->()in
+                self.changePattern(aPattern:"normal")
+                aEndFunction()
+            })
+            ]))
+    }
 }

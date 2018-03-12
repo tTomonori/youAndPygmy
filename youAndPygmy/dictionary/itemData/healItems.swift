@@ -11,6 +11,7 @@ import Foundation
 extension ItemDictionary{
     static let tiisanakinomi=ItemData(
         name:"小さなきのみ",
-        maxNum:5
+        maxNum:5,
+        effectKey:"tiisanakinomi"
     )
 }

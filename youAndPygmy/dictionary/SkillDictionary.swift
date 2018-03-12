@@ -19,7 +19,7 @@ class SkillData:NSObject{
     let category:SkillCategory//物理or魔法or支援or回復orパッシブ
     let type:SkillType//属性
     let mp:Int//消費やる気
-    let counter:Bool!//反撃スキルかどうか
+    let counter:Bool//反撃スキルかどうか
     let power:Int!//威力
     let range:SkillRange!//攻撃範囲
     init(
@@ -49,7 +49,7 @@ class SkillData:NSObject{
         self.category=category
         self.type=type
         self.mp=0
-        self.counter=nil
+        self.counter=false
         self.power=nil
         self.range=nil
     }
@@ -69,6 +69,7 @@ enum SkillType{
     case da//打
     case hi//火
     case water//水
+    case nature//自然
     case sei//聖
     case ja//邪
 }

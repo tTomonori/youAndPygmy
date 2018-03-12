@@ -14,15 +14,13 @@ class Battle{
     private static var mScene:SCNScene!
     private static var mTrouts:[[BattleTrout]]!
     private static var mCameraNode:SCNNode!//カメラ
-    private static var mAllies:[BattleChara]!//味方
-    private static var mEnemies:[BattleChara]!//敵
     private static var mEndFunction:((String)->())!//戦闘終了時に呼ぶ関数
     //戦闘情報をセット
     static func setBattle(aBattleData:BattleData){
         mScene=SCNScene()
         mTrouts=[]
-        mAllies=[]
-        mEnemies=[]
+        var tAllies:[BattleChara]=[]
+        var tEnemies:[BattleChara]=[]
         //マス設定
         for tY in 0..<aBattleData.feild.feild.count{
             let tLine=aBattleData.feild.feild[tY]
@@ -43,7 +41,7 @@ class Battle{
             let tPosition=aBattleData.allyPosition[i]
             let tChara=BattleChara(aData:tBattleData!,aPosition:tPosition,aTeam:.you)
             mScene.rootNode.addChildNode(tChara.getNode())
-            mAllies.append(tChara)
+            tAllies.append(tChara)
         }
         //敵配置
         for i in 0..<aBattleData.enemies.count{
@@ -52,7 +50,7 @@ class Battle{
             let tPosition=aBattleData.enemyPosition[i]
             let tChara=BattleChara(aData:tBattleData!,aPosition:tPosition,aTeam:.enemy)
             mScene.rootNode.addChildNode(tChara.getNode())
-            mEnemies.append(tChara)
+            tEnemies.append(tChara)
         }
         //カメラ配置
         mCameraNode=SCNNode()
@@ -61,7 +59,7 @@ class Battle{
         mCameraNode.position=SCNVector3(x:gTroutSize*(-2),y:gTroutSize*2.7,z:gTroutSize*(aBattleData.feild.feild.count+2))
         mScene.rootNode.addChildNode(mCameraNode)
         
-        Turn.setCharas(aCharas:mAllies+mEnemies)
+        CharaManager.set(aAllies:tAllies,aEnemies:tEnemies)
     }
     //戦闘開始
     static func start(aEndFunction:@escaping (String)->()){
@@ -69,6 +67,10 @@ class Battle{
         BattleUiScene.initScene()
         BattleUiScene.display()
         Turn.start()
+    }
+    //勝敗判定
+    static func judgeBattle(){
+        
     }
     //シーン表示
     static func display(){

@@ -16,6 +16,10 @@ class CharaController{
     private static var mStartPosition:BattlePosition!
     //キャラの移動可能範囲とそこへの経路
     private static var mRoute:[(BattleTrout,[BattlePosition])]!
+    //選択したスキル名
+    private static var mSelectedSkill:String?=nil
+    //選択したスキルの攻撃可能範囲
+    private static var mSkillRange:[(BattleTrout,[BattleTrout])]?=nil
     //操作用ボタンのノード
     private static let mButton0=BattleUiScene.getNode(aName:"charaControlButton0")!
     private static let mButton1=BattleUiScene.getNode(aName:"charaControlButton1")!
@@ -24,6 +28,8 @@ class CharaController{
     private static var mButtonFunction1:(()->())?=nil
     //使用可能なスキル表示ノード
     private static let mSkillBox=BattleUiScene.getNode(aName:"choiceSkillBox")!
+    //使用可能なアイテム表示ノード
+    private static let mItemBox=mSkillBox.childNode(withName:"itemBox")!
     static func toAct(aChara:BattleChara){
         //行動するキャラ記憶
         mTurnChara=aChara
@@ -32,10 +38,43 @@ class CharaController{
         //移動可能範囲を求める
         mRoute=RouteSearcher.search(aChara:aChara)
         //スキルを表示
-        SkillBarMaker.setActiveSkill(aNode:mSkillBox,aSkills:aChara.getSkill())
+        setActiveSkillBar()
         //移動用ui表示
         displayMoveUi()
         gGameViewController.allowUserOperate()
+    }
+    //アクティブスキルをセット
+    static func setActiveSkillBar(){
+        let tSkills=mTurnChara.getSkill()
+        SkillBarMaker.setActiveSkill(aNode:mSkillBox,aSkills:tSkills)
+        for i in 0..<tSkills.count{
+            let tSkill=tSkills[i]
+            if(tSkill==""){continue}
+            let tSkillData=SkillDictionary.get(key:tSkill)
+            if(mTurnChara.getCurrentMp()<tSkillData.mp){
+                //mpが足りない
+                SkillBarMaker.blendBar(
+                    aNode:mSkillBox.childNode(withName:"skill"+String(i))!,
+                    aColor:UIColor(red:0,green:0,blue:0,alpha:0.4),
+                    aBlend:1
+                )
+                
+            }
+        }
+        //アイテム表示
+        let tItem=mTurnChara.getItem()
+        if(tItem.0 != ""){
+            let tItemEffect=SkillDictionary.get(key:(ItemDictionary.get(key:tItem.0).effectKey))
+            if(tItemEffect.category != .passive){
+                ItemBarMaker.setItemLabel(aNode:mItemBox,aItem:mTurnChara.getItem())
+            }
+            else{
+                mItemBox.alpha=0
+            }
+        }
+        else{
+            mItemBox.alpha=0
+        }
     }
     //移動先選択のui表示
     static func displayMoveUi(){
@@ -76,9 +115,11 @@ class CharaController{
         mSkillBox.alpha=1
         mButtonFunction0={()->()in
             mSkillBox.alpha=0
+            changeRangeColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
+            mSkillRange=nil
             self.resetMove()
         }
-        mButtonFunction1=nil
+        mButtonFunction1=attack
         mButton0.alpha=1
         mButton1.alpha=1
     }
@@ -92,14 +133,76 @@ class CharaController{
     static func pushedButton1(){mButtonFunction1?()}
     //スキル選択
     static func tapSkillBar(aNum:Int){
-        let tRange=SkillRangeSearcher.search(aChara:mTurnChara,aSkill:mTurnChara.getSkill()[aNum])
-        for (tTrout,_) in tRange{
-            tTrout.changeColor(aColor:UIColor(red:1,green:0,blue:0,alpha:0.4))
-        }
+        changeRangeColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
+        mSelectedSkill=mTurnChara.getSkill()[aNum]
+        mSkillRange=SkillRangeSearcher.searchSkillRange(aChara:mTurnChara,aSkill:mSelectedSkill!)
+        changeRangeColor(aColor:UIColor(red:1,green:0,blue:0,alpha:0.4))
+    }
+    //アイテム選択
+    static func tapItemBar(){
+        changeRangeColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
+        let (tItemKey,_)=mTurnChara.getItem()
+        mSelectedSkill=ItemDictionary.get(key:tItemKey).effectKey
+        mSkillRange=SkillRangeSearcher.searchSkillRange(aChara:mTurnChara,aSkill:mSelectedSkill!)
+        changeRangeColor(aColor:UIColor(red:1,green:0,blue:0,alpha:0.4))
     }
     //移動可能なマスの色を変更
     static func changeRouteColor(aColor:UIColor){
         for (tTrout,_) in mRoute{
+            tTrout.changeColor(aColor:aColor)
+        }
+    }
+    //攻撃する
+    static func attack(){
+        //スキルが選択されていない
+        if(mSelectedSkill==nil){return}
+        let tSelectedSkillData=SkillDictionary.get(key:mSelectedSkill!)
+        //選択したマスが攻撃可能かどうか
+        let tSelectedTrout=TroutTapMonitor.getSelectedTrout()
+        if(tSelectedTrout==nil){return}//マスが選択されていない
+        //巻き込み範囲取得
+        var tInvolvement:[BattleTrout]?=nil
+        for (tTrout,tInvolvementData) in mSkillRange!{
+            if(tTrout !== tSelectedTrout!){continue}
+            tInvolvement=tInvolvementData
+            break
+        }
+        if(tInvolvement==nil){return}//攻撃不可能なマスを選択していた
+        if let tTargetChara=tSelectedTrout!.getRidingChara(){
+            let tCategory=tSelectedSkillData.category
+            //攻撃,妨害スキルで味方を選択
+            if(tCategory == .physics || tCategory == .magic || tCategory == .disturbance){
+                if(mTurnChara.getTeam()==tTargetChara.getTeam()){return}
+            }
+            //回復,支援スキルで敵を選択
+            if(tCategory == .heal || tCategory == .assist){
+                if(mTurnChara.getTeam() != tTargetChara.getTeam()){return}
+            }
+        }
+        else{return}//誰もいないマスを選択していた
+        //攻撃可能
+        let tSelectedSkill=mSelectedSkill!
+        changeRangeColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
+        mSelectedSkill=nil
+        mSkillRange=nil
+        mSkillBox.alpha=0
+        mButton0.alpha=0
+        mButton1.alpha=0
+        //攻撃
+        AttackOperator.attack(
+            aChara:mTurnChara,
+            aSkill:tSelectedSkill,
+            aTargetTrout:tSelectedTrout!,
+            aInvolvement:tInvolvement!,
+            aEndFunction:{()->()in
+                //攻撃処理終了後の関数
+                Turn.nextTurn()
+        })
+    }
+    //スキルの攻撃可能な範囲の色を変更
+    static func changeRangeColor(aColor:UIColor){
+        if(mSkillRange==nil){return}
+        for (tTrout,_) in mSkillRange!{
             tTrout.changeColor(aColor:aColor)
         }
     }

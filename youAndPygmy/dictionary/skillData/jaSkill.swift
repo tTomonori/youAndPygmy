@@ -13,7 +13,7 @@ extension SkillDictionary{
         name:"感染",
         category:SkillCategory.magic,
         type:.ja,
-        mp:5,
+        mp:10,
         counter:false,
         power:0,
         range:SkillRange(type:.circumference,range:1)

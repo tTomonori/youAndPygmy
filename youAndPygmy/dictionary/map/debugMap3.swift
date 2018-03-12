@@ -62,7 +62,7 @@ extension MapDictionary{
                        [0,0,0,0,0,0,0,0]],
                 chip:[0:TroutAttributeDictionary.get(key:"grass")]
                 )],
-            enemyGroup:[0:[(0,20),(1,50),(-1,30)]],
+            enemyGroup:[0:[(0,40),(1,50),(-1,10)]],
             enemy:[
                 0:BattleEnemyData(
                     pygmyFlag: true,
@@ -72,7 +72,7 @@ extension MapDictionary{
                     status: nil,
                     mobility: nil,
                     currentHp: nil,
-                    skill: ["sougeki"],
+                    skill: ["sougeki","kyuuketu"],
                     item: "",
                     itemNum: 0,
                     ai:nil

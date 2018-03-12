@@ -26,12 +26,17 @@ class BattleUiScene{
             = ["run",{()->()in CharaController.pushedButton0()}]
         tScene.childNode(withName:"charaControlButton1")!.accessibilityElements
             = ["run",{()->()in CharaController.pushedButton1()}]
+        //使用可能スキル
         let tSkillBox=tScene.childNode(withName:"choiceSkillBox")!
         for i in 0...3{
             tSkillBox.childNode(withName:"skill"+String(i))!.accessibilityElements=["run",{()->()in
                 CharaController.tapSkillBar(aNum:i)
                 }]
         }
+        //使用可能アイテム
+        tSkillBox.childNode(withName:"itemBox")!.accessibilityElements=["run",{()->()in
+            CharaController.tapItemBar()
+            }]
         return tScene
     }
     //シーン初期化
