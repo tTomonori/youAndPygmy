@@ -96,6 +96,7 @@ class BattleChara{
         mCurrentHp+=aHeal
         if(mInitialData.status.hp<mCurrentHp){mCurrentHp=mInitialData.status.hp}
         //アニメーション
+        aEndFunction()
     }
     //アイテムを使用した
     func useItem(){

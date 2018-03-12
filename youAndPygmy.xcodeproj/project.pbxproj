@@ -89,6 +89,7 @@
 		E59E4A7520230370009553C9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E4A7420230370009553C9 /* GameViewController.swift */; };
 		E59E4A7820230370009553C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59E4A7620230370009553C9 /* Main.storyboard */; };
 		E59E4A7D20230370009553C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59E4A7B20230370009553C9 /* LaunchScreen.storyboard */; };
+		E5B57A7120568DBC00C0F0D5 /* ActiveSkillUi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B57A7020568DBC00C0F0D5 /* ActiveSkillUi.swift */; };
 		E5C74E4F20369A220071326D /* mapUi.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5C74E4E20369A220071326D /* mapUi.sks */; };
 		E5C80ED32045488B00F89541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5C80ED22045488B00F89541 /* Assets.xcassets */; };
 		E5C8F85A2041866B00CD908A /* You.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C8F8592041866B00CD908A /* You.swift */; };
@@ -183,6 +184,7 @@
 		E59E4A7720230370009553C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E59E4A7C20230370009553C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E59E4A7E20230370009553C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5B57A7020568DBC00C0F0D5 /* ActiveSkillUi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveSkillUi.swift; sourceTree = "<group>"; };
 		E5C74E4E20369A220071326D /* mapUi.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = mapUi.sks; path = map/mapUi.sks; sourceTree = "<group>"; };
 		E5C80ED22045488B00F89541 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5C8F8592041866B00CD908A /* You.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = You.swift; path = you/You.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				E54EDC9420543ACD00F0D83B /* SkillRangeSearcher.swift */,
 				E55A43A920550B560091F2BB /* AttackOperator.swift */,
 				E551200120565C5C00CAC557 /* CharaManager.swift */,
+				E5B57A7020568DBC00C0F0D5 /* ActiveSkillUi.swift */,
 			);
 			path = battle;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 				E55A43AA20550B560091F2BB /* AttackOperator.swift in Sources */,
 				E525D18E203D6202003C0E6A /* MapEvent.swift in Sources */,
 				E518BEF02043F2030072F0C8 /* ItemDictionary.swift in Sources */,
+				E5B57A7120568DBC00C0F0D5 /* ActiveSkillUi.swift in Sources */,
 				E56BDA6C203DD374001C4F00 /* SpeakWindow.swift in Sources */,
 				E5173256204EB41C0016A827 /* BarMaker.swift in Sources */,
 				E525D181203D54F8003C0E6A /* SceneController.swift in Sources */,

@@ -35,7 +35,7 @@ class BattleUiScene{
         }
         //使用可能アイテム
         tSkillBox.childNode(withName:"itemBox")!.accessibilityElements=["run",{()->()in
-            CharaController.tapItemBar()
+            CharaController.tapSkillBar(aNum:4)
             }]
         return tScene
     }

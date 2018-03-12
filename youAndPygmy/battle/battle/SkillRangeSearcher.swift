@@ -35,8 +35,8 @@ class SkillRangeSearcher{
             fallthrough
         case .range://射程
             let tDistance=aSkillData.range.range!
-            for x in 0...tDistance{
-                for y in 0...tDistance-x{
+            for x in -tDistance...tDistance{
+                for y in -tDistance+abs(x)...tDistance-abs(x){
                     if(x==0&&y==0){continue}
                     tRange.append((tMyPosition+(x,y),[]))
                 }

@@ -17,7 +17,7 @@ class CharaController{
     //キャラの移動可能範囲とそこへの経路
     private static var mRoute:[(BattleTrout,[BattlePosition])]!
     //選択したスキル名
-    private static var mSelectedSkill:String?=nil
+    private static var mSelectedSkillNum:Int?=nil
     //選択したスキルの攻撃可能範囲
     private static var mSkillRange:[(BattleTrout,[BattleTrout])]?=nil
     //操作用ボタンのノード
@@ -26,10 +26,6 @@ class CharaController{
     //操作用ボタンを押した時に実行する関数
     private static var mButtonFunction0:(()->())?=nil
     private static var mButtonFunction1:(()->())?=nil
-    //使用可能なスキル表示ノード
-    private static let mSkillBox=BattleUiScene.getNode(aName:"choiceSkillBox")!
-    //使用可能なアイテム表示ノード
-    private static let mItemBox=mSkillBox.childNode(withName:"itemBox")!
     static func toAct(aChara:BattleChara){
         //行動するキャラ記憶
         mTurnChara=aChara
@@ -38,43 +34,10 @@ class CharaController{
         //移動可能範囲を求める
         mRoute=RouteSearcher.search(aChara:aChara)
         //スキルを表示
-        setActiveSkillBar()
+        ActiveSkillUi.set(aChara:mTurnChara)
         //移動用ui表示
         displayMoveUi()
         gGameViewController.allowUserOperate()
-    }
-    //アクティブスキルをセット
-    static func setActiveSkillBar(){
-        let tSkills=mTurnChara.getSkill()
-        SkillBarMaker.setActiveSkill(aNode:mSkillBox,aSkills:tSkills)
-        for i in 0..<tSkills.count{
-            let tSkill=tSkills[i]
-            if(tSkill==""){continue}
-            let tSkillData=SkillDictionary.get(key:tSkill)
-            if(mTurnChara.getCurrentMp()<tSkillData.mp){
-                //mpが足りない
-                SkillBarMaker.blendBar(
-                    aNode:mSkillBox.childNode(withName:"skill"+String(i))!,
-                    aColor:UIColor(red:0,green:0,blue:0,alpha:0.4),
-                    aBlend:1
-                )
-                
-            }
-        }
-        //アイテム表示
-        let tItem=mTurnChara.getItem()
-        if(tItem.0 != ""){
-            let tItemEffect=SkillDictionary.get(key:(ItemDictionary.get(key:tItem.0).effectKey))
-            if(tItemEffect.category != .passive){
-                ItemBarMaker.setItemLabel(aNode:mItemBox,aItem:mTurnChara.getItem())
-            }
-            else{
-                mItemBox.alpha=0
-            }
-        }
-        else{
-            mItemBox.alpha=0
-        }
     }
     //移動先選択のui表示
     static func displayMoveUi(){
@@ -112,10 +75,11 @@ class CharaController{
     }
     //スキル選択のui表示
     static func displaySkillUi(){
-        mSkillBox.alpha=1
+        ActiveSkillUi.display()
         mButtonFunction0={()->()in
-            mSkillBox.alpha=0
+            ActiveSkillUi.hide()
             changeRangeColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
+            mSelectedSkillNum=nil
             mSkillRange=nil
             self.resetMove()
         }
@@ -134,16 +98,14 @@ class CharaController{
     //スキル選択
     static func tapSkillBar(aNum:Int){
         changeRangeColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
-        mSelectedSkill=mTurnChara.getSkill()[aNum]
-        mSkillRange=SkillRangeSearcher.searchSkillRange(aChara:mTurnChara,aSkill:mSelectedSkill!)
-        changeRangeColor(aColor:UIColor(red:1,green:0,blue:0,alpha:0.4))
-    }
-    //アイテム選択
-    static func tapItemBar(){
-        changeRangeColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
-        let (tItemKey,_)=mTurnChara.getItem()
-        mSelectedSkill=ItemDictionary.get(key:tItemKey).effectKey
-        mSkillRange=SkillRangeSearcher.searchSkillRange(aChara:mTurnChara,aSkill:mSelectedSkill!)
+        let tSkills=ActiveSkillUi.getSkills()
+        if(!tSkills[aNum].1){
+            //使用不可のスキルを選択した
+            mSelectedSkillNum=nil
+            return
+        }
+        mSelectedSkillNum=aNum
+        mSkillRange=SkillRangeSearcher.searchSkillRange(aChara:mTurnChara,aSkill:tSkills[aNum].0)
         changeRangeColor(aColor:UIColor(red:1,green:0,blue:0,alpha:0.4))
     }
     //移動可能なマスの色を変更
@@ -155,8 +117,9 @@ class CharaController{
     //攻撃する
     static func attack(){
         //スキルが選択されていない
-        if(mSelectedSkill==nil){return}
-        let tSelectedSkillData=SkillDictionary.get(key:mSelectedSkill!)
+        if(mSelectedSkillNum==nil){return}
+        let tSelectedSkill=ActiveSkillUi.getSkills()[mSelectedSkillNum!].0
+        let tSelectedSkillData=SkillDictionary.get(key:tSelectedSkill)
         //選択したマスが攻撃可能かどうか
         let tSelectedTrout=TroutTapMonitor.getSelectedTrout()
         if(tSelectedTrout==nil){return}//マスが選択されていない
@@ -181,11 +144,12 @@ class CharaController{
         }
         else{return}//誰もいないマスを選択していた
         //攻撃可能
-        let tSelectedSkill=mSelectedSkill!
+        //アイテム消費
+        if(mSelectedSkillNum==4){mTurnChara.useItem()}
         changeRangeColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
-        mSelectedSkill=nil
+        mSelectedSkillNum=nil
         mSkillRange=nil
-        mSkillBox.alpha=0
+        ActiveSkillUi.hide()
         mButton0.alpha=0
         mButton1.alpha=0
         //攻撃

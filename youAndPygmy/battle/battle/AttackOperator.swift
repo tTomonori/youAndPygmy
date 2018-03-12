@@ -22,6 +22,8 @@ class AttackOperator{
     //スキル効果処理
     static func operateSkill(aChara:BattleChara,aSkill:String,aTargetTrout:BattleTrout,aInvolvement:[BattleTrout],
                               aCounter:Bool,aEndFunction:@escaping ()->()){
+        let tSkillData=SkillDictionary.get(key:aSkill)
+        aChara.useMp(aMp:tSkillData.mp)
         let tTargetChara=aTargetTrout.getRidingChara()!//攻撃目標にされたキャラ
         //スキルを受けるキャラのリスト生成
         var tDamagedCharas:[BattleChara]=[]
@@ -30,7 +32,7 @@ class AttackOperator{
                 tDamagedCharas.append(tChara)
             }
         }
-        switch SkillDictionary.get(key:aSkill).category {
+        switch tSkillData.category {
         case .physics:fallthrough//物理
         case .magic://魔法
             for i in 0..<tDamagedCharas.count{

@@ -80,35 +80,6 @@ class SkillBarMaker{
             aNode.childNode(withName:"skill"+String(i))!.alpha=0
         }
     }
-    //パッシブ以外のスキルを表示
-    static func setActiveSkill(aNode:SKNode,aSkills:[String]){
-        var tNum=0
-        for tSkillKey in aSkills{
-            if(tSkillKey==""){continue}//スキルなし
-            let tSkillData=SkillDictionary.get(key:tSkillKey)
-            if(tSkillData.category == .passive){continue}//パッシブスキル
-            let tSkillBar=aNode.childNode(withName:"skill"+String(tNum))!
-            //スキルのバーセット
-            setSkillBar(aNode:tSkillBar,
-                        aSkillName:tSkillData.name,
-                        aCategory:tSkillData.category,
-                        aDark:false
-            )
-            let tLabel=tSkillBar.childNode(withName:"label")!
-            //威力
-            (tLabel.childNode(withName:"power") as! SKLabelNode).text
-                = (tSkillData.category == .physics || tSkillData.category == .magic)
-                ?String(tSkillData.power)
-                :"-"
-            //やる気
-            tNum+=1
-            (tLabel.childNode(withName:"mp") as! SKLabelNode).text=String(tSkillData.mp)
-        }
-        //余ったバーを透過する
-        for i in tNum...3{
-            aNode.childNode(withName:"skill"+String(i))!.alpha=0
-        }
-    }
     //スキルバーセット
     static func setSkillBar(aNode:SKNode,aSkillName:String,aCategory:SkillCategory,aDark:Bool){
         aNode.alpha=1
@@ -147,6 +118,11 @@ class SkillBarMaker{
             blendBar(aNode:aNode.childNode(withName:"background")!,
                                    aColor:UIColor(red:0,green:0,blue:0,alpha:1),
                                    aBlend:0.3)
+        }
+        else{
+            blendBar(aNode:aNode.childNode(withName:"background")!,
+                     aColor:UIColor(red:0,green:0,blue:0,alpha:0),
+                     aBlend:0)
         }
     }
     //バーの変色
