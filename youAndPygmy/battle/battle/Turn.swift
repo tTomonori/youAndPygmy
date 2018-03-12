@@ -23,8 +23,8 @@ class Turn{
         //キャラの情報表示
         BattleDataUi.setTurnCharaData(aChara:mTurnChara)
         //行動させる
-//        if(mTurnChara.getAi() == .you){CharaController.toAct(aChara:mTurnChara)}
-//        else{CharaAi.toAct(aChara:mTurnChara)}
-        CharaController.toAct(aChara:mTurnChara)
+//        if(mTurnChara.getAi() == .you){CharaController.toAct(aChara:mTurnChara,aEndFunction:nextTurn)}
+//        else{CharaAi.toAct(aChara:mTurnChara,aEndFunction:nextTurn)}
+        CharaController.toAct(aChara:mTurnChara,aEndFunction:nextTurn)
     }
 }

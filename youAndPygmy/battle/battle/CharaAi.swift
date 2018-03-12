@@ -9,8 +9,10 @@
 import Foundation
 
 class CharaAi{
-    static func toAct(aChara:BattleChara){
-        
+    //ターン終了時に呼ぶ関数
+    private static var mEndFunction:(()->())!
+    static func toAct(aChara:BattleChara,aEndFunction:@escaping ()->()){
+        mEndFunction=aEndFunction
     }
 }
 

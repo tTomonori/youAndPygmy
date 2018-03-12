@@ -23,10 +23,15 @@ class CharaController{
     //操作用ボタンのノード
     private static let mButton0=BattleUiScene.getNode(aName:"charaControlButton0")!
     private static let mButton1=BattleUiScene.getNode(aName:"charaControlButton1")!
+    private static let mButton2=BattleUiScene.getNode(aName:"charaControlButton2")!
     //操作用ボタンを押した時に実行する関数
     private static var mButtonFunction0:(()->())?=nil
     private static var mButtonFunction1:(()->())?=nil
-    static func toAct(aChara:BattleChara){
+    private static var mButtonFunction2:(()->())?=nil
+    //ターン終了時に呼ぶ関数
+    private static var mEndFunction:(()->())!
+    static func toAct(aChara:BattleChara,aEndFunction:@escaping ()->()){
+        mEndFunction=aEndFunction
         //行動するキャラ記憶
         mTurnChara=aChara
         //初期位置記憶
@@ -47,8 +52,16 @@ class CharaController{
             displaySkillUi()
         }
         mButtonFunction1=decideMove
+        mButtonFunction2={()->()in
+            changeRouteColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
+            mButton0.alpha=0
+            mButton1.alpha=0
+            mButton2.alpha=0
+            mEndFunction()
+        }
         mButton0.alpha=1
         mButton1.alpha=1
+        mButton2.alpha=1
     }
     //移動先決定
     static func decideMove(){
@@ -67,6 +80,7 @@ class CharaController{
         //ボタン非表示
         mButton0.alpha=0
         mButton1.alpha=0
+        mButton2.alpha=0
         //キャラ移動
         mTurnChara.move(aRoute:tRoute,aEndFunction:{()->()in
             //移動終了時
@@ -84,8 +98,19 @@ class CharaController{
             self.resetMove()
         }
         mButtonFunction1=attack
+        mButtonFunction2={()->()in
+            ActiveSkillUi.hide()
+            changeRangeColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
+            mSelectedSkillNum=nil
+            mSkillRange=nil
+            mButton0.alpha=0
+            mButton1.alpha=0
+            mButton2.alpha=0
+            mEndFunction()
+        }
         mButton0.alpha=1
         mButton1.alpha=1
+        mButton2.alpha=1
     }
     //移動キャンセル(移動先選び直し)
     static func resetMove(){
@@ -95,6 +120,7 @@ class CharaController{
     //行動決定ボタン
     static func pushedButton0(){mButtonFunction0?()}
     static func pushedButton1(){mButtonFunction1?()}
+    static func pushedButton2(){mButtonFunction2?()}
     //スキル選択
     static func tapSkillBar(aNum:Int){
         changeRangeColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
@@ -152,6 +178,7 @@ class CharaController{
         ActiveSkillUi.hide()
         mButton0.alpha=0
         mButton1.alpha=0
+        mButton2.alpha=0
         //攻撃
         AttackOperator.attack(
             aChara:mTurnChara,
@@ -160,7 +187,7 @@ class CharaController{
             aInvolvement:tInvolvement!,
             aEndFunction:{()->()in
                 //攻撃処理終了後の関数
-                Turn.nextTurn()
+                mEndFunction()
         })
     }
     //スキルの攻撃可能な範囲の色を変更
