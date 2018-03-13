@@ -31,8 +31,8 @@ class SaveData{
                             spd:1,
                             pie:1
                         ),
-                        level:10,
-                        currentHp:10,
+                        level:12,
+                        currentHp:35,
                         setedSkills:[0,2,-1,3],
                         masteredSkills:["sougeki","kyuuketu","kansen","kansengen"],
                         item:"tiisanakinomi",

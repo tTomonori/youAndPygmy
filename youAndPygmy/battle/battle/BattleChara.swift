@@ -80,6 +80,20 @@ class BattleChara{
         }))
         mNode.runAction(SCNAction.sequence(tAnimation))
     }
+    //戦闘不能か
+    func isDown()->Bool{
+        return (mCurrentHp<=0) ?true:false
+    }
+    //戦闘不能アニメ
+    func down(aEndFunction:@escaping ()->()){
+        let tTrout=Battle.getTrout(aPosition:mPosition)!
+        tTrout.out()
+        mNode.changePattern(aPattern:"damage")
+        mNode.animateDown(aEndFunction:{()->()in
+            self.mNode.removeFromParentNode()
+            aEndFunction()
+        })
+    }
     //スキルを使用してmp消費
     func useMp(aMp:Int){
         mCurrentMp-=aMp

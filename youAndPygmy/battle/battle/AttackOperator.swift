@@ -17,6 +17,10 @@ class AttackOperator{
     }
     //反撃する
     static func counter(aCounterAttacker:BattleChara,aDefender:BattleChara,aEndFunction:@escaping ()->()){
+        if(aCounterAttacker.isDown()){//反撃するキャラが戦闘不能
+            aEndFunction()
+            return
+        }
         let tSkills=aCounterAttacker.getSkill()
         let tDefenderTrout=Battle.getTrout(aPosition:aDefender.getPosition())!
         //反撃できるか確認
@@ -68,16 +72,18 @@ class AttackOperator{
                         tDefender.addDamage(aDamage:tDamage,aEndFunction:{()->()in
                             if(i==tDamagedCharas.count-1){
                                 //最後のキャラのダメージアニメーションが終わった
-                                CharaManager.judgeDow()//戦闘不能判定
-                                if(aCounter){
-                                    //反撃可能
-                                    counter(aCounterAttacker:tTargetChara,aDefender:aChara,
-                                            aEndFunction:aEndFunction)
-                                }
-                                else{
-                                    //反撃不可
-                                    aEndFunction()
-                                }
+                                CharaManager.judgeDow(aEndFunction:{()->()in
+                                    //戦闘不能判定
+                                    if(aCounter){
+                                        //反撃可能
+                                        counter(aCounterAttacker:tTargetChara,aDefender:aChara,
+                                                aEndFunction:aEndFunction)
+                                    }
+                                    else{
+                                        //反撃不可
+                                        aEndFunction()
+                                    }
+                                })
                             }
                         })
                     })

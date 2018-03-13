@@ -86,4 +86,11 @@ class CharaNode:SCNNode{
             })
             ]))
     }
+    //戦闘不能アニメーション
+    func animateDown(aEndFunction:@escaping ()->()){
+        self.runAction(SCNAction.sequence([
+            SCNAction.fadeOut(duration:0.4),
+            SCNAction.run({(_)->()in aEndFunction()})
+            ]))
+    }
 }

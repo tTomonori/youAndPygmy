@@ -53,8 +53,34 @@ class CharaManager{
         }
     }
     //戦闘不能判定
-    static func judgeDow(){
-        
+    static func judgeDow(aEndFunction:@escaping ()->()){
+        mAhead=mAhead.filter{
+            !$0.isDown()
+        }
+        var tSurviving:[BattleChara]=[]
+        var tDown:[BattleChara]=[]
+        //生存,戦闘不能に分ける
+        for tChara in mSurvivingCharas{
+            if(tChara.isDown()){tDown.append(tChara)}
+            else{tSurviving.append(tChara)}
+        }
+        mSurvivingCharas=tSurviving
+        //戦闘不能アニメーション
+        let tLength=tDown.count-1
+        if(tLength<0){aEndFunction();return;}//戦闘不能のキャラなし
+        for i in 0...tLength{
+            let tChara=tDown[i]
+            RunLoop.main.add(//メインのrunloopに登録する
+                Timer.init(timeInterval:0.2*i,repeats:false,block:{(_)->()in
+                    tChara.down(aEndFunction:{()->()in
+                        if(i==tLength){
+                            //最後のキャラの戦闘不能アニメ終了
+                            aEndFunction()
+                        }
+                    })
+                })
+            , forMode: RunLoopMode.commonModes)
+        }
     }
     //勝敗判定
     static func judgeBattle(){
