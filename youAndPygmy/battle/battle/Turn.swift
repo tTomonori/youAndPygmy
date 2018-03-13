@@ -17,7 +17,10 @@ class Turn{
     //次のキャラのターンへ
     static func nextTurn(){
         //勝敗判定
-        Battle.judgeBattle()
+        if let tResult=Battle.judgeBattle(){
+            Battle.end(aResult:tResult)
+            return
+        }
         //次に行動するキャラ決定
         mTurnChara=CharaManager.getNextTurnChara()
         //キャラの情報表示

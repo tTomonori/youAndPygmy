@@ -82,8 +82,19 @@ class CharaManager{
             , forMode: RunLoopMode.commonModes)
         }
     }
-    //勝敗判定
-    static func judgeBattle(){
-        
+    //全滅判定
+    static func exist(aTeam:Team)->Bool{
+        switch aTeam {
+        case .you:
+            for tChara in mSurvivingCharas{
+                if(tChara.getTeam() == .you){return true}
+            }
+            return false
+        case .enemy:
+            for tChara in mSurvivingCharas{
+                if(tChara.getTeam() == .enemy){return true}
+            }
+            return false
+        }
     }
 }

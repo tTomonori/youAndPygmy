@@ -11,12 +11,14 @@ import SceneKit
 import SpriteKit
 
 class Battle{
+    private static var mBattleData:BattleData!
     private static var mScene:SCNScene!
     private static var mTrouts:[[BattleTrout]]!
     private static var mCameraNode:SCNNode!//カメラ
     private static var mEndFunction:((String)->())!//戦闘終了時に呼ぶ関数
     //戦闘情報をセット
     static func setBattle(aBattleData:BattleData){
+        mBattleData=aBattleData
         mScene=SCNScene()
         mTrouts=[]
         var tAllies:[BattleChara]=[]
@@ -68,9 +70,29 @@ class Battle{
         BattleUiScene.display()
         Turn.start()
     }
+    //戦闘終了
+    static func end(aResult:String){
+        mEndFunction(aResult)
+    }
     //勝敗判定
-    static func judgeBattle(){
-        
+    static func judgeBattle()->String?{
+        //敗北判定
+        switch mBattleData.loseCondition {
+        case "extinction"://全滅
+            if(!CharaManager.exist(aTeam:.you)){
+                return "lose"
+            }
+        default:break
+        }
+        //勝利判定
+        switch mBattleData.winCondition {
+        case "extinction"://全滅
+            if(!CharaManager.exist(aTeam:.enemy)){
+                return "win"
+            }
+        default:break
+        }
+        return nil
     }
     //シーン表示
     static func display(){
