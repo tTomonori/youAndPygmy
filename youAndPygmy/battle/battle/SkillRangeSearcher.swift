@@ -11,7 +11,7 @@ import Foundation
 class SkillRangeSearcher{
     //スキルの場合の攻撃範囲
     static func searchSkillRange(aPosition:BattlePosition,aSkill:String)->[(BattleTrout,[BattleTrout])]{
-        return search(aPosition:aPosition,aSkillData:SkillDictionary.get(key:aSkill))
+        return search(aPosition:aPosition,aSkillData:SkillDictionary.get(aSkill))
     }
 //    //アイテムの場合の効果範囲
 //    static func searchItemRange(aChara:BattleChara,aItemKey:String)->[(BattleTrout,[BattleTrout])]{

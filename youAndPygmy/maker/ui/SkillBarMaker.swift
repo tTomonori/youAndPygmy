@@ -18,7 +18,7 @@ class SkillBarMaker{
             let tDark:Bool
             if(aSkills[i] != ""){
                 //スキルあり
-                let tSkillData=SkillDictionary.get(key:aSkills[i])
+                let tSkillData=SkillDictionary.get(aSkills[i])
                 tSkillName=tSkillData.name
                 tCategory=tSkillData.category
                 tDark=false
@@ -52,7 +52,7 @@ class SkillBarMaker{
             }
             //スキルあり
             let tSkillName=aSkills[i]
-            let tSkillData=SkillDictionary.get(key:tSkillName)
+            let tSkillData=SkillDictionary.get(tSkillName)
             setSkillBar(aNode:aNode.childNode(withName:"skill"+String(i))!,
                         aSkillName:tSkillData.name,
                         aCategory:tSkillData.category,
@@ -66,7 +66,7 @@ class SkillBarMaker{
         //スキルなしの部分は詰めて表示
         for tSkillKey in aSkills{
             if(tSkillKey==""){continue}//スキルなし
-            let tSkillData=SkillDictionary.get(key:tSkillKey)
+            let tSkillData=SkillDictionary.get(tSkillKey)
             //スキルのバーセット
             setSkillBar(aNode:aNode.childNode(withName:"skill"+String(tNum))!,
                         aSkillName:tSkillData.name,

@@ -48,6 +48,7 @@ class BattleTrout{
         mRidingChara=aChara
     }
     func out(){mRidingChara=nil}
+    //マスを変色する
     func changeColor(aColor:UIColor){
         mCover.geometry!.materials[0].diffuse.contents=aColor
     }

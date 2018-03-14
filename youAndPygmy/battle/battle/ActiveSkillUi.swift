@@ -35,7 +35,7 @@ class ActiveSkillUi{
         var tBarNum=0
         for tSkill in tSkills{
             if(tSkill==""){continue}//スキルなし
-            let tSkillData=SkillDictionary.get(key:tSkill)
+            let tSkillData=SkillDictionary.get(tSkill)
             if(tSkillData.category == .passive){continue}//パッシブスキル
             let tCanUse=aChara.canUse(aSkill:tSkill)//スキルを使えるか
             //スキルのバーセット
@@ -66,7 +66,7 @@ class ActiveSkillUi{
         let tItem=aChara.getItem()
         if(tItem.0 != ""){
             let tKey=ItemDictionary.get(key:tItem.0).effectKey
-            let tItemEffect=SkillDictionary.get(key:tKey)
+            let tItemEffect=SkillDictionary.get(tKey)
             if(tItemEffect.category != .passive){
                 mItemBox.alpha=1
                 ItemBarMaker.setItemLabel(aNode:mItemBox,aItem:tItem)

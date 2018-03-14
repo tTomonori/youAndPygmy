@@ -9,7 +9,7 @@
 import Foundation
 
 class SkillDictionary:NSObject{
-    static func get(key:String)->SkillData{
+    static func get(_ key:String)->SkillData{
         return self.value(forKey: key) as! SkillData
     }
 }
@@ -22,6 +22,7 @@ class SkillData:NSObject{
     let counter:Bool//反撃スキルかどうか
     let power:Int!//威力
     let range:SkillRange!//攻撃範囲
+    let accuracy:Int!//命中率
     init(
         name:String,
         category:SkillCategory,
@@ -29,7 +30,8 @@ class SkillData:NSObject{
         mp:Int,
         counter:Bool,
         power:Int,
-        range:SkillRange
+        range:SkillRange,
+        accuracy:Int
         ){
         self.name=name
         self.category=category
@@ -38,6 +40,7 @@ class SkillData:NSObject{
         self.counter=counter
         self.power=power
         self.range=range
+        self.accuracy=accuracy
     }
     //パッシブスキル用
     init(
@@ -52,6 +55,7 @@ class SkillData:NSObject{
         self.counter=false
         self.power=nil
         self.range=nil
+        self.accuracy=nil
     }
 }
 

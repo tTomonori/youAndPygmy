@@ -16,6 +16,7 @@ extension SkillDictionary{
         mp:5,
         counter:false,
         power:0,
-        range:SkillRange(type:.circumference,range:1)
+        range:SkillRange(type:.circumference,range:1),
+        accuracy:90
     )
 }

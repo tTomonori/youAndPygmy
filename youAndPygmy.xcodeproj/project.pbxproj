@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E505A62F2033DB7F00F781AA /* NonPlayerChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505A62E2033DB7F00F781AA /* NonPlayerChara.swift */; };
 		E505A635203419E200F781AA /* MapDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E505A634203419E200F781AA /* MapDictionary.swift */; };
+		E514474D20595D6600D84563 /* HitCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E514474C20595D6600D84563 /* HitCalculator.swift */; };
 		E51494B3204CD6130000406E /* EncountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51494B2204CD6130000406E /* EncountData.swift */; };
 		E51494B5204CFD750000406E /* Encounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51494B4204CFD750000406E /* Encounter.swift */; };
 		E51494B9204D06220000406E /* enterBattle.sks in Resources */ = {isa = PBXBuildFile; fileRef = E51494B8204D06220000406E /* enterBattle.sks */; };
@@ -102,6 +103,7 @@
 /* Begin PBXFileReference section */
 		E505A62E2033DB7F00F781AA /* NonPlayerChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonPlayerChara.swift; sourceTree = "<group>"; };
 		E505A634203419E200F781AA /* MapDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDictionary.swift; sourceTree = "<group>"; };
+		E514474C20595D6600D84563 /* HitCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitCalculator.swift; sourceTree = "<group>"; };
 		E51494B2204CD6130000406E /* EncountData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncountData.swift; sourceTree = "<group>"; };
 		E51494B4204CFD750000406E /* Encounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encounter.swift; sourceTree = "<group>"; };
 		E51494B8204D06220000406E /* enterBattle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = enterBattle.sks; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				E55A43A920550B560091F2BB /* AttackOperator.swift */,
 				E551200120565C5C00CAC557 /* CharaManager.swift */,
 				E5B57A7020568DBC00C0F0D5 /* ActiveSkillUi.swift */,
+				E514474C20595D6600D84563 /* HitCalculator.swift */,
 			);
 			path = battle;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				E5C8F85A2041866B00CD908A /* You.swift in Sources */,
 				E5FE6DF520492F3B001BFABD /* PygmyDetails.swift in Sources */,
 				E551200220565C5C00CAC557 /* CharaManager.swift in Sources */,
+				E514474D20595D6600D84563 /* HitCalculator.swift in Sources */,
 				E5C8F85E20418C9900CD908A /* PygmyDictionary.swift in Sources */,
 				E5456E4C203FF9FD00122781 /* MenuParent.swift in Sources */,
 				E51494B5204CFD750000406E /* Encounter.swift in Sources */,

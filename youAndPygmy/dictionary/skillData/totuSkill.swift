@@ -16,7 +16,8 @@ extension SkillDictionary{
         mp:0,
         counter:true,
         power:0,
-        range:SkillRange(type:.line,range:2)
+        range:SkillRange(type:.line,range:2),
+        accuracy:100
     )
     static let kyuuketu=SkillData(
         name:"吸血",
@@ -25,6 +26,7 @@ extension SkillDictionary{
         mp:5,
         counter:false,
         power:0,
-        range:SkillRange(type:.range,range:2)
+        range:SkillRange(type:.range,range:2),
+        accuracy:95
     )
 }

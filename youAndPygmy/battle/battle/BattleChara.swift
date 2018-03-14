@@ -49,7 +49,7 @@ class BattleChara{
     func getTeam()->Team{return mTeam}
     //指定したスキルが使用できるか
     func canUse(aSkill:String)->Bool{
-        return mCurrentMp>=SkillDictionary.get(key:aSkill).mp
+        return mCurrentMp>=SkillDictionary.get(aSkill).mp
     }
     //指定した座標へ瞬間移動
     func move(aPosition:BattlePosition){
@@ -109,13 +109,28 @@ class BattleChara{
         if(mCurrentHp<0){mCurrentHp=0}
         //アニメーション
         mNode.animateDamage(aEndFunction:aEndFunction)
+        mNode.displayLabel(aText:String(aDamage),aColor:UIColor(red:1,green:0.5,blue:0,alpha:1))
     }
     //回復する
     func heal(aHeal:Int,aEndFunction:@escaping ()->()){
         mCurrentHp+=aHeal
         if(mInitialData.status.hp<mCurrentHp){mCurrentHp=mInitialData.status.hp}
         //アニメーション
-        aEndFunction()
+        mNode.displayLabel(aText:String(aHeal),aColor:UIColor(red:0,green:1,blue:0,alpha:1),aEndFunction:{
+            aEndFunction()
+        })
+    }
+    //スキルを避けた
+    func displayAvoided(aEndFunction:@escaping ()->()){
+        mNode.displayLabel(aText:"Miss",aColor:UIColor(red:0.5,green:0.5,blue:0.5,alpha:1),aEndFunction:{
+            aEndFunction()
+        })
+    }
+    //反撃する
+    func displayCounter(aEndFunction:@escaping ()->()){
+        mNode.displayLabel(aText:"反撃",aColor:UIColor(red:0,green:0,blue:1,alpha:1),aEndFunction:{
+            aEndFunction()
+        })
     }
     //アイテムを使用した
     func useItem(){

@@ -145,7 +145,7 @@ class CharaController{
         //スキルが選択されていない
         if(mSelectedSkillNum==nil){return}
         let tSelectedSkill=ActiveSkillUi.getSkills()[mSelectedSkillNum!].0
-        let tSelectedSkillData=SkillDictionary.get(key:tSelectedSkill)
+        let tSelectedSkillData=SkillDictionary.get(tSelectedSkill)
         //選択したマスが攻撃可能かどうか
         let tSelectedTrout=TroutTapMonitor.getSelectedTrout()
         if(tSelectedTrout==nil){return}//マスが選択されていない

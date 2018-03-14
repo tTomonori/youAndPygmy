@@ -93,4 +93,21 @@ class CharaNode:SCNNode{
             SCNAction.run({(_)->()in aEndFunction()})
             ]))
     }
+    //文字表示
+    func displayLabel(aText:String,aColor:UIColor,aEndFunction:@escaping ()->()={()->()in}){
+        let tText=SCNText(string:aText,extrusionDepth:gTroutSizeCG*0.1)
+        tText.font=UIFont(name:"Helvetica Bold",size:0.3)
+        tText.materials[0].diffuse.contents=aColor
+        let tNode=SCNNode(geometry:tText)
+        let (tMin,tMax)=tNode.boundingBox
+        tNode.position=SCNVector3(-(tMax.x-tMin.x)/2,-gTroutSize,gTroutSize*0.1)
+        self.addChildNode(tNode)
+        tNode.runAction(SCNAction.sequence([
+            SCNAction.move(by:SCNVector3(0,gTroutSize*0.5,0),duration:1),
+            SCNAction.run({_ in
+                tNode.removeFromParentNode()
+                aEndFunction()
+            })
+            ]))
+    }
 }

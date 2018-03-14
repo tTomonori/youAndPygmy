@@ -16,6 +16,7 @@ extension SkillDictionary{
         mp: 0,
         counter: false,
         power: 0,
-        range: SkillRange(type:.adjacentIncludeMyself)
+        range: SkillRange(type:.adjacentIncludeMyself),
+        accuracy:100
     )
 }

@@ -16,6 +16,7 @@ extension SkillDictionary{
         mp:0,
         counter:true,
         power:0,
-        range:SkillRange(type:.adjacent)
+        range:SkillRange(type:.adjacent),
+        accuracy:100
     )
 }

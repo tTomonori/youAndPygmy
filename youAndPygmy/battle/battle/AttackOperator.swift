@@ -26,7 +26,7 @@ class AttackOperator{
         //反撃できるか確認
         for tSkill in tSkills{
             if(tSkill==""){continue}
-            let tSkillData=SkillDictionary.get(key:tSkill)
+            let tSkillData=SkillDictionary.get(tSkill)
             if(!tSkillData.counter){continue}//反撃不可スキル
             if(!aCounterAttacker.canUse(aSkill:tSkill)){continue}//スキルが使えない
             let tRange=SkillRangeSearcher.searchSkillRange(aPosition:aCounterAttacker.getPosition(),aSkill:tSkill)
@@ -34,11 +34,14 @@ class AttackOperator{
             for (tTrout,tInvolvement) in tRange{
                 if(tDefenderTrout !== tTrout){continue}
                 //反撃できる
-                operateSkill(aChara:aCounterAttacker,aSkill:tSkill,aTargetTrout:tTrout,aInvolvement:tInvolvement,
-                             aCounter:false,aEndFunction:{()->()in
-                                //反撃終了後
-                                aEndFunction()
-                })
+                aCounterAttacker.displayCounter {
+                    //反撃表示後
+                    operateSkill(aChara:aCounterAttacker,aSkill:tSkill,aTargetTrout:tTrout,aInvolvement:tInvolvement,
+                                 aCounter:false,aEndFunction:{()->()in
+                                    //反撃終了後
+                                    aEndFunction()
+                    })
+                }
                 return
             }
             continue
@@ -49,7 +52,7 @@ class AttackOperator{
     //スキル効果処理
     static func operateSkill(aChara:BattleChara,aSkill:String,aTargetTrout:BattleTrout,aInvolvement:[BattleTrout],
                               aCounter:Bool,aEndFunction:@escaping ()->()){
-        let tSkillData=SkillDictionary.get(key:aSkill)
+        let tSkillData=SkillDictionary.get(aSkill)
         //mp消費
         aChara.useMp(aMp:tSkillData.mp)
         let tTargetChara=aTargetTrout.getRidingChara()!//攻撃目標にされたキャラ
@@ -68,8 +71,8 @@ class AttackOperator{
                 let tDamage=DamageCalculator.calculateDamage(aAttacker:aChara,aDefender:tDefender,aSkill:aSkill)!
                 RunLoop.main.add(//メインのrunloopに登録する
                     Timer.init(timeInterval:0.2*i,repeats:false,block:{(_)->()in
-                        //ダメージのアニメーション
-                        tDefender.addDamage(aDamage:tDamage,aEndFunction:{()->()in
+                        //ダメージor回避アニメーション終了後の処理
+                        let tEndAnimateFunction={()->()in
                             if(i==tDamagedCharas.count-1){
                                 //最後のキャラのダメージアニメーションが終わった
                                 CharaManager.judgeDow(aEndFunction:{()->()in
@@ -85,7 +88,18 @@ class AttackOperator{
                                     }
                                 })
                             }
+                        }
+                        //ダメージのアニメーション
+                        if(HitCalculator.hit(aAttacker:aChara,aDefender:tDefender,aSkill:aSkill)){
+                        tDefender.addDamage(aDamage:tDamage,aEndFunction:{()->()in
+                            tEndAnimateFunction()
                         })
+                        }
+                        else{//回避アニメーション
+                            tDefender.displayAvoided {
+                                tEndAnimateFunction()
+                            }
+                        }
                     })
                     , forMode: RunLoopMode.commonModes)
             }

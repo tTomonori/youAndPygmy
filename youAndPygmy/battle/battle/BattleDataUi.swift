@@ -91,7 +91,7 @@ class BattleDataUi{
         var tNum=0
         for tSkillKey in tSkills{
             if(tSkillKey==""){continue}//スキルなし
-            let tSkillData=SkillDictionary.get(key:tSkillKey)
+            let tSkillData=SkillDictionary.get(tSkillKey)
             //反撃
             mSkillData.childNode(withName:"counterMark"+String(tNum))!.alpha=(tSkillData.counter) ?1:0
             //火力

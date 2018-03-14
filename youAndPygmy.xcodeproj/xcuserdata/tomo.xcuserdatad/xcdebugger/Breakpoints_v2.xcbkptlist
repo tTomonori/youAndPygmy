@@ -752,11 +752,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/battle/battle/BattleTrout.swift"
-            timestampString = "542295634.518463"
+            timestampString = "542733003.614185"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "changeColor(aColor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1008,11 +1008,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/battle/battle/BattleChara.swift"
-            timestampString = "542722420.486142"
+            timestampString = "542733416.850603"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "heal(aHeal:aEndFunction:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1040,43 +1040,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/battle/battle/AttackOperator.swift"
-            timestampString = "542619084.275955"
+            timestampString = "542733626.860899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "counter(aCounterAttacker:aDefender:aEndFunction:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "youAndPygmy/battle/battle/AttackOperator.swift"
-            timestampString = "542619084.275955"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "counter(aCounterAttacker:aDefender:aEndFunction:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "youAndPygmy/battle/battle/AttackOperator.swift"
-            timestampString = "542619084.275955"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "operateSkill(aChara:aSkill:aTargetTrout:aInvolvement:aCounter:aEndFunction:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1088,11 +1056,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/battle/battle/AttackOperator.swift"
-            timestampString = "542619084.275955"
+            timestampString = "542733626.860899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "operateSkill(aChara:aSkill:aTargetTrout:aInvolvement:aCounter:aEndFunction:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1104,11 +1072,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/battle/battle/AttackOperator.swift"
-            timestampString = "542619084.275955"
+            timestampString = "542734197.655201"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "operateSkill(aChara:aSkill:aTargetTrout:aInvolvement:aCounter:aEndFunction:)"
             landmarkType = "7">
             <Locations>
@@ -1152,11 +1120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/battle/battle/AttackOperator.swift"
-            timestampString = "542619084.275955"
+            timestampString = "542733626.860899"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "operateSkill(aChara:aSkill:aTargetTrout:aInvolvement:aCounter:aEndFunction:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1255,6 +1223,69 @@
             endingLineNumber = "46"
             landmarkName = "act(aTrout:aSkill:aTargetChara:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youAndPygmy/maker/pygmy/CharaNode.swift"
+            timestampString = "542731981.206753"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "displayLabel(aText:aColor:aEndFunction:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "youAndPygmy.CharaNode.displayLabel (aText : Swift.String, aEndFunction : () -&gt; ()) -&gt; ()"
+                  moduleName = "youAndPygmy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomo/Desktop/game/youAndPygmy/youAndPygmy/maker/pygmy/CharaNode.swift"
+                  timestampString = "542732010.0295089"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "youAndPygmy.CharaNode.(displayLabel (aText : Swift.String, aEndFunction : () -&gt; ()) -&gt; ()).(default argument 1)"
+                  moduleName = "youAndPygmy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomo/Desktop/game/youAndPygmy/youAndPygmy/maker/pygmy/CharaNode.swift"
+                  timestampString = "542732010.032362"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "youAndPygmy.CharaNode.(displayLabel (aText : Swift.String, aEndFunction : () -&gt; ()) -&gt; ()).(default argument 2).(closure #1)"
+                  moduleName = "youAndPygmy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomo/Desktop/game/youAndPygmy/youAndPygmy/maker/pygmy/CharaNode.swift"
+                  timestampString = "542732010.034512"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

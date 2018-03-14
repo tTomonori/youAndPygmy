@@ -11,7 +11,7 @@ import Foundation
 class DamageCalculator{
     //火力計算
     static func calculateBurst(aChara:BattleChara,aSkill:String)->Int?{
-        let tSkillData=SkillDictionary.get(key:aSkill)
+        let tSkillData=SkillDictionary.get(aSkill)
         switch tSkillData.category {
         case .physics:
             return aChara.getStatus(aStatus:"atk")+tSkillData.power
@@ -22,7 +22,7 @@ class DamageCalculator{
     }
     //ダメージ計算
     static func calculateDamage(aAttacker:BattleChara,aDefender:BattleChara,aSkill:String)->Int?{
-        let tSkillData=SkillDictionary.get(key:aSkill)
+        let tSkillData=SkillDictionary.get(aSkill)
         switch tSkillData.category {
         case .physics://物理
             let tBurst=calculateBurst(aChara:aAttacker,aSkill:aSkill)!
