@@ -12,9 +12,12 @@ import SceneKit
 class CharaNode:SCNNode{
     static let mParts=["body","eye","mouth"]
     var mParts:Dictionary<String,PanelNode>//部位ごとの画像のノード
+    var mPartsNode:SCNNode
     init(aData:CharaImageData){
         mParts=[:]
+        mPartsNode=SCNNode()
         super.init()
+        self.addChildNode(mPartsNode)
         //部位ごとに画像ノード生成
         for i in 0..<CharaNode.mParts.count{
             let tParts=CharaNode.mParts[i]
@@ -25,7 +28,7 @@ class CharaNode:SCNNode{
             }
             else{tNode.toPenetrate()}
             tNode.position=SCNVector3(x:0,y:0,z:0.001*i)
-            self.addChildNode(tNode)
+            mPartsNode.addChildNode(tNode)
             mParts[tParts]=tNode
         }
         //アクセサリのノード生成
@@ -60,7 +63,7 @@ class CharaNode:SCNNode{
     //ダメージアニメーション
     func animateDamage(aEndFunction:@escaping ()->()){
         changePattern(aPattern:"damage")
-        self.runAction(SCNAction.sequence([
+        mPartsNode.runAction(SCNAction.sequence([
             SCNAction.fadeOut(duration:0),
             SCNAction.wait(duration:0.1),
             SCNAction.fadeIn(duration:0),
@@ -88,7 +91,7 @@ class CharaNode:SCNNode{
     }
     //戦闘不能アニメーション
     func animateDown(aEndFunction:@escaping ()->()){
-        self.runAction(SCNAction.sequence([
+        mPartsNode.runAction(SCNAction.sequence([
             SCNAction.fadeOut(duration:0.4),
             SCNAction.run({(_)->()in aEndFunction()})
             ]))

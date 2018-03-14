@@ -10,6 +10,7 @@ import Foundation
 import SceneKit
 import SpriteKit
 
+let gRotationY = -0.1*Float.pi
 class Battle{
     private static var mBattleData:BattleData!
     private static var mScene:SCNScene!
@@ -57,8 +58,8 @@ class Battle{
         //カメラ配置
         mCameraNode=SCNNode()
         mCameraNode.camera=SCNCamera()
-        mCameraNode.rotation=SCNVector4(-1,-0.5*Float.pi,0,0.2*Float.pi)
-        mCameraNode.position=SCNVector3(x:gTroutSize*(-2),y:gTroutSize*2.7,z:gTroutSize*(aBattleData.feild.feild.count+2))
+        mCameraNode.eulerAngles=SCNVector3(-0.1*Float.pi,gRotationY,0)
+        mCameraNode.position=SCNVector3(x:gTroutSize*(-1),y:gTroutSize*2.7,z:gTroutSize*(2.5+aBattleData.feild.feild.count))
         mScene.rootNode.addChildNode(mCameraNode)
         
         CharaManager.set(aAllies:tAllies,aEnemies:tEnemies)

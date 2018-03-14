@@ -53,7 +53,6 @@ class CharaAi{
     }
     //とにかくなぐる
     static func tonikakunaguru()->(BattleTrout,String?,BattleChara?){
-        let tMyPosition=mTurnChara.getPosition()
         //自分に近い順に相手のキャラを取得
         let tOponents=makeCharaListByEvaluation(aFunction:{(aChara)->(Double?)in
             if(!TeamRelationship.oponent.relative(mTurnChara,aChara)){return nil}
@@ -75,7 +74,8 @@ class CharaAi{
                 }
                 )
                 if(tSkill.1 != nil){return tSkill as! (String?, Double)}
-                let tDistance=abs(tMyPosition.x-tTargetCharaPosition.x)+abs(tMyPosition.y-tTargetCharaPosition.y)
+                let tTroutPosition=aTrout.getPosition()
+                let tDistance=abs(tTroutPosition.x-tTargetCharaPosition.x)+abs(tTroutPosition.y-tTargetCharaPosition.y)
                 return (nil,-Double(tDistance))
             })
             if(tAct.count==0){continue}

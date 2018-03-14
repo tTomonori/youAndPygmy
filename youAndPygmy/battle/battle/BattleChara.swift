@@ -21,6 +21,7 @@ class BattleChara{
     init(aData:BattleCharaData,aPosition:BattlePosition,aTeam:Team){
         mNode=CharaNode.init(aData:aData.image)
         mNode.setPosition(aPosition:aPosition)
+        mNode.eulerAngles=SCNVector3(0,gRotationY,0)
         mTeam=aTeam
         mCurrentHp=aData.currentHp
         mCurrentMp=aData.status.mp
