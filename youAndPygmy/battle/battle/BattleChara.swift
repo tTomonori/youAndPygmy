@@ -47,6 +47,10 @@ class BattleChara{
     func getItem()->(String,Int){return (mItem,mItemNum)}
     func getSkill()->[String]{return mInitialData.skill}
     func getTeam()->Team{return mTeam}
+    //指定したスキルが使用できるか
+    func canUse(aSkill:String)->Bool{
+        return mCurrentMp>=SkillDictionary.get(key:aSkill).mp
+    }
     //指定した座標へ瞬間移動
     func move(aPosition:BattlePosition){
         Battle.getTrout(aPosition:mPosition)!.out()
@@ -57,6 +61,7 @@ class BattleChara{
     }
     //ルートに沿って移動
     func move(aRoute:[BattlePosition],aEndFunction:@escaping ()->()){
+        if(aRoute.count==0){aEndFunction();return}
         //マスから移動
         Battle.getTrout(aPosition:mPosition)!.out()
         //移動アニメーション作成

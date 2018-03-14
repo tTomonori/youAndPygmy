@@ -10,52 +10,51 @@ import Foundation
 
 class SkillRangeSearcher{
     //スキルの場合の攻撃範囲
-    static func searchSkillRange(aChara:BattleChara,aSkill:String)->[(BattleTrout,[BattleTrout])]{
-        return search(aChara:aChara,aSkillData:SkillDictionary.get(key:aSkill))
+    static func searchSkillRange(aPosition:BattlePosition,aSkill:String)->[(BattleTrout,[BattleTrout])]{
+        return search(aPosition:aPosition,aSkillData:SkillDictionary.get(key:aSkill))
     }
 //    //アイテムの場合の効果範囲
 //    static func searchItemRange(aChara:BattleChara,aItemKey:String)->[(BattleTrout,[BattleTrout])]{
 //        return search(aChara:aChara,aSkillData:ItemDictionary.get(key:aItemKey).battleEffect!)
 //    }
     //スキルの攻撃範囲を求める
-    static func search(aChara:BattleChara,aSkillData:SkillData)->[(BattleTrout,[BattleTrout])]{//[(攻撃範囲,[巻き込み範囲])]
-        let tMyPosition=aChara.getPosition()
+    static func search(aPosition:BattlePosition,aSkillData:SkillData)->[(BattleTrout,[BattleTrout])]{//[(攻撃範囲,[巻き込み範囲])]
         var tRange:[(BattlePosition,[BattlePosition])]=[]
         switch aSkillData.range.rangeType {
         case .adjacentIncludeMyself://自身と隣接マス
-            tRange.append((tMyPosition,[]))
+            tRange.append((aPosition,[]))
             fallthrough
         case .adjacent://隣接マス
-            tRange.append((tMyPosition+(0,-1),[]))
-            tRange.append((tMyPosition+(0,1),[]))
-            tRange.append((tMyPosition+(-1,0),[]))
-            tRange.append((tMyPosition+(1,0),[]))
+            tRange.append((aPosition+(0,-1),[]))
+            tRange.append((aPosition+(0,1),[]))
+            tRange.append((aPosition+(-1,0),[]))
+            tRange.append((aPosition+(1,0),[]))
         case .rangeIncludeMyself://自分を含む射程
-            tRange.append((tMyPosition,[]))
+            tRange.append((aPosition,[]))
             fallthrough
         case .range://射程
             let tDistance=aSkillData.range.range!
             for x in -tDistance...tDistance{
                 for y in -tDistance+abs(x)...tDistance-abs(x){
                     if(x==0&&y==0){continue}
-                    tRange.append((tMyPosition+(x,y),[]))
+                    tRange.append((aPosition+(x,y),[]))
                 }
             }
         case .circumferenceIncludeMyself://自分を含む周囲
-            tRange.append((tMyPosition,[]))
+            tRange.append((aPosition,[]))
             fallthrough
         case .circumference://周囲
             var tCircumference:[BattlePosition]=[]
             for i in 1...aSkillData.range.range!{
                 //y=i
                 for x in -i...i{
-                    tCircumference.append(tMyPosition+(x,i))
-                    tCircumference.append(tMyPosition+(x,-i))
+                    tCircumference.append(aPosition+(x,i))
+                    tCircumference.append(aPosition+(x,-i))
                 }
                 //x=i
                 for y in -i+1...i-1{
-                    tCircumference.append(tMyPosition+(i,y))
-                    tCircumference.append(tMyPosition+(-i,y))
+                    tCircumference.append(aPosition+(i,y))
+                    tCircumference.append(aPosition+(-i,y))
                 }
             }
             for tPosition in tCircumference{
@@ -70,7 +69,7 @@ class SkillRangeSearcher{
                 tRange.append((tPosition,tInvolvement))
             }
         case .myself://自身
-            tRange.append((tMyPosition,[]))
+            tRange.append((aPosition,[]))
         case .line://直線
             let tDistance=aSkillData.range.range
             for tDirection in [(0,-1),(0,1),(-1,0),(1,0)]{
@@ -79,9 +78,9 @@ class SkillRangeSearcher{
                     var tInvolvement:[BattlePosition]=[]
                     for j in 1...tDistance!{
                         if(i==j){continue}
-                        tInvolvement.append(tMyPosition+(tDirection.0*j,tDirection.1*j))
+                        tInvolvement.append(aPosition+(tDirection.0*j,tDirection.1*j))
                     }
-                    tRange.append(((tMyPosition+(tDirection.0*i,tDirection.1*i),tInvolvement)))
+                    tRange.append(((aPosition+(tDirection.0*i,tDirection.1*i),tInvolvement)))
                 }
             }
         }

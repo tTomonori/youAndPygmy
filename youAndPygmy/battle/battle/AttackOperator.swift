@@ -28,8 +28,8 @@ class AttackOperator{
             if(tSkill==""){continue}
             let tSkillData=SkillDictionary.get(key:tSkill)
             if(!tSkillData.counter){continue}//反撃不可スキル
-            if(aCounterAttacker.getCurrentMp()<tSkillData.mp){continue}//mpが足りない
-            let tRange=SkillRangeSearcher.searchSkillRange(aChara:aCounterAttacker,aSkill:tSkill)
+            if(!aCounterAttacker.canUse(aSkill:tSkill)){continue}//スキルが使えない
+            let tRange=SkillRangeSearcher.searchSkillRange(aPosition:aCounterAttacker.getPosition(),aSkill:tSkill)
             //攻撃範囲内に反撃する相手がいるかどうか
             for (tTrout,tInvolvement) in tRange{
                 if(tDefenderTrout !== tTrout){continue}

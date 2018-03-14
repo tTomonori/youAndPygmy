@@ -19,6 +19,8 @@ class CharaManager{
     private static var mAhead:[BattleChara]!=nil
     //現在行動中のキャラ
     private static var mTurnChara:BattleChara!=nil
+    //生存しているキャラ取得
+    static func getSurvivingCharas()->[BattleChara]{return mSurvivingCharas}
     //戦闘に参加するキャラセット
     static func set(aAllies:[BattleChara],aEnemies:[BattleChara]){
         mAllies=aAllies

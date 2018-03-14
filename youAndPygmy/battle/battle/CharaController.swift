@@ -131,7 +131,7 @@ class CharaController{
             return
         }
         mSelectedSkillNum=aNum
-        mSkillRange=SkillRangeSearcher.searchSkillRange(aChara:mTurnChara,aSkill:tSkills[aNum].0)
+        mSkillRange=SkillRangeSearcher.searchSkillRange(aPosition:mTurnChara.getPosition(),aSkill:tSkills[aNum].0)
         changeRangeColor(aColor:UIColor(red:1,green:0,blue:0,alpha:0.4))
     }
     //移動可能なマスの色を変更

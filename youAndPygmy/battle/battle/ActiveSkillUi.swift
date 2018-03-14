@@ -37,7 +37,7 @@ class ActiveSkillUi{
             if(tSkill==""){continue}//スキルなし
             let tSkillData=SkillDictionary.get(key:tSkill)
             if(tSkillData.category == .passive){continue}//パッシブスキル
-            let tCanUse=(aChara.getCurrentMp()<tSkillData.mp) ? false:true//スキルを使えるか
+            let tCanUse=aChara.canUse(aSkill:tSkill)//スキルを使えるか
             //スキルのバーセット
             let tSkillBar=mSkillBox.childNode(withName:"skill"+String(tBarNum))!
             SkillBarMaker.setSkillBar(aNode:tSkillBar,
