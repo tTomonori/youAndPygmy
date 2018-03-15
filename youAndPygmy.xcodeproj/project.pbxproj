@@ -73,6 +73,9 @@
 		E55257E120503D2A00D140BE /* CharaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55257E020503D2A00D140BE /* CharaController.swift */; };
 		E55257E320503D4200D140BE /* CharaAi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55257E220503D4200D140BE /* CharaAi.swift */; };
 		E55257E52050408C00D140BE /* RouteSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55257E42050408C00D140BE /* RouteSearcher.swift */; };
+		E5526DEB205A9E8700FF9507 /* SkillAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5526DEA205A9E8700FF9507 /* SkillAlert.swift */; };
+		E5526DED205AA3AA00FF9507 /* ChoiceDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5526DEC205AA3AA00FF9507 /* ChoiceDisplayer.swift */; };
+		E5526DF1205AA51C00FF9507 /* choiceDisplayer.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5526DF0205AA51C00FF9507 /* choiceDisplayer.sks */; };
 		E5580523203D12BC00D1CA09 /* MapTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5580522203D12BC00D1CA09 /* MapTrout.swift */; };
 		E5580525203D133A00D1CA09 /* MapTroutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5580524203D133A00D1CA09 /* MapTroutMaker.swift */; };
 		E55A43AA20550B560091F2BB /* AttackOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55A43A920550B560091F2BB /* AttackOperator.swift */; };
@@ -167,6 +170,9 @@
 		E55257E020503D2A00D140BE /* CharaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharaController.swift; sourceTree = "<group>"; };
 		E55257E220503D4200D140BE /* CharaAi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharaAi.swift; sourceTree = "<group>"; };
 		E55257E42050408C00D140BE /* RouteSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteSearcher.swift; sourceTree = "<group>"; };
+		E5526DEA205A9E8700FF9507 /* SkillAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillAlert.swift; sourceTree = "<group>"; };
+		E5526DEC205AA3AA00FF9507 /* ChoiceDisplayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceDisplayer.swift; sourceTree = "<group>"; };
+		E5526DF0205AA51C00FF9507 /* choiceDisplayer.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = choiceDisplayer.sks; sourceTree = "<group>"; };
 		E5580522203D12BC00D1CA09 /* MapTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTrout.swift; path = map/mapTrout/MapTrout.swift; sourceTree = "<group>"; };
 		E5580524203D133A00D1CA09 /* MapTroutMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTroutMaker.swift; path = map/MapTroutMaker.swift; sourceTree = "<group>"; };
 		E55A43A920550B560091F2BB /* AttackOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttackOperator.swift; sourceTree = "<group>"; };
@@ -331,6 +337,7 @@
 				E551200120565C5C00CAC557 /* CharaManager.swift */,
 				E5B57A7020568DBC00C0F0D5 /* ActiveSkillUi.swift */,
 				E514474C20595D6600D84563 /* HitCalculator.swift */,
+				E5526DEA205A9E8700FF9507 /* SkillAlert.swift */,
 			);
 			path = battle;
 			sourceTree = "<group>";
@@ -431,6 +438,8 @@
 			children = (
 				E56BDA6B203DD374001C4F00 /* SpeakWindow.swift */,
 				E56BDA6D203DD3BD001C4F00 /* speakWindow.sks */,
+				E5526DEC205AA3AA00FF9507 /* ChoiceDisplayer.swift */,
+				E5526DF0205AA51C00FF9507 /* choiceDisplayer.sks */,
 			);
 			name = textWindow;
 			sourceTree = "<group>";
@@ -608,6 +617,7 @@
 				E525D189203D57D7003C0E6A /* title.sks in Resources */,
 				E5456E49203FF0A100122781 /* pygmyMenu.sks in Resources */,
 				E51494B9204D06220000406E /* enterBattle.sks in Resources */,
+				E5526DF1205AA51C00FF9507 /* choiceDisplayer.sks in Resources */,
 				E5C74E4F20369A220071326D /* mapUi.sks in Resources */,
 				E525D18C203D58A5003C0E6A /* mainMenu.sks in Resources */,
 				E59E4A7820230370009553C9 /* Main.storyboard in Resources */,
@@ -645,6 +655,7 @@
 				E55257DF2050338000D140BE /* Turn.swift in Sources */,
 				E5FE6DF920493792001BFABD /* passive.swift in Sources */,
 				E51A59D3203AA15B000D00E3 /* PanOperator.swift in Sources */,
+				E5526DED205AA3AA00FF9507 /* ChoiceDisplayer.swift in Sources */,
 				E5580525203D133A00D1CA09 /* MapTroutMaker.swift in Sources */,
 				E505A635203419E200F781AA /* MapDictionary.swift in Sources */,
 				E51D542B204E6408003B9408 /* BattleTrout.swift in Sources */,
@@ -681,6 +692,7 @@
 				E51F5E3C2033DAB80015F328 /* MapChara.swift in Sources */,
 				E55257D32050146200D140BE /* RaceData.swift in Sources */,
 				E517325C204EB4580016A827 /* CharaNode.swift in Sources */,
+				E5526DEB205A9E8700FF9507 /* SkillAlert.swift in Sources */,
 				E525D186203D57BB003C0E6A /* MainMenu.swift in Sources */,
 				E55257D920501A0400D140BE /* EnemyDictionary.swift in Sources */,
 				E525D18A203D57D7003C0E6A /* Title.swift in Sources */,

@@ -114,7 +114,10 @@ class GameViewController: UIViewController {
         (self.view as! SCNView).overlaySKScene=aScene
         (self.view as! SCNView).overlaySKScene!.scaleMode = .aspectFill
     }
-    
+    //2Dシーンにノード追加
+    func addOverlayNode(aNode:SKNode){
+        (self.view as! SCNView).overlaySKScene!.addChild(aNode)
+    }
     //ユーザの操作を許可する
     func allowUserOperate(){
         mUserOperationRight=true

@@ -60,6 +60,8 @@ class AttackOperator{
     static func operateSkill(aChara:BattleChara,aSkill:String,aTargetTrout:BattleTrout,aInvolvement:[BattleTrout],
                               aCounter:Bool,aEndFunction:@escaping ()->()){
         let tSkillData=SkillDictionary.get(aSkill)
+        //スキル名アラート
+        SkillAlert.displaySkillName(aName:tSkillData.name)
         //mp消費
         aChara.useMp(aMp:tSkillData.mp)
         let tTargetChara=aTargetTrout.getRidingChara()!//攻撃目標にされたキャラ

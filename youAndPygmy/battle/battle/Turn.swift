@@ -28,6 +28,5 @@ class Turn{
         //行動させる
         if(mTurnChara.getAi() == .you){CharaController.toAct(aChara:mTurnChara,aEndFunction:nextTurn)}
         else{CharaAi.toAct(aChara:mTurnChara,aEndFunction:nextTurn)}
-//        CharaController.toAct(aChara:mTurnChara,aEndFunction:nextTurn)
     }
 }

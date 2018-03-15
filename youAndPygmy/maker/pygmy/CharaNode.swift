@@ -113,4 +113,18 @@ class CharaNode:SCNNode{
             })
             ]))
     }
+    //ジャンプ
+    func junp(aEndFunction:@escaping ()->()){
+        let tUp=SCNAction.move(by:SCNVector3(0,gTroutSize*0.3,0),duration:0.15)
+        let tDown=SCNAction.move(by:SCNVector3(0,-gTroutSize*0.3,0),duration:0.15)
+        tUp.timingMode = .easeOut
+        tDown.timingMode = .easeIn
+        mPartsNode.runAction(SCNAction.sequence([
+            tUp,
+            tDown,
+            SCNAction.run({_ in
+                aEndFunction()
+            })
+            ]))
+    }
 }

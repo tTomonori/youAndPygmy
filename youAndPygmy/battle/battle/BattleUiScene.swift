@@ -56,6 +56,8 @@ class BattleUiScene{
         mScene.childNode(withName:"charaControlButton1")!.alpha=0
         //使用可能スキル表示
         mScene.childNode(withName:"choiceSkillBox")!.alpha=0
+        //スキルアラート
+        mScene.childNode(withName:"skillAlert")!.alpha=0
     }
     //ノード取得
     static func getNode(aName:String)->SKNode?{

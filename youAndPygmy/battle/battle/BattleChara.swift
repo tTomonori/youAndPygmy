@@ -141,6 +141,12 @@ class BattleChara{
             mItem=""
         }
     }
+    //ジャンプ
+    func junp(aEndFunction:@escaping ()->()){
+        mNode.junp {
+            aEndFunction()
+        }
+    }
 }
 
 enum Team{

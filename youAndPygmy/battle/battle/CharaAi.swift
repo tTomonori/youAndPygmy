@@ -25,7 +25,10 @@ class CharaAi{
             print("このAIのキャラをCharaAiクラスに渡さないで→",aChara.getAi())
             return
         }
-        act(aTrout:tAct.0,aSkill:tAct.1,aTargetChara:tAct.2)
+        mTurnChara.junp {
+            //ジャンプしてから行動
+            act(aTrout:tAct.0,aSkill:tAct.1,aTargetChara:tAct.2)
+        }
     }
     //行動する
     static func act(aTrout:BattleTrout,aSkill:String?,aTargetChara:BattleChara?){

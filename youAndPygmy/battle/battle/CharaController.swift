@@ -53,11 +53,15 @@ class CharaController{
         }
         mButtonFunction1=decideMove
         mButtonFunction2={()->()in
-            changeRouteColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
-            mButton0.alpha=0
-            mButton1.alpha=0
-            mButton2.alpha=0
-            mEndFunction()
+            //確認ウィンドウ表示
+            ChoiceDisplayer.confirme(aText:"ターンを終えてもいい？", aAnser:{(aAnser)->()in
+                if(!aAnser){return}
+                changeRouteColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
+                mButton0.alpha=0
+                mButton1.alpha=0
+                mButton2.alpha=0
+                mEndFunction()
+            })
         }
         mButton0.alpha=1
         mButton1.alpha=1
@@ -99,6 +103,9 @@ class CharaController{
         }
         mButtonFunction1=attack
         mButtonFunction2={()->()in
+            //確認ウィンドウ表示
+            ChoiceDisplayer.confirme(aText:"ターンを終えてもいい？", aAnser:{(aAnser)->()in
+                if(!aAnser){return}
             ActiveSkillUi.hide()
             changeRangeColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
             mSelectedSkillNum=nil
@@ -107,6 +114,7 @@ class CharaController{
             mButton1.alpha=0
             mButton2.alpha=0
             mEndFunction()
+            })
         }
         mButton0.alpha=1
         mButton1.alpha=1
