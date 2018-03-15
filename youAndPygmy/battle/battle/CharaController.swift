@@ -19,7 +19,7 @@ class CharaController{
     //選択したスキル名
     private static var mSelectedSkillNum:Int?=nil
     //選択したスキルの攻撃可能範囲
-    private static var mSkillRange:[(BattleTrout,[BattleTrout])]?=nil
+    private static var mSkillRange:[BattleTrout]?=nil
     //操作用ボタンのノード
     private static let mButton0=BattleUiScene.getNode(aName:"charaControlButton0")!
     private static let mButton1=BattleUiScene.getNode(aName:"charaControlButton1")!
@@ -131,7 +131,7 @@ class CharaController{
             return
         }
         mSelectedSkillNum=aNum
-        mSkillRange=SkillRangeSearcher.searchSkillRange(aPosition:mTurnChara.getPosition(),aSkill:tSkills[aNum].0)
+        mSkillRange=SkillRangeSearcher.searchRange(aPosition:mTurnChara.getPosition(),aSkill:tSkills[aNum].0)
         changeRangeColor(aColor:UIColor(red:1,green:0,blue:0,alpha:0.4))
     }
     //移動可能なマスの色を変更
@@ -149,14 +149,13 @@ class CharaController{
         //選択したマスが攻撃可能かどうか
         let tSelectedTrout=TroutTapMonitor.getSelectedTrout()
         if(tSelectedTrout==nil){return}//マスが選択されていない
-        //巻き込み範囲取得
-        var tInvolvement:[BattleTrout]?=nil
-        for (tTrout,tInvolvementData) in mSkillRange!{
+        var tFlag=false
+        for tTrout in mSkillRange!{
             if(tTrout !== tSelectedTrout!){continue}
-            tInvolvement=tInvolvementData
+            tFlag=true
             break
         }
-        if(tInvolvement==nil){return}//攻撃不可能なマスを選択していた
+        if(!tFlag){return}//攻撃不可能なマスを選択していた
         if let tTargetChara=tSelectedTrout!.getRidingChara(){
             let tCategory=tSelectedSkillData.category
             //攻撃,妨害スキルで味方を選択
@@ -184,7 +183,6 @@ class CharaController{
             aChara:mTurnChara,
             aSkill:tSelectedSkill,
             aTargetTrout:tSelectedTrout!,
-            aInvolvement:tInvolvement!,
             aEndFunction:{()->()in
                 //攻撃処理終了後の関数
                 mEndFunction()
@@ -193,7 +191,7 @@ class CharaController{
     //スキルの攻撃可能な範囲の色を変更
     static func changeRangeColor(aColor:UIColor){
         if(mSkillRange==nil){return}
-        for (tTrout,_) in mSkillRange!{
+        for tTrout in mSkillRange!{
             tTrout.changeColor(aColor:aColor)
         }
     }

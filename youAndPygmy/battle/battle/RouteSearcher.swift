@@ -29,7 +29,7 @@ class RouteSearcher{
                     x:tSearchingPosition.1.x+tDifference.0,
                     y:tSearchingPosition.1.y+tDifference.1)
                 //隣接したマス
-                let tNeighborTrout=Battle.getTrout(aPosition:tNeighborPosition)
+                let tNeighborTrout=Battle.getTrout(tNeighborPosition)
                 if(tNeighborTrout==nil){continue}//隣接したマスがない
                 if(tMobility.get(key:tNeighborTrout!.getAttribute())<0){continue}//通過できない地形
                 if(tNeighborTrout!.getRidingChara() != nil){continue}//隣接したマスに他のキャラがいる
@@ -58,7 +58,7 @@ class RouteSearcher{
         //探索結果を戻り値の型に変換
         var tReturn:[(BattleTrout,[BattlePosition])]=[]
         for tSearchedData in tSearched{
-            tReturn.append((Battle.getTrout(aPosition:tSearchedData.1)!,tSearchedData.2))
+            tReturn.append((Battle.getTrout(tSearchedData.1)!,tSearchedData.2))
         }
         return tReturn
     }

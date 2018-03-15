@@ -29,7 +29,7 @@ class BattleChara{
         mItemNum=aData.itemNum
         mInitialData=aData
         mPosition=aPosition
-        Battle.getTrout(aPosition:mPosition)!.ride(aChara:self)
+        Battle.getTrout(mPosition)!.ride(aChara:self)
     }
     func getNode()->SCNNode{return mNode}
     func getPosition()->BattlePosition{return mPosition}
@@ -54,8 +54,8 @@ class BattleChara{
     }
     //指定した座標へ瞬間移動
     func move(aPosition:BattlePosition){
-        Battle.getTrout(aPosition:mPosition)!.out()
-        let tTrout=Battle.getTrout(aPosition:aPosition)!
+        Battle.getTrout(mPosition)!.out()
+        let tTrout=Battle.getTrout(aPosition)!
         mNode.setPosition(aPosition:aPosition)
         tTrout.ride(aChara:self)
         mPosition=aPosition
@@ -64,7 +64,7 @@ class BattleChara{
     func move(aRoute:[BattlePosition],aEndFunction:@escaping ()->()){
         if(aRoute.count==0){aEndFunction();return}
         //マスから移動
-        Battle.getTrout(aPosition:mPosition)!.out()
+        Battle.getTrout(mPosition)!.out()
         //移動アニメーション作成
         var tAnimation:[SCNAction]=[]
         var tPrePosition=mPosition
@@ -81,7 +81,7 @@ class BattleChara{
             //移動終了時の関数
             self.mPosition=aRoute.last!
             //マスに乗る
-            Battle.getTrout(aPosition:self.mPosition)?.ride(aChara:self)
+            Battle.getTrout(self.mPosition)?.ride(aChara:self)
             aEndFunction()
         }))
         mNode.runAction(SCNAction.sequence(tAnimation))
@@ -92,7 +92,7 @@ class BattleChara{
     }
     //戦闘不能アニメ
     func down(aEndFunction:@escaping ()->()){
-        let tTrout=Battle.getTrout(aPosition:mPosition)!
+        let tTrout=Battle.getTrout(mPosition)!
         tTrout.out()
         mNode.changePattern(aPattern:"damage")
         mNode.animateDown(aEndFunction:{()->()in

@@ -10,9 +10,12 @@ import Foundation
 
 class AttackOperator{
     //攻撃する
-    static func attack(aChara:BattleChara,aSkill:String,aTargetTrout:BattleTrout,aInvolvement:[BattleTrout],
+    static func attack(aChara:BattleChara,aSkill:String,aTargetTrout:BattleTrout,
                        aEndFunction:@escaping ()->()){
-        operateSkill(aChara:aChara,aSkill:aSkill,aTargetTrout:aTargetTrout,aInvolvement:aInvolvement,
+        operateSkill(aChara:aChara,aSkill:aSkill,aTargetTrout:aTargetTrout,
+                     aInvolvement:SkillRangeSearcher.searchInvolvement(aPosition:aChara.getPosition(),
+                                                                       aTargetPosition:aTargetTrout.getPosition(),
+                                                                       aSkill:aSkill),
                       aCounter:true,aEndFunction:aEndFunction)
     }
     //反撃する
@@ -22,21 +25,25 @@ class AttackOperator{
             return
         }
         let tSkills=aCounterAttacker.getSkill()
-        let tDefenderTrout=Battle.getTrout(aPosition:aDefender.getPosition())!
+        let tDefenderTrout=Battle.getTrout(aDefender.getPosition())!
         //反撃できるか確認
         for tSkill in tSkills{
             if(tSkill==""){continue}
             let tSkillData=SkillDictionary.get(tSkill)
             if(!tSkillData.counter){continue}//反撃不可スキル
             if(!aCounterAttacker.canUse(aSkill:tSkill)){continue}//スキルが使えない
-            let tRange=SkillRangeSearcher.searchSkillRange(aPosition:aCounterAttacker.getPosition(),aSkill:tSkill)
+            let tRange=SkillRangeSearcher.searchRange(aPosition:aCounterAttacker.getPosition(),
+                                                      aSkill:tSkill)
             //攻撃範囲内に反撃する相手がいるかどうか
-            for (tTrout,tInvolvement) in tRange{
+            for tTrout in tRange{
                 if(tDefenderTrout !== tTrout){continue}
                 //反撃できる
                 aCounterAttacker.displayCounter {
                     //反撃表示後
-                    operateSkill(aChara:aCounterAttacker,aSkill:tSkill,aTargetTrout:tTrout,aInvolvement:tInvolvement,
+                    operateSkill(aChara:aCounterAttacker,aSkill:tSkill,aTargetTrout:tTrout,
+                                 aInvolvement:SkillRangeSearcher.searchInvolvement(aPosition:aCounterAttacker.getPosition(),
+                                                                                   aTargetPosition: aDefender.getPosition(),
+                                                                                   aSkill:tSkill),
                                  aCounter:false,aEndFunction:{()->()in
                                     //反撃終了後
                                     aEndFunction()

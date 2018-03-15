@@ -100,7 +100,7 @@ class Battle{
         gGameViewController.set3dScene(aScene:mScene)
     }
     //マス取得
-    static func getTrout(aPosition:BattlePosition)->BattleTrout?{
+    static func getTrout(_ aPosition:BattlePosition)->BattleTrout?{
         if(aPosition.x<0){return nil}
         if(aPosition.y<0){return nil}
         if(aPosition.y>=mTrouts.count){return nil}

@@ -44,9 +44,10 @@ class CharaAi{
                 return
             }
             AttackOperator.attack(aChara:mTurnChara,
-                        
+                                  
                                   aSkill:aSkill!,
-                                  aTargetTrout:Battle.getTrout(aPosition: aTargetChara!.getPosition())!, aInvolvement:[], aEndFunction:{
+                                  aTargetTrout:Battle.getTrout(aTargetChara!.getPosition())!,
+                                  aEndFunction:{
                                     mEndFunction()
             })
         })
@@ -91,7 +92,7 @@ class CharaAi{
     static func makeTroutListbyEvaluation(aTargetChara:BattleChara,
                                           aFunction:(BattleTrout)->(String?,Double))->[(BattleTrout,String?)]{
         var tEvaluation:[(BattleTrout,String?,Double)]=[]
-        for (tTrout,_) in mRoute+[(Battle.getTrout(aPosition:mTurnChara.getPosition())!,[])]{
+        for (tTrout,_) in mRoute+[(Battle.getTrout(mTurnChara.getPosition())!,[])]{
             let tTroutEvaluation=aFunction(tTrout)
             tEvaluation.append((tTrout,tTroutEvaluation.0,tTroutEvaluation.1))
         }
