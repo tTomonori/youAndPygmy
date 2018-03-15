@@ -104,6 +104,26 @@ class BattleChara{
     func useMp(aMp:Int){
         mCurrentMp-=aMp
     }
+    //指定した座標に反撃する反撃スキル取得
+    func getCounterSkill(aPosition:BattlePosition)->String?{
+        for tSkill in getSkill(){
+            if(tSkill==""){continue}
+            let tSkillData=SkillDictionary.get(tSkill)
+            if(!tSkillData.counter){continue}//反撃不可スキル
+            if(!canUse(aSkill:tSkill)){continue}//スキルが使えない
+            //スキルの攻撃範囲取得
+            let tRange=SkillRangeSearcher.searchRange(aPosition:getPosition(),aSkill:tSkill)
+            let tDefenderTrout=Battle.getTrout(aPosition)!
+            //攻撃範囲内に反撃する相手がいるかどうか
+            for tTrout in tRange{
+                if(tDefenderTrout !== tTrout){continue}
+                //反撃できる
+                return tSkill
+            }
+            continue
+        }
+        return nil
+    }
     //ダメージを受ける
     func addDamage(aDamage:Int,aEndFunction:@escaping ()->()){
         mCurrentHp-=aDamage
