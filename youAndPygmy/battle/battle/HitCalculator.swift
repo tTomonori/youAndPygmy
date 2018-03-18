@@ -25,6 +25,7 @@ class HitCalculator{
         case .disturbance://妨害
             var tAccuracy=tSkillData.accuracy+tDex-tSpd
             if(tAccuracy<5){tAccuracy=5}
+            else if(tAccuracy>100){tAccuracy=100}
             return tAccuracy
         case .assist:fallthrough//支援
         case .heal://回復

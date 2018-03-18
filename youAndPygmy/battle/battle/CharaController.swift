@@ -99,6 +99,7 @@ class CharaController{
             changeRangeColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
             mSelectedSkillNum=nil
             mSkillRange=nil
+            DamagePrediction.hide()
             self.resetMove()
         }
         mButtonFunction1=attack
@@ -106,14 +107,15 @@ class CharaController{
             //確認ウィンドウ表示
             ChoiceDisplayer.confirme(aText:"ターンを終えてもいい？", aAnser:{(aAnser)->()in
                 if(!aAnser){return}
-            ActiveSkillUi.hide()
-            changeRangeColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
-            mSelectedSkillNum=nil
-            mSkillRange=nil
-            mButton0.alpha=0
-            mButton1.alpha=0
-            mButton2.alpha=0
-            mEndFunction()
+                ActiveSkillUi.hide()
+                changeRangeColor(aColor:UIColor(red:0,green:0,blue:0,alpha:0))
+                mSelectedSkillNum=nil
+                mSkillRange=nil
+                mButton0.alpha=0
+                mButton1.alpha=0
+                mButton2.alpha=0
+                DamagePrediction.hide()
+                mEndFunction()
             })
         }
         mButton0.alpha=1
@@ -141,6 +143,10 @@ class CharaController{
         mSelectedSkillNum=aNum
         mSkillRange=SkillRangeSearcher.searchRange(aPosition:mTurnChara.getPosition(),aSkill:tSkills[aNum].0)
         changeRangeColor(aColor:UIColor(red:1,green:0,blue:0,alpha:0.4))
+        //ダメージ予測
+        if let tChara=TroutTapMonitor.getSelectedTrout()?.getRidingChara(){
+            DamagePrediction.predict(aAttacker:mTurnChara,aDefender:tChara,aSkill:tSkills[aNum].0)
+        }
     }
     //移動可能なマスの色を変更
     static func changeRouteColor(aColor:UIColor){
@@ -186,6 +192,7 @@ class CharaController{
         mButton0.alpha=0
         mButton1.alpha=0
         mButton2.alpha=0
+        DamagePrediction.hide()
         //攻撃
         AttackOperator.attack(
             aChara:mTurnChara,
@@ -201,6 +208,17 @@ class CharaController{
         if(mSkillRange==nil){return}
         for tTrout in mSkillRange!{
             tTrout.changeColor(aColor:aColor)
+        }
+    }
+    //マスが選択された
+    static func selectedMas(aTrout:BattleTrout){
+        if(mSelectedSkillNum == nil){return}
+        if let tChara=aTrout.getRidingChara(){
+            DamagePrediction.predict(aAttacker:mTurnChara,aDefender:tChara,
+                                     aSkill:ActiveSkillUi.getSkills()[mSelectedSkillNum!].0)
+        }
+        else{
+            DamagePrediction.hide()
         }
     }
 }

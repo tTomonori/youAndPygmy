@@ -19,6 +19,8 @@ class TroutTapMonitor{
         aTrout.addNode(aNode:mSelectedMarker)
         //タップされたマスの情報を表示
         BattleDataUi.setTroutData(aTrout:aTrout)
+//        //ユーザのキャラ操作へ
+        CharaController.selectedMas(aTrout:mTappedTrout!)
     }
     //選択されたマスを返す
     static func getSelectedTrout()->BattleTrout?{return mTappedTrout}

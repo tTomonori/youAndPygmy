@@ -58,6 +58,8 @@ class BattleUiScene{
         mScene.childNode(withName:"choiceSkillBox")!.alpha=0
         //スキルアラート
         mScene.childNode(withName:"skillAlert")!.alpha=0
+        //ダメージ予測
+        mScene.childNode(withName:"predictionBox")!.alpha=0
     }
     //ノード取得
     static func getNode(aName:String)->SKNode?{
