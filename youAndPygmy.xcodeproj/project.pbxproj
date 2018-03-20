@@ -81,6 +81,7 @@
 		E55CD8B6205114410083D984 /* TroutTapMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55CD8B5205114410083D984 /* TroutTapMonitor.swift */; };
 		E55CD8B8205117D60083D984 /* BattleDataUi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55CD8B7205117D60083D984 /* BattleDataUi.swift */; };
 		E56580A9204A5C990004137D /* debugMap2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56580A8204A5C990004137D /* debugMap2.swift */; };
+		E5716A7D2060E95E00233154 /* CharaControlUi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5716A7C2060E95E00233154 /* CharaControlUi.swift */; };
 		E5729BB12052DD7D00857586 /* DamageCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5729BB02052DD7D00857586 /* DamageCalculator.swift */; };
 		E57E0B8A2037EEF900984890 /* MapSlopTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57E0B892037EEF900984890 /* MapSlopTrout.swift */; };
 		E58D365A205E8B810044A010 /* choiceDisplayer.sks in Resources */ = {isa = PBXBuildFile; fileRef = E58D3656205E8B810044A010 /* choiceDisplayer.sks */; };
@@ -179,6 +180,7 @@
 		E55CD8B5205114410083D984 /* TroutTapMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TroutTapMonitor.swift; sourceTree = "<group>"; };
 		E55CD8B7205117D60083D984 /* BattleDataUi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleDataUi.swift; sourceTree = "<group>"; };
 		E56580A8204A5C990004137D /* debugMap2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = debugMap2.swift; sourceTree = "<group>"; };
+		E5716A7C2060E95E00233154 /* CharaControlUi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharaControlUi.swift; sourceTree = "<group>"; };
 		E5729BB02052DD7D00857586 /* DamageCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DamageCalculator.swift; sourceTree = "<group>"; };
 		E57E0B892037EEF900984890 /* MapSlopTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapSlopTrout.swift; path = map/mapTrout/MapSlopTrout.swift; sourceTree = "<group>"; };
 		E58D3656205E8B810044A010 /* choiceDisplayer.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = choiceDisplayer.sks; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				E51D5428204E6408003B9408 /* BattleTrout.swift */,
 				E55257DE2050338000D140BE /* Turn.swift */,
 				E55257E020503D2A00D140BE /* CharaController.swift */,
+				E5716A7C2060E95E00233154 /* CharaControlUi.swift */,
 				E55257E220503D4200D140BE /* CharaAi.swift */,
 				E55257E42050408C00D140BE /* RouteSearcher.swift */,
 				E55CD8B5205114410083D984 /* TroutTapMonitor.swift */,
@@ -645,6 +648,7 @@
 				E59E4A7520230370009553C9 /* GameViewController.swift in Sources */,
 				E551357A20468F9E00E7DB84 /* SkillDictionary.swift in Sources */,
 				E518691B2037EDE500F12256 /* MapBoxTrout.swift in Sources */,
+				E5716A7D2060E95E00233154 /* CharaControlUi.swift in Sources */,
 				E54EDC9520543ACD00F0D83B /* SkillRangeSearcher.swift in Sources */,
 				E51D542F204E70C6003B9408 /* Battle.swift in Sources */,
 				E55CD8B8205117D60083D984 /* BattleDataUi.swift in Sources */,

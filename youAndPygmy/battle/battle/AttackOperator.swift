@@ -122,4 +122,35 @@ class AttackOperator{
         default:print("アクティブスキルじゃないんだけど→",aSkill)
         }
     }
+    //攻撃可能か判定(攻撃可能ならtrue)
+    static func canAttack(aAttacker:BattleChara,aTargetTrout:BattleTrout,aSkill:String)->Bool{
+        let tDefender=aTargetTrout.getRidingChara()
+        if(tDefender==nil){return false}//誰もいないマスには攻撃できない
+        let tSkillData=SkillDictionary.get(aSkill)
+        //攻撃対象との関係
+        switch tSkillData.category {
+        case .physics:fallthrough//物理
+        case .magic:fallthrough//魔法
+        case .disturbance://妨害
+            if(TeamRelationship.fellow.relative(aAttacker,tDefender!)){//味方には使えない
+                return false
+            }
+        case .assist:fallthrough//支援
+        case .heal://回復
+            if(TeamRelationship.oponent.relative(aAttacker,tDefender!)){//敵には使えない
+                return false
+            }
+        case .passive://パッシブ
+            return false
+        }
+        //攻撃範囲内か
+        let tRange=SkillRangeSearcher.searchRange(aPosition:aAttacker.getPosition(),aSkill:aSkill)
+        for tTrout in tRange{
+            if(tTrout === aTargetTrout){
+                //攻撃範囲内だった
+                return true
+            }
+        }
+        return false
+    }
 }

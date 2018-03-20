@@ -69,6 +69,7 @@ class Battle{
         mEndFunction=aEndFunction
         BattleUiScene.initScene()
         BattleUiScene.display()
+        gGameViewController.allowUserOperate()
         Turn.start()
     }
     //戦闘終了

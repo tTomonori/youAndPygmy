@@ -138,9 +138,9 @@ class CharaAi{
         for tSkill in tSkills{
             if(!mTurnChara.canUse(aSkill:tSkill)){continue}//スキルが使えない
             //攻撃範囲取得
-            let tRange=SkillRangeSearcher.searchSkillRange(aPosition:tPosition,aSkill:tSkill)
+            let tRange=SkillRangeSearcher.searchRange(aPosition:tPosition,aSkill:tSkill)
             //攻撃範囲に標的のキャラがいるか
-            for (tTrout,_) in tRange{
+            for tTrout in tRange{
                 let tRangePosition=tTrout.getPosition()
                 if(tRangePosition.x != tTargetPosition.x || tRangePosition.y != tTargetPosition.y){continue}
                 //攻撃範囲内にいた

@@ -10,8 +10,9 @@ import Foundation
 import SceneKit
 
 class TroutTapMonitor{
-    static var mTappedTrout:BattleTrout?//最後にタップしたマス
-    static let mSelectedMarker:SCNNode=createMarker()//最後にタップされたマスをマーク
+    private static var mTappedTrout:BattleTrout?//最後にタップしたマス
+    private static let mSelectedMarker:SCNNode=createMarker()//最後にタップされたマスをマーク
+    private static var mTappedFunction:((BattleTrout)->())?
     //マスがタップされた時
     static func tappedTrout(aTrout:BattleTrout){
         mTappedTrout=aTrout
@@ -19,8 +20,14 @@ class TroutTapMonitor{
         aTrout.addNode(aNode:mSelectedMarker)
         //タップされたマスの情報を表示
         BattleDataUi.setTroutData(aTrout:aTrout)
-//        //ユーザのキャラ操作へ
-        CharaController.selectedMas(aTrout:mTappedTrout!)
+        //セットされた関数実行
+        if(mTappedFunction != nil){
+            mTappedFunction!(mTappedTrout!)
+        }
+    }
+    //マスがタップされた時に実行する関数セット
+    static func setTappedFunction(aFunction:((BattleTrout)->())?){
+        mTappedFunction=aFunction
     }
     //選択されたマスを返す
     static func getSelectedTrout()->BattleTrout?{return mTappedTrout}

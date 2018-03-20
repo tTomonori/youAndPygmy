@@ -9,10 +9,10 @@
 import Foundation
 
 class SkillRangeSearcher{
-    //スキルの場合の攻撃範囲
-    static func searchSkillRange(aPosition:BattlePosition,aSkill:String)->[(BattleTrout,[BattleTrout])]{
-        return search(aPosition:aPosition,aSkillData:SkillDictionary.get(aSkill))
-    }
+//    //スキルの場合の攻撃範囲
+//    static func searchSkillRange(aPosition:BattlePosition,aSkill:String)->[(BattleTrout,[BattleTrout])]{
+//        return search(aPosition:aPosition,aSkillData:SkillDictionary.get(aSkill))
+//    }
     //スキルの攻撃範囲を求める
     static func searchRange(aPosition:BattlePosition,aSkill:String)->[BattleTrout]{
         var tReturnRange:[BattlePosition]=[]
