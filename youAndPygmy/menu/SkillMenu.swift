@@ -42,11 +42,11 @@ class SkillMenu:Menu{
         mDetailsBox=mScene.childNode(withName:"details")!
         //タップイベントセット
         for tBar in mSettedSkillBars+mMasteredSkillBars+[mNatureSkillBar]+[mAccessorySkillBar]{
-            tBar.accessibilityElements=["run",{()->()in
-                if let tSkill=tBar.accessibilityValue{
-                    self.setDetails(aSkill:tSkill)
+            tBar.setElement("tapFunction",{()->()in
+                if let tSkill=tBar.getAccessibilityElement("skillKey"){
+                    self.setDetails(aSkill:tSkill as! String)
                 }
-                }]
+            })
         }
         //ドラッグイベントセット
         for tBar in mSettedSkillBars+mMasteredSkillBars{

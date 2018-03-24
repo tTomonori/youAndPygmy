@@ -30,9 +30,10 @@ class Menu{
             let tName=(tNode.name != nil) ? tNode.name!:""
             switch tName {
             case "back":
-                tNode.accessibilityElements=["run",{()->Void in self.close()}]
+                tNode.setElement("tapEventType","run")
+                tNode.setElement("tapFunction",{()->Void in self.close()})
             case "screen":
-                tNode.accessibilityElements=["block"]
+                tNode.setElement("tapEventType","block")
             default:break
             }
         }

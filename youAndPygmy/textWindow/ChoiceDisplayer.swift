@@ -32,9 +32,10 @@ class ChoiceDisplayer{
         let tNode=tScene.childNode(withName:"screen")!
         tNode.removeFromParent()
         //タップイベント
-        tNode.accessibilityElements=["block"]
-        tNode.childNode(withName:"cancelNode")!.accessibilityElements=["run",{self.anser(aAnser:false)}]
-        tNode.childNode(withName:"okNode")!.accessibilityElements=["run",{self.anser(aAnser:true)}]
+        tNode.setElement("tapEventType","block")
+        tNode.childNode(withName:"cancelNode")!.setElement("tapFunction",{self.anser(aAnser:false)})
+        
+        tNode.childNode(withName:"okNode")!.setElement("tapFunction",{self.anser(aAnser:true)})
         
         return tNode
     }

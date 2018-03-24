@@ -20,10 +20,9 @@ class SpeakWindow{
             if(tNode.name==nil){continue}
             switch tNode.name! {
             case "speakWindow":
-                tNode.accessibilityElements=["run",{()->Void in self.tapWindow()}]
+                tNode.setElement("tapFunction",{()->Void in self.tapWindow()})
             case "text":
                 (tNode as! SKLabelNode).text=aSentence
-                tNode.accessibilityElements=["none"]
             default:break
             }
         }

@@ -53,30 +53,24 @@ class GameViewController: UIViewController {
             let tScene=tView.overlaySKScene!;
             let tNodes=tScene.nodes(at: t2dPoint);
             for tNode in tNodes{
-                let tFunction:[Any]
-                if tNode.accessibilityElements != nil{tFunction=tNode.accessibilityElements!}
-                else{tFunction=["none"]}
-                switch tFunction[0] as! String {
-                case "run":(tFunction[1] as! ()->())();return
-                case "block":return
-                case "none":break
-                default:break
+                if let tFunction=tNode.getAccessibilityElement("tapFunction"){
+                    (tFunction as! ()->())()//タップ関数実行
+                    return
                 }
+                let tEventType=tNode.getAccessibilityElement("tapEventType")
+                if(tEventType as? String=="block"){return}
             }
         }
         if(tView.scene != nil){
             //3dシーン
             let tObjects=tView.hitTest(tPoint);
             for tObject in tObjects{
-                let tFunction:[Any]
-                if(tObject.node.accessibilityElements == nil){tFunction=["none"]}
-                else{tFunction=tObject.node.accessibilityElements!}
-                switch tFunction[0] as! String {
-                case "run":(tFunction[1] as! ()->())();return
-                case "block":return
-                case "none":break
-                default:break
+                if let tFunction=tObject.node.getAccessibilityElement("tapFunction"){
+                    (tFunction as! ()->())()//タップ関数実行
+                    return
                 }
+                let tEventType=tObject.node.getAccessibilityElement("tapEventType")
+                if(tEventType as? String=="block"){return}
             }
         }
     }
@@ -86,7 +80,7 @@ class GameViewController: UIViewController {
         if(mUserOperationRight==false){return}
         //2dシーン
         if let t2dScene=(self.view as! SCNView).overlaySKScene{
-            if let tFunction=t2dScene.accessibilityElements?[0]{
+            if let tFunction=t2dScene.getAccessibilityElement("dragFunction"){
                 (tFunction as! ((UIGestureRecognizer)->()))(gestureRecognize)
                 return
             }

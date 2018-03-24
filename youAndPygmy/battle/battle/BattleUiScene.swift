@@ -19,26 +19,25 @@ class BattleUiScene{
     static func createScene()->SKScene{
         let tScene=SKScene(fileNamed:"battleDataUi")!
         //キャラ,マス情報表示変更
-        tScene.childNode(withName:"selectedDataBox")!.childNode(withName:"changeButton")!.accessibilityElements
-            = ["run",{()->()in BattleDataUi.changeInfo()}]
+        tScene.childNode(withName:"selectedDataBox")!.childNode(withName:"changeButton")!.setElement("tapFunction",{()->()in BattleDataUi.changeInfo()})
         //移動,攻撃ボタン
-        tScene.childNode(withName:"charaControlButton0")!.accessibilityElements
-            = ["run",{()->()in CharaControlUi.pushedButton0()}]
-        tScene.childNode(withName:"charaControlButton1")!.accessibilityElements
-            = ["run",{()->()in CharaControlUi.pushedButton1()}]
-        tScene.childNode(withName:"charaControlButton2")!.accessibilityElements
-            = ["run",{()->()in CharaControlUi.pushedButton2()}]
+        tScene.childNode(withName:"charaControlButton0")!.setElement("tapFunction",{()->()in
+            CharaControlUi.pushedButton0()})
+        tScene.childNode(withName:"charaControlButton1")!.setElement("tapFunction",{()->()in
+            CharaControlUi.pushedButton1()})
+        tScene.childNode(withName:"charaControlButton2")!.setElement("tapFunction",{()->()in
+            CharaControlUi.pushedButton2()})
         //使用可能スキル
         let tSkillBox=tScene.childNode(withName:"choiceSkillBox")!
         for i in 0...3{
-            tSkillBox.childNode(withName:"skill"+String(i))!.accessibilityElements=["run",{()->()in
+            tSkillBox.childNode(withName:"skill"+String(i))!.setElement("tapFunction",{()->()in
                 CharaController.tapSkillBar(aNum:i)
-                }]
+                })
         }
         //使用可能アイテム
-        tSkillBox.childNode(withName:"itemBox")!.accessibilityElements=["run",{()->()in
+        tSkillBox.childNode(withName:"itemBox")!.setElement("tapFunction",{()->()in
             CharaController.tapSkillBar(aNum:4)
-            }]
+            })
         return tScene
     }
     //シーン初期化

@@ -17,13 +17,12 @@ class PygmyDetails:Menu{
     override func createScene(){
         mScene=SKScene(fileNamed: "pygmyDetails")!
         //タップ時関数セット
-        mScene.childNode(withName:"skillBox")!.accessibilityElements=["run",{()->()in
+        mScene.childNode(withName:"skillBox")!.setElement("tapFunction",{()->()in
             self.displayChildMenu(aMenuName:"skill",aOptions:["accompanyingNum":self.mOptions["accompanyingNum"] as! Int])
-            }]
-        mScene.childNode(withName:"statusBox")!.childNode(withName:"changeButton")!.accessibilityElements =
-            ["run",{()->()in
-                self.changeStatusDisplayMode()
-                }]
+        })
+        mScene.childNode(withName:"statusBox")!.setElement("tapFunction",{()->()in
+            self.changeStatusDisplayMode()
+        })
     }
     override func renew() {
         let tPygmies=You.getAccompanying()

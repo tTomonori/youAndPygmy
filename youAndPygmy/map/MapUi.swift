@@ -18,16 +18,16 @@ class MapUi{
             if(tNode.name==nil){continue}
             switch tNode.name! {
             case "menu":
-                tNode.accessibilityElements=["run",{()->Void in SceneController.openMainMenu()}]
+                tNode.setElement("tapFunction",{()->Void in SceneController.openMainMenu()})
             case "investigation":
-                tNode.accessibilityElements=["run",{()->Void in MapEvent.investigate()}]
+                tNode.setElement("tapFunction",{()->Void in MapEvent.investigate()})
             default:break
             }
         }
         //マップ移動関数セット
-        tScene.accessibilityElements=[{(_:UIGestureRecognizer)->()in
+        tScene.setElement("dragFunction",{(_:UIGestureRecognizer)->()in
             gPlayerChara.inputMove()
-            }]
+        })
         return tScene
     }
     static func display(){

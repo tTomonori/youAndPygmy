@@ -21,15 +21,16 @@ class MainMenu:Menu{
             let tName=(tNode.name != nil) ? tNode.name!:"label"
             switch tName {
             case "pygmy":
-                tNode.accessibilityElements=["run",{()->Void in self.displayChildMenu(aMenuName:"pygmy",aOptions:[:])}]
+                tNode.setElement("tapFunction",{()->() in
+                    self.displayChildMenu(aMenuName:"pygmy",aOptions:[:])})
             case "item":
-                tNode.accessibilityElements=["run",{()->Void in print("item")}]
+                tNode.setElement("tapFunction",{()->() in print("item")})
             case "book":
-                tNode.accessibilityElements=["run",{()->Void in print("book")}]
+                tNode.setElement("tapFunction",{()->() in print("book")})
             case "save":
-                tNode.accessibilityElements=["run",{()->Void in print("save")}]
+                tNode.setElement("tapFunction",{()->() in print("save")})
             default:
-                tNode.accessibilityElements=["none"]
+                break
             }
         }
     }

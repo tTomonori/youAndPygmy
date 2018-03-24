@@ -21,32 +21,32 @@ class PygmyMenu:Menu{
             let tName=(tNode.name != nil) ? tNode.name!:"label"
             switch tName {
             case "accompanying0":
-                tNode.accessibilityElements=["run",{()->()in
+                tNode.setElement("tapFunction",{()->()in
                     if(You.getAccompanying().count<1){return}
                     self.displayChildMenu(aMenuName:"details",aOptions:["accompanyingNum":0])
-                    }]
+                })
             case "accompanying1":
-                tNode.accessibilityElements=["run",{()->()in
+                tNode.setElement("tapFunction",{()->()in
                     if(You.getAccompanying().count<2){return}
                     self.displayChildMenu(aMenuName:"details",aOptions:["accompanyingNum":1])
-                    }]
+                })
             case "accompanying2":
-                tNode.accessibilityElements=["run",{()->()in
+                tNode.setElement("tapFunction",{()->()in
                     if(You.getAccompanying().count<3){return}
                     self.displayChildMenu(aMenuName:"details",aOptions:["accompanyingNum":2])
-                    }]
+                })
             case "accompanying3":
-                tNode.accessibilityElements=["run",{()->()in
+                tNode.setElement("tapFunction",{()->()in
                     if(You.getAccompanying().count<4){return}
                     self.displayChildMenu(aMenuName:"details",aOptions:["accompanyingNum":3])
-                    }]
+                })
             case "accompanying4":
-                tNode.accessibilityElements=["run",{()->()in
+                tNode.setElement("tapFunction",{()->()in
                     if(You.getAccompanying().count<5){return}
                     self.displayChildMenu(aMenuName:"details",aOptions:["accompanyingNum":4])
-                    }]
+                })
             default:
-                tNode.accessibilityElements=["none"]
+                break
             }
         }
     }

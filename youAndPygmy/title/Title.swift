@@ -11,9 +11,10 @@ class Title{
             let tName=(tNode.name==nil) ? "":tNode.name!
             switch tName {
             case "screen":
-                tNode.accessibilityElements=["run",{()->Void in Title.gameStart()}]
+                tNode.setElement("tapEventType","run")
+                tNode.setElement("tapFunction",{()->Void in Title.gameStart()})
             default:
-                tNode.accessibilityElements=["none"]
+                break
             }
         }
         gGameViewController!.set2dScene(aScene:mScene);

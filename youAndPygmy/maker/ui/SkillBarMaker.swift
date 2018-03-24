@@ -59,7 +59,7 @@ class SkillBarMaker{
     }
     //スキルバーセット
     static func setSkillBar(aNode:SKNode,aSkill:String,aOptions:Dictionary<String,Any>){
-        aNode.accessibilityValue=aSkill
+        aNode.setElement("skillKey",aSkill)
         aNode.childNode(withName:"label")!.alpha=1
         blendBar(aNode:aNode.childNode(withName:"background")!,
                  aColor:UIColor(red:0,green:0,blue:0,alpha:0),
@@ -84,7 +84,7 @@ class SkillBarMaker{
     }
     //空のスキルバーセット
     static func setEmptyBar(aNode:SKNode,aOptions:Dictionary<String,Any>){
-        aNode.accessibilityValue=nil
+        aNode.setElement("skillKey",nil)
         aNode.childNode(withName:"label")!.alpha=0
         setOption(aNode:aNode,aOptions:aOptions)
     }

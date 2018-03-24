@@ -17,13 +17,15 @@ class DragNodeOperator{
     //ノードにドラッグイベント追加
     static func setDragEvent(aNode:SKNode,
                               aStart:@escaping (CGPoint)->(),aDragging:@escaping (CGPoint)->(),aEnd:@escaping (CGPoint)->()){
-        aNode.accessibilityElements!.append(["start":aStart,"dragging":aDragging,"end":aEnd])
+        aNode.setElement("startDragFunction",aStart)
+        aNode.setElement("draggingFunction",aDragging)
+        aNode.setElement("endDragFunction",aEnd)
     }
     //シーンにドラッグイベント追加
     static func setDragScene(aScene:SKScene){
-        aScene.accessibilityElements=[{(aRecognizer)->()in
+        aScene.setElement("dragFunction",{(aRecognizer)->()in
             self.drag(aRecognizer)
-            }]
+        })
     }
     //ドラッグされた
     static func drag(_ aRecognizer: UIGestureRecognizer){
@@ -31,8 +33,8 @@ class DragNodeOperator{
         switch aRecognizer.state {
         case .began://パン開始
             for tNode in gGameViewController.get2dNodes(aPoint:tPoint){
-                if(tNode.accessibilityElements==nil){continue}
-                if(tNode.accessibilityElements!.count<3){continue}
+                let tFunction=tNode.getAccessibilityElement("startDragFunction")
+                if(tFunction==nil){continue}
                 //ノードの情報保持
                 mDraggingNode=tNode
                 mParentNode=tNode.parent
@@ -42,8 +44,7 @@ class DragNodeOperator{
                 gGameViewController.get2dScene().addChild(mDraggingNode)
                 mDraggingNode.position=tPoint
                 //ドラッグ開始関数
-                let tEvents=tNode.accessibilityElements![2]
-                ((tEvents as! Dictionary<String,(CGPoint)->()>)["start"]!)(tPoint)
+                (tFunction as! (CGPoint)->())(tPoint)
                 break
             }
         case .changed://パン入力

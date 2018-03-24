@@ -33,7 +33,7 @@ class BattleTrout{
         mCover=SCNNode(geometry:tGeometory)
         mNode.addChildNode(mCover)
         //タップ時の関数
-        mCover.accessibilityElements=["run",{()->()in TroutTapMonitor.tappedTrout(aTrout:self)}]
+        mCover.setElement("tapFunction",{()->()in TroutTapMonitor.tappedTrout(aTrout:self)})
     }
     //ノード取得
     func getNode()->SCNNode{return mNode}

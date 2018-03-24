@@ -75,6 +75,19 @@ func + (left:BattlePosition,right:(Int,Int))->BattlePosition{
     return BattlePosition(x:left.x+right.0,y:left.y+right.1)
 }
 
+extension NSObject{
+    func getAccessibilityElement(_ key:String)->Any?{
+        if(self.accessibilityElements==nil){return nil}
+        return (self.accessibilityElements![0] as! Dictionary<String,Any>)[key]
+    }
+    func setElement(_ key:String,_ value:Any?){
+        var tDictionary:Dictionary<String,Any>
+        if(self.accessibilityElements==nil){tDictionary=[:];self.accessibilityElements=[[:]]}
+        else{tDictionary=self.accessibilityElements![0] as! Dictionary<String, Any>}
+        tDictionary[key]=value
+        self.accessibilityElements![0]=tDictionary
+    }
+}
 /*
  switch aDirection {
  case "up":
