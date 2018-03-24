@@ -11,6 +11,7 @@ import Foundation
 extension SkillDictionary{
     static let zutuki=SkillData(
         name: "頭突き",
+        details:"相手に頭から体当たりし攻撃する",
         category: .physics,
         type: .da,
         mp:0,

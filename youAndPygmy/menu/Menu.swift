@@ -10,6 +10,8 @@ import Foundation
 import SpriteKit
 
 class Menu{
+    //表示に必要なオプション
+    var mOptions:Dictionary<String,Any>!
     //閉じた時に実行する関数
     var mClosedFunction:(()->())!
     var mScene:SKScene!
@@ -37,12 +39,13 @@ class Menu{
     }
     //メニューを表示
     func display(aClosedFunction:@escaping ()->(),aOptions:Dictionary<String,Any>){
-        renew(aOptions: aOptions)//表示更新
+        mOptions=aOptions
+        renew()//表示更新
         mClosedFunction=aClosedFunction
         gGameViewController.set2dScene(aScene:mScene)
     }
     //表示更新
-    func renew(aOptions:Dictionary<String,Any>){
+    func renew(){
         
     }
     //メニューをさらに階層表示
@@ -51,6 +54,7 @@ class Menu{
     }
     //階層表示したメニューが閉じられた
     func closedChildMenu(){
+        renew()
         gGameViewController.set2dScene(aScene:mScene)
     }
     //閉じる

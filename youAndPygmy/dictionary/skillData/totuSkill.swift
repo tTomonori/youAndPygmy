@@ -11,6 +11,7 @@ import Foundation
 extension SkillDictionary{
     static let sougeki=SkillData(
         name:"槍撃",
+        details:"槍で相手を貫いて攻撃する",
         category:SkillCategory.physics,
         type:.totu,
         mp:0,
@@ -21,6 +22,7 @@ extension SkillDictionary{
     )
     static let kyuuketu=SkillData(
         name:"吸血",
+        details:"相手の生命力を吸収して攻撃する(攻撃後に回復するようにしたい)",
         category:SkillCategory.physics,
         type:.totu,
         mp:5,

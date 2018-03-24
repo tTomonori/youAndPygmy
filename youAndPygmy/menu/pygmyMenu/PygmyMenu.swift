@@ -50,7 +50,7 @@ class PygmyMenu:Menu{
             }
         }
     }
-    override func renew(aOptions:Dictionary<String,Any>){
+    override func renew(){
         let tPygmies=You.getAccompanying()
         for i in 0..<5{
             let tNode=mScene.childNode(withName:"accompanying"+String(i))!.childNode(withName:"info")!

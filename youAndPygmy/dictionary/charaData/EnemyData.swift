@@ -18,6 +18,7 @@ class EnemyRaceData:RaceData{
         mobility:Mobility,
         image:CharaImageData,
         skills:[(Int,String)],
+        natureSkill:String?,
         ai:AiType,
         strongType:[(SkillType,Int)],
         weakType:[(SkillType,Int)]
@@ -31,6 +32,7 @@ class EnemyRaceData:RaceData{
             mobility:mobility,
             image:image,
             skills:skills,
+            natureSkill:natureSkill,
             ai:ai
         )
     }

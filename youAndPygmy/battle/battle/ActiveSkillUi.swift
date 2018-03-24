@@ -34,17 +34,14 @@ class ActiveSkillUi{
         let tSkills=aChara.getSkill()
         var tBarNum=0
         for tSkill in tSkills{
-            if(tSkill==""){continue}//スキルなし
             let tSkillData=SkillDictionary.get(tSkill)
             if(tSkillData.category == .passive){continue}//パッシブスキル
+            var tOptions:Dictionary<String,Any>=[:]
             let tCanUse=aChara.canUse(aSkill:tSkill)//スキルを使えるか
+            if(!tCanUse){tOptions["dark"]=true}
             //スキルのバーセット
             let tSkillBar=mSkillBox.childNode(withName:"skill"+String(tBarNum))!
-            SkillBarMaker.setSkillBar(aNode:tSkillBar,
-                                      aSkillName:tSkillData.name,
-                                      aCategory:tSkillData.category,
-                                      aDark:!tCanUse
-            )
+            SkillBarMaker.setSkillBar(aNode:tSkillBar,aSkill:tSkill,aOptions:tOptions)
             let tLabel=tSkillBar.childNode(withName:"label")!
             //威力
             (tLabel.childNode(withName:"power") as! SKLabelNode).text

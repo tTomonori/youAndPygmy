@@ -18,7 +18,7 @@ class Pygmy{
     private var mStatus:Status//ステータス
     private var mCurrentHp:Int//現在hp
     private var mSettedSkills:[Int]//セットしたスキル
-    private var mMasteredSkills:[String]//習得しているスキル
+    private var mMasteredSkills:[String?]//習得しているスキル
     private var mItem:String//持ち物
     private var mItemNum:Int//持ち物の数
     private var mAccessory:String//アクセサリ
@@ -43,7 +43,8 @@ class Pygmy{
     func getCurrentHp()->Int{return mCurrentHp}
     func getExperience()->Int{return 65}
     func getNextExperience()->Int{return 100}
-    func getMasteredSkills()->[String]{return mMasteredSkills}
+    func getMasteredSkills()->[String?]{return mMasteredSkills}
+    func getNatureSkill()->String?{return mRaceData.natureSkill}
     func getItem()->(String,Int){return (mItem,mItemNum)}
     func getAccessory()->String{return mAccessory}
     func getImage()->CharaImageData{
@@ -52,13 +53,23 @@ class Pygmy{
         }
         return CharaImageData.init(base:mRaceData.image,accessory:nil)
     }
-    func getSettedSkills()->[String]{
-        var tSettedSkills:[String]=[]
+    //装備スキル取得
+    func getSettedSkills()->[String?]{
+        var tSettedSkills:[String?]=[]
         for i in mSettedSkills{
-            if(i == -1){tSettedSkills.append("")}
+            if(i == -1){tSettedSkills.append(nil)}
             else{tSettedSkills.append(mMasteredSkills[i])}
         }
         return tSettedSkills
+    }
+    //戦闘で使えるスキル取得
+    func getBattleSkills()->[String]{
+        var tSkills:[String]=[]
+        for tNum in mSettedSkills{
+            if(tNum == -1){continue}
+            tSkills.append(mMasteredSkills[tNum]!)
+        }
+        return tSkills
     }
     //ステータスの補正値を返す
     func getCorrection()->Status{

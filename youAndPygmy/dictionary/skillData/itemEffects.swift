@@ -11,6 +11,7 @@ import Foundation
 extension SkillDictionary{
     static let tiisanakinomi=SkillData(
         name: "小さなきのみ",
+        details:"小さなきのみ　少しだけ回復する",
         category: .heal,
         type: .nature,
         mp: 0,

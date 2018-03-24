@@ -17,15 +17,17 @@ class PygmyDetails:Menu{
     override func createScene(){
         mScene=SKScene(fileNamed: "pygmyDetails")!
         //タップ時関数セット
-        mScene.childNode(withName:"skillBox")!.accessibilityElements=["run",{()->()in print("skillBox")}]
+        mScene.childNode(withName:"skillBox")!.accessibilityElements=["run",{()->()in
+            self.displayChildMenu(aMenuName:"skill",aOptions:["accompanyingNum":self.mOptions["accompanyingNum"] as! Int])
+            }]
         mScene.childNode(withName:"statusBox")!.childNode(withName:"changeButton")!.accessibilityElements =
             ["run",{()->()in
                 self.changeStatusDisplayMode()
                 }]
     }
-    override func renew(aOptions: Dictionary<String, Any>) {
+    override func renew() {
         let tPygmies=You.getAccompanying()
-        let tPygmy=tPygmies[aOptions["accompanyingNum"] as! Int]
+        let tPygmy=tPygmies[mOptions["accompanyingNum"] as! Int]
         //画像
         PygmyImageMaker.setImage(aNode:mScene.childNode(withName:"image")!,aImageData:tPygmy.getImage())
         //キャラ基本情報

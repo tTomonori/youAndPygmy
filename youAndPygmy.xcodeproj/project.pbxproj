@@ -39,6 +39,7 @@
 		E51D542A204E6408003B9408 /* BattleChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D5427204E6408003B9408 /* BattleChara.swift */; };
 		E51D542B204E6408003B9408 /* BattleTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D5428204E6408003B9408 /* BattleTrout.swift */; };
 		E51D542F204E70C6003B9408 /* Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D542E204E70C6003B9408 /* Battle.swift */; };
+		E51D695720623D9B00A80BF1 /* DragNodeOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D695620623D9B00A80BF1 /* DragNodeOperator.swift */; };
 		E51F5E3C2033DAB80015F328 /* MapChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F5E3B2033DAB80015F328 /* MapChara.swift */; };
 		E51F5E3E2033DB010015F328 /* PlayerChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F5E3D2033DB010015F328 /* PlayerChara.swift */; };
 		E52036B1202D2FBB00BB3ED5 /* MapFeild.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52036B0202D2FBB00BB3ED5 /* MapFeild.swift */; };
@@ -90,6 +91,8 @@
 		E58D365D205E8B810044A010 /* SpeakWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D3659205E8B810044A010 /* SpeakWindow.swift */; };
 		E58D3660205E8BBF0044A010 /* battleDataUi.sks in Resources */ = {isa = PBXBuildFile; fileRef = E58D365E205E8BBF0044A010 /* battleDataUi.sks */; };
 		E58D3661205E8BBF0044A010 /* DamagePrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D365F205E8BBF0044A010 /* DamagePrediction.swift */; };
+		E5928EEF2062402A00862460 /* SkillMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5928EEE2062402A00862460 /* SkillMenu.swift */; };
+		E5928EF1206240A500862460 /* skillMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5928EF0206240A500862460 /* skillMenu.sks */; };
 		E59E4A7120230370009553C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E4A7020230370009553C9 /* AppDelegate.swift */; };
 		E59E4A7320230370009553C9 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E59E4A7220230370009553C9 /* art.scnassets */; };
 		E59E4A7520230370009553C9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E4A7420230370009553C9 /* GameViewController.swift */; };
@@ -138,6 +141,7 @@
 		E51D5427204E6408003B9408 /* BattleChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleChara.swift; sourceTree = "<group>"; };
 		E51D5428204E6408003B9408 /* BattleTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleTrout.swift; sourceTree = "<group>"; };
 		E51D542E204E70C6003B9408 /* Battle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Battle.swift; sourceTree = "<group>"; };
+		E51D695620623D9B00A80BF1 /* DragNodeOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragNodeOperator.swift; sourceTree = "<group>"; };
 		E51F5E3B2033DAB80015F328 /* MapChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapChara.swift; path = map/mapChara/MapChara.swift; sourceTree = "<group>"; };
 		E51F5E3D2033DB010015F328 /* PlayerChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerChara.swift; path = map/mapChara/PlayerChara.swift; sourceTree = "<group>"; };
 		E52036B0202D2FBB00BB3ED5 /* MapFeild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapFeild.swift; path = map/MapFeild.swift; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 		E58D3659205E8B810044A010 /* SpeakWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeakWindow.swift; sourceTree = "<group>"; };
 		E58D365E205E8BBF0044A010 /* battleDataUi.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = battleDataUi.sks; sourceTree = "<group>"; };
 		E58D365F205E8BBF0044A010 /* DamagePrediction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DamagePrediction.swift; sourceTree = "<group>"; };
+		E5928EEE2062402A00862460 /* SkillMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillMenu.swift; sourceTree = "<group>"; };
+		E5928EF0206240A500862460 /* skillMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = skillMenu.sks; sourceTree = "<group>"; };
 		E59E4A6D20230370009553C9 /* youAndPygmy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = youAndPygmy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59E4A7020230370009553C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E59E4A7220230370009553C9 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -317,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				E51A59D2203AA15B000D00E3 /* PanOperator.swift */,
+				E51D695620623D9B00A80BF1 /* DragNodeOperator.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -414,6 +421,8 @@
 				E5456E48203FF0A100122781 /* pygmyMenu.sks */,
 				E5FE6DF420492F3B001BFABD /* PygmyDetails.swift */,
 				E52FA9AA204530A90032F3EB /* pygmyDetails.sks */,
+				E5928EEE2062402A00862460 /* SkillMenu.swift */,
+				E5928EF0206240A500862460 /* skillMenu.sks */,
 			);
 			name = pygmyMenu;
 			sourceTree = "<group>";
@@ -622,6 +631,7 @@
 				E59E4A7D20230370009553C9 /* LaunchScreen.storyboard in Resources */,
 				E525D189203D57D7003C0E6A /* title.sks in Resources */,
 				E58D365A205E8B810044A010 /* choiceDisplayer.sks in Resources */,
+				E5928EF1206240A500862460 /* skillMenu.sks in Resources */,
 				E5456E49203FF0A100122781 /* pygmyMenu.sks in Resources */,
 				E51494B9204D06220000406E /* enterBattle.sks in Resources */,
 				E5C74E4F20369A220071326D /* mapUi.sks in Resources */,
@@ -639,6 +649,7 @@
 			files = (
 				E526756E2032C0BE005E0235 /* define.swift in Sources */,
 				E56580A9204A5C990004137D /* debugMap2.swift in Sources */,
+				E5928EEF2062402A00862460 /* SkillMenu.swift in Sources */,
 				E5173259204EB41C0016A827 /* StatusBarMaker.swift in Sources */,
 				E51A0BBC2040FB4F00F97159 /* Menu.swift in Sources */,
 				E5729BB12052DD7D00857586 /* DamageCalculator.swift in Sources */,
@@ -692,6 +703,7 @@
 				E5173258204EB41C0016A827 /* SkillBarMaker.swift in Sources */,
 				E517324E204EB40C0016A827 /* TroutNode.swift in Sources */,
 				E55257DB20501A2B00D140BE /* kedama.swift in Sources */,
+				E51D695720623D9B00A80BF1 /* DragNodeOperator.swift in Sources */,
 				E5456E47203FF09300122781 /* PygmyMenu.swift in Sources */,
 				E52C881B2043FCF4004AC8AC /* AccessoryDictionary.swift in Sources */,
 				E518BEFA2043FA390072F0C8 /* myutansu.swift in Sources */,

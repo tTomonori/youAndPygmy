@@ -42,6 +42,7 @@ extension PygmyDictionary{
             (0,"sougeki"),
             (10,"kansen")
         ],
+        natureSkill:nil,
         ai: .tonikakunaguru,
         equipType:[.totu]
     )

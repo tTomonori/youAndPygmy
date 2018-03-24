@@ -11,6 +11,7 @@ import Foundation
 extension SkillDictionary{
     static let kansengen=SkillData(
         name:"感染源",
+        details:"周囲に病原体を撒き散らす(状態異常を付与したい)",
         category:SkillCategory.passive,
         type:.ja
     )

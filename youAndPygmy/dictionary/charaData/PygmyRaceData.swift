@@ -17,6 +17,7 @@ class PygmyRaceData:RaceData{
         mobility:Mobility,
         image:CharaImageData,
         skills:[(Int,String)],
+        natureSkill:String?,
         ai:AiType,
         equipType:[AccessoryType]
         ){
@@ -28,6 +29,7 @@ class PygmyRaceData:RaceData{
             mobility:mobility,
             image:image,
             skills:skills,
+            natureSkill:natureSkill,
             ai:ai
         )
     }

@@ -84,7 +84,7 @@ class Encounter{
                 status: tPygmy.getCorrectedStatus(),
                 mobility: tPygmy.getCorrectedMobility(),
                 currentHp: tPygmy.getCurrentHp(),
-                skill: tPygmy.getSettedSkills(),
+                skill: tPygmy.getBattleSkills(),
                 item: tItemKey,
                 itemNum: tItemNum,
                 image:tPygmy.getImage(),

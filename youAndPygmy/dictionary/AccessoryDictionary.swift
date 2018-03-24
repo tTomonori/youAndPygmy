@@ -17,9 +17,11 @@ class AccessoryDictionary:NSObject{
 class AccessoryData:NSObject{
     let name:String//アクセサリ名
     let image:String//画像名
-    init(name:String,image:String){
+    let skill:String?//付与スキル
+    init(name:String,image:String,skill:String?){
         self.name=name
         self.image=image
+        self.skill=skill
     }
 }
 

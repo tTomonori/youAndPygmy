@@ -16,6 +16,7 @@ class SkillDictionary:NSObject{
 
 class SkillData:NSObject{
     let name:String//スキル名
+    let details:String//詳細説明
     let category:SkillCategory//物理or魔法or支援or回復orパッシブ
     let type:SkillType//属性
     let mp:Int//消費やる気
@@ -25,6 +26,7 @@ class SkillData:NSObject{
     let accuracy:Int!//命中率
     init(
         name:String,
+        details:String,
         category:SkillCategory,
         type:SkillType,
         mp:Int,
@@ -34,6 +36,7 @@ class SkillData:NSObject{
         accuracy:Int
         ){
         self.name=name
+        self.details=details
         self.category=category
         self.type=type
         self.mp=mp
@@ -45,10 +48,12 @@ class SkillData:NSObject{
     //パッシブスキル用
     init(
         name:String,
+        details:String,
         category:SkillCategory,
         type:SkillType
         ){
         self.name=name
+        self.details=details
         self.category=category
         self.type=type
         self.mp=0
@@ -62,10 +67,20 @@ class SkillData:NSObject{
 enum SkillCategory {
     case physics//物理
     case magic//魔法
-    case assist//支援
     case disturbance//妨害
+    case assist//支援
     case heal//回復
     case passive//パッシブ
+    func name()->String{
+        switch self {
+        case .physics:return "物理"
+        case .magic:return "魔法"
+        case .disturbance:return "妨害"
+        case .assist:return "支援"
+        case .heal:return "回復"
+        case .passive:return "特性"
+        }
+    }
 }
 enum SkillType{
     case zan//斬

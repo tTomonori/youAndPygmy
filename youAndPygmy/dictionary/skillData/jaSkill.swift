@@ -11,6 +11,7 @@ import Foundation
 extension SkillDictionary{
     static let kansen=SkillData(
         name:"感染",
+        details:"周りの相手を病原体に感染させ攻撃する(状態異常を付与したい)",
         category:SkillCategory.magic,
         type:.ja,
         mp:5,
