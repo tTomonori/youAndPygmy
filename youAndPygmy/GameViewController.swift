@@ -114,6 +114,8 @@ class GameViewController: UIViewController {
         (self.view as! SCNView).overlaySKScene=aScene
         (self.view as! SCNView).overlaySKScene!.scaleMode = .aspectFill
     }
+    //2Dシーン取得
+    func get2dScene()->SKScene{return (self.view as! SCNView).overlaySKScene!}
     //2Dシーンにノード追加
     func addOverlayNode(aNode:SKNode){
         (self.view as! SCNView).overlaySKScene!.addChild(aNode)
@@ -125,6 +127,23 @@ class GameViewController: UIViewController {
     //ユーザの操作を拒否する
     func denyUserOperate(){
         mUserOperationRight=false
+    }
+    //2d座標を取得
+    func get2dPoint(_ gestureRecognize: UIGestureRecognizer)->CGPoint{
+        let tView=self.view as! SCNView;
+        let tPoint=gestureRecognize.location(in: tView);
+        let t2dSize=tView.overlaySKScene!.size
+        let tX=(tPoint.x/gScreenSize.width-0.5)*(t2dSize.width)
+        let tY = -(tPoint.y/gScreenSize.height-0.5)*(t2dSize.height)
+        let t2dPoint=CGPoint(x:tX,y:tY)//3d座標を2d座標に変換
+        return t2dPoint
+    }
+    //2dシーンのノード取得
+    func get2dNodes(aPoint:CGPoint)->[SKNode]{
+        let tView=self.view as! SCNView;
+        let tScene=tView.overlaySKScene!;
+        let tNodes=tScene.nodes(at:aPoint);
+        return tNodes
     }
     
     override var shouldAutorotate: Bool {

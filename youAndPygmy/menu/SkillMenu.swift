@@ -40,16 +40,17 @@ class SkillMenu:Menu{
         mAccessorySkillBar=mScene.childNode(withName:"accessorySkill")!
         //スキル詳細
         mDetailsBox=mScene.childNode(withName:"details")!
-        //操作イベントセット
+        //タップイベントセット
         for tBar in mSettedSkillBars+mMasteredSkillBars+[mNatureSkillBar]+[mAccessorySkillBar]{
-            //タップ
             tBar.accessibilityElements=["run",{()->()in
                 if let tSkill=tBar.accessibilityValue{
                     self.setDetails(aSkill:tSkill)
                 }
                 }]
-            //ドラッグ
-            DragNodeOperator.setDoragEvent(
+        }
+        //ドラッグイベントセット
+        for tBar in mSettedSkillBars+mMasteredSkillBars{
+            DragNodeOperator.setDragEvent(
                 aNode:tBar,
                 aStart:{(_)->()in
                     print("start")
@@ -59,6 +60,7 @@ class SkillMenu:Menu{
                 print("end")
             })
         }
+        DragNodeOperator.setDragScene(aScene:mScene)
     }
     override func renew(){
         let tPygmy=You.getAccompanying()[mOptions["accompanyingNum"] as! Int]
