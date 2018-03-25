@@ -14,7 +14,7 @@ class BattleChara{
     private let mTeam:Team
     private var mCurrentHp:Int
     private var mCurrentMp:Int
-    private var mItem:String
+    private var mItem:String?
     private var mItemNum:Int
     private let mInitialData:BattleCharaData
     private var mPosition:BattlePosition//このキャラがいる座標
@@ -45,7 +45,7 @@ class BattleChara{
     func getMaxHp()->Int{return mInitialData.status.hp}
     func getCurrentMp()->Int{return mCurrentMp}
     func getMaxMp()->Int{return mInitialData.status.mp}
-    func getItem()->(String,Int){return (mItem,mItemNum)}
+    func getItem()->(String?,Int){return (mItem,mItemNum)}
     func getSkill()->[String]{return mInitialData.skill}
     func getTeam()->Team{return mTeam}
     //指定したスキルが使用できるか

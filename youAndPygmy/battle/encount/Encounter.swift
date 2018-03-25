@@ -39,8 +39,8 @@ class Encounter{
             if(tEnemyData==nil){tBattleData.append(nil);continue}
             //種族値取得
             let tRaceData=(tEnemyData!.pygmyFlag)
-                ?PygmyDictionary.get(key:tEnemyData!.raceKey)
-                :EnemyDictionary.get(key:tEnemyData!.raceKey)
+                ?PygmyDictionary.get(tEnemyData!.raceKey)
+                :EnemyDictionary.get(tEnemyData!.raceKey)
             //ステータス計算
             let tStatus=(tEnemyData!.status==nil)
                 ?StatusCalcurator.calcurate(aRaceStatus:tRaceData.raceStatus,aLevel:tEnemyData!.level)
@@ -83,7 +83,7 @@ class Encounter{
                 level: tPygmy.getLevel(),
                 status: tPygmy.getCorrectedStatus(),
                 mobility: tPygmy.getCorrectedMobility(),
-                currentHp: tPygmy.getCurrentHp(),
+                currentHp: tPygmy.getCurrentHp()+tPygmy.getCorrection().hp,
                 skill: tPygmy.getBattleSkills(),
                 item: tItemKey,
                 itemNum: tItemNum,
@@ -119,7 +119,7 @@ struct BattleCharaData{
     let mobility:Mobility//移動力
     let currentHp:Int//戦闘開始時のhp
     let skill:[String]//スキル
-    let item:String//アイテム
+    let item:String?//アイテム
     let itemNum:Int//持ち物の数
     let image:CharaImageData//画像
     let ai:AiType//行動パターン

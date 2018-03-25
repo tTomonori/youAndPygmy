@@ -19,7 +19,7 @@ class SceneController{
         //セーブデータ読み込み
         SaveData.load()
         //マップ設定
-        MapFeild.setMap(aMapData:MapDictionary.get(key:SaveData.getMapName()))
+        MapFeild.setMap(aMapData:MapDictionary.get(SaveData.getMapName()))
         //自キャラ配置
         MapFeild.initHero(aPosition:SaveData.getPosition())
         MapFeild.makeCameraFollowHero()
@@ -44,7 +44,7 @@ class SceneController{
     static func changeMap(aMapName:String,aPosition:FeildPosition,aEndFunction:@escaping ()->()){
         SceneChanger.animateChangeMap(aChanging:{()->()in
             //画面全体が隠れた
-            MapFeild.setMap(aMapData:MapDictionary.get(key:aMapName))
+            MapFeild.setMap(aMapData:MapDictionary.get(aMapName))
             MapFeild.setHero(aPosition:aPosition)
             MapFeild.makeCameraFollowHero()
             MapFeild.display()

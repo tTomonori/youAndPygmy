@@ -9,7 +9,7 @@
 import Foundation
 
 class EnemyDictionary : NSObject{
-    static func get(key:String)->EnemyRaceData{
+    static func get(_ key:String)->EnemyRaceData{
         return self.value(forKey: key) as! EnemyRaceData
     }
 }

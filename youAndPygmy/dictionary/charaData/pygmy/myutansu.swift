@@ -17,7 +17,7 @@ extension PygmyDictionary{
             mp:30,
             atk:170,
             def:95,
-            int:170,
+            ini:170,
             spt:100,
             dex:155,
             spd:150,

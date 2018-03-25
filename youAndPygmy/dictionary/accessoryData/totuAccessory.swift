@@ -12,6 +12,7 @@ extension AccessoryDictionary{
     static let kanzasi=AccessoryData(
         name:"簪",
         image:"",
+        status:Status(hp:5,atk:2),
         skill:nil
     )
 }

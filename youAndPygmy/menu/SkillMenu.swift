@@ -117,14 +117,16 @@ class SkillMenu:Menu{
             SkillBarMaker.setEmptyBar(aNode:mNatureSkillBar,aOptions:["category":SkillCategory.passive])
         }
         SkillBarMaker.setEmptyBar(aNode:mDetailsBox,aOptions:[:])
-        let tAccessoryData=AccessoryDictionary.get(key:tPygmy.getAccessory())
-        if let tSkill=tAccessoryData.skill{
-            //アクセサリスキルあり
-            SkillBarMaker.setSkillBar(aNode:mAccessorySkillBar,aSkill:tSkill,aOptions:[:])
-        }
-        else{
-            //アクセサリスキルなし
-            SkillBarMaker.setEmptyBar(aNode:mAccessorySkillBar,aOptions:["category":SkillCategory.passive])
+        if let tAccessory=tPygmy.getAccessory(){
+            let tAccessoryData=AccessoryDictionary.get(tAccessory)
+            if let tSkill=tAccessoryData.skill{
+                //アクセサリスキルあり
+                SkillBarMaker.setSkillBar(aNode:mAccessorySkillBar,aSkill:tSkill,aOptions:[:])
+            }
+            else{
+                //アクセサリスキルなし
+                SkillBarMaker.setEmptyBar(aNode:mAccessorySkillBar,aOptions:["category":SkillCategory.passive])
+            }
         }
     }
     //スキルの説明表示

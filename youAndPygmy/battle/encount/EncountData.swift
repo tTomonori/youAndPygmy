@@ -78,7 +78,7 @@ struct BattleEnemyData{
     let mobility:Mobility?//移動力
     let currentHp:Int?//戦闘開始時のhp
     let skill:[String]//スキル
-    let item:String//アイテム
+    let item:String?//アイテム
     let itemNum:Int//持ち物の数
     let ai:AiType?//行動パターン
 }

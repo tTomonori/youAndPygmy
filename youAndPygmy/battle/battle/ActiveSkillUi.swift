@@ -61,8 +61,8 @@ class ActiveSkillUi{
         }
         //アイテム表示
         let tItem=aChara.getItem()
-        if(tItem.0 != ""){
-            let tKey=ItemDictionary.get(key:tItem.0).effectKey
+        if(tItem.0 != nil){
+            let tKey=ItemDictionary.get(tItem.0!).effectKey
             let tItemEffect=SkillDictionary.get(tKey)
             if(tItemEffect.category != .passive){
                 mItemBox.alpha=1

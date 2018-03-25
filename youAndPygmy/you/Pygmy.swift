@@ -19,12 +19,12 @@ class Pygmy{
     private var mCurrentHp:Int//現在hp
     private var mSettedSkills:[String?]//セットしたスキル
     private var mMasteredSkills:[String?]//習得しているスキル
-    private var mItem:String//持ち物
+    private var mItem:String?//持ち物
     private var mItemNum:Int//持ち物の数
-    private var mAccessory:String//アクセサリ
+    private var mAccessory:String?//アクセサリ
     init(aData:AccompanyingData){
         mName=aData.name
-        mRaceData=PygmyDictionary.get(key:aData.raceName)
+        mRaceData=PygmyDictionary.get(aData.raceName)
         mPersonal=aData.personal
         mLevel=aData.level
         mStatus=StatusCalcurator.calcurate(aRaceStatus:mRaceData.raceStatus,aLevel:mLevel,aPersonality:mPersonal)
@@ -45,11 +45,11 @@ class Pygmy{
     func getNextExperience()->Int{return 100}
     func getMasteredSkills()->[String?]{return mMasteredSkills}
     func getNatureSkill()->String?{return mRaceData.natureSkill}
-    func getItem()->(String,Int){return (mItem,mItemNum)}
-    func getAccessory()->String{return mAccessory}
+    func getItem()->(String?,Int){return (mItem,mItemNum)}
+    func getAccessory()->String?{return mAccessory}
     func getImage()->CharaImageData{
-        if(mAccessory != ""){//アクセサリあり
-            return CharaImageData.init(base:mRaceData.image,accessory:AccessoryDictionary.get(key:mAccessory).image)
+        if(mAccessory != nil){//アクセサリあり
+            return CharaImageData.init(base:mRaceData.image,accessory:AccessoryDictionary.get(mAccessory!).image)
         }
         return CharaImageData.init(base:mRaceData.image,accessory:nil)
     }
@@ -57,20 +57,31 @@ class Pygmy{
     func getSettedSkills()->[String?]{return mSettedSkills}
     //戦闘で使えるスキル取得
     func getBattleSkills()->[String]{
-        var mSkills:[String]=[]
+        var tSkills:[String]=[]
+        //装備スキル
         for tSkill in mSettedSkills{
             if(tSkill==nil){continue}
-            mSkills.append(tSkill!)
+            tSkills.append(tSkill!)
         }
-        return mSkills
+        //アクセサリスキル
+        if let tAccessory=getAccessory(){
+            if let tSkill=AccessoryDictionary.get(tAccessory).skill{
+                tSkills.append(tSkill)
+            }
+        }
+        return tSkills
     }
     //ステータスの補正値を返す
     func getCorrection()->Status{
-        return Status(hp:0,mp:0,atk:0,def:0,int:0,spt:0,dex:0,spd:0,pie:0)
+        var tStatus=gZeroStatus
+        if let tAccessory=getAccessory(){
+            tStatus=tStatus+AccessoryDictionary.get(tAccessory).status
+        }
+        return tStatus
     }
     //補正値込みのステータスを返す
     func getCorrectedStatus()->Status{
-        return mStatus
+        return mStatus+getCorrection()
     }
     //補正値込みの移動力を返す
     func getCorrectedMobility()->Mobility{

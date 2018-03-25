@@ -9,7 +9,7 @@
 import Foundation
 
 class ItemDictionary:NSObject{
-    static func get(key:String)->ItemData{
+    static func get(_ key:String)->ItemData{
         return self.value(forKey: key) as! ItemData
     }
 }

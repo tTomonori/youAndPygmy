@@ -73,7 +73,7 @@ extension MapDictionary{
                     mobility: nil,
                     currentHp: nil,
                     skill: ["sougeki","kyuuketu"],
-                    item: "",
+                    item:nil,
                     itemNum: 0,
                     ai:nil
                 ),
@@ -86,7 +86,7 @@ extension MapDictionary{
                     mobility: nil,
                     currentHp: nil,
                     skill: ["zutuki"],
-                    item: "",
+                    item:nil,
                     itemNum: 0,
                     ai:nil
                 )

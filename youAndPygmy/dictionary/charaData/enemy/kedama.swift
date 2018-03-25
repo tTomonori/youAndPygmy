@@ -17,7 +17,7 @@ extension EnemyDictionary{
             mp:20,
             atk:130,
             def:100,
-            int:130,
+            ini:130,
             spt:100,
             dex:130,
             spd:130,

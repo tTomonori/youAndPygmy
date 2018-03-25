@@ -9,7 +9,7 @@
 import Foundation
 
 class PygmyDictionary : NSObject{
-    static func get(key:String)->PygmyRaceData{
+    static func get(_ key:String)->PygmyRaceData{
         return self.value(forKey: key) as! PygmyRaceData
     }
 }

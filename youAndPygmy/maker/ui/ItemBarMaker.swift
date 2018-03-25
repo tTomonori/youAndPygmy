@@ -11,12 +11,12 @@ import SpriteKit
 
 class ItemBarMaker{
     //アイテム名セット
-    static func setItemLabel(aNode:SKNode,aItem:(String,Int)){
+    static func setItemLabel(aNode:SKNode,aItem:(String?,Int)){
         let (tItem,tNum)=aItem
         let tLabel=aNode.childNode(withName:"label")!
-        if(tItem != ""){
+        if(tItem != nil){
             //持ち物あり
-            let tItemData=ItemDictionary.get(key:tItem)
+            let tItemData=ItemDictionary.get(tItem!)
             (tLabel.childNode(withName:"name") as! SKLabelNode).text=tItemData.name
             (tLabel.childNode(withName:"x") as! SKLabelNode).text="x"
             (tLabel.childNode(withName:"number") as! SKLabelNode).text=String(tNum)
@@ -29,11 +29,11 @@ class ItemBarMaker{
         }
     }
     //アクセサリ名セット
-    static func setAccessoryLabel(aNode:SKSpriteNode,aAccessory:String){
+    static func setAccessoryLabel(aNode:SKSpriteNode,aAccessory:String?){
         let tLabel=aNode.childNode(withName:"label")!
-        if(aAccessory != ""){
+        if(aAccessory != nil){
             //持ち物あり
-            let tAccessoryData=AccessoryDictionary.get(key:aAccessory)
+            let tAccessoryData=AccessoryDictionary.get(aAccessory!)
             (tLabel.childNode(withName:"name") as! SKLabelNode).text=tAccessoryData.name
         }
         else{

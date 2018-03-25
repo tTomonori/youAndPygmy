@@ -25,7 +25,7 @@ class SaveData{
                             mp:1,
                             atk:1,
                             def:1,
-                            int:1,
+                            ini:1,
                             spt:1,
                             dex:1,
                             spd:1,

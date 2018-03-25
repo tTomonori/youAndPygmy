@@ -9,7 +9,7 @@
 import Foundation
 
 class AccessoryDictionary:NSObject{
-    static func get(key:String)->AccessoryData{
+    static func get(_ key:String)->AccessoryData{
         return self.value(forKey: key) as! AccessoryData
     }
 }
@@ -17,10 +17,12 @@ class AccessoryDictionary:NSObject{
 class AccessoryData:NSObject{
     let name:String//アクセサリ名
     let image:String//画像名
+    let status:Status//ステータス補正値
     let skill:String?//付与スキル
-    init(name:String,image:String,skill:String?){
+    init(name:String,image:String,status:Status,skill:String?){
         self.name=name
         self.image=image
+        self.status=status
         self.skill=skill
     }
 }
