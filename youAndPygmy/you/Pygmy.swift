@@ -90,6 +90,8 @@ class Pygmy{
     //スキル並び替え
     func rearrangeSettedSkill(_ i:Int,_ j:Int){
         if(mSettedSkills[i]==nil || mSettedSkills[j]==nil){return}
+        mSettedSkills=SettedSkillArranger.rearrenge(aList:mSettedSkills,
+                                                    aInsertSkill:mSettedSkills[i]!,aInsertIndex:j)
     }
     func rearrangeMasteredSkill(_ i:Int,_ j:Int){
         if(mMasteredSkills[i]==nil || mMasteredSkills[j]==nil){return}
