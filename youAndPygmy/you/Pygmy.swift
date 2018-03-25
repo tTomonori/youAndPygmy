@@ -17,7 +17,7 @@ class Pygmy{
     private var mLevel:Int//レベル
     private var mStatus:Status//ステータス
     private var mCurrentHp:Int//現在hp
-    private var mSettedSkills:[Int]//セットしたスキル
+    private var mSettedSkills:[String?]//セットしたスキル
     private var mMasteredSkills:[String?]//習得しているスキル
     private var mItem:String//持ち物
     private var mItemNum:Int//持ち物の数
@@ -54,22 +54,15 @@ class Pygmy{
         return CharaImageData.init(base:mRaceData.image,accessory:nil)
     }
     //装備スキル取得
-    func getSettedSkills()->[String?]{
-        var tSettedSkills:[String?]=[]
-        for i in mSettedSkills{
-            if(i == -1){tSettedSkills.append(nil)}
-            else{tSettedSkills.append(mMasteredSkills[i])}
-        }
-        return tSettedSkills
-    }
+    func getSettedSkills()->[String?]{return mSettedSkills}
     //戦闘で使えるスキル取得
     func getBattleSkills()->[String]{
-        var tSkills:[String]=[]
-        for tNum in mSettedSkills{
-            if(tNum == -1){continue}
-            tSkills.append(mMasteredSkills[tNum]!)
+        var mSkills:[String]=[]
+        for tSkill in mSettedSkills{
+            if(tSkill==nil){continue}
+            mSkills.append(tSkill!)
         }
-        return tSkills
+        return mSkills
     }
     //ステータスの補正値を返す
     func getCorrection()->Status{
@@ -82,5 +75,25 @@ class Pygmy{
     //補正値込みの移動力を返す
     func getCorrectedMobility()->Mobility{
         return mRaceData.mobility
+    }
+    //スキルセット
+    func setSkill(aSetPosition:Int,aSetSkillNum:Int){
+        if(mMasteredSkills[aSetSkillNum]==nil){return}
+        mSettedSkills=SettedSkillArranger.rearrenge(aList:mSettedSkills,
+                                                    aInsertSkill:mMasteredSkills[aSetSkillNum]!,aInsertIndex:aSetPosition)
+    }
+    //スキルを外す
+    func removeSettedSkill(_ i:Int){
+        if(mSettedSkills[i]==nil){return}
+        mSettedSkills=SettedSkillArranger.rearrenge(aList:mSettedSkills,removeNum:i)
+    }
+    //スキル並び替え
+    func rearrangeSettedSkill(_ i:Int,_ j:Int){
+        if(mSettedSkills[i]==nil || mSettedSkills[j]==nil){return}
+    }
+    func rearrangeMasteredSkill(_ i:Int,_ j:Int){
+        if(mMasteredSkills[i]==nil || mMasteredSkills[j]==nil){return}
+        let tSkill=mMasteredSkills.remove(at:i)
+        mMasteredSkills.insert(tSkill,at:j)
     }
 }

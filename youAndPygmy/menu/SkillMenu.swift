@@ -18,6 +18,7 @@ class SkillMenu:Menu{
     var mSettedSkillBox:SKNode!
     var mMasteredSkillBox:SKNode!
     var mDetailsBox:SKNode!
+    var mRemoveBox:SKNode!
     private init(){
         super.init(aName:"skill")
     }
@@ -40,6 +41,16 @@ class SkillMenu:Menu{
         mAccessorySkillBar=mScene.childNode(withName:"accessorySkill")!
         //スキル詳細
         mDetailsBox=mScene.childNode(withName:"details")!
+        //スキル外しbox
+        mRemoveBox=mScene.childNode(withName:"removeBox")!
+        mRemoveBox.alpha=0
+        mRemoveBox.setElement("dragOverFunction",{()->()in})
+        mRemoveBox.setElement("dropFunction",{(aNode:SKNode)->()in
+            if(aNode.getAccessibilityElement("skillPosition") as? String != "setted"){return}
+            let tPygmy=You.getAccompanying()[self.mOptions["accompanyingNum"] as! Int]
+            tPygmy.removeSettedSkill(aNode.getAccessibilityElement("skillNum") as! Int)
+            self.renew()
+        })
         //タップイベントセット
         for tBar in mSettedSkillBars+mMasteredSkillBars+[mNatureSkillBar]+[mAccessorySkillBar]{
             tBar.setElement("tapFunction",{()->()in
@@ -53,11 +64,42 @@ class SkillMenu:Menu{
             DragNodeOperator.setDragEvent(
                 aNode:tBar,
                 aStart:{(_)->()in
-                    print("start")
+                    if(tBar.getAccessibilityElement("skillPosition") as! String=="setted"){
+                        self.mRemoveBox.alpha=1
+                    }
             },aDragging:{(_)->()in
-                print("dragging")
             },aEnd:{(_)->()in
-                print("end")
+                self.mRemoveBox.alpha=0
+            })
+        }
+        //ドロップイベントセット
+        for i in 0...3{
+            let tBar=mSettedSkillBars[i]
+            tBar.setElement("skillNum",i)
+            tBar.setElement("skillPosition","setted")
+            tBar.setElement("dragOverFunction",{()->()in})
+            tBar.setElement("dropFunction",{(aNode:SKNode)->()in//装備スキルにドロップ
+                let tPygmy=You.getAccompanying()[self.mOptions["accompanyingNum"] as! Int]
+                switch aNode.getAccessibilityElement("skillPosition") as! String{
+                case "setted":
+                    tPygmy.rearrangeSettedSkill(aNode.getAccessibilityElement("skillNum") as! Int,i)
+                case "mastered":
+                    tPygmy.setSkill(aSetPosition:i,aSetSkillNum:aNode.getAccessibilityElement("skillNum") as! Int)
+                default:break
+                }
+                self.renew()
+            })
+        }
+        for i in 0...3{
+            let tBar=mMasteredSkillBars[i]
+            tBar.setElement("skillNum",i)
+            tBar.setElement("skillPosition","mastered")
+            tBar.setElement("dragOverFunction",{()->()in})
+            tBar.setElement("dropFunction",{(aNode:SKNode)->()in//習得スキルにドロップ
+                if((aNode.getAccessibilityElement("skillPosition") as! String) != "mastered"){return}
+                let tPygmy=You.getAccompanying()[self.mOptions["accompanyingNum"] as! Int]
+                tPygmy.rearrangeMasteredSkill(aNode.getAccessibilityElement("skillNum") as! Int,i)
+                self.renew()//実機?で実行しないとバグる
             })
         }
         DragNodeOperator.setDragScene(aScene:mScene)

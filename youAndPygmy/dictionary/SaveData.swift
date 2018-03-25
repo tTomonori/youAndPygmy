@@ -33,8 +33,8 @@ class SaveData{
                         ),
                         level:12,
                         currentHp:35,
-                        setedSkills:[0,2,-1,3],
-                        masteredSkills:["sougeki","kyuuketu","kansen","kansengen"],
+                        setedSkills:["sougeki","kansen",nil,"kansengen"],
+                        masteredSkills:["sougeki","kansen","kansengen",nil],
                         item:"tiisanakinomi",
                         itemNum:3,
                         accessory:"kanzasi"

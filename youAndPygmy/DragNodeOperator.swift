@@ -10,13 +10,15 @@ import Foundation
 import SpriteKit
 
 class DragNodeOperator{
-    private static var mDraggingNode:SKNode!
-    private static var mParentNode:SKNode!
-    private static var mOriginalPoint:CGPoint!
-    private static var mOriginalZPosition:CGFloat!
+    private static var mDraggingNode:SKNode!//ドラッグしているノード
+    private static var mParentNode:SKNode!//ドラッグしているノードの元の親
+    private static var mOriginalPoint:CGPoint!//ドラッグしているノードの元の位置
+    private static var mOriginalZPosition:CGFloat!//ドラッグしているノードの元のzIndex
+    private static var mDragOverNode:SKNode?//最後にドラッグオーバーされたノード
     //ノードにドラッグイベント追加
     static func setDragEvent(aNode:SKNode,
-                              aStart:@escaping (CGPoint)->(),aDragging:@escaping (CGPoint)->(),aEnd:@escaping (CGPoint)->()){
+                              aStart:@escaping (CGPoint)->(),aDragging:@escaping (CGPoint)->(),
+                              aEnd:@escaping (CGPoint)->()){
         aNode.setElement("startDragFunction",aStart)
         aNode.setElement("draggingFunction",aDragging)
         aNode.setElement("endDragFunction",aEnd)
@@ -49,13 +51,40 @@ class DragNodeOperator{
             }
         case .changed://パン入力
             if(mDraggingNode==nil){break}
-            mDraggingNode.position=tPoint
+            mDraggingNode.position=tPoint//ノード位置変更
+            //ドラッグオーバーされたノード取得
+            var tDragOverNode:SKNode?=nil
+            for tNode in gGameViewController.get2dNodes(aPoint:tPoint){
+                if(tNode === mDraggingNode){continue}
+                if let _=tNode.getAccessibilityElement("dragOverFunction"){
+                    tDragOverNode=tNode
+                    break
+                }
+            }
+            //ドラッグアウト処理
+            if(mDragOverNode !== tDragOverNode){
+                (mDraggingNode?.getAccessibilityElement("dragOutFunction") as? ()->())?()
+            }
+            else{
+                break
+            }
+            //ドラッグオーバー処理
+            mDragOverNode=tDragOverNode
+            (mDragOverNode?.getAccessibilityElement("dragOverFunction") as? ()->())?()
         case .ended://パン終了
             if(mDraggingNode==nil){break}
             mDraggingNode.position=mOriginalPoint
             mDraggingNode.zPosition=mOriginalZPosition
             mDraggingNode.removeFromParent()
             mParentNode.addChild(mDraggingNode)
+            (mDraggingNode.getAccessibilityElement("endDragFunction") as? (CGPoint)->())?(tPoint)
+            //ドロップ処理
+            if let tDragOverNode=mDragOverNode{
+                if let tDropFunction=tDragOverNode.getAccessibilityElement("dropFunction"){
+                    (tDropFunction as! (SKNode)->())(mDraggingNode)
+                }
+            }
+            mDragOverNode=nil
             mDraggingNode=nil
         default:
             return

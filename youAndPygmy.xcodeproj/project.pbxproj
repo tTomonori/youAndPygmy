@@ -57,6 +57,7 @@
 		E5456E47203FF09300122781 /* PygmyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5456E46203FF09300122781 /* PygmyMenu.swift */; };
 		E5456E49203FF0A100122781 /* pygmyMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5456E48203FF0A100122781 /* pygmyMenu.sks */; };
 		E5456E4C203FF9FD00122781 /* MenuParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5456E4B203FF9FD00122781 /* MenuParent.swift */; };
+		E54DEC8E206748EC00B1B711 /* SettedSkillArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DEC8D206748EC00B1B711 /* SettedSkillArranger.swift */; };
 		E54EDC932053C55F00F0D83B /* BattleUiScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54EDC922053C55F00F0D83B /* BattleUiScene.swift */; };
 		E54EDC9520543ACD00F0D83B /* SkillRangeSearcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54EDC9420543ACD00F0D83B /* SkillRangeSearcher.swift */; };
 		E551200020561FE300CAC557 /* itemEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5511FFF20561FE300CAC557 /* itemEffects.swift */; };
@@ -159,6 +160,7 @@
 		E5456E46203FF09300122781 /* PygmyMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PygmyMenu.swift; path = pygmyMenu/PygmyMenu.swift; sourceTree = "<group>"; };
 		E5456E48203FF0A100122781 /* pygmyMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = pygmyMenu.sks; path = /Users/tomo/Desktop/game/youAndPygmy/youAndPygmy/menu/pygmyMenu/pygmyMenu.sks; sourceTree = "<absolute>"; };
 		E5456E4B203FF9FD00122781 /* MenuParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuParent.swift; sourceTree = "<group>"; };
+		E54DEC8D206748EC00B1B711 /* SettedSkillArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettedSkillArranger.swift; path = you/SettedSkillArranger.swift; sourceTree = "<group>"; };
 		E54EDC922053C55F00F0D83B /* BattleUiScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleUiScene.swift; sourceTree = "<group>"; };
 		E54EDC9420543ACD00F0D83B /* SkillRangeSearcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillRangeSearcher.swift; sourceTree = "<group>"; };
 		E5511FFF20561FE300CAC557 /* itemEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemEffects.swift; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 			children = (
 				E5C8F8592041866B00CD908A /* You.swift */,
 				E5C8F85B2041869700CD908A /* Pygmy.swift */,
+				E54DEC8D206748EC00B1B711 /* SettedSkillArranger.swift */,
 			);
 			name = you;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				E517325C204EB4580016A827 /* CharaNode.swift in Sources */,
 				E5526DEB205A9E8700FF9507 /* SkillAlert.swift in Sources */,
 				E525D186203D57BB003C0E6A /* MainMenu.swift in Sources */,
+				E54DEC8E206748EC00B1B711 /* SettedSkillArranger.swift in Sources */,
 				E55257D920501A0400D140BE /* EnemyDictionary.swift in Sources */,
 				E525D18A203D57D7003C0E6A /* Title.swift in Sources */,
 				E518BEF62043F7050072F0C8 /* debugMap.swift in Sources */,
