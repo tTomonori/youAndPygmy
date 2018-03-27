@@ -15,9 +15,10 @@ class Menu{
     //閉じた時に実行する関数
     var mClosedFunction:(()->())!
     var mScene:SKScene!
+    var mAccessFlag=false
     init(aName:String){
-        createScene()
-        setAction()
+//        createScene()
+//        setAction()
     }
     //メニューのシーンを生成
     func createScene(){
@@ -40,6 +41,11 @@ class Menu{
     }
     //メニューを表示
     func display(aClosedFunction:@escaping ()->(),aOptions:Dictionary<String,Any>){
+        if(!mAccessFlag){//初回表示
+            createScene()
+            setAction()
+            mAccessFlag=true
+        }
         mOptions=aOptions
         renew()//表示更新
         mClosedFunction=aClosedFunction

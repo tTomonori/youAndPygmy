@@ -24,7 +24,8 @@ class MainMenu:Menu{
                 tNode.setElement("tapFunction",{()->() in
                     self.displayChildMenu(aMenuName:"pygmy",aOptions:[:])})
             case "item":
-                tNode.setElement("tapFunction",{()->() in print("item")})
+                tNode.setElement("tapFunction",{()->() in
+                    self.displayChildMenu(aMenuName:"item",aOptions:[:])})
             case "book":
                 tNode.setElement("tapFunction",{()->() in print("book")})
             case "save":

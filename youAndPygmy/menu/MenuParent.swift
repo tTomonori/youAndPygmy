@@ -52,5 +52,6 @@ class MenuParent{
         mMenuDictionary["pygmy"]=PygmyMenu.singleton
         mMenuDictionary["details"]=PygmyDetails.singleton
         mMenuDictionary["skill"]=SkillMenu.singleton
+        mMenuDictionary["item"]=ItemMenu.singleton
     }
 }
