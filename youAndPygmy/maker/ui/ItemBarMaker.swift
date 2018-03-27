@@ -41,4 +41,29 @@ class ItemBarMaker{
             (tLabel.childNode(withName:"name") as! SKLabelNode).text="なし"
         }
     }
+    //アイテムのバーセット
+    static func setItemBar(aNode:SKNode,aItem:(String?,Int),aCategory:ItemCategory){
+        if(aItem.0==nil){//アイテムなし
+            aNode.alpha=0
+            return
+        }
+        aNode.alpha=1
+        let tNode=aNode.childNode(withName:"label")!
+        switch aCategory {
+        case .tool://どうぐ
+            let tData=ItemDictionary.get(aItem.0!)
+            tNode.childNode(withName:"canHave")?.alpha=(tData.maxNum>0) ?1:0
+            (tNode.childNode(withName:"name") as? SKLabelNode)?.text=tData.name
+            (tNode.childNode(withName:"number") as? SKLabelNode)?.text=String(aItem.1)
+        case .accessory://アクセサリ
+            let tData=AccessoryDictionary.get(aItem.0!)
+            tNode.childNode(withName:"canHave")?.alpha=0
+            (tNode.childNode(withName:"name") as? SKLabelNode)?.text=tData.name
+            (tNode.childNode(withName:"number") as? SKLabelNode)?.text=String(aItem.1)
+        case .important://大切なもの
+            break
+        case .fragment://カケラ
+            break
+        }
+    }
 }

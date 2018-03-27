@@ -47,13 +47,16 @@ class Menu{
             mAccessFlag=true
         }
         mOptions=aOptions
+        firstDisplay()
         renew()//表示更新
         mClosedFunction=aClosedFunction
         gGameViewController.set2dScene(aScene:mScene)
     }
+    //メニューを表示して最初の処理
+    func firstDisplay(){
+    }
     //表示更新
     func renew(){
-        
     }
     //メニューをさらに階層表示
     func displayChildMenu(aMenuName:String,aOptions:Dictionary<String,Any>){

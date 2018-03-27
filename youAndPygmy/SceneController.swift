@@ -18,19 +18,7 @@ class SceneController{
     static func start(){
         //セーブデータ読み込み
         SaveData.load()
-        //マップ設定
-        MapFeild.setMap(aMapData:MapDictionary.get(SaveData.getMapName()))
-        //自キャラ配置
-        MapFeild.initHero(aPosition:SaveData.getPosition())
-        MapFeild.makeCameraFollowHero()
-        MapFeild.display()
-        MapUi.display()
-        //ユーザデータ設定
-        var tPygmies:[Pygmy]=[]
-        for tData in SaveData.getAccompanying(){
-            tPygmies.append(Pygmy(aData:tData))
-        }
-        You.setAccompanying(aAccompanying:tPygmies)
+        SaveData.setData()
     }
     //メニューを開く
     static func openMainMenu(){

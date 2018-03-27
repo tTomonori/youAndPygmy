@@ -57,6 +57,8 @@
 		E5456E47203FF09300122781 /* PygmyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5456E46203FF09300122781 /* PygmyMenu.swift */; };
 		E5456E49203FF0A100122781 /* pygmyMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5456E48203FF0A100122781 /* pygmyMenu.sks */; };
 		E5456E4C203FF9FD00122781 /* MenuParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5456E4B203FF9FD00122781 /* MenuParent.swift */; };
+		E548769F206A604900F39EB9 /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E548769E206A604900F39EB9 /* Bag.swift */; };
+		E54876A1206A605400F39EB9 /* YouBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54876A0206A605400F39EB9 /* YouBag.swift */; };
 		E54DEC8E206748EC00B1B711 /* SettedSkillArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DEC8D206748EC00B1B711 /* SettedSkillArranger.swift */; };
 		E54DEC912067C1EC00B1B711 /* ItemMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54DEC902067C1EC00B1B711 /* ItemMenu.swift */; };
 		E54DEC932067C29A00B1B711 /* itemMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = E54DEC922067C29A00B1B711 /* itemMenu.sks */; };
@@ -162,7 +164,9 @@
 		E5456E46203FF09300122781 /* PygmyMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PygmyMenu.swift; path = pygmyMenu/PygmyMenu.swift; sourceTree = "<group>"; };
 		E5456E48203FF0A100122781 /* pygmyMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = pygmyMenu.sks; path = /Users/tomo/Desktop/game/youAndPygmy/youAndPygmy/menu/pygmyMenu/pygmyMenu.sks; sourceTree = "<absolute>"; };
 		E5456E4B203FF9FD00122781 /* MenuParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuParent.swift; sourceTree = "<group>"; };
-		E54DEC8D206748EC00B1B711 /* SettedSkillArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettedSkillArranger.swift; path = you/SettedSkillArranger.swift; sourceTree = "<group>"; };
+		E548769E206A604900F39EB9 /* Bag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
+		E54876A0206A605400F39EB9 /* YouBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouBag.swift; sourceTree = "<group>"; };
+		E54DEC8D206748EC00B1B711 /* SettedSkillArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettedSkillArranger.swift; sourceTree = "<group>"; };
 		E54DEC902067C1EC00B1B711 /* ItemMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemMenu.swift; sourceTree = "<group>"; };
 		E54DEC922067C29A00B1B711 /* itemMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = itemMenu.sks; sourceTree = "<group>"; };
 		E54EDC922053C55F00F0D83B /* BattleUiScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleUiScene.swift; sourceTree = "<group>"; };
@@ -211,8 +215,8 @@
 		E5B57A7020568DBC00C0F0D5 /* ActiveSkillUi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveSkillUi.swift; sourceTree = "<group>"; };
 		E5C74E4E20369A220071326D /* mapUi.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = mapUi.sks; path = map/mapUi.sks; sourceTree = "<group>"; };
 		E5C80ED22045488B00F89541 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E5C8F8592041866B00CD908A /* You.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = You.swift; path = you/You.swift; sourceTree = "<group>"; };
-		E5C8F85B2041869700CD908A /* Pygmy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pygmy.swift; path = you/Pygmy.swift; sourceTree = "<group>"; };
+		E5C8F8592041866B00CD908A /* You.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = You.swift; sourceTree = "<group>"; };
+		E5C8F85B2041869700CD908A /* Pygmy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pygmy.swift; sourceTree = "<group>"; };
 		E5C8F85D20418C9900CD908A /* PygmyDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PygmyDictionary.swift; sourceTree = "<group>"; };
 		E5FE6DF420492F3B001BFABD /* PygmyDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PygmyDetails.swift; path = pygmyMenu/PygmyDetails.swift; sourceTree = "<group>"; };
 		E5FE6DF820493792001BFABD /* passive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = passive.swift; sourceTree = "<group>"; };
@@ -443,6 +447,15 @@
 			name = mainMenu;
 			sourceTree = "<group>";
 		};
+		E548769B206A594A00F39EB9 /* bag */ = {
+			isa = PBXGroup;
+			children = (
+				E548769E206A604900F39EB9 /* Bag.swift */,
+				E54876A0206A605400F39EB9 /* YouBag.swift */,
+			);
+			path = bag;
+			sourceTree = "<group>";
+		};
 		E54DEC8F2067C1D200B1B711 /* itemMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,11 +556,12 @@
 		E5C8F8582041864800CD908A /* you */ = {
 			isa = PBXGroup;
 			children = (
+				E548769B206A594A00F39EB9 /* bag */,
 				E5C8F8592041866B00CD908A /* You.swift */,
 				E5C8F85B2041869700CD908A /* Pygmy.swift */,
 				E54DEC8D206748EC00B1B711 /* SettedSkillArranger.swift */,
 			);
-			name = you;
+			path = you;
 			sourceTree = "<group>";
 		};
 		E5C8F86020418CCF00CD908A /* charaData */ = {
@@ -693,6 +707,7 @@
 				E51A59D3203AA15B000D00E3 /* PanOperator.swift in Sources */,
 				E5580525203D133A00D1CA09 /* MapTroutMaker.swift in Sources */,
 				E505A635203419E200F781AA /* MapDictionary.swift in Sources */,
+				E548769F206A604900F39EB9 /* Bag.swift in Sources */,
 				E51D542B204E6408003B9408 /* BattleTrout.swift in Sources */,
 				E517325A204EB41C0016A827 /* StatusDisplayer.swift in Sources */,
 				E5C8F85C2041869700CD908A /* Pygmy.swift in Sources */,
@@ -734,6 +749,7 @@
 				E525D186203D57BB003C0E6A /* MainMenu.swift in Sources */,
 				E54DEC8E206748EC00B1B711 /* SettedSkillArranger.swift in Sources */,
 				E55257D920501A0400D140BE /* EnemyDictionary.swift in Sources */,
+				E54876A1206A605400F39EB9 /* YouBag.swift in Sources */,
 				E525D18A203D57D7003C0E6A /* Title.swift in Sources */,
 				E518BEF62043F7050072F0C8 /* debugMap.swift in Sources */,
 				E517DE8620468BDE00438614 /* healItems.swift in Sources */,

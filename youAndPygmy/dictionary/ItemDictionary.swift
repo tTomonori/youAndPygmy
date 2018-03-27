@@ -17,11 +17,11 @@ class ItemDictionary:NSObject{
 class ItemData:NSObject{
     let name:String//アイテム名
     let maxNum:Int//同時に持てる最大数
-    let effectKey:String//戦闘中に使用した時の効果
+    let effectKey:String!//戦闘中に使用した時の効果
     init(
         name:String,
         maxNum:Int,
-        effectKey:String
+        effectKey:String?
         ){
         self.name=name
         self.maxNum=maxNum

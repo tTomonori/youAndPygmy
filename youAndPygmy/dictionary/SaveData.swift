@@ -13,6 +13,11 @@ class SaveData{
     private static var mPosition:FeildPosition!
     private static var mAccompanying:[AccompanyingData]!
     private static var mEncountCount:Int=5
+    private static var mToolBag:[(String,Int)]!
+    private static var mAccessoryBag:[(String,Int)]!
+    private static var mImportantBag:[(String,Int)]!
+    private static var mFragMentBag:[(String,Int)]!
+    //セーブデータを読み込む
     static func load(){
         mMapName="debug3"
         mPosition=FeildPosition(x:1,y:1,z:1)
@@ -40,13 +45,32 @@ class SaveData{
                         accessory:"kanzasi"
             )
         ]
+        mToolBag=[("tiisanakinomi",25)]
+        mAccessoryBag=[("kanzasi",3)]
+        mImportantBag=[]
+        mFragMentBag=[]
     }
-    //主人公がいるマップ名
-    static func getMapName()->String{return mMapName}
-    //主人公がいる座標
-    static func getPosition()->FeildPosition{return mPosition}
-    //手持ちぴぐみー
-    static func getAccompanying()->[AccompanyingData]{return mAccompanying}
+    //読み込んだデータでゲーム開始
+    static func setData(){
+        //マップ設定
+        MapFeild.setMap(aMapData:MapDictionary.get(mMapName))
+        //自キャラ配置
+        MapFeild.initHero(aPosition:mPosition)
+        MapFeild.makeCameraFollowHero()
+        MapFeild.display()
+        MapUi.display()
+        //手持ちぴぐみー設定
+        var tPygmies:[Pygmy]=[]
+        for tData in mAccompanying{
+            tPygmies.append(Pygmy(aData:tData))
+        }
+        You.setAccompanying(aAccompanying:tPygmies)
+        //持ち物
+        YouBag.toolBag.set(mToolBag)
+        YouBag.accessoryBag.set(mAccessoryBag)
+        YouBag.importantBag.set(mImportantBag)
+        YouBag.fragmentBag.set(mFragMentBag)
+    }
     //エンカウント判定
     static func countEncount()->Bool{
         if(mEncountCount<=1){
