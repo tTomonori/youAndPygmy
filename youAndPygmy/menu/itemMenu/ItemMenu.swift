@@ -12,12 +12,15 @@ import SpriteKit
 class ItemMenu:Menu{
     static let singleton:ItemMenu=ItemMenu()
     var mItemBars:[SKNode]!
+    var mDetails:SKNode!
     var mShowingCategory:ItemCategory = .tool//表示しているアイテムのカテゴリ
     var mShowingBag:Bag!//表示しているバッグ
     var mLastPage:Int!//表示しているバッグのページ数
     var mShowingPage:Int=0//表示中のページ数
     var mLastPageNumNode:SKLabelNode!
     var mShowingPageNumNode:SKLabelNode!
+    var mBarImageName:String!
+    var mSelectedItem:String?//選択されているアイテム
     private init(){
         super.init(aName:"item")
     }
@@ -30,6 +33,9 @@ class ItemMenu:Menu{
         tBox.childNode(withName:"accessoryBar")!.setElement("tapFunction",{()->()in self.changeCategory(aCategory:.accessory)})
         tBox.childNode(withName:"importantBar")!.setElement("tapFunction",{()->()in self.changeCategory(aCategory:.important)})
         tBox.childNode(withName:"fragmentBar")!.setElement("tapFunction",{()->()in self.changeCategory(aCategory:.fragment)})
+        //詳細欄
+        mDetails=mScene.childNode(withName:"detailsBox")!
+        mDetails.childNode(withName:"itemDetails")!.alpha=0
         //アイテム選択
         mItemBars=[]
         tBox=mScene.childNode(withName:"itemBars")!
@@ -37,6 +43,16 @@ class ItemMenu:Menu{
             let tBar=tBox.childNode(withName:"itemBar"+String(i))!
             mItemBars.append(tBar)
             tBar.setElement("tapFunction",{()->()in
+                let tKey=tBar.getAccessibilityElement("itemKey") as! String
+                if(tKey==self.mSelectedItem){
+                    //アイテム選択
+                    self.selectItem()
+                }
+                else{
+                    //詳細説明表示
+                    self.mSelectedItem=tKey
+                    self.showDetails()
+                }
             })
         }
         //ページ切り替え
@@ -49,7 +65,8 @@ class ItemMenu:Menu{
         })
         mLastPageNumNode=tBox.childNode(withName:"lastPage")! as! SKLabelNode
         mShowingPageNumNode=tBox.childNode(withName:"nowPage")! as! SKLabelNode
-        
+        //アイテムのバーの画像名
+        mBarImageName=BarMaker.getBackgroundName(aNode:mItemBars[0])
     }
     override func renew() {
         let tItemList=mShowingBag.subList(at:10*mShowingPage,num:10)
@@ -69,6 +86,8 @@ class ItemMenu:Menu{
     //表示するアイテムのカテゴリ変更
     func changeCategory(aCategory:ItemCategory){
         mShowingCategory=aCategory
+        changeBarColor(aCategory:aCategory)
+        mSelectedItem=nil
         renewBag()
         renew()
     }
@@ -82,7 +101,51 @@ class ItemMenu:Menu{
         mShowingPage=(mShowingPage+1)%mLastPage
         renew()
     }
+    //アイテムのバーの色変更
+    func changeBarColor(aCategory:ItemCategory){
+        var mColor:String
+        switch aCategory {
+        case .tool://どうぐ
+            mColor="green"
+        case .accessory://アクセサリ
+            mColor="yellow"
+        case .important://大切なもの
+            mColor="purple"
+        case .fragment://カケラ
+            mColor="blue"
+        }
+        for tBar in mItemBars{
+            BarMaker.setBarImage(aNode:tBar.childNode(withName:"background")!,aBarName:mColor+mBarImageName)
+        }
+    }
+    //アイテムの説明表示
+    func showDetails(){
+        switch mShowingCategory {
+        case .tool://どうぐ
+            let tBox=mDetails.childNode(withName:"itemDetails")!
+            tBox.alpha=1
+            let tData=ItemDictionary.get(mSelectedItem!)
+            (tBox.childNode(withName:"name") as! SKLabelNode).text=tData.name
+            (tBox.childNode(withName:"details") as! SKLabelNode).text=tData.text
+        case .accessory://アクセサリ
+            let tBox=mDetails.childNode(withName:"itemDetails")!
+            tBox.alpha=1
+            let tData=AccessoryDictionary.get(mSelectedItem!)
+            (tBox.childNode(withName:"name") as! SKLabelNode).text=tData.name
+            (tBox.childNode(withName:"details") as! SKLabelNode).text=tData.text
+        case .important://大切なもの
+            break
+        case .fragment://カケラ
+            break
+        }
+    }
+    //アイテムを選択
+    func selectItem(){
+        
+    }
     override func firstDisplay() {
+        mSelectedItem=nil
+        mDetails.childNode(withName:"itemDetails")!.alpha=0
         renewBag()
     }
 }

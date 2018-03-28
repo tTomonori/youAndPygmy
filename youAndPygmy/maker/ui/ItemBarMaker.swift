@@ -48,6 +48,8 @@ class ItemBarMaker{
             return
         }
         aNode.alpha=1
+        aNode.setElement("itemCategory",aCategory)
+        aNode.setElement("itemKey",aItem.0!)
         let tNode=aNode.childNode(withName:"label")!
         switch aCategory {
         case .tool://どうぐ

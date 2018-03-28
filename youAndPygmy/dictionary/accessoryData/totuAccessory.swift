@@ -11,6 +11,7 @@ import Foundation
 extension AccessoryDictionary{
     static let kanzasi=AccessoryData(
         name:"簪",
+        text:"普通の簪。",
         image:"",
         status:Status(hp:5,atk:2),
         skill:nil
