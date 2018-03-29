@@ -27,6 +27,8 @@
 		E517325C204EB4580016A827 /* CharaNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517325B204EB4580016A827 /* CharaNode.swift */; };
 		E5173262204EBA7F0016A827 /* PanelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5173261204EBA7F0016A827 /* PanelNode.swift */; };
 		E517DE8620468BDE00438614 /* healItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517DE8520468BDE00438614 /* healItems.swift */; };
+		E51831F8206B81BD004884DA /* MiniChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51831F7206B81BD004884DA /* MiniChoice.swift */; };
+		E51831FA206B81EE004884DA /* miniChoice.sks in Resources */ = {isa = PBXBuildFile; fileRef = E51831F9206B81EE004884DA /* miniChoice.sks */; };
 		E518691B2037EDE500F12256 /* MapBoxTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518691A2037EDE500F12256 /* MapBoxTrout.swift */; };
 		E518B4D1204BE3E2002AE93C /* debugMap3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518B4D0204BE3E1002AE93C /* debugMap3.swift */; };
 		E518BEF02043F2030072F0C8 /* ItemDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518BEEF2043F2030072F0C8 /* ItemDictionary.swift */; };
@@ -40,6 +42,7 @@
 		E51D542B204E6408003B9408 /* BattleTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D5428204E6408003B9408 /* BattleTrout.swift */; };
 		E51D542F204E70C6003B9408 /* Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D542E204E70C6003B9408 /* Battle.swift */; };
 		E51D695720623D9B00A80BF1 /* DragNodeOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D695620623D9B00A80BF1 /* DragNodeOperator.swift */; };
+		E51D9881206CAF560015503E /* ItemConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D9880206CAF560015503E /* ItemConsumer.swift */; };
 		E51F5E3C2033DAB80015F328 /* MapChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F5E3B2033DAB80015F328 /* MapChara.swift */; };
 		E51F5E3E2033DB010015F328 /* PlayerChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51F5E3D2033DB010015F328 /* PlayerChara.swift */; };
 		E52036B1202D2FBB00BB3ED5 /* MapFeild.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52036B0202D2FBB00BB3ED5 /* MapFeild.swift */; };
@@ -90,6 +93,8 @@
 		E5716A7D2060E95E00233154 /* CharaControlUi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5716A7C2060E95E00233154 /* CharaControlUi.swift */; };
 		E5729BB12052DD7D00857586 /* DamageCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5729BB02052DD7D00857586 /* DamageCalculator.swift */; };
 		E57E0B8A2037EEF900984890 /* MapSlopTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57E0B892037EEF900984890 /* MapSlopTrout.swift */; };
+		E583D199206CB1D9003532CD /* itemConsumer.sks in Resources */ = {isa = PBXBuildFile; fileRef = E583D198206CB1D9003532CD /* itemConsumer.sks */; };
+		E583D19B206CC158003532CD /* PygmyInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583D19A206CC158003532CD /* PygmyInformation.swift */; };
 		E58D365A205E8B810044A010 /* choiceDisplayer.sks in Resources */ = {isa = PBXBuildFile; fileRef = E58D3656205E8B810044A010 /* choiceDisplayer.sks */; };
 		E58D365B205E8B810044A010 /* ChoiceDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58D3657205E8B810044A010 /* ChoiceDisplayer.swift */; };
 		E58D365C205E8B810044A010 /* speakWindow.sks in Resources */ = {isa = PBXBuildFile; fileRef = E58D3658205E8B810044A010 /* speakWindow.sks */; };
@@ -134,6 +139,8 @@
 		E517325B204EB4580016A827 /* CharaNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharaNode.swift; sourceTree = "<group>"; };
 		E5173261204EBA7F0016A827 /* PanelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelNode.swift; sourceTree = "<group>"; };
 		E517DE8520468BDE00438614 /* healItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = healItems.swift; sourceTree = "<group>"; };
+		E51831F7206B81BD004884DA /* MiniChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniChoice.swift; sourceTree = "<group>"; };
+		E51831F9206B81EE004884DA /* miniChoice.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = miniChoice.sks; sourceTree = "<group>"; };
 		E518691A2037EDE500F12256 /* MapBoxTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapBoxTrout.swift; path = map/mapTrout/MapBoxTrout.swift; sourceTree = "<group>"; };
 		E518B4D0204BE3E1002AE93C /* debugMap3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = debugMap3.swift; sourceTree = "<group>"; };
 		E518BEEF2043F2030072F0C8 /* ItemDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDictionary.swift; sourceTree = "<group>"; };
@@ -147,6 +154,7 @@
 		E51D5428204E6408003B9408 /* BattleTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleTrout.swift; sourceTree = "<group>"; };
 		E51D542E204E70C6003B9408 /* Battle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Battle.swift; sourceTree = "<group>"; };
 		E51D695620623D9B00A80BF1 /* DragNodeOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragNodeOperator.swift; sourceTree = "<group>"; };
+		E51D9880206CAF560015503E /* ItemConsumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemConsumer.swift; sourceTree = "<group>"; };
 		E51F5E3B2033DAB80015F328 /* MapChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapChara.swift; path = map/mapChara/MapChara.swift; sourceTree = "<group>"; };
 		E51F5E3D2033DB010015F328 /* PlayerChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerChara.swift; path = map/mapChara/PlayerChara.swift; sourceTree = "<group>"; };
 		E52036B0202D2FBB00BB3ED5 /* MapFeild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapFeild.swift; path = map/MapFeild.swift; sourceTree = "<group>"; };
@@ -197,6 +205,8 @@
 		E5716A7C2060E95E00233154 /* CharaControlUi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharaControlUi.swift; sourceTree = "<group>"; };
 		E5729BB02052DD7D00857586 /* DamageCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DamageCalculator.swift; sourceTree = "<group>"; };
 		E57E0B892037EEF900984890 /* MapSlopTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapSlopTrout.swift; path = map/mapTrout/MapSlopTrout.swift; sourceTree = "<group>"; };
+		E583D198206CB1D9003532CD /* itemConsumer.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = itemConsumer.sks; sourceTree = "<group>"; };
+		E583D19A206CC158003532CD /* PygmyInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PygmyInformation.swift; sourceTree = "<group>"; };
 		E58D3656205E8B810044A010 /* choiceDisplayer.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = choiceDisplayer.sks; sourceTree = "<group>"; };
 		E58D3657205E8B810044A010 /* ChoiceDisplayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceDisplayer.swift; sourceTree = "<group>"; };
 		E58D3658205E8B810044A010 /* speakWindow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = speakWindow.sks; sourceTree = "<group>"; };
@@ -279,6 +289,7 @@
 			children = (
 				E517324F204EB4110016A827 /* PygmyImageMaker.swift */,
 				E517325B204EB4580016A827 /* CharaNode.swift */,
+				E583D19A206CC158003532CD /* PygmyInformation.swift */,
 			);
 			path = pygmy;
 			sourceTree = "<group>";
@@ -461,6 +472,8 @@
 			children = (
 				E54DEC902067C1EC00B1B711 /* ItemMenu.swift */,
 				E54DEC922067C29A00B1B711 /* itemMenu.sks */,
+				E51D9880206CAF560015503E /* ItemConsumer.swift */,
+				E583D198206CB1D9003532CD /* itemConsumer.sks */,
 			);
 			path = itemMenu;
 			sourceTree = "<group>";
@@ -484,6 +497,8 @@
 				E58D3657205E8B810044A010 /* ChoiceDisplayer.swift */,
 				E58D3658205E8B810044A010 /* speakWindow.sks */,
 				E58D3659205E8B810044A010 /* SpeakWindow.swift */,
+				E51831F7206B81BD004884DA /* MiniChoice.swift */,
+				E51831F9206B81EE004884DA /* miniChoice.sks */,
 			);
 			path = textWindow;
 			sourceTree = "<group>";
@@ -657,6 +672,7 @@
 				E58D3660205E8BBF0044A010 /* battleDataUi.sks in Resources */,
 				E59E4A7320230370009553C9 /* art.scnassets in Resources */,
 				E5C80ED32045488B00F89541 /* Assets.xcassets in Resources */,
+				E583D199206CB1D9003532CD /* itemConsumer.sks in Resources */,
 				E5164AAE203EF874000A921C /* changeMap.sks in Resources */,
 				E58D365C205E8B810044A010 /* speakWindow.sks in Resources */,
 				E59E4A7D20230370009553C9 /* LaunchScreen.storyboard in Resources */,
@@ -668,6 +684,7 @@
 				E5C74E4F20369A220071326D /* mapUi.sks in Resources */,
 				E525D18C203D58A5003C0E6A /* mainMenu.sks in Resources */,
 				E59E4A7820230370009553C9 /* Main.storyboard in Resources */,
+				E51831FA206B81EE004884DA /* miniChoice.sks in Resources */,
 				E54DEC932067C29A00B1B711 /* itemMenu.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -688,6 +705,7 @@
 				E505A62F2033DB7F00F781AA /* NonPlayerChara.swift in Sources */,
 				E5580523203D12BC00D1CA09 /* MapTrout.swift in Sources */,
 				E55257E120503D2A00D140BE /* CharaController.swift in Sources */,
+				E583D19B206CC158003532CD /* PygmyInformation.swift in Sources */,
 				E59E4A7520230370009553C9 /* GameViewController.swift in Sources */,
 				E551357A20468F9E00E7DB84 /* SkillDictionary.swift in Sources */,
 				E518691B2037EDE500F12256 /* MapBoxTrout.swift in Sources */,
@@ -757,10 +775,12 @@
 				E54EDC932053C55F00F0D83B /* BattleUiScene.swift in Sources */,
 				E52036B1202D2FBB00BB3ED5 /* MapFeild.swift in Sources */,
 				E517324D204EB40C0016A827 /* TroutMaker.swift in Sources */,
+				E51D9881206CAF560015503E /* ItemConsumer.swift in Sources */,
 				E5173250204EB4110016A827 /* PygmyImageMaker.swift in Sources */,
 				E5C8F85A2041866B00CD908A /* You.swift in Sources */,
 				E5FE6DF520492F3B001BFABD /* PygmyDetails.swift in Sources */,
 				E54DEC912067C1EC00B1B711 /* ItemMenu.swift in Sources */,
+				E51831F8206B81BD004884DA /* MiniChoice.swift in Sources */,
 				E551200220565C5C00CAC557 /* CharaManager.swift in Sources */,
 				E514474D20595D6600D84563 /* HitCalculator.swift in Sources */,
 				E5C8F85E20418C9900CD908A /* PygmyDictionary.swift in Sources */,

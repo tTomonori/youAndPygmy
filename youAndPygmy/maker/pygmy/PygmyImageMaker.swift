@@ -14,6 +14,9 @@ class PygmyImageMaker{
     static func setImage(aNode:SKNode,aImageData:CharaImageData){
         //sksファイルでキャラ画像の位置がわかりやすいように色をつけていた場合、色を消す
         (aNode as! SKSpriteNode).color=UIColor(red:0,green:0,blue:0,alpha:0)
+        //画像サイズを決定
+        let tSize=(aNode as! SKSpriteNode).size
+        let tHeightRatio=tSize.height/(tSize.width*3/2)
         
         for tParts in ["body","eye","mouth","accessory"]{
             let tImageName=aImageData.get(parts:tParts,pattern:"normal")
@@ -21,18 +24,28 @@ class PygmyImageMaker{
                 (aNode.childNode(withName:tParts) as? SKSpriteNode)?.texture=nil//画像削除
                 continue
             }
-            //画像を表示
-            if let tNode=aNode.childNode(withName:tParts){
-                //画像を表示するノードがすでに用意してある
-                (tNode as! SKSpriteNode).texture=SKTexture(imageNamed:tImageName!)
+            var tPartsNode=aNode.childNode(withName:tParts) as? SKSpriteNode
+            if(tPartsNode==nil){
+                //画像を表示するノードがない
+                tPartsNode=SKSpriteNode()
+                tPartsNode!.size=(aNode as! SKSpriteNode).size
+                tPartsNode!.texture=SKTexture(imageNamed:tImageName!)
+                tPartsNode!.name=tParts
+                aNode.addChild(tPartsNode!
+                )
             }
-            else{
-                //ノードがない
-                let tNewNode=SKSpriteNode()
-                tNewNode.size=(aNode as! SKSpriteNode).size
-                tNewNode.texture=SKTexture(imageNamed:tImageName!)
-                tNewNode.name=tParts
-                aNode.addChild(tNewNode)
+            //画像を表示
+            if(tHeightRatio==1){//全体表示
+                tPartsNode!.texture=SKTexture(imageNamed:tImageName!)
+            }
+            else{//一部表示
+                let tOriginalImage=UIImage(named:tImageName!)!
+                let tImage=tOriginalImage.cgImage!.cropping(to:
+                    CGRect(x:0,
+                           y:0,
+                           width:400,
+                           height:600*tHeightRatio))
+                tPartsNode!.texture=SKTexture(cgImage:tImage!)
             }
         }
     }

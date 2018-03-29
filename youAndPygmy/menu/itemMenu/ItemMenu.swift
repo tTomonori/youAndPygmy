@@ -103,19 +103,19 @@ class ItemMenu:Menu{
     }
     //アイテムのバーの色変更
     func changeBarColor(aCategory:ItemCategory){
-        var mColor:String
+        var tColor:String
         switch aCategory {
         case .tool://どうぐ
-            mColor="green"
+            tColor="green"
         case .accessory://アクセサリ
-            mColor="yellow"
+            tColor="yellow"
         case .important://大切なもの
-            mColor="purple"
+            tColor="purple"
         case .fragment://カケラ
-            mColor="blue"
+            tColor="blue"
         }
         for tBar in mItemBars{
-            BarMaker.setBarImage(aNode:tBar.childNode(withName:"background")!,aBarName:mColor+mBarImageName)
+            BarMaker.setBarImage(aNode:tBar.childNode(withName:"background")!,aBarName:tColor+mBarImageName)
         }
     }
     //アイテムの説明表示
@@ -141,7 +141,31 @@ class ItemMenu:Menu{
     }
     //アイテムを選択
     func selectItem(){
-        
+        switch mShowingCategory {
+        case .tool:selectTool()
+        case .accessory:selectAccessory()
+        default:
+            break
+        }
+    }
+    func selectTool(){
+        MiniChoice.select(aChoice:["使う","持たせる","やめる"],aFunction:{(aChoice)->()in
+            switch aChoice{
+            case "使う":ItemConsumer.use(aTool:self.mSelectedItem!,aEndFunction:{()->()in})
+            case "持たせる":ItemConsumer.toHave(aTool:self.mSelectedItem!,aEndFunction:{()->()in})
+            default:
+                break
+            }
+        })
+    }
+    func selectAccessory(){
+        MiniChoice.select(aChoice:["装備する","やめる"],aFunction:{(aChoice)->()in
+            switch aChoice{
+            case "装備する":ItemConsumer.equip(aAccessory:self.mSelectedItem!,aEndFunction:{()->()in})
+            default:
+                break
+            }
+        })
     }
     override func firstDisplay() {
         mSelectedItem=nil

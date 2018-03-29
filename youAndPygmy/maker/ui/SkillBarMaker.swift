@@ -61,7 +61,7 @@ class SkillBarMaker{
     static func setSkillBar(aNode:SKNode,aSkill:String,aOptions:Dictionary<String,Any>){
         aNode.setElement("skillKey",aSkill)
         aNode.childNode(withName:"label")!.alpha=1
-        blendBar(aNode:aNode.childNode(withName:"background")!,
+        BarMaker.blendBar(aNode:aNode.childNode(withName:"background")!,
                  aColor:UIColor(red:0,green:0,blue:0,alpha:0),
                  aBlend:0)
         let tSkillData=SkillDictionary.get(aSkill)
@@ -92,25 +92,18 @@ class SkillBarMaker{
     static func setOption(aNode:SKNode,aOptions:Dictionary<String,Any>){
         //バーの暗転
         if let _=aOptions["dark"]{//暗転
-            blendBar(aNode:aNode.childNode(withName:"background")!,
+            BarMaker.blendBar(aNode:aNode.childNode(withName:"background")!,
                      aColor:UIColor(red:0,green:0,blue:0,alpha:1),
                      aBlend:0.3)
         }
         else{//明転
-            blendBar(aNode:aNode.childNode(withName:"background")!,
+            BarMaker.blendBar(aNode:aNode.childNode(withName:"background")!,
                      aColor:UIColor(red:0,green:0,blue:0,alpha:0),
                      aBlend:0)
         }
         //バーの色
         if let tCategory=aOptions["category"]{
             changeBarColor(aNode:aNode,aCategory:tCategory as! SkillCategory)
-        }
-    }
-    //バーの暗転,明転
-    static func blendBar(aNode:SKNode,aColor:UIColor,aBlend:CGFloat){
-        for tNode in aNode.children{
-            (tNode as! SKSpriteNode).color=aColor
-            (tNode as! SKSpriteNode).colorBlendFactor=aBlend
         }
     }
     //バーの色変更

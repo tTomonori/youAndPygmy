@@ -34,4 +34,11 @@ class BarMaker{
         tBarName=tBarName.substring(to:tBarName.index(tBarName.endIndex,offsetBy:-1))
         return tBarName
     }
+    //バーの暗転,明転
+    static func blendBar(aNode:SKNode,aColor:UIColor,aBlend:CGFloat){
+        for tNode in aNode.children{
+            (tNode as! SKSpriteNode).color=aColor
+            (tNode as! SKSpriteNode).colorBlendFactor=aBlend
+        }
+    }
 }
