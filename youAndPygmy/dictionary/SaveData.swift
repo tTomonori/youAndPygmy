@@ -27,14 +27,14 @@ class SaveData{
                         raceName:"myutansu",
                         personal:Status(
                             hp:2,
-                            mp:1,
+                            mp:2,
                             atk:1,
                             def:1,
                             ini:1,
                             spt:1,
                             dex:1,
                             spd:1,
-                            pie:1
+                            pie:2
                         ),
                         level:12,
                         currentHp:35,
@@ -43,9 +43,31 @@ class SaveData{
                         item:"tiisanakinomi",
                         itemNum:3,
                         accessory:"kanzasi"
+            ),
+                    AccompanyingData(
+                        name:"みー",
+                        raceName:"myutansu",
+                        personal:Status(
+                            hp:1,
+                            mp:1,
+                            atk:5,
+                            def:0,
+                            ini:0,
+                            spt:0,
+                            dex:0,
+                            spd:0,
+                            pie:0
+                        ),
+                        level:7,
+                        currentHp:15,
+                        setedSkills:["sougeki","kansen",nil,nil],
+                        masteredSkills:["sougeki","kansen",nil,nil],
+                        item:nil,
+                        itemNum:0,
+                        accessory:nil
             )
         ]
-        mToolBag=[("tiisanakinomi",25)]
+        mToolBag=[("tiisanakinomi",25),("itigotaruto",5)]
         mAccessoryBag=[("kanzasi",3)]
         mImportantBag=[]
         mFragMentBag=[]

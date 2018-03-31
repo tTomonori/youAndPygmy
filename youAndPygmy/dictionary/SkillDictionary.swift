@@ -82,6 +82,12 @@ enum SkillCategory {
         }
     }
 }
+//スキル威力計算方式
+enum PowerCorrectType{
+    case addition//加算
+    case multiplication//乗算
+    case constant//固定
+}
 enum SkillType{
     case zan//斬
     case totu//突

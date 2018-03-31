@@ -149,10 +149,15 @@ class ItemMenu:Menu{
         }
     }
     func selectTool(){
-        MiniChoice.select(aChoice:["使う","持たせる","やめる"],aFunction:{(aChoice)->()in
+        var tChoice:[String]=[]
+        let tToolData=ItemDictionary.get(mSelectedItem!)
+        if(tToolData.useEffect != nil){tChoice.append("使う")}
+        if(tToolData.maxNum>0){tChoice.append("もたせる")}
+        tChoice.append("やめる")
+        MiniChoice.select(aChoice:tChoice,aFunction:{(aChoice)->()in
             switch aChoice{
-            case "使う":ItemConsumer.use(aTool:self.mSelectedItem!,aEndFunction:{()->()in})
-            case "持たせる":ItemConsumer.toHave(aTool:self.mSelectedItem!,aEndFunction:{()->()in})
+            case "使う":ItemConsumer.use(aTool:self.mSelectedItem!,aEndFunction:{()->()in self.renew()})
+            case "持たせる":ItemConsumer.toHave(aTool:self.mSelectedItem!,aEndFunction:{()->()in self.renew()})
             default:
                 break
             }
@@ -161,7 +166,8 @@ class ItemMenu:Menu{
     func selectAccessory(){
         MiniChoice.select(aChoice:["装備する","やめる"],aFunction:{(aChoice)->()in
             switch aChoice{
-            case "装備する":ItemConsumer.equip(aAccessory:self.mSelectedItem!,aEndFunction:{()->()in})
+            case "装備する":ItemConsumer.equip(aAccessory:self.mSelectedItem!,aEndFunction:{()->()in self.renew()
+            })
             default:
                 break
             }

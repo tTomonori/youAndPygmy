@@ -11,12 +11,12 @@ import SpriteKit
 
 class ItemConsumer{
     private static let mScreen:SKNode=createScene()
-    private static var mPygmiesBox:[SKNode]!//ぴぐみーの情報表示するノード
-    private static var mItemBar:SKNode=mScreen.childNode(withName:"itemBar")!//アイテムの個数表示ノード
+    private static let mSelector:SKNode=mScreen.childNode(withName:"selector")!//ぴぐみーの情報表示ノード
+    private static let mItemBar:SKNode=mScreen.childNode(withName:"itemBar")!//アイテムの個数表示ノード
     private static var mItemBarImageName:String=BarMaker.getBackgroundName(aNode:mItemBar)
     private static var mItemCategory:ItemCategory!//選択したアイテムのカテゴリ
     private static var mItem:String!//選択したアイテム
-    private static var mPygmies:[Pygmy]!
+    private static var mHandle:String!//アイテムをどうするか
     private static var mEndFunction:(()->())!
     private static func createScene()->SKNode{
         let tScene=SKScene(fileNamed:"itemConsumer")!
@@ -24,19 +24,15 @@ class ItemConsumer{
         tScreen.setElement("tapEventType","block")
         //戻るボタン
         tScreen.childNode(withName:"backButton")!.setElement("tapFunction",{()->()in self.hide()})
-        mPygmiesBox=[]
-        for i in 0...4{//ぴぐみーの情報ノード
-            let tAccompanying=tScreen.childNode(withName:"accompanying"+String(i))!
-            mPygmiesBox.append(tAccompanying)
-            tAccompanying.setElement("tapFunction",{()->()in
-                self.selecte(i)
-            })
-        }
+        //ぴぐみー表示ノード
+        (tScreen.childNode(withName:"selector") as! SKSpriteNode).color=UIColor(red:0,green:0,blue:0,alpha:0)
+        
         tScreen.removeFromParent()
         return tScreen
     }
     //使う
     static func use(aTool:String,aEndFunction:@escaping ()->()){
+        mHandle="use"
         mItem=aTool
         mItemCategory = .tool
         mEndFunction=aEndFunction
@@ -45,6 +41,7 @@ class ItemConsumer{
     }
     //持たせる
     static func toHave(aTool:String,aEndFunction:@escaping ()->()){
+        mHandle="toHave"
         mItem=aTool
         mItemCategory = .tool
         mEndFunction=aEndFunction
@@ -53,6 +50,7 @@ class ItemConsumer{
     }
     //装備する
     static func equip(aAccessory:String,aEndFunction:@escaping ()->()){
+        mHandle="equip"
         mItem=aAccessory
         mItemCategory = .accessory
         mEndFunction=aEndFunction
@@ -60,12 +58,20 @@ class ItemConsumer{
         renew()
     }
     //ぴぐみー選択
-    static func selecte(_ num:Int){
-        print(num)
+    static func selected(aPygmy:Pygmy){
+        switch mHandle {
+        case "use":ItemUseHandler.use(aItem:mItem,aPygmy:aPygmy)//使う
+        case "toHave":ItemHaveHandler.toHave(aItem:mItem,aPygmy:aPygmy)//持たせる
+        case "equip":ItemEquipHandler.equip(aAccessory:mItem,aPygmy:aPygmy)//装備する
+        default:
+            print("アイテムをどうしようっていうの→",mHandle)
+        }
+        renew()
     }
     //表示
     static func show(){
-        mPygmies=You.getAccompanying()
+        //ぴぐみーセレクタ
+        PygmySelector.show(aNode:mSelector,aFunction:self.selected)
         //アイテムの個数表示ノードの色変更
         var tColor:String
         switch mItemCategory! {
@@ -83,23 +89,17 @@ class ItemConsumer{
     }
     //非表示
     static func hide(){
+        PygmySelector.hide()
         mScreen.removeFromParent()
-        mPygmies=nil
         mItem=nil
         mItemCategory=nil
+        mHandle=nil
+        mEndFunction()
     }
     //更新
     static func renew(){
         //ぴぐみーの情報
-        let tPygmyNum=mPygmies.count
-        for i in 0..<mPygmiesBox.count{
-            if(i<tPygmyNum){
-                PygmyInformation.set(aNode:mPygmiesBox[i],aPygmy:mPygmies[i])
-            }
-            else{
-                PygmyInformation.blackOut(aNode:mPygmiesBox[i])
-            }
-        }
+        PygmySelector.renew()
         //アイテムの個数
         let tItemNum=YouBag.getBag(mItemCategory).get(aItem:mItem)
         ItemBarMaker.setItemBar(aNode:mItemBar,aItem:(mItem,tItemNum.1),aCategory:mItemCategory)

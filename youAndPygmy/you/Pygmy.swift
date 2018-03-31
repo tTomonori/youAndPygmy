@@ -55,6 +55,8 @@ class Pygmy{
     }
     //装備スキル取得
     func getSettedSkills()->[String?]{return mSettedSkills}
+    ////////////////////////////////////////////////////////////////
+    //戦闘
     //戦闘で使えるスキル取得
     func getBattleSkills()->[String]{
         var tSkills:[String]=[]
@@ -87,6 +89,8 @@ class Pygmy{
     func getCorrectedMobility()->Mobility{
         return mRaceData.mobility
     }
+    ///////////////////////////////////////////////////////
+    //スキル
     //スキルセット
     func setSkill(aSetPosition:Int,aSetSkillNum:Int){
         if(mMasteredSkills[aSetSkillNum]==nil){return}
@@ -108,5 +112,12 @@ class Pygmy{
         if(mMasteredSkills[i]==nil || mMasteredSkills[j]==nil){return}
         let tSkill=mMasteredSkills.remove(at:i)
         mMasteredSkills.insert(tSkill,at:j)
+    }
+    ///////////////////////////////////////////////////////
+    //アイテム
+    //回復
+    func heal(aHeal:Int){
+        mCurrentHp+=aHeal
+        if(mCurrentHp>mStatus.hp){mCurrentHp=mStatus.hp}
     }
 }

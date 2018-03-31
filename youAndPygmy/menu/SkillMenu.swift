@@ -128,6 +128,10 @@ class SkillMenu:Menu{
                 SkillBarMaker.setEmptyBar(aNode:mAccessorySkillBar,aOptions:["category":SkillCategory.passive])
             }
         }
+        else{
+            //アクセサリを装備していない
+            SkillBarMaker.setEmptyBar(aNode:mAccessorySkillBar,aOptions:["category":SkillCategory.passive])
+        }
     }
     //スキルの説明表示
     func setDetails(aSkill:String){
