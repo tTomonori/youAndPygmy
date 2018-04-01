@@ -20,17 +20,42 @@ class AccessoryData:NSObject{
     let image:String//画像名
     let status:Status//ステータス補正値
     let skill:String?//付与スキル
-    init(name:String,text:String,image:String,status:Status,skill:String?){
+    let type:AccessoryType//アクセサリタイプ
+    init(
+        name:String,
+        text:String,
+        image:String,
+        status:Status,
+        skill:String?,
+        type:AccessoryType
+        ){
         self.name=name
         self.text=text
         self.image=image
         self.status=status
         self.skill=skill
+        self.type=type
     }
 }
 
-enum AccessoryType{
-    case zan
-    case totu
-    case da
+struct AccessoryType{
+    let attribute:[AccessoryAttribute]
+    init(_ aAttribute:[AccessoryAttribute]){
+        self.attribute=aAttribute
+    }
+    func include(_ aType:AccessoryType)->Bool{
+        for tAttribute in aType.attribute{
+            if(!self.attribute.contains(tAttribute)){
+                return false
+            }
+        }
+        return true
+    }
+}
+enum AccessoryAttribute{
+    case zan//斬
+    case totu//突
+    case da//打
+    case ja//邪
+    case kasi//菓子
 }

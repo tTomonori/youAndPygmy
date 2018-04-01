@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/you/Pygmy.swift"
-            timestampString = "544165881.8319449"
+            timestampString = "544262810.150939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "setSkill(aSetPosition:aSetSkillNum:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/you/Pygmy.swift"
-            timestampString = "544165881.8319449"
+            timestampString = "544262810.150939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "removeSettedSkill(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -212,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "youAndPygmy/you/Pygmy.swift"
-            timestampString = "544165881.8319449"
+            timestampString = "544262810.150939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "rearrangeSettedSkill(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -378,6 +378,22 @@
             startingLineNumber = "64"
             endingLineNumber = "64"
             landmarkName = "subList(at:num:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "youAndPygmy/menu/pygmyMenu/PygmyDetails.swift"
+            timestampString = "544262096.4074351"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "createScene()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

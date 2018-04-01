@@ -14,6 +14,7 @@ extension AccessoryDictionary{
         text:"普通の簪。",
         image:"",
         status:Status(hp:5,atk:2),
-        skill:nil
+        skill:nil,
+        type:AccessoryType([.totu])
     )
 }

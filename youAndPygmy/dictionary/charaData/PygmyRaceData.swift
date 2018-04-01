@@ -9,7 +9,7 @@
 import Foundation
 
 class PygmyRaceData:RaceData{
-    let equipType:[AccessoryType]//装備タイプ
+    let equipType:AccessoryType//装備タイプ
     init(
         raceKey:String,
         raceName:String,
@@ -19,7 +19,7 @@ class PygmyRaceData:RaceData{
         skills:[(Int,String)],
         natureSkill:String?,
         ai:AiType,
-        equipType:[AccessoryType]
+        equipType:AccessoryType
         ){
         self.equipType=equipType
         super.init(

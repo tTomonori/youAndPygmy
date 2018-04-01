@@ -99,7 +99,7 @@ class SkillMenu:Menu{
                 if((aNode.getAccessibilityElement("skillPosition") as! String) != "mastered"){return}
                 let tPygmy=You.getAccompanying()[self.mOptions["accompanyingNum"] as! Int]
                 tPygmy.rearrangeMasteredSkill(aNode.getAccessibilityElement("skillNum") as! Int,i)
-                self.renew()//実機?で実行しないとバグる
+                self.renew()
             })
         }
         DragNodeOperator.setDragScene(aScene:mScene)

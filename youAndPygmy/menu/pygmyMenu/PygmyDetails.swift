@@ -23,6 +23,29 @@ class PygmyDetails:Menu{
         mScene.childNode(withName:"statusBox")!.setElement("tapFunction",{()->()in
             self.changeStatusDisplayMode()
         })
+        //名前
+        mScene.childNode(withName:"infoBox")!.childNode(withName:"name")!.setElement("tapFunction",{()->()in
+            let tAlert=UIAlertController(title:"名前を決めてあげてね",message:"最大6文字",preferredStyle:.alert)
+            let tOkAction=UIAlertAction(title:"これに決定!",style:.default,handler:{(_)->()in
+                if let tName=tAlert.textFields![0].text{
+                    let tPygmies=You.getAccompanying()
+                    let tPygmy=tPygmies[self.mOptions["accompanyingNum"] as! Int]
+                    tPygmy.changeName(aNewName:tName)
+                    self.renew()
+                }
+            })
+            let tCancelAction=UIAlertAction(title:"やめる",style:.cancel,handler:{(_)->()in})
+            //textfiledの追加
+            tAlert.addTextField(configurationHandler: {(text:UITextField!)->()in
+                let tPygmies=You.getAccompanying()
+                let tPygmy=tPygmies[self.mOptions["accompanyingNum"] as! Int]
+                text.text=tPygmy.getName()
+            })
+            // addActionした順に左から右にボタンが配置
+            tAlert.addAction(tOkAction)
+            tAlert.addAction(tCancelAction)
+            gGameViewController.showAlert(aAlertController:tAlert)
+        })
     }
     override func renew() {
         let tPygmies=You.getAccompanying()

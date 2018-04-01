@@ -12,6 +12,22 @@ import SpriteKit
 class ItemEquipHandler{
     static func equip(aAccessory:String,aPygmy:Pygmy){
         let tAccessoryData=AccessoryDictionary.get(aAccessory)
-        print(aPygmy.getName()+"に"+tAccessoryData.name+"を装備する")
+        if(!YouBag.accessoryBag.remove(aItem:aAccessory,aNum:1)){
+            TextAlert.alert(aText:"アクセサリが足りないよ")
+            return
+        }
+        let tTakeOff=aPygmy.equipAccessory(aAccessory:aAccessory)
+        if(tTakeOff.0){
+            //装備できた
+            TextAlert.alert(aText:aPygmy.getName()+"は"+tAccessoryData.name+"を装備したよ")
+            if let tAccessory=tTakeOff.1{
+                YouBag.accessoryBag.add(aItem:tAccessory,aNum:1)
+            }
+        }
+        else{
+            //装備できなかった
+            TextAlert.alert(aText:"装備できないよ")
+            YouBag.accessoryBag.add(aItem:aAccessory,aNum:1)
+        }
     }
 }

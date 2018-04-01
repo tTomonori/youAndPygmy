@@ -44,6 +44,6 @@ extension PygmyDictionary{
         ],
         natureSkill:nil,
         ai: .tonikakunaguru,
-        equipType:[.totu]
+        equipType:AccessoryType([.totu,.ja,.kasi])
     )
 }

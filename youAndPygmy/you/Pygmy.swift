@@ -55,6 +55,17 @@ class Pygmy{
     }
     //装備スキル取得
     func getSettedSkills()->[String?]{return mSettedSkills}
+    //名前変更
+    func changeName(aNewName:String){
+        var tNewName=""
+        var tLength=0
+        for tChar in aNewName.characters{
+            tNewName+=String(tChar)
+            if(tLength==5){break}//最大6文字
+            tLength+=1
+        }
+        mName=tNewName
+    }
     ////////////////////////////////////////////////////////////////
     //戦闘
     //戦闘で使えるスキル取得
@@ -119,5 +130,38 @@ class Pygmy{
     func heal(aHeal:Int){
         mCurrentHp+=aHeal
         if(mCurrentHp>mStatus.hp){mCurrentHp=mStatus.hp}
+    }
+    //アイテムを持たせる
+    func haveItem(aItem:String,aNum:Int)->(String?,Int){
+        let tItem=(mItem,mItemNum)
+        mItem=aItem
+        mItemNum=aNum
+        return tItem
+    }
+    //アイテムを預かる
+    func returnItem()->(String?,Int){
+        let tItem=(mItem,mItemNum)
+        mItem=nil
+        mItemNum=0
+        return tItem
+    }
+    //アクセサリ装備
+    func equipAccessory(aAccessory:String)->(Bool,String?){//(装備できたか,外したアクセサリ)
+        //装備可能か
+        let tNewAccessoryType=AccessoryDictionary.get(aAccessory).type
+        if(!mRaceData.equipType.include(tNewAccessoryType)){
+            //装備できない
+            return (false,aAccessory)
+        }
+        //装備できる
+        let tAccessory=mAccessory
+        mAccessory=aAccessory
+        return (true,tAccessory)
+    }
+    //アクセサリを外す
+    func takeOffAccessory()->String?{
+        let tAccessory=mAccessory
+        mAccessory=nil
+        return tAccessory
     }
 }

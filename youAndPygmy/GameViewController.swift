@@ -114,6 +114,10 @@ class GameViewController: UIViewController {
     func addOverlayNode(aNode:SKNode){
         (self.view as! SCNView).overlaySKScene!.addChild(aNode)
     }
+    //uialert表示
+    func showAlert(aAlertController:UIAlertController){
+        present(aAlertController, animated: true, completion: nil)
+    }
     //ユーザの操作を許可する
     func allowUserOperate(){
         mUserOperationRight=true

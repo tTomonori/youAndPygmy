@@ -16,7 +16,7 @@ class BarMaker{
             let tName=(tNode as! SKSpriteNode).texture!.description.components(separatedBy:"'")[1]
             
             let tImageNum=tName.substring(from: tName.index(before: tName.endIndex))
-            (tNode as! SKSpriteNode).texture=SKTexture(imageNamed:aBarName+tImageNum)
+            (tNode as! SKSpriteNode).texture=SKTexture(imageNamed:aBarName+tImageNum)//たまにバグる
         }
     }
     static func getBackgroundName(aNode:SKNode)->String{

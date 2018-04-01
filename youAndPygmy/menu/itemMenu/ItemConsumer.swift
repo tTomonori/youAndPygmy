@@ -61,7 +61,7 @@ class ItemConsumer{
     static func selected(aPygmy:Pygmy){
         switch mHandle {
         case "use":ItemUseHandler.use(aItem:mItem,aPygmy:aPygmy)//使う
-        case "toHave":ItemHaveHandler.toHave(aItem:mItem,aPygmy:aPygmy)//持たせる
+        case "toHave":ItemHaveHandler.toHave(aItem:mItem,aNum:1,aPygmy:aPygmy)//持たせる
         case "equip":ItemEquipHandler.equip(aAccessory:mItem,aPygmy:aPygmy)//装備する
         default:
             print("アイテムをどうしようっていうの→",mHandle)
