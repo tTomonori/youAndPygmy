@@ -15,6 +15,8 @@ class MiniChoice{
     private static let mChoice=getChoiceList()
     private static var mSelectedFunction:((String)->())!
     private static var mChoiceText:[String]!
+    private static let mTextWindow=mScreen.childNode(withName:"textWindow")!
+    private static let mText=mTextWindow.childNode(withName:"text") as! SKLabelNode
     //選択肢表示
     static func select(aChoice:[String],aFunction:@escaping (String)->()){
         mChoiceText=aChoice
@@ -32,15 +34,23 @@ class MiniChoice{
         }
         gGameViewController.addOverlayNode(aNode:mScreen)
     }
+    //テキストとともに選択肢表示
+    static func selectWithText(aChoice:[String],aText:String,aFunction:@escaping (String)->()){
+        mText.text=aText
+        mTextWindow.alpha=1
+        select(aChoice:aChoice,aFunction:aFunction)
+    }
     //選択された
     static func selected(_ num:Int){
         mScreen.removeFromParent()
+        mTextWindow.alpha=0
         mSelectedFunction(mChoiceText[num])
     }
     //表示するノード生成
     private static func createScreen()->SKNode{
         let tScene=SKScene(fileNamed:"miniChoice")!
         let tScreen=tScene.childNode(withName:"screen")!
+        tScreen.childNode(withName:"textWindow")!.alpha=0
         tScreen.removeFromParent()
         tScreen.setElement("tapEventType","block")
         return tScreen

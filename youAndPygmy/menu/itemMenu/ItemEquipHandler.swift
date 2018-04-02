@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class ItemEquipHandler{
+    //装備する
     static func equip(aAccessory:String,aPygmy:Pygmy){
         let tAccessoryData=AccessoryDictionary.get(aAccessory)
         if(!YouBag.accessoryBag.remove(aItem:aAccessory,aNum:1)){
@@ -29,5 +30,11 @@ class ItemEquipHandler{
             TextAlert.alert(aText:"装備できないよ")
             YouBag.accessoryBag.add(aItem:aAccessory,aNum:1)
         }
+    }
+    //アクセサリを外す
+    static func receiveAccessory(aPygmy:Pygmy){
+        let tAccessory=aPygmy.takeOffAccessory()
+        if(tAccessory==nil){return}
+        YouBag.accessoryBag.add(aItem:tAccessory!,aNum:1)
     }
 }

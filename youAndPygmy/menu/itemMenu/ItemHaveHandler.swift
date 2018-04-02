@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class ItemHaveHandler{
+    //アイテムを持たせる
     static func toHave(aItem:String,aNum:Int,aPygmy:Pygmy){
         let tItem=aPygmy.getItem()
         if(aItem==tItem.0){
@@ -43,6 +44,29 @@ class ItemHaveHandler{
                 TextAlert.alert(aText:"数が足りないよ")
                 return
             }
+        }
+    }
+    //アイテムを預かる
+    static func receiveItems(aPygmy:Pygmy){
+        let tItem=aPygmy.returnItem()
+        if(tItem.0==nil){return}
+        YouBag.toolBag.add(aItem:tItem.0!,aNum:tItem.1)
+    }
+    //すでに持っているアイテムを持てるだけ渡す
+    static func toHaveMax(aPygmy:Pygmy){
+        let tItem=aPygmy.getItem()
+        if(tItem.0==nil){return}
+        let tBagItem=YouBag.toolBag.get(aItem:tItem.0!)
+        let tMaxNum=ItemDictionary.get(tItem.0!).maxNum
+        if(tMaxNum<=tItem.1+tBagItem.1){
+            //最大数持たせられる
+            let _=aPygmy.haveItem(aItem:tItem.0!,aNum:tMaxNum)
+            let _=YouBag.toolBag.remove(aItem:tItem.0!,aNum:tMaxNum-tItem.1)
+        }
+        else{
+            //最大までは持たせられない
+            let _=aPygmy.haveItem(aItem:tItem.0!,aNum:tItem.1+tBagItem.1)
+            let _=YouBag.toolBag.remove(aItem:tItem.0!,aNum:tBagItem.1)
         }
     }
 }

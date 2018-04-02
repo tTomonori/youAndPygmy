@@ -13,6 +13,7 @@ class ItemConsumer{
     private static let mScreen:SKNode=createScene()
     private static let mSelector:SKNode=mScreen.childNode(withName:"selector")!//ぴぐみーの情報表示ノード
     private static let mItemBar:SKNode=mScreen.childNode(withName:"itemBar")!//アイテムの個数表示ノード
+    private static let mCounterBox:SKNode=mScreen.childNode(withName:"counterBox")!//アイテムを持たせる個数選択ノード
     private static var mItemBarImageName:String=BarMaker.getBackgroundName(aNode:mItemBar)
     private static var mItemCategory:ItemCategory!//選択したアイテムのカテゴリ
     private static var mItem:String!//選択したアイテム
@@ -26,6 +27,8 @@ class ItemConsumer{
         tScreen.childNode(withName:"backButton")!.setElement("tapFunction",{()->()in self.hide()})
         //ぴぐみー表示ノード
         (tScreen.childNode(withName:"selector") as! SKSpriteNode).color=UIColor(red:0,green:0,blue:0,alpha:0)
+        //カウンタ
+        tScreen.childNode(withName:"counterBox")!.alpha=0
         
         tScreen.removeFromParent()
         return tScreen
@@ -45,6 +48,13 @@ class ItemConsumer{
         mItem=aTool
         mItemCategory = .tool
         mEndFunction=aEndFunction
+        //カウンタ設定
+        let tToolData=ItemDictionary.get(aTool)
+        let tHave=YouBag.toolBag.get(aItem:aTool)
+        let tInitialNum=(tToolData.maxNum<tHave.1) ?tToolData.maxNum:tHave.1
+        CounterNode.show(aNode:mCounterBox.childNode(withName:"counterSpace")!,
+                         aMin:1,aMax:tToolData.maxNum, aInitialNumber:tInitialNum)
+        
         show()
         renew()
     }
@@ -61,7 +71,7 @@ class ItemConsumer{
     static func selected(aPygmy:Pygmy){
         switch mHandle {
         case "use":ItemUseHandler.use(aItem:mItem,aPygmy:aPygmy)//使う
-        case "toHave":ItemHaveHandler.toHave(aItem:mItem,aNum:1,aPygmy:aPygmy)//持たせる
+        case "toHave":ItemHaveHandler.toHave(aItem:mItem,aNum:CounterNode.getNumber(),aPygmy:aPygmy)//持たせる
         case "equip":ItemEquipHandler.equip(aAccessory:mItem,aPygmy:aPygmy)//装備する
         default:
             print("アイテムをどうしようっていうの→",mHandle)
@@ -84,6 +94,8 @@ class ItemConsumer{
         case .fragment://カケラ
             tColor="blue"
         }
+        //カウンタ
+        if(mHandle=="toHave"){mCounterBox.alpha=1}
         BarMaker.setBarImage(aNode:mItemBar.childNode(withName:"background")!,aBarName:tColor+mItemBarImageName)
         gGameViewController.addOverlayNode(aNode:mScreen)
     }
@@ -91,6 +103,10 @@ class ItemConsumer{
     static func hide(){
         PygmySelector.hide()
         mScreen.removeFromParent()
+        if(mHandle=="toHave"){
+            CounterNode.hide()
+            mCounterBox.alpha=0
+        }
         mItem=nil
         mItemCategory=nil
         mHandle=nil

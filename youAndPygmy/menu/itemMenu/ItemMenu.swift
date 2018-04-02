@@ -157,7 +157,7 @@ class ItemMenu:Menu{
         MiniChoice.select(aChoice:tChoice,aFunction:{(aChoice)->()in
             switch aChoice{
             case "使う":ItemConsumer.use(aTool:self.mSelectedItem!,aEndFunction:{()->()in self.renew()})
-            case "持たせる":ItemConsumer.toHave(aTool:self.mSelectedItem!,aEndFunction:{()->()in self.renew()})
+            case "もたせる":ItemConsumer.toHave(aTool:self.mSelectedItem!,aEndFunction:{()->()in self.renew()})
             default:
                 break
             }

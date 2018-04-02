@@ -37,6 +37,8 @@
 		E518BEFA2043FA390072F0C8 /* myutansu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E518BEF92043FA390072F0C8 /* myutansu.swift */; };
 		E51A0BBC2040FB4F00F97159 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51A0BBB2040FB4F00F97159 /* Menu.swift */; };
 		E51A59D3203AA15B000D00E3 /* PanOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51A59D2203AA15B000D00E3 /* PanOperator.swift */; };
+		E51B8AD7207203870080F9C0 /* CounterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B8AD6207203870080F9C0 /* CounterNode.swift */; };
+		E51B8AD9207203A40080F9C0 /* counterNode.sks in Resources */ = {isa = PBXBuildFile; fileRef = E51B8AD8207203A40080F9C0 /* counterNode.sks */; };
 		E51BDEA820468DDA00D358F0 /* totuAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51BDEA720468DDA00D358F0 /* totuAccessory.swift */; };
 		E51D542A204E6408003B9408 /* BattleChara.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D5427204E6408003B9408 /* BattleChara.swift */; };
 		E51D542B204E6408003B9408 /* BattleTrout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51D5428204E6408003B9408 /* BattleTrout.swift */; };
@@ -156,6 +158,8 @@
 		E518BEF92043FA390072F0C8 /* myutansu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myutansu.swift; sourceTree = "<group>"; };
 		E51A0BBB2040FB4F00F97159 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		E51A59D2203AA15B000D00E3 /* PanOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PanOperator.swift; path = ui/PanOperator.swift; sourceTree = "<group>"; };
+		E51B8AD6207203870080F9C0 /* CounterNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterNode.swift; sourceTree = "<group>"; };
+		E51B8AD8207203A40080F9C0 /* counterNode.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = counterNode.sks; sourceTree = "<group>"; };
 		E51BDEA720468DDA00D358F0 /* totuAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = totuAccessory.swift; sourceTree = "<group>"; };
 		E51D5427204E6408003B9408 /* BattleChara.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleChara.swift; sourceTree = "<group>"; };
 		E51D5428204E6408003B9408 /* BattleTrout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleTrout.swift; sourceTree = "<group>"; };
@@ -440,6 +444,8 @@
 				E51A0BBB2040FB4F00F97159 /* Menu.swift */,
 				E553E3FD206E197000C7E164 /* PygmySelector.swift */,
 				E553E3FF206E198000C7E164 /* pygmySelector.sks */,
+				E51B8AD6207203870080F9C0 /* CounterNode.swift */,
+				E51B8AD8207203A40080F9C0 /* counterNode.sks */,
 			);
 			path = menu;
 			sourceTree = "<group>";
@@ -690,6 +696,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E52FA9AB204530A90032F3EB /* pygmyDetails.sks in Resources */,
+				E51B8AD9207203A40080F9C0 /* counterNode.sks in Resources */,
 				E58D3660205E8BBF0044A010 /* battleDataUi.sks in Resources */,
 				E59E4A7320230370009553C9 /* art.scnassets in Resources */,
 				E5C80ED32045488B00F89541 /* Assets.xcassets in Resources */,
@@ -766,6 +773,7 @@
 				E553E3FE206E197000C7E164 /* PygmySelector.swift in Sources */,
 				E525D18E203D6202003C0E6A /* MapEvent.swift in Sources */,
 				E518BEF02043F2030072F0C8 /* ItemDictionary.swift in Sources */,
+				E51B8AD7207203870080F9C0 /* CounterNode.swift in Sources */,
 				E5B57A7120568DBC00C0F0D5 /* ActiveSkillUi.swift in Sources */,
 				E5173256204EB41C0016A827 /* BarMaker.swift in Sources */,
 				E58D365D205E8B810044A010 /* SpeakWindow.swift in Sources */,

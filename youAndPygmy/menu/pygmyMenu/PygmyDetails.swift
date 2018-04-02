@@ -23,8 +23,9 @@ class PygmyDetails:Menu{
         mScene.childNode(withName:"statusBox")!.setElement("tapFunction",{()->()in
             self.changeStatusDisplayMode()
         })
+        let tInfoBox=mScene.childNode(withName:"infoBox")!
         //名前
-        mScene.childNode(withName:"infoBox")!.childNode(withName:"name")!.setElement("tapFunction",{()->()in
+        tInfoBox.childNode(withName:"name")!.setElement("tapFunction",{()->()in
             let tAlert=UIAlertController(title:"名前を決めてあげてね",message:"最大6文字",preferredStyle:.alert)
             let tOkAction=UIAlertAction(title:"これに決定!",style:.default,handler:{(_)->()in
                 if let tName=tAlert.textFields![0].text{
@@ -45,6 +46,47 @@ class PygmyDetails:Menu{
             tAlert.addAction(tOkAction)
             tAlert.addAction(tCancelAction)
             gGameViewController.showAlert(aAlertController:tAlert)
+        })
+        //持ち物
+        tInfoBox.childNode(withName:"itemBox")!.setElement("tapFunction",{()->()in
+            let tPygmies=You.getAccompanying()
+            let tPygmy=tPygmies[self.mOptions["accompanyingNum"] as! Int]
+            let tItem=tPygmy.getItem()
+            if(tItem.0==nil){return}//なにも持っていない
+            let tItemData=ItemDictionary.get(tItem.0!)
+            MiniChoice.selectWithText(
+                aChoice:["最大数渡す","預かる","もどる"],
+                aText:tPygmy.getName()+"は"+tItemData.name+"を"+String(tItem.1)+"個持っているよ",
+                aFunction:{(aAnser)->()in
+                    switch aAnser{
+                    case "最大数渡す":
+                        ItemHaveHandler.toHaveMax(aPygmy:tPygmy)
+                        self.renew()
+                    case "預かる":
+                        ItemHaveHandler.receiveItems(aPygmy:tPygmy)
+                        self.renew()
+                    default:break
+                    }
+            })
+        })
+        //アクセサリ
+        tInfoBox.childNode(withName:"accessoryBox")!.setElement("tapFunction",{()->()in
+            let tPygmies=You.getAccompanying()
+            let tPygmy=tPygmies[self.mOptions["accompanyingNum"] as! Int]
+            let tAccessory=tPygmy.getAccessory()
+            if(tAccessory==nil){return}//何も装備していない
+            let tAccessoryData=AccessoryDictionary.get(tAccessory!)
+            MiniChoice.selectWithText(aChoice:["預かる","もどる"],
+                                      aText:tPygmy.getName()+"は"+tAccessoryData.name+"を装備しているよ",
+                                      aFunction:{(aAnser)->()in
+                                        //選択肢選択後
+                                        switch aAnser{
+                                        case "預かる":
+                                            ItemEquipHandler.receiveAccessory(aPygmy:tPygmy)
+                                            self.renew()
+                                        default:break
+                                        }
+            })
         })
     }
     override func renew() {
