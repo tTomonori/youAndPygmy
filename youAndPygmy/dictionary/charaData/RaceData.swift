@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SceneKit
 
 //キャラ情報
 class RaceData :NSObject{
@@ -41,48 +42,64 @@ class RaceData :NSObject{
 
 //キャラの画像データ
 class CharaImageData{
-    private let mBody:Dictionary<String,String>?
-    private let mEye:Dictionary<String,String>?
-    private let mMouth:Dictionary<String,String>?
-    private let mAccessory:String?
-    init(body:Dictionary<String,String>?,eye:Dictionary<String,String>?,mouth:Dictionary<String,String>?){
-        mBody=body
-        mEye=eye
-        mMouth=mouth
-        mAccessory=nil
-    }
-    init(body:Dictionary<String,String>?,eye:Dictionary<String,String>?,mouth:Dictionary<String,String>?,accessory:String){
-        mBody=body
-        mEye=eye
-        mMouth=mouth
-        mAccessory=accessory
+    private let mBody:Dictionary<String,UIImage>?
+    private let mEye:Dictionary<String,UIImage>?
+    private let mMouth:Dictionary<String,UIImage>?
+    private let mAccessory:UIImage?
+    init(body:Dictionary<String,String>!=nil,eye:Dictionary<String,String>!=nil,mouth:Dictionary<String,String>!=nil,accessory:String?=nil){
+        //体
+        if(body != nil){
+        var tBody:Dictionary<String,UIImage>=[:]
+        for (tPattern,tImageName) in body{
+            tBody[tPattern]=UIImage(named:tImageName)!
+        }
+        mBody=tBody
+        }
+        else{mBody=nil}
+        //目
+        if(eye != nil){
+        var tEye:Dictionary<String,UIImage>=[:]
+        for (tPattern,tImageName) in eye{
+            tEye[tPattern]=UIImage(named:tImageName)!
+        }
+        mEye=tEye
+        }
+        else{mEye=nil}
+        //口
+        if(mouth != nil){
+        var tMouth:Dictionary<String,UIImage>=[:]
+        for (tPattern,tImageName) in mouth{
+            tMouth[tPattern]=UIImage(named:tImageName)!
+        }
+        mMouth=tMouth
+        }
+        else{mMouth=nil}
+        //アクセサリ
+        mAccessory=(accessory==nil) ?nil:AccessoryDictionary.get(accessory!).image
     }
     init(base:CharaImageData,accessory:String?){
         mBody=base.mBody
         mEye=base.mEye
         mMouth=base.mMouth
-        
-        if(accessory==nil){mAccessory=nil}
-        else if(accessory! == ""){mAccessory=nil}
-        else{mAccessory=accessory}
+        mAccessory=(accessory==nil) ?nil:AccessoryDictionary.get(accessory!).image
     }
     //画像名取得
-    func get(parts:String,pattern:String)->String?{
+    func get(parts:String,pattern:String)->UIImage?{
         switch parts {
-        case "body":return (mBody==nil) ?nil:mBody![pattern]
-        case "eye":return (mEye==nil) ?nil:mEye![pattern]
-        case "mouth":return (mMouth==nil) ?nil:mMouth![pattern]
+        case "body":return mBody?[pattern]
+        case "eye":return mEye?[pattern]
+        case "mouth":return mMouth?[pattern]
         case "accessory":return mAccessory
         default:print("不正な部位名",parts)
         }
         return nil
     }
-    //アクセサリの画像名取得
-    func getAccessory()->String?{
+    //アクセサリの画像取得
+    func getAccessory()->UIImage?{
         return mAccessory
     }
     //部位ごとにまとめて取得
-    func getDictionary(parts:String)->Dictionary<String,String>?{
+    func getPartsImages(parts:String)->Dictionary<String,UIImage>?{
         switch parts {
         case "body":return mBody
         case "eye":return mEye

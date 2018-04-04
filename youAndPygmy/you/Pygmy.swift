@@ -49,7 +49,7 @@ class Pygmy{
     func getAccessory()->String?{return mAccessory}
     func getImage()->CharaImageData{
         if(mAccessory != nil){//アクセサリあり
-            return CharaImageData.init(base:mRaceData.image,accessory:AccessoryDictionary.get(mAccessory!).image)
+            return CharaImageData.init(base:mRaceData.image,accessory:mAccessory!)
         }
         return CharaImageData.init(base:mRaceData.image,accessory:nil)
     }

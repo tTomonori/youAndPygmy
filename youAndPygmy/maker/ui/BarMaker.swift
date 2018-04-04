@@ -10,13 +10,37 @@ import Foundation
 import SpriteKit
 
 class BarMaker{
+    private static var mTextures:Dictionary<String,SKTexture>=[:]//一度読み込んだ画像を保持
     static func setBarImage(aNode:SKNode,aBarName:String){
-        for tNode in aNode.children{
-            //テクスチャに使用している画像名
-            let tName=(tNode as! SKSpriteNode).texture!.description.components(separatedBy:"'")[1]
-            
-            let tImageNum=tName.substring(from: tName.index(before: tName.endIndex))
-            (tNode as! SKSpriteNode).texture=SKTexture(imageNamed:aBarName+tImageNum)//たまにバグる
+        var tMakedNode=aNode.childNode(withName:"maked")
+        //変更用のノード作成
+        if(tMakedNode==nil){
+            tMakedNode=SKSpriteNode()
+            tMakedNode!.name="maked"
+            for tNode in aNode.children{
+                let tNewNode=SKSpriteNode()
+                tNewNode.position=tNode.position
+                tNewNode.size=(tNode as! SKSpriteNode).size
+                //バーの画像番号
+                let tName=(tNode as! SKSpriteNode).texture!.description.components(separatedBy:"'")[1]
+                let tImageNum=tName.substring(from: tName.index(before: tName.endIndex))
+                tNewNode.setElement("barNum",tImageNum)
+                tNode.alpha=0
+                tMakedNode!.addChild(tNewNode)
+            }
+            aNode.addChild(tMakedNode!)
+        }
+        //画像変更
+        for tNode in tMakedNode!.children{
+            let tImageNum=tNode.getAccessibilityElement("barNum") as! String
+            if let tTexture=mTextures[aBarName+tImageNum]{
+                (tNode as! SKSpriteNode).texture=tTexture
+            }
+            else{
+                let tTexture=SKTexture(imageNamed:aBarName+tImageNum)
+                mTextures[aBarName+tImageNum]=tTexture
+               (tNode as! SKSpriteNode).texture=tTexture
+            }
         }
     }
     static func getBackgroundName(aNode:SKNode)->String{

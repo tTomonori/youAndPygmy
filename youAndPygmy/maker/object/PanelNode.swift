@@ -60,18 +60,23 @@ class PanelNode:SCNNode{
     }
     ////////////////////////////////////////
     //画像設定(画像変更しない場合)
-    func setImage(aImage:String){
+    func setImage(aImageName:String){
         let tMaterial = SCNMaterial()
-        tMaterial.diffuse.contents=UIImage(named:aImage)
+        tMaterial.diffuse.contents=UIImage(named:aImageName)
+        self.geometry!.materials=[tMaterial]
+    }
+    func setImage(aImage:UIImage){
+        let tMaterial = SCNMaterial()
+        tMaterial.diffuse.contents=aImage
         self.geometry!.materials=[tMaterial]
     }
     ////////////////////////////////////////
     //画像設定(画像変更する場合)
-    func setImage(aImages:Dictionary<String,String>){
+    func setImage(aImages:Dictionary<String,UIImage>){
         mMaterials=[:]
-        for (tKey,tImageName) in aImages{
+        for (tKey,tImage) in aImages{
             let tMaterial=SCNMaterial()
-            tMaterial.diffuse.contents=UIImage(named:tImageName)
+            tMaterial.diffuse.contents=tImage
             mMaterials[tKey]=tMaterial
         }
     }

@@ -35,11 +35,12 @@ class PygmySelector{
         mSelectedFunction(mPygmies[num])
     }
     //表示更新
-    static func renew(){
+    static func renew(first:Bool=false){
         let tPygmyNum=mPygmies.count
         for i in 0..<mPygmiesBox.count{
             if(i<tPygmyNum){
-                PygmyInformation.set(aNode:mPygmiesBox[i],aPygmy:mPygmies[i])
+                if(first){PygmyInformation.set(aNode:mPygmiesBox[i],aPygmy:mPygmies[i])}
+                else{PygmyInformation.renew(aNode:mPygmiesBox[i],aPygmy:mPygmies[i])}
             }
             else{
                 PygmyInformation.blackOut(aNode:mPygmiesBox[i])
@@ -51,6 +52,7 @@ class PygmySelector{
         mSelectedFunction=aFunction
         aNode.addChild(mSelector)
         mPygmies=You.getAccompanying()
+        renew(first:true)
     }
     //非表示
     static func hide(){

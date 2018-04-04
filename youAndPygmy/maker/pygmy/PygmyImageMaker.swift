@@ -19,33 +19,32 @@ class PygmyImageMaker{
         let tHeightRatio=tSize.height/(tSize.width*3/2)
         
         for tParts in ["body","eye","mouth","accessory"]{
-            let tImageName=aImageData.get(parts:tParts,pattern:"normal")
-            if(tImageName==nil){//画像がなかった
-                (aNode.childNode(withName:tParts) as? SKSpriteNode)?.texture=nil//画像削除
-                continue
-            }
+            //画像を表示するノードを取得
             var tPartsNode=aNode.childNode(withName:tParts) as? SKSpriteNode
             if(tPartsNode==nil){
                 //画像を表示するノードがない
                 tPartsNode=SKSpriteNode()
                 tPartsNode!.size=(aNode as! SKSpriteNode).size
-                tPartsNode!.texture=SKTexture(imageNamed:tImageName!)
                 tPartsNode!.name=tParts
-                aNode.addChild(tPartsNode!
-                )
+                aNode.addChild(tPartsNode!)
+            }
+            //表示する画像を取得
+            let tImage=aImageData.get(parts:tParts,pattern:"normal")
+            if(tImage==nil){//画像がなかった
+                (aNode.childNode(withName:tParts) as? SKSpriteNode)?.texture=nil//画像削除
+                continue
             }
             //画像を表示
             if(tHeightRatio==1){//全体表示
-                tPartsNode!.texture=SKTexture(imageNamed:tImageName!)
+                tPartsNode!.texture=SKTexture(image:tImage!)
             }
             else{//一部表示
-                let tOriginalImage=UIImage(named:tImageName!)!
-                let tImage=tOriginalImage.cgImage!.cropping(to:
+                let tPartsImage=tImage!.cgImage!.cropping(to:
                     CGRect(x:0,
                            y:0,
                            width:400,
-                           height:600*tHeightRatio))
-                tPartsNode!.texture=SKTexture(cgImage:tImage!)
+                           height:600*tHeightRatio))!
+                tPartsNode!.texture=SKTexture(cgImage:tPartsImage)
             }
         }
     }

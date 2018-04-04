@@ -12,14 +12,20 @@ import SpriteKit
 class PygmyInformation{
     //情報表示
     static func set(aNode:SKNode,aPygmy:Pygmy){
-        aNode.childNode(withName:"info")!.alpha=1
-        BarMaker.blendBar(aNode:aNode.childNode(withName:"background")!,aColor:UIColor(red:0,green:0,blue:0,alpha:0),
-                          aBlend:0)
         let tNode=aNode.childNode(withName:"info")!
         //キャライラスト
         if let tImageNode=tNode.childNode(withName:"image"){
             PygmyImageMaker.setImage(aNode:tImageNode,aImageData:aPygmy.getImage())
         }
+        //他の情報表示(更新)
+        renew(aNode:aNode,aPygmy:aPygmy)
+    }
+    //情報更新
+    static func renew(aNode:SKNode,aPygmy:Pygmy){
+        let tNode=aNode.childNode(withName:"info")!
+        tNode.alpha=1
+        BarMaker.blendBar(aNode:aNode.childNode(withName:"background")!,aColor:UIColor(red:0,green:0,blue:0,alpha:0),
+                          aBlend:0)
         //名前
         (tNode.childNode(withName:"name") as? SKLabelNode)?.text=aPygmy.getName()
         //レベル

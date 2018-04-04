@@ -19,7 +19,7 @@ class ObjectMaker{
     }
     static func createObject(aWidth:CGFloat,aHeight:CGFloat,aTextureName:String)->SCNNode{
         let tNode=PanelNode(aWidth:aWidth,aHeight:aHeight)
-        tNode.setImage(aImage:aTextureName)
+        tNode.setImage(aImageName:aTextureName)
         return tNode
     }
 }

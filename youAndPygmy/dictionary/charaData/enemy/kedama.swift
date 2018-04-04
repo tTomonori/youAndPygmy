@@ -34,9 +34,7 @@ extension EnemyDictionary{
             air:-1
         ),
         image:CharaImageData.init(
-            body:["normal":"kedama"],
-            eye:nil,
-            mouth:nil
+            body:["normal":"kedama"]
         ),
         skills:[
             (0,"zutuki"),

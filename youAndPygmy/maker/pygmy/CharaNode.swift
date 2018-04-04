@@ -22,11 +22,11 @@ class CharaNode:SCNNode{
         for i in 0..<CharaNode.mParts.count{
             let tParts=CharaNode.mParts[i]
             let tNode=PanelNode(aWidth:gTroutSizeCG,aHeight:gTroutSizeCG*1.5)
-            if let tDictionary=aData.getDictionary(parts:tParts){
-                tNode.setImage(aImages:tDictionary)
-                tNode.changeImage(aKey:"normal")
+            if let tPartsImages=aData.getPartsImages(parts:tParts){
+            tNode.setImage(aImages:tPartsImages)
+            tNode.changeImage(aKey:"normal")
             }
-            else{tNode.toPenetrate()}
+            else{tNode.toPenetrate()}//画像なしの部位ならノードを透過
             tNode.position=SCNVector3(x:0,y:0,z:0.001*i)
             mPartsNode.addChildNode(tNode)
             mParts[tParts]=tNode
@@ -36,7 +36,7 @@ class CharaNode:SCNNode{
         if let tImageName=aData.getAccessory(){
             tNode.setImage(aImage:tImageName)
         }
-        else{tNode.toPenetrate()}
+        else{tNode.toPenetrate()}//アクセサリがないならノードを透過
         tNode.position=SCNVector3(x:0,y:0,z:0.001*CharaNode.mParts.count)
         self.addChildNode(tNode)
         mParts["accessory"]=tNode
