@@ -64,7 +64,7 @@ class Pygmy{
             if(tLength==5){break}//最大6文字
             tLength+=1
         }
-        mName=tNewName
+        mName=(tNewName != "") ?tNewName:mRaceData.raceName
     }
     ////////////////////////////////////////////////////////////////
     //戦闘

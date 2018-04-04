@@ -89,11 +89,15 @@ class PygmyDetails:Menu{
             })
         })
     }
-    override func renew() {
+    override func firstDisplay() {
         let tPygmies=You.getAccompanying()
         let tPygmy=tPygmies[mOptions["accompanyingNum"] as! Int]
         //画像
         PygmyImageMaker.setImage(aNode:mScene.childNode(withName:"image")!,aImageData:tPygmy.getImage())
+    }
+    override func renew() {
+        let tPygmies=You.getAccompanying()
+        let tPygmy=tPygmies[mOptions["accompanyingNum"] as! Int]
         //キャラ基本情報
         let tInfo=mScene.childNode(withName:"infoBox")!
         //名前
