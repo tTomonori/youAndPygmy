@@ -17,6 +17,19 @@ extension SkillDictionary{
         mp:0,
         counter:true,
         power:0,
+        powerCorrectType:.addition,
+        range:SkillRange(type:.adjacent),
+        accuracy:100
+    )
+    static let tataku=SkillData(
+        name: "たたく",
+        details:"相手を叩いて攻撃する",
+        category: .physics,
+        type: .da,
+        mp:0,
+        counter:true,
+        power:0,
+        powerCorrectType:.addition,
         range:SkillRange(type:.adjacent),
         accuracy:100
     )

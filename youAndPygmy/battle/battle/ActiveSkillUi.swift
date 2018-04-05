@@ -42,14 +42,6 @@ class ActiveSkillUi{
             //スキルのバーセット
             let tSkillBar=mSkillBox.childNode(withName:"skill"+String(tBarNum))!
             SkillBarMaker.setSkillBar(aNode:tSkillBar,aSkill:tSkill,aOptions:tOptions)
-            let tLabel=tSkillBar.childNode(withName:"label")!
-            //威力
-            (tLabel.childNode(withName:"power") as! SKLabelNode).text
-                = (tSkillData.category == .physics || tSkillData.category == .magic)
-                ?String(tSkillData.power)
-                :"-"
-            //やる気
-            (tLabel.childNode(withName:"mp") as! SKLabelNode).text=String(tSkillData.mp)
             
             mSkills.append((tSkill,tCanUse))
             tBarNum+=1

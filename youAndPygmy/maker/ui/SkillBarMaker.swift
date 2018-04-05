@@ -76,7 +76,18 @@ class SkillBarMaker{
         //種別
         (tDataNode.childNode(withName:"category") as? SKLabelNode)?.text=tSkillData.category.name()
         //威力
-        (tDataNode.childNode(withName:"power") as? SKLabelNode)?.text=String(tSkillData.power)
+        if let tPowerLabel=(tDataNode.childNode(withName:"power") as? SKLabelNode){
+            switch tSkillData.powerCorrectType! {
+            case .addition://加算
+                tPowerLabel.text=(tSkillData.power<0)
+                ?String(tSkillData.power)
+                :"+"+String(tSkillData.power)
+            case .multiplication://乗算
+                tPowerLabel.text=String(tSkillData.power)+"%"
+            case .constant://固定
+                tPowerLabel.text=String(tSkillData.power)
+            }
+        }
         //mp
         (tDataNode.childNode(withName:"mp") as? SKLabelNode)?.text=String(tSkillData.mp)
         

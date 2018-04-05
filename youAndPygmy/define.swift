@@ -20,6 +20,10 @@ func decimal(aNum:Float)->Float{
 func * (left:Double,right:Int)->Double{
     return left * Double(right)
 }
+//Int / Double
+func / (left:Int,right:Double)->Double{
+    return Double(left) / right
+}
 //float + int
 func + (left: Float, right: Int) -> Float{
     return left + Float(right)

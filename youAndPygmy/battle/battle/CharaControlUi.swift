@@ -79,7 +79,11 @@ class CharaControlUi{
     static func showTargetUi(aRange:[BattleTrout],aSkill:String,aChara:BattleChara){
         hide()
         mMarkedTrouts=aRange
-        changeTroutsColor(aColor:UIColor(red:1,green:0,blue:0,alpha:0.4))//マスの色を変える
+        let tSkillData=SkillDictionary.get(aSkill)
+        let tMasColor:UIColor=(tSkillData.category == .heal)
+            ?UIColor(red:0,green:1,blue:0,alpha:0.4)
+            :UIColor(red:1,green:0,blue:0,alpha:0.4)
+        changeTroutsColor(aColor:tMasColor)//マスの色を変える
         //攻撃目標決定ボタン
         mButtonFunction0={()->()in
             CharaController.attack()

@@ -22,6 +22,7 @@ class SkillData:NSObject{
     let mp:Int//消費やる気
     let counter:Bool//反撃スキルかどうか
     let power:Int!//威力
+    let powerCorrectType:PowerCorrectType!//威力計算方式
     let range:SkillRange!//攻撃範囲
     let accuracy:Int!//命中率
     init(
@@ -32,6 +33,7 @@ class SkillData:NSObject{
         mp:Int,
         counter:Bool,
         power:Int,
+        powerCorrectType:PowerCorrectType,
         range:SkillRange,
         accuracy:Int
         ){
@@ -42,6 +44,7 @@ class SkillData:NSObject{
         self.mp=mp
         self.counter=counter
         self.power=power
+        self.powerCorrectType=powerCorrectType
         self.range=range
         self.accuracy=accuracy
     }
@@ -59,6 +62,7 @@ class SkillData:NSObject{
         self.mp=0
         self.counter=false
         self.power=nil
+        self.powerCorrectType=nil
         self.range=nil
         self.accuracy=nil
     }
@@ -95,6 +99,7 @@ enum SkillType{
     case hi//火
     case water//水
     case nature//自然
+    case ice//氷
     case sei//聖
     case ja//邪
 }

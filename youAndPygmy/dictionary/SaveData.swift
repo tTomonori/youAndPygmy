@@ -65,6 +65,28 @@ class SaveData{
                         item:nil,
                         itemNum:0,
                         accessory:nil
+            ),
+                    AccompanyingData(
+                        name:"うさち",
+                        raceName:"yukiusagi",
+                        personal:Status(
+                            hp:1,
+                            mp:1,
+                            atk:0,
+                            def:0,
+                            ini:2,
+                            spt:1,
+                            dex:0,
+                            spd:0,
+                            pie:2
+                        ),
+                        level:10,
+                        currentHp:25,
+                        setedSkills:["konayuki","ziai",nil,nil],
+                        masteredSkills:["tataku","ziai","konayuki",nil],
+                        item:nil,
+                        itemNum:0,
+                        accessory:nil
             )
         ]
         mToolBag=[("tiisanakinomi",25),("itigotaruto",5)]

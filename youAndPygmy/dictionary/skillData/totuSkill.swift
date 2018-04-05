@@ -17,6 +17,7 @@ extension SkillDictionary{
         mp:0,
         counter:true,
         power:0,
+        powerCorrectType:.addition,
         range:SkillRange(type:.line,range:2),
         accuracy:100
     )
@@ -28,6 +29,7 @@ extension SkillDictionary{
         mp:5,
         counter:false,
         power:0,
+        powerCorrectType:.addition,
         range:SkillRange(type:.range,range:2),
         accuracy:95
     )

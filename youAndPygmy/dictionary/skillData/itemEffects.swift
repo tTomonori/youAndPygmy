@@ -16,7 +16,8 @@ extension SkillDictionary{
         type: .nature,
         mp: 0,
         counter: false,
-        power: 0,
+        power: 10,
+        powerCorrectType:.constant,
         range: SkillRange(type:.adjacentIncludeMyself),
         accuracy:100
     )
