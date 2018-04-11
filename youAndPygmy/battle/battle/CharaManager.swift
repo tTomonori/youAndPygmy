@@ -21,6 +21,8 @@ class CharaManager{
     private static var mTurnChara:BattleChara!=nil
     //生存しているキャラ取得
     static func getSurvivingCharas()->[BattleChara]{return mSurvivingCharas}
+    //味方取得
+    static func getAllies()->[BattleChara]{return mAllies}
     //戦闘に参加するキャラセット
     static func set(aAllies:[BattleChara],aEnemies:[BattleChara]){
         mAllies=aAllies

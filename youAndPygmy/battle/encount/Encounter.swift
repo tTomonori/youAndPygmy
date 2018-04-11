@@ -28,7 +28,41 @@ class Encounter{
             //シーン変更完了
             Battle.start(aEndFunction:{(aResult)->()in
                 //戦闘終了
-                aEndFunction(aResult)
+                if(aResult != "win"){//勝利以外
+                    aEndFunction(aResult)
+                    return
+                }
+                //勝利
+                //ドロップ,経験値
+                var tDrop:[(String,ItemCategory,Int)]=[]
+                var tExperience:Int=0
+                for tEnemyData in tInitializedBattleData.enemyData{
+                    if(tEnemyData==nil){continue}
+                    //ドロップ
+                    tDrop=tDrop+tEnemyData!.drop
+                    //経験値
+                    if let tGettedExperience=tEnemyData?.experience{
+                        tExperience+=tGettedExperience//実数値設定
+                    }
+                    else{
+                        tExperience+=tEnemyData!.level*5//動的計算
+                    }
+                }
+                //結果をシーンに反映
+                Result.result(aAllies:CharaManager.getAllies(),
+                              aDrop:tDrop,
+                              aExperience:tExperience,
+                              aEndFunction:{()->()in
+                                //結果が閉じられた
+                                aEndFunction(aResult)
+                })
+                //シーンを表示
+                SceneChanger.blackOut(aEndFunction:{
+                    Result.show()
+                    SceneChanger.blackIn(aEndFunction:{
+                        
+                    })
+                })
             })
         })
     }

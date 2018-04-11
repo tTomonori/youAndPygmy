@@ -54,6 +54,7 @@
 		E522C5102076126000E74356 /* yukiusagi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E522C50F2076126000E74356 /* yukiusagi.swift */; };
 		E522C512207613D800E74356 /* iceSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E522C511207613D800E74356 /* iceSkill.swift */; };
 		E522C514207614F000E74356 /* healSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E522C513207614F000E74356 /* healSkill.swift */; };
+		E52591C82078A2F2006F64B2 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52591C72078A2F2006F64B2 /* Result.swift */; };
 		E525D17F203D52E6003C0E6A /* MapUi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525D17E203D52E6003C0E6A /* MapUi.swift */; };
 		E525D181203D54F8003C0E6A /* SceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525D180203D54F8003C0E6A /* SceneController.swift */; };
 		E525D186203D57BB003C0E6A /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E525D185203D57BB003C0E6A /* MainMenu.swift */; };
@@ -121,6 +122,7 @@
 		E59E4A7820230370009553C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59E4A7620230370009553C9 /* Main.storyboard */; };
 		E59E4A7D20230370009553C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59E4A7B20230370009553C9 /* LaunchScreen.storyboard */; };
 		E5B57A7120568DBC00C0F0D5 /* ActiveSkillUi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B57A7020568DBC00C0F0D5 /* ActiveSkillUi.swift */; };
+		E5BD94DC2078A4F500DAA854 /* result.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5BD94DB2078A4F500DAA854 /* result.sks */; };
 		E5C74E4F20369A220071326D /* mapUi.sks in Resources */ = {isa = PBXBuildFile; fileRef = E5C74E4E20369A220071326D /* mapUi.sks */; };
 		E5C80ED32045488B00F89541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5C80ED22045488B00F89541 /* Assets.xcassets */; };
 		E5C8F85A2041866B00CD908A /* You.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C8F8592041866B00CD908A /* You.swift */; };
@@ -178,6 +180,7 @@
 		E522C50F2076126000E74356 /* yukiusagi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yukiusagi.swift; sourceTree = "<group>"; };
 		E522C511207613D800E74356 /* iceSkill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iceSkill.swift; sourceTree = "<group>"; };
 		E522C513207614F000E74356 /* healSkill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = healSkill.swift; sourceTree = "<group>"; };
+		E52591C72078A2F2006F64B2 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		E525D17E203D52E6003C0E6A /* MapUi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapUi.swift; path = map/MapUi.swift; sourceTree = "<group>"; };
 		E525D180203D54F8003C0E6A /* SceneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneController.swift; sourceTree = "<group>"; };
 		E525D185203D57BB003C0E6A /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenu.swift; path = mainMenu/MainMenu.swift; sourceTree = "<group>"; };
@@ -247,6 +250,7 @@
 		E59E4A7C20230370009553C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E59E4A7E20230370009553C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5B57A7020568DBC00C0F0D5 /* ActiveSkillUi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveSkillUi.swift; sourceTree = "<group>"; };
+		E5BD94DB2078A4F500DAA854 /* result.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = result.sks; sourceTree = "<group>"; };
 		E5C74E4E20369A220071326D /* mapUi.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = mapUi.sks; path = map/mapUi.sks; sourceTree = "<group>"; };
 		E5C80ED22045488B00F89541 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5C8F8592041866B00CD908A /* You.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = You.swift; sourceTree = "<group>"; };
@@ -342,6 +346,7 @@
 		E518B4CD204BE330002AE93C /* battle */ = {
 			isa = PBXGroup;
 			children = (
+				E52591C62078A2A7006F64B2 /* result */,
 				E51D5425204E63F1003B9408 /* battle */,
 				E51494B0204CD5DE0000406E /* encount */,
 			);
@@ -438,6 +443,15 @@
 				E55CD8B22050D9E30083D984 /* TroutAttributeDictionary.swift */,
 			);
 			path = dictionary;
+			sourceTree = "<group>";
+		};
+		E52591C62078A2A7006F64B2 /* result */ = {
+			isa = PBXGroup;
+			children = (
+				E52591C72078A2F2006F64B2 /* Result.swift */,
+				E5BD94DB2078A4F500DAA854 /* result.sks */,
+			);
+			path = result;
 			sourceTree = "<group>";
 		};
 		E525D182203D56DB003C0E6A /* menu */ = {
@@ -720,6 +734,7 @@
 				E5928EF1206240A500862460 /* skillMenu.sks in Resources */,
 				E5456E49203FF0A100122781 /* pygmyMenu.sks in Resources */,
 				E51494B9204D06220000406E /* enterBattle.sks in Resources */,
+				E5BD94DC2078A4F500DAA854 /* result.sks in Resources */,
 				E5C74E4F20369A220071326D /* mapUi.sks in Resources */,
 				E525D18C203D58A5003C0E6A /* mainMenu.sks in Resources */,
 				E59E4A7820230370009553C9 /* Main.storyboard in Resources */,
@@ -780,6 +795,7 @@
 				E55257E320503D4200D140BE /* CharaAi.swift in Sources */,
 				E522C514207614F000E74356 /* healSkill.swift in Sources */,
 				E55A43AA20550B560091F2BB /* AttackOperator.swift in Sources */,
+				E52591C82078A2F2006F64B2 /* Result.swift in Sources */,
 				E58D3661205E8BBF0044A010 /* DamagePrediction.swift in Sources */,
 				E553E3FE206E197000C7E164 /* PygmySelector.swift in Sources */,
 				E525D18E203D6202003C0E6A /* MapEvent.swift in Sources */,

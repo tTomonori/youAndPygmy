@@ -75,7 +75,9 @@ extension MapDictionary{
                     skill: ["sougeki","kyuuketu"],
                     item:nil,
                     itemNum: 0,
-                    ai:nil
+                    ai:nil,
+                    experience:nil,
+                    drop:[("tiisanakinomi",.tool,100)]
                 ),
                 1:BattleEnemyData(
                     pygmyFlag: false,
@@ -88,7 +90,9 @@ extension MapDictionary{
                     skill: ["zutuki"],
                     item:nil,
                     itemNum: 0,
-                    ai:nil
+                    ai:nil,
+                    experience:nil,
+                    drop:[("tiisanakinomi",.tool,50)]
                 )
             ]
         )

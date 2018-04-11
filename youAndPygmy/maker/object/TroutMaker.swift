@@ -141,7 +141,7 @@ let gTroutTexcoords:[CGPoint] = [
 ]
 
 // 各頂点における法線ベクトル
-let gTroutNormals = [
+let gTroutNormals:[SCNVector3] = [
     // 手前
     SCNVector3(0, 0, 1),
     SCNVector3(0, 0, 1),

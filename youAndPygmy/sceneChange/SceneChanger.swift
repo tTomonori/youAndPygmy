@@ -53,4 +53,40 @@ class SceneChanger{
             ])
         )
     }
+    private static let mOutScreen:SKSpriteNode=createBlackScreen()
+    private static let mInScreen:SKSpriteNode=createBlackScreen()
+    private static func createBlackScreen()->SKSpriteNode{
+        let tNode=SKSpriteNode()
+        tNode.size=gSceneSize
+        tNode.color=UIColor(red:0,green:0,blue:0,alpha:1)
+        tNode.setElement("tapEventType","block")
+        tNode.name="blackOutScreen"
+        return tNode
+    }
+    //ブラックアウト
+    static func blackOut(aEndFunction:@escaping ()->()){
+        if(mOutScreen.parent != nil){mOutScreen.removeFromParent()}
+        mOutScreen.alpha=0
+        gGameViewController.addOverlayNode(aNode:mOutScreen)
+        mOutScreen.run(SKAction.sequence([
+            SKAction.fadeIn(withDuration:1),
+            SKAction.wait(forDuration:0.1),
+            SKAction.run({
+                aEndFunction()
+            })
+            ]))
+    }
+    //ブラックイン
+    static func blackIn(aEndFunction:@escaping ()->()){
+        if(mInScreen.parent != nil){mInScreen.removeFromParent()}
+        mInScreen.alpha=1
+        gGameViewController.addOverlayNode(aNode:mInScreen)
+        mInScreen.run(SKAction.sequence([
+            SKAction.wait(forDuration:0.1),
+            SKAction.fadeOut(withDuration:1),
+            SKAction.run({
+                aEndFunction()
+            })
+            ]))
+    }
 }

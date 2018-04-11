@@ -81,6 +81,8 @@ struct BattleEnemyData{
     let item:String?//アイテム
     let itemNum:Int//持ち物の数
     let ai:AiType?//行動パターン
+    let experience:Int?//取得経験値
+    let drop:[(String,ItemCategory,Int)]//ドロップアイテムとドロップ率
 }
 //初期化済みの戦闘データ
 struct initializedBattleData{

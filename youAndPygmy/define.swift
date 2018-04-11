@@ -78,6 +78,8 @@ struct BattlePosition{
 func + (left:BattlePosition,right:(Int,Int))->BattlePosition{
     return BattlePosition(x:left.x+right.0,y:left.y+right.1)
 }
+//sksceneのサイズ
+let gSceneSize=CGSize(width:800,height:450)
 
 extension NSObject{
     func getAccessibilityElement(_ key:String)->Any?{

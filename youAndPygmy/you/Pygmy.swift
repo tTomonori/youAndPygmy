@@ -100,6 +100,13 @@ class Pygmy{
     func getCorrectedMobility()->Mobility{
         return mRaceData.mobility
     }
+    //現在hp設定
+    func setCurrentHp(aHp:Int){
+        var tHp=aHp
+        if(tHp<0){tHp=0}
+        else if(tHp>mStatus.hp){tHp=mStatus.hp}
+        mCurrentHp=tHp
+    }
     ///////////////////////////////////////////////////////
     //スキル
     //スキルセット
